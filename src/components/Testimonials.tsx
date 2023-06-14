@@ -14,8 +14,8 @@ const Testimonial = ({ children, name, company, href }: TestimonialProps) : JSX.
         <Box 
             overflow="hidden" 
             p={4} 
-            mb={4} 
-            width={{base: "100%", md: "30%"}}
+            mb={4}
+            width={{base: "100%", md: "100%"}}
         >
             <Text 
                 fontSize="lg" 
@@ -32,7 +32,7 @@ const Testimonial = ({ children, name, company, href }: TestimonialProps) : JSX.
 export default function Testimonials() {
     return (
         <Box display="flex" justifyContent="center" alignItems="center">
-            <Box m={8} mt={32} mb={32} width={{base: "100%", md: "80%"}}>
+            <Box m={8} mt={32} mb={32} width="100%">
                 <Text fontSize="5xl" fontWeight="bold" mb={12} textAlign="center">What our users are saying</Text>
                 <Box display="flex" flexWrap="wrap" justifyContent="space-between">
                     <Testimonial name="Jeremy Evans" company="savvy" href="https://trysavvy.com/">
