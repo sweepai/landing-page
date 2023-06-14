@@ -120,8 +120,8 @@ const Example = ({
     return (
         <Box 
             overflow="hidden" 
-            p={4} 
-            width={{base: "100%", md: "30%"}}
+            p={4}
+            width="100%"
             mb={8}
         >
             <Text 
@@ -160,7 +160,7 @@ export default function Examples() {
     return (
         <>
             <Box display="flex" justifyContent="center" alignItems="center">
-                <Box m={8} mt={32} width={{base: "100%", md: "80%"}}>
+                <Box m={8} mt={32} width="100%">
                     <Text fontSize="5xl" fontWeight="bold" mb={12} textAlign="center">Example tickets handled by Sweep</Text>
                     <Box display="flex" flexWrap="wrap" justifyContent="space-between">
                         <Example
