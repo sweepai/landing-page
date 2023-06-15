@@ -1,5 +1,6 @@
-import { EmailIcon, useMediaQuery, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton } from "@chakra-ui/icons";
-import {
+import { EmailIcon } from "@chakra-ui/icons";
+import { 
+  useMediaQuery, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton,
   Box,
   Button,
   ButtonGroup,
@@ -23,7 +24,65 @@ export default function NavBar() {
         </Button>
       </HStack>
       <ButtonGroup variant="link">
-        {/* ...same IconButton components as before... */}
+        {/* <Flex justify="space-between" flex="1"> */}
+          {/* <HStack>
+            <Button variant="ghost">
+              <Image src={logo} alt="logo" width={10} borderRadius={12} />
+              Sweep AI
+            </Button>
+          </HStack> */}
+          <ButtonGroup variant="link">
+            <IconButton
+              variant="ghost"
+              icon={<FaTwitter />}
+              aria-label="Twitter"
+              onClick={() => {
+                document.location.href = "https://twitter.com/sweep__ai";
+              }}
+            />
+            <IconButton
+              variant="ghost"
+              icon={<FaGithub />}
+              aria-label="Github"
+              onClick={() => {
+                document.location.href = "https://github.com/sweepai";
+              }}
+            />
+            <IconButton
+              variant="ghost"
+              icon={<FaDiscord />}
+              aria-label="Discord"
+              onClick={() => {
+                document.location.href = "https://discord.gg/j8XxQmpHEF";
+              }}
+            />
+            <IconButton
+              variant="ghost"
+              icon={<FaBook />}
+              aria-label="Docs"
+              onClick={() => {
+                document.location.href = "https://docs.sweep.dev/start";
+              }}
+            />
+            <IconButton
+              variant="ghost"
+              icon={<EmailIcon />}
+              aria-label="Email"
+              onClick={() => {
+                document.location.href = "mailto:team@sweep.dev";
+              }}
+            />
+            <IconButton
+              variant="ghost"
+              icon={<p>Buy Sweep Pro</p>}
+              aria-label="Stripe"
+              onClick={() => {
+                document.location.href =
+                  "https://buy.stripe.com/7sI1793ap5Xi3MQ001";
+              }}
+            />
+          </ButtonGroup>
+        {/* </Flex> */}
       </ButtonGroup>
     </Flex>
   );
@@ -32,7 +91,7 @@ export default function NavBar() {
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
         {isLessThanBreakpoint ? (
-          <Drawer>
+          <Drawer isOpen={true} onClose={() => {}}>
             <DrawerOverlay>
               <DrawerContent>
                 <DrawerCloseButton />
@@ -50,4 +109,3 @@ export default function NavBar() {
     </Box>
   );
 }
-```
