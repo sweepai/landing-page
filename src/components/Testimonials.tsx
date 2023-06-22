@@ -10,22 +10,23 @@ type TestimonialProps = {
 }
 
 const Testimonial = ({ children, name, company, href }: TestimonialProps) : JSX.Element => {
-    return (
-        <Box 
-            overflow="hidden" 
-            p={4} 
-            mb={4} 
-            width={{base: "100%", md: "30%"}}
-        >
-            <Text 
-                fontSize="lg" 
-                mb={8}
-            >
-                {children}
-            </Text>
-            <Text fontWeight="bold" mb={2}>{name}</Text>
-            <ExternalLinkWithText href={href}>{company}</ExternalLinkWithText>
-        </Box>
+	<Box backgroundColor="white" border="1px solid #E2E8F0" borderRadius="md" p={4}>
+	<Box
+	    overflow="hidden"
+	    p={4}
+	    mb={4}
+	    width={{base: "100%", md: "30%"}}
+	>
+	<Text
+	    fontSize="lg"
+	    mb={8}
+	>
+	    {children}
+	</Text>
+	<Text fontWeight="bold" mb={2}>{name}</Text>
+	<ExternalLinkWithText href={href}>{company}</ExternalLinkWithText>
+	</Box>
+	</Box>
     );
 }
 

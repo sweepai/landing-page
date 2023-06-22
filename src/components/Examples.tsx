@@ -117,42 +117,43 @@ const Example = ({
     const repo_url = `https://github.com/${repo_name}`;
     const issue_url = `https://github.com/${repo_name}/issues/${issue_number}`;
     const pull_request_url = `https://github.com/${repo_name}/pull/${issue_number}`;
-    return (
-        <Box 
-            overflow="hidden" 
-            p={4} 
-            width={{base: "100%", md: "30%"}}
-            mb={8}
-        >
-            <Text 
-                fontSize="lg" 
-                textAlign="left"
-            >
-                    <ExternalLinkWithText href={repo_url} includeIcon={false}>
-                        {repo_name}
-                    </ExternalLinkWithText>
-                    <Text fontSize="2xl">
-                        <ExternalLinkWithText href={issue_url}>
-                            {issue_title} <span style={{color: "#aaa"}}>#{issue_number}</span>
-                        </ExternalLinkWithText>
-                    </Text>
-                    <Comment
-                        src={avatar_href}
-                        username={username}
-                    >
-                        {issue_description}
-                    </Comment>
-                    <Comment
-                        src={logo}
-                        username="sweep-ai"
-                    >
-                        {children}
-                    </Comment>
-                    <PullRequestLink href={pull_request_url} username="sweep-ai">
-                        {pull_request_title}
-                    </PullRequestLink>
-            </Text>
-        </Box>
+		<Box backgroundColor="white" border="1px solid #E2E8F0" borderRadius="md" p={4}>
+		<Box
+		    overflow="hidden"
+		    p={4}
+		    width={{base: "100%", md: "30%"}}
+		    mb={8}
+		>
+		<Text
+		    fontSize="lg"
+		    textAlign="left"
+		>
+		    <ExternalLinkWithText href={repo_url} includeIcon={false}>
+		        {repo_name}
+		    </ExternalLinkWithText>
+		    <Text fontSize="2xl">
+		        <ExternalLinkWithText href={issue_url}>
+		            {issue_title} <span style={{color: "#aaa"}}>#{issue_number}</span>
+		        </ExternalLinkWithText>
+		    </Text>
+		    <Comment
+		        src={avatar_href}
+		        username={username}
+		    >
+		        {issue_description}
+		    </Comment>
+		    <Comment
+		        src={logo}
+		        username="sweep-ai"
+		    >
+		        {children}
+		    </Comment>
+		    <PullRequestLink href={pull_request_url} username="sweep-ai">
+		        {pull_request_title}
+		    </PullRequestLink>
+		</Text>
+		</Box>
+		</Box>
     );
 }
 
