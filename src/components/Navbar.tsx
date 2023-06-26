@@ -100,6 +100,7 @@ export default function NavBar() {
                       onClick={() => {
                         document.location.href = item.link;
                       }}
+                      style={{ paddingLeft: '10px', paddingRight: '10px' }}
                     />
                   }
                 </MenuItem>
