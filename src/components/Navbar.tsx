@@ -48,7 +48,7 @@ export default function NavBar() {
     },
     {
       label: "Buy Sweep Pro",
-      icon: <p>Buy Sweep Pro</p>,
+      icon: <p style={{ paddingLeft: "10px", paddingRight: "10px" }}>Buy Sweep Pro</p>,
       link: "https://buy.stripe.com/14k2bd26l85q4QUeUX",
     },
   ];
@@ -70,6 +70,7 @@ export default function NavBar() {
                 icon={item.icon}
                 variant="ghost"
                 aria-label={item.label}
+                style={{ paddingLeft: item.paddingLeft, paddingRight: item.paddingRight }}
                 onClick={() => {
                   document.location.href = item.link;
                 }}
