@@ -2,30 +2,23 @@ import { Box, Button, Code, Flex, HStack, Text, VStack } from "@chakra-ui/react"
 import { FaBook, FaGithub, FaSlack } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // @ts-ignore
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-
 import logo from "../assets/icon.png";
 import pills_examples from "../assets/pills_examples.svg";
 import User from "./User";
-
 const example_code = `import pytest
 from minichain.backend import Id, Mock, Google, Python, Bash, OpenAI, OpenAIEmbed, HuggingFace, HuggingFaceEmbed, Manifest
-
 def test_id():
     backend = Id()
     assert backend.run("test") == "test"
-
 def test_mock():
     backend = Mock(["mocked_response"])
     assert backend.run("test") == "mocked_response"
-
 # Rest of test cases...
-
 def test_manifest():
     client = Manifest(client=None)  # Mock client
     backend = Manifest(client)
     assert backend.run("test") == "test"  # Mock response
 `;
-
 const example_diff_code_prefix = `def deactivate(self, plugin_name: str):
     """
     Deactivates an activate plugin.
@@ -33,12 +26,10 @@ const example_diff_code_prefix = `def deactivate(self, plugin_name: str):
     if plugin_name not in self.active_plugins:
         del self.active_plugins[plugin_name]
 `;
-
 const example_diff_code_diff = `-       self.prompt = self.fill_prompt(self.template)
 -       self.tokens = count_tokens(self.prompt)
 +       self.tokens = count_tokens(self.get_prompt())
 `;
-
 const customStyle = {
     ...oneDark,
     'code[class*="language-"]': {
@@ -46,7 +37,6 @@ const customStyle = {
         background: 'transparent',
     },
 };
-
 const Dialog = ({ children, user, userProps, ...props }: any) => {
     return (
         <HStack alignItems="flex-start" spacing={6} maxW="100% !important">
@@ -57,7 +47,6 @@ const Dialog = ({ children, user, userProps, ...props }: any) => {
         </HStack>
     )
 }
-
 export default function Features() {
     return (
         <>
@@ -65,8 +54,7 @@ export default function Features() {
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
                         <Box>
-                            <img src={logo} alt="Sweep logo" width={50} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Clean up your tech debt, automatically</Text>
+                            <Text mt={4} fontSize="2xl" fontWeight="bold">Your new engaging and descriptive tagline</Text>
                             <Text mt={4} fontSize="md" color="lightgrey">Sweep generates repository-level code at your command. Cut down your dev time on mundane tasks, like tests, documentation, and refactoring.</Text>
                         </Box>
                     </Flex>
