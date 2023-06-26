@@ -88,7 +88,7 @@ export default function NavBar() {
               backgroundColor="#333"
             >
               {navItems.map((item) => (
-                <MenuItem backgroundColor="#333">
+                <MenuItem backgroundColor="#333" px={item.label == "Buy Sweep Pro" ? 10 : 0}>
                   {item.label}
                   {
                     item.label !== "Buy Sweep Pro" &&
@@ -100,7 +100,6 @@ export default function NavBar() {
                       onClick={() => {
                         document.location.href = item.link;
                       }}
-                      style={{ paddingLeft: '10px', paddingRight: '10px' }}
                     />
                   }
                 </MenuItem>
