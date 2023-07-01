@@ -203,6 +203,9 @@ export default function Features() {
                             <Text mt={4} fontSize="2xl" fontWeight="bold">Review for confidence</Text>
                             <Text mt={4} fontSize="md" color="lightgrey">Review all changes by Sweep, directly in Github. Comment if any changes need to be made. Push the commit if all looks good.</Text>
                             <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://github.com/apps/sweep-ai")}>
+                                <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://discord.gg/sweep")}>
+                                    Join our Discord
+                                </Button>
                                 Install on your repository
                             </Button>
                         </Box>
@@ -262,3 +265,4 @@ export default function Features() {
         </>
     );
 }
+
