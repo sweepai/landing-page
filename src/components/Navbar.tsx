@@ -42,6 +42,11 @@ export default function NavBar() {
       link: "https://docs.sweep.dev/start",
     },
     {
+      label: "Docs",
+      icon: <FaBook />,
+      link: "https://docs.sweep.dev/start",
+    },
+    {
       label: "Email",
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
@@ -111,3 +116,4 @@ export default function NavBar() {
     </Box>
   );
 }
+
