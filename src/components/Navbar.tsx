@@ -62,6 +62,9 @@ export default function NavBar() {
               <Image src={logo} alt="logo" width={10} borderRadius={12} />
               Sweep AI
             </Button>
+            <Button variant="ghost" onClick={() => {document.location.href = 'https://docs.sweep.ai'}}>
+              Documentation
+            </Button>
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
@@ -111,3 +114,4 @@ export default function NavBar() {
     </Box>
   );
 }
+
