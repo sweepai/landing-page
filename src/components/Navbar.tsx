@@ -62,6 +62,17 @@ export default function NavBar() {
               <Image src={logo} alt="logo" width={10} borderRadius={12} />
               Sweep AI
             </Button>
+            <Button
+              as="a"
+              variant="ghost"
+              aria-label="Documentation"
+              size="sm"
+              ml={5}
+              href="https://docs.sweep.dev/start"
+              leftIcon={<FaBook />}
+            >
+              Docs
+            </Button>
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
@@ -111,3 +122,4 @@ export default function NavBar() {
     </Box>
   );
 }
+
