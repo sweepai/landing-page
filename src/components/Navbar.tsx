@@ -1,4 +1,5 @@
-import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { EmailIcon, HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { useColorMode } from "@chakra-ui/react";
 import {
   Box,
   Button,
@@ -17,6 +18,7 @@ import { FaBook, FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
 export default function NavBar() {
+  const { toggleColorMode, colorMode } = useColorMode();
 
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
   const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
@@ -75,23 +77,26 @@ export default function NavBar() {
                 }}
               />
             ))}
+            <IconButton
+              icon={colorMode === "light" ? <SunIcon /> : <MoonIcon />}
+              onClick={toggleColorMode}
+            />
           </ButtonGroup>
+        </Flex>
+        <ButtonGroup variant="link" display={menuDisplay}>
           <Menu>
             <MenuButton
               as={IconButton}
-              aria-label='Options'
+              aria-label="Options"
               icon={<HamburgerIcon />}
-              variant='outline'
+              variant="outline"
               display={menuDisplay}
             />
-            <MenuList
-              backgroundColor="#333"
-            >
+            <MenuList backgroundColor="#333">
               {navItems.map((item) => (
                 <MenuItem backgroundColor="#333">
                   {item.label}
-                  {
-                    item.label !== "Buy Sweep Pro" &&
+                  {item.label !== "Buy Sweep Pro" && (
                     <IconButton
                       key={item.label}
                       icon={item.icon}
@@ -101,13 +106,14 @@ export default function NavBar() {
                         document.location.href = item.link;
                       }}
                     />
-                  }
+                  )}
                 </MenuItem>
               ))}
             </MenuList>
           </Menu>
-        </Flex>
+        </ButtonGroup>
       </HStack>
     </Box>
   );
 }
+
