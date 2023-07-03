@@ -13,10 +13,12 @@ import {
   MenuList,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import { useColorMode, SunIcon, MoonIcon } from "@chakra-ui/react";
 import { FaBook, FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
 export default function NavBar() {
+  const { colorMode, toggleColorMode } = useColorMode();
 
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
   const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
@@ -75,23 +77,25 @@ export default function NavBar() {
                 }}
               />
             ))}
+            <IconButton
+              aria-label="Toggle color mode"
+              icon={colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
+              onClick={toggleColorMode}
+            />
           </ButtonGroup>
           <Menu>
             <MenuButton
               as={IconButton}
-              aria-label='Options'
+              aria-label="Options"
               icon={<HamburgerIcon />}
-              variant='outline'
+              variant="outline"
               display={menuDisplay}
             />
-            <MenuList
-              backgroundColor="#333"
-            >
+            <MenuList backgroundColor="#333">
               {navItems.map((item) => (
                 <MenuItem backgroundColor="#333">
                   {item.label}
-                  {
-                    item.label !== "Buy Sweep Pro" &&
+                  {item.label !== "Buy Sweep Pro" && (
                     <IconButton
                       key={item.label}
                       icon={item.icon}
@@ -101,7 +105,7 @@ export default function NavBar() {
                         document.location.href = item.link;
                       }}
                     />
-                  }
+                  )}
                 </MenuItem>
               ))}
             </MenuList>
@@ -111,3 +115,4 @@ export default function NavBar() {
     </Box>
   );
 }
+
