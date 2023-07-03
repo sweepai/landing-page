@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text, useColorMode } from "@chakra-ui/react";
 import { FaArrowRight } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
@@ -9,8 +9,9 @@ type CommentHeaderProps = {
     username: string,
     href: string
 }
-
 const CommentHeader = ({ src, username, href }: CommentHeaderProps) : JSX.Element => {
+    const { colorMode } = useColorMode();
+    const color = colorMode === "dark" ? "white" : "black";
     return (
         <ExternalLinkWithText href={href} includeIcon={false}>
             <Box display="flex" alignItems="center" mt={8} mb={2}>
@@ -25,7 +26,7 @@ const CommentHeader = ({ src, username, href }: CommentHeaderProps) : JSX.Elemen
                     }} 
                     width={30}
                 />
-                <Text size="md">
+                <Text size="md" color={color}>
                     <b>{username}</b>
                 </Text>
             </Box>
@@ -228,3 +229,4 @@ export default function Examples() {
         </>
     );
 }
+
