@@ -55,8 +55,7 @@ export const App = () => {
             bgRepeat="no-repeat"
             overflowX="hidden"
           >
-            {true && <ColorModeSwitcher />}
-            {false && <ColorModeSwitcher />}
+            <ColorModeSwitcher />
             <Navbar />
             <CallToAction />
             <Users />
