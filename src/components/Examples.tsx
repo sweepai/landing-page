@@ -159,68 +159,69 @@ const Example = ({
 export default function Examples() {
     return (
         <>
-            <Box display="flex" justifyContent="center" alignItems="center">
-                <Box m={8} mt={32} width={{base: "100%", md: "80%"}}>
-                    <Text fontSize="5xl" fontWeight="bold" mb={12} textAlign="center">Example tickets handled by Sweep</Text>
-                    <Box display="flex" flexWrap="wrap" justifyContent="space-between">
-                        <Example
-                            repo_name="edreisMD/plugnplai"
-                            issue_title="make .prompt a method and add verbosity and colors"
-                            issue_number={140}
-                            avatar_href="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Blank&hairColor=BrownDark&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=Hoodie&clotheColor=Black&eyeType=Default&eyebrowType=UpDownNatural&mouthType=Smile&skinColor=Pale"
-                            username="edreisMD"
-                            issue_description="use typer to display colors and alter the prompt"
-                            pull_request_title="make .prompt a method and add verbosity and colors"
-                        >
-                            @edreisMD, I have started working on this PR. My plan is to:
-                            <br/>
-                            <ul style={{marginLeft: 20, marginTop: 10}}>
-                                <li>
-                                    Make self.prompt a method called get_prompt() in plugins.py
-                                </li>
-                                <li>
-                                    Add verbosity and color options using typer
-                                </li>
-                            </ul>
-                        </Example>
-                        <Example
-                            repo_name="edreisMD/plugnplai"
-                            issue_title="Only allow activating a maximum of 3 plugins"
-                            issue_number={65}
-                            avatar_href="https://avataaars.io/?avatarStyle=Circle&topType=WinterHat3&accessoriesType=Round&hatColor=Blue03&facialHairType=Blank&clotheType=GraphicShirt&clotheColor=Gray02&graphicType=Diamond&eyeType=Happy&eyebrowType=AngryNatural&mouthType=Smile&skinColor=Tanned"
-                            username="edreisMD"
-                            issue_description="The description prompt becames too big as you add too many plugins. A max of 3 seems to be a good limit, and its the same number as OpenAI allows on ChatGPT."
-                            pull_request_title="Only allow activating a maximum of 3 plugins"
-                        >
-                            @edreisMD, I have started working on this PR. My plan is to:
-                            <br/>
-                            <ul style={{marginLeft: 20, marginTop: 10}}>
-                                <li>
-                                    Add a max_plugins attribute to the Plugins class and set it to 3
-                                </li>
-                                <li>
-                                    Add logic to limit activating plugins to max_plugins
-                                </li>
-                                <li>
-                                    Potentially refactor the activate() method to handle this logic
-                                </li>
-                            </ul>
-                        </Example>
-                        <Example
-                            repo_name="sweepai/minichain"
-                            issue_title="Sweep: write tests"
-                            issue_number={21}
-                            avatar_href="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Prescription02&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
-                            username="kevinlu1248"
-                            issue_description="Just do the backend tests"
-                            pull_request_title="Add backend tests"
-                        >
-                            Hey @kevinlu1248,
-                            <br />
-                            I've started working on writing tests for the MiniChain library. The plan is to add test files for the core Backend, BasePrompt, and Gradio classes to cover normal usage and edge cases. I'll be using the pytest framework to write and run the tests.
-                        </Example>
-                    </Box>
+            <Text fontSize="5xl" fontWeight="bold" mb={12} textAlign="center" color={textColor}>Example tickets handled by Sweep</Text>
+            <Box m={8} mt={32} width={{base: "100%", md: "80%"}}>
+                <Text fontSize="5xl" fontWeight="bold" mb={12} textAlign="center">Example tickets handled by Sweep</Text>
+                <Box display="flex" flexWrap="wrap" justifyContent="space-between">
+                    <Example
+                        repo_name="edreisMD/plugnplai"
+                        issue_title="make .prompt a method and add verbosity and colors"
+                        issue_number={140}
+                        avatar_href="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Blank&hairColor=BrownDark&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=Hoodie&clotheColor=Black&eyeType=Default&eyebrowType=UpDownNatural&mouthType=Smile&skinColor=Pale"
+                        username="edreisMD"
+                        issue_description="use typer to display colors and alter the prompt"
+                        pull_request_title="make .prompt a method and add verbosity and colors"
+                    >
+                        @edreisMD, I have started working on this PR. My plan is to:
+                        <br/>
+                        <ul style={{marginLeft: 20, marginTop: 10}}>
+                            <li>
+                                Make self.prompt a method called get_prompt() in plugins.py
+                            </li>
+                            <li>
+                                Add verbosity and color options using typer
+                            </li>
+                        </ul>
+                    </Example>
+                    <Example
+                        repo_name="edreisMD/plugnplai"
+                        issue_title="Only allow activating a maximum of 3 plugins"
+                        issue_number={65}
+                        avatar_href="https://avataaars.io/?avatarStyle=Circle&topType=WinterHat3&accessoriesType=Round&hatColor=Blue03&facialHairType=Blank&clotheType=GraphicShirt&clotheColor=Gray02&graphicType=Diamond&eyeType=Happy&eyebrowType=AngryNatural&mouthType=Smile&skinColor=Tanned"
+                        username="edreisMD"
+                        issue_description="The description prompt becames too big as you add too many plugins. A max of 3 seems to be a good limit, and its the same number as OpenAI allows on ChatGPT."
+                        pull_request_title="Only allow activating a maximum of 3 plugins"
+                    >
+                        @edreisMD, I have started working on this PR. My plan is to:
+                        <br/>
+                        <ul style={{marginLeft: 20, marginTop: 10}}>
+                            <li>
+                                Add a max_plugins attribute to the Plugins class and set it to 3
+                            </li>
+                            <li>
+                                Add logic to limit activating plugins to max_plugins
+                            </li>
+                            <li>
+                                Potentially refactor the activate() method to handle this logic
+                            </li>
+                        </ul>
+                    </Example>
+                    <Example
+                        repo_name="sweepai/minichain"
+                        issue_title="Sweep: write tests"
+                        issue_number={21}
+                        avatar_href="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Prescription02&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
+                        username="kevinlu1248"
+                        issue_description="Just do the backend tests"
+                        pull_request_title="Add backend tests"
+                    >
+                        Hey @kevinlu1248,
+                        <br />
+                        I've started working on writing tests for the MiniChain library. The plan is to add test files for the core Backend, BasePrompt, and Gradio classes to cover normal usage and edge cases. I'll be using the pytest framework to write and run the tests.
+                    </Example>
                 </Box>
+            </Box>
+            <Box display="flex" justifyContent="center" alignItems="center" bg={boxBgColor}>
             </Box>
             <Text mb={16}>
                 For more examples, see <ExternalLinkWithText href="https://docs.sweep.dev/examples">Example Sweep tickets</ExternalLinkWithText>
@@ -228,3 +229,4 @@ export default function Examples() {
         </>
     );
 }
+
