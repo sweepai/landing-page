@@ -226,7 +226,6 @@ export default function Features() {
                                             padding: 0,
                                             overflowX: "hidden",
                                             backgroundColor: "transparent",
-                                            marginBottom: 0,
                                         }}
                                     >
                                         {example_diff_code_prefix}
@@ -240,7 +239,6 @@ export default function Features() {
                                             padding: 0,
                                             overflowX: "hidden",
                                             backgroundColor: "transparent",
-                                            marginTop: 0,
                                         }}
                                     >
                                         {example_diff_code_diff}
@@ -262,3 +260,4 @@ export default function Features() {
         </>
     );
 }
+
