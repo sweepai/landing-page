@@ -2,10 +2,12 @@ import { Box, Button, Code, Flex, HStack, Text, VStack } from "@chakra-ui/react"
 import { FaBook, FaGithub, FaSlack } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // @ts-ignore
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { useColorMode } from "@chakra-ui/color-mode"; // Add missing import
 
 import logo from "../assets/icon.png";
 import pills_examples from "../assets/pills_examples.svg";
 import User from "./User";
+const { colorMode } = useColorMode();
 
 const example_code = `import pytest
 from minichain.backend import Id, Mock, Google, Python, Bash, OpenAI, OpenAIEmbed, HuggingFace, HuggingFaceEmbed, Manifest
@@ -61,13 +63,13 @@ const Dialog = ({ children, user, userProps, ...props }: any) => {
 export default function Features() {
     return (
         <>
-            <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
+            <Box display="flex" justifyContent="center" alignItems="center" mb={96} bgColor={colorMode === "light" ? "white" : "#0d0a1a"}>
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
                         <Box>
                             <img src={logo} alt="Sweep logo" width={50} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Clean up your tech debt, automatically</Text>
-                            <Text mt={4} fontSize="md" color="lightgrey">Sweep generates repository-level code at your command. Cut down your dev time on mundane tasks, like tests, documentation, and refactoring.</Text>
+                            <Text mt={4} fontSize="2xl" fontWeight="bold" color={colorMode === "light" ? "black" : "white"}>Clean up your tech debt, automatically</Text>
+                            <Text mt={4} fontSize="md" color={colorMode === "light" ? "black" : "lightgrey"}>Sweep generates repository-level code at your command. Cut down your dev time on mundane tasks, like tests, documentation, and refactoring.</Text>
                         </Box>
                     </Flex>
                     <Box width={{ base: "100%", md: "45%" }} maxW="100%">
@@ -131,7 +133,7 @@ export default function Features() {
                         </VStack>
                     </Box>
                 </Box>
-            </Box >
+            </Box>
             <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" display={{ base: "flex", md: "none" }} mb={12}>
@@ -194,7 +196,7 @@ export default function Features() {
                         </Box>
                     </Flex>
                 </Box>
-            </Box >
+            </Box>
             <Box display="flex" justifyContent="center" alignItems="center" mb={48}>
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
@@ -250,7 +252,7 @@ export default function Features() {
                         </VStack>
                     </Box>
                 </Box>
-            </Box >
+            </Box>
             <Box display="flex" justifyContent="center" alignItems="center" py={48} bgImage={pills_examples} bgSize="cover">
                 <Box m={8} flexWrap="wrap" justifyContent="space-around" w={{ base: "full", md: "80%" }} textAlign="center">
                     <Text mb={4} fontSize="3xl">See example tickets, handled by Sweep</Text>
@@ -258,7 +260,8 @@ export default function Features() {
                         <FaBook />&nbsp;&nbsp;Example Sweep tickets
                     </Button>
                 </Box>
-            </Box >
+            </Box>
         </>
     );
 }
+
