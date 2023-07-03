@@ -12,11 +12,14 @@ import {
   MenuItem,
   MenuList,
   useBreakpointValue,
+  useColorMode,
 } from "@chakra-ui/react";
 import { FaBook, FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
+import { MoonIcon, SunIcon } from "react-icons/md";
 import logo from "../assets/icon.png";
 
 export default function NavBar() {
+  const { colorMode, toggleColorMode } = useColorMode();
 
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
   const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
@@ -63,6 +66,26 @@ export default function NavBar() {
               Sweep AI
             </Button>
           </HStack>
+          <HStack>
+            <Button variant="ghost">
+              <Image src={logo} alt="logo" width={10} borderRadius={12} />
+              Sweep AI
+            </Button>
+            <IconButton
+              aria-label={`Switch to ${
+                colorMode === "light" ? "dark" : "light"
+              } mode`}
+              variant="ghost"
+              onClick={toggleColorMode}
+              icon={
+                colorMode === "light" ? (
+                  <MoonIcon />
+                ) : (
+                  <SunIcon />
+                )
+              }
+            />
+          </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
               <IconButton
@@ -79,19 +102,16 @@ export default function NavBar() {
           <Menu>
             <MenuButton
               as={IconButton}
-              aria-label='Options'
+              aria-label="Options"
               icon={<HamburgerIcon />}
-              variant='outline'
+              variant="outline"
               display={menuDisplay}
             />
-            <MenuList
-              backgroundColor="#333"
-            >
+            <MenuList backgroundColor="#333">
               {navItems.map((item) => (
-                <MenuItem backgroundColor="#333">
+                <MenuItem backgroundColor="#333" key={item.label}>
                   {item.label}
-                  {
-                    item.label !== "Buy Sweep Pro" &&
+                  {item.label !== "Buy Sweep Pro" && (
                     <IconButton
                       key={item.label}
                       icon={item.icon}
@@ -101,7 +121,7 @@ export default function NavBar() {
                         document.location.href = item.link;
                       }}
                     />
-                  }
+                  )}
                 </MenuItem>
               ))}
             </MenuList>
@@ -111,3 +131,4 @@ export default function NavBar() {
     </Box>
   );
 }
+
