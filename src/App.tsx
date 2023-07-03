@@ -22,8 +22,17 @@ const config: ThemeConfig = {
   initialColorMode: "dark",
   useSystemColorMode: false,
 };
-
-const theme = extendTheme({ config });
+const theme = extendTheme({
+  config,
+  styles: {
+    global: (props) => ({
+      body: {
+        color: props.colorMode === "dark" ? "white" : "black",
+        bg: props.colorMode === "dark" ? "#0d0a1a" : "white",
+      },
+    }),
+  },
+});
 
 function ForceDarkMode(props: { children: JSX.Element }) {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -68,3 +77,4 @@ export const App = () => {
     </>
   );
 };
+
