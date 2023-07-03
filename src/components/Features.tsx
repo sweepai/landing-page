@@ -1,4 +1,4 @@
-import { Box, Button, Code, Flex, HStack, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Code, Flex, HStack, Text, VStack, useColorMode } from "@chakra-ui/react";
 import { FaBook, FaGithub, FaSlack } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // @ts-ignore
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -46,12 +46,14 @@ const customStyle = {
         background: 'transparent',
     },
 };
-
 const Dialog = ({ children, user, userProps, ...props }: any) => {
+    const { colorMode } = useColorMode();
+    const bgColor = colorMode === "dark" ? "purple.900" : "white";
+    const color = colorMode === "dark" ? "white" : "black";
     return (
         <HStack alignItems="flex-start" spacing={6} maxW="100% !important">
             <User {...userProps}>{user}</User>
-            <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="purple.300" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
+            <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color={color} borderColor={bgColor} borderWidth="1px" p={4} {...props}>
                 {children}
             </Box>
         </HStack>
@@ -226,7 +228,6 @@ export default function Features() {
                                             padding: 0,
                                             overflowX: "hidden",
                                             backgroundColor: "transparent",
-                                            marginBottom: 0,
                                         }}
                                     >
                                         {example_diff_code_prefix}
@@ -240,7 +241,6 @@ export default function Features() {
                                             padding: 0,
                                             overflowX: "hidden",
                                             backgroundColor: "transparent",
-                                            marginTop: 0,
                                         }}
                                     >
                                         {example_diff_code_diff}
@@ -262,3 +262,4 @@ export default function Features() {
         </>
     );
 }
+
