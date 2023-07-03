@@ -1,4 +1,5 @@
 import { Box, Button, Code, Flex, HStack, Text, VStack } from "@chakra-ui/react";
+import { useColorModeValue } from "@chakra-ui/react";
 import { FaBook, FaGithub, FaSlack } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // @ts-ignore
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -41,6 +42,10 @@ const example_diff_code_diff = `-       self.prompt = self.fill_prompt(self.temp
 
 const customStyle = {
     ...oneDark,
+    'code[class*="language-"]': {
+        ...oneDark['code[class*="language-"]'],
+        background: useColorModeValue('white', 'transparent'),
+    },
     'code[class*="language-"]': {
         ...oneDark['code[class*="language-"]'],
         background: 'transparent',
@@ -262,3 +267,4 @@ export default function Features() {
         </>
     );
 }
+

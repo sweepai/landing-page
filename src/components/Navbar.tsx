@@ -14,7 +14,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { FaBook, FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
-import logo from "../assets/icon.png";
+import ColorModeSwitcher from "./ColorModeSwitcher";
 
 export default function NavBar() {
 
@@ -55,59 +55,57 @@ export default function NavBar() {
 
   return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
-      <HStack spacing="10" justify="space-between">
-        <Flex justify="space-between" flex="1">
-          <HStack>
-            <Button variant="ghost">
-              <Image src={logo} alt="logo" width={10} borderRadius={12} />
-              Sweep AI
-            </Button>
-          </HStack>
-          <ButtonGroup variant="link" display={listDisplay}>
-            {navItems.map((item) => (
-              <IconButton
-                key={item.label}
-                icon={item.icon}
-                variant="ghost"
-                aria-label={item.label}
-                onClick={() => {
-                  document.location.href = item.link;
-                }}
-              />
-            ))}
-          </ButtonGroup>
-          <Menu>
-            <MenuButton
-              as={IconButton}
-              aria-label='Options'
-              icon={<HamburgerIcon />}
-              variant='outline'
-              display={menuDisplay}
-            />
-            <MenuList
-              backgroundColor="#333"
-            >
-              {navItems.map((item) => (
-                <MenuItem backgroundColor="#333">
-                  {item.label}
-                  {
-                    item.label !== "Buy Sweep Pro" &&
-                    <IconButton
-                      key={item.label}
-                      icon={item.icon}
-                      variant="ghost"
-                      aria-label={item.label}
-                      onClick={() => {
-                        document.location.href = item.link;
-                      }}
-                    />
-                  }
-                </MenuItem>
-              ))}
-            </MenuList>
-          </Menu>
-        </Flex>
+      <HStack>
+        <Button variant="ghost">
+          <Image src={logo} alt="logo" width={10} borderRadius={12} />
+          Sweep AI
+        </Button>
+        <ColorModeSwitcher />
       </HStack>
+      <ButtonGroup variant="link" display={listDisplay}>
+        {navItems.map((item) => (
+          <IconButton
+            key={item.label}
+            icon={item.icon}
+            variant="ghost"
+            aria-label={item.label}
+            onClick={() => {
+              document.location.href = item.link;
+            }}
+          />
+        ))}
+      </ButtonGroup>
+      <Menu>
+        <MenuButton
+          as={IconButton}
+          aria-label='Options'
+          icon={<HamburgerIcon />}
+          variant='outline'
+          display={menuDisplay}
+        />
+        <MenuList
+          backgroundColor="#333"
+        >
+          {navItems.map((item) => (
+            <MenuItem backgroundColor="#333">
+              {item.label}
+              {
+                item.label !== "Buy Sweep Pro" &&
+                <IconButton
+                  key={item.label}
+                  icon={item.icon}
+                  variant="ghost"
+                  aria-label={item.label}
+                  onClick={() => {
+                    document.location.href = item.link;
+                  }}
+                />
+              }
+            </MenuItem>
+          ))}
+        </MenuList>
+      </Menu>
     </Box>
   );
 }
+
