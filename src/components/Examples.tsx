@@ -1,3 +1,4 @@
+import { useColorMode } from "@chakra-ui/react";
 import { Box, Text } from "@chakra-ui/react";
 import { FaArrowRight } from "react-icons/fa";
 import logo from "../assets/icon.png";
@@ -157,10 +158,15 @@ const Example = ({
 }
 
 export default function Examples() {
+    const { colorMode } = useColorMode();
+    const isDarkMode = colorMode === "dark";
+    const textColor = isDarkMode ? "white" : "black";
+    const bgColor = isDarkMode ? "bg-surface" : "white";
     return (
         <>
             <Box display="flex" justifyContent="center" alignItems="center">
                 <Box m={8} mt={32} width={{base: "100%", md: "80%"}}>
+                    <Text fontSize="5xl" fontWeight="bold" mb={12} textAlign="center" color={textColor}>Example tickets handled by Sweep</Text>
                     <Text fontSize="5xl" fontWeight="bold" mb={12} textAlign="center">Example tickets handled by Sweep</Text>
                     <Box display="flex" flexWrap="wrap" justifyContent="space-between">
                         <Example
@@ -228,3 +234,4 @@ export default function Examples() {
         </>
     );
 }
+
