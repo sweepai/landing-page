@@ -50,7 +50,7 @@ const customStyle = {
 const Dialog = ({ children, user, userProps, ...props }: any) => {
     return (
         <HStack alignItems="flex-start" spacing={6} maxW="100% !important">
-            <User {...userProps}>{user}</User>
+            <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color={colorMode === "light" ? "black" : "purple.300"} borderColor={colorMode === "light" ? "black" : "purple.300"} borderWidth="1px" p={4} {...props}>
             <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="purple.300" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
                 {children}
             </Box>
@@ -74,7 +74,8 @@ export default function Features() {
                         <VStack alignItems="flex-start" spacing={6}>
                             <Dialog
                                 user={<Text fontSize="md" color="white">KL</Text>}
-                                userProps={{ bgColor: "purple.900", p: 2, borderWidth: 2 }}
+                                bgColor={colorMode === "light" ? "white" : "purple.900"}
+                                borderWidth={2}
                                 bgColor="purple.900"
                                 borderWidth={2}
                             >
@@ -201,8 +202,7 @@ export default function Features() {
                         <Box>
                             <FaGithub size={40} />
                             <Text mt={4} fontSize="2xl" fontWeight="bold">Review for confidence</Text>
-                            <Text mt={4} fontSize="md" color="lightgrey">Review all changes by Sweep, directly in Github. Comment if any changes need to be made. Push the commit if all looks good.</Text>
-                            <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://github.com/apps/sweep-ai")}>
+                            <Button colorScheme={colorMode === "light" ? "blackAlpha" : "purple"} size="md" mt={4} onClick={() => window.open("https://github.com/apps/sweep-ai")}>
                                 Install on your repository
                             </Button>
                         </Box>
@@ -226,7 +226,6 @@ export default function Features() {
                                             padding: 0,
                                             overflowX: "hidden",
                                             backgroundColor: "transparent",
-                                            marginBottom: 0,
                                         }}
                                     >
                                         {example_diff_code_prefix}
@@ -240,7 +239,6 @@ export default function Features() {
                                             padding: 0,
                                             overflowX: "hidden",
                                             backgroundColor: "transparent",
-                                            marginTop: 0,
                                         }}
                                     >
                                         {example_diff_code_diff}
@@ -262,3 +260,4 @@ export default function Features() {
         </>
     );
 }
+

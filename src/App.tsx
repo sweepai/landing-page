@@ -17,19 +17,16 @@ import Users from "./components/Users";
 import circles from "./assets/circles.svg";
 import Features from "./components/Features";
 import Conclusion from "./components/Conclusion";
-
 const config: ThemeConfig = {
-  initialColorMode: "dark",
-  useSystemColorMode: false,
+  initialColorMode: "light",
+  useSystemColorMode: true,
 };
 
 const theme = extendTheme({ config });
 
 function ForceDarkMode(props: { children: JSX.Element }) {
   const { colorMode, toggleColorMode } = useColorMode();
-
   useEffect(() => {
-    if (colorMode === "dark") return;
     toggleColorMode();
   }, [colorMode, toggleColorMode]);
 
@@ -68,3 +65,4 @@ export const App = () => {
     </>
   );
 };
+
