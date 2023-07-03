@@ -47,7 +47,6 @@ export const App = () => {
           <Box
             textAlign="center"
             bgColor="white"
-            bgColor="#0d0a1a"
             bgImage={circles}
             bgPos="0 0"
             bgSize="100%"
