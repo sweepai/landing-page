@@ -12,7 +12,7 @@ type CommentHeaderProps = {
 
 const CommentHeader = ({ src, username, href }: CommentHeaderProps) : JSX.Element => {
     return (
-        <ExternalLinkWithText href={href} includeIcon={false}>
+        <Box display="flex" alignItems="center" mt={8} mb={2} color={colorMode === "light" ? "black" : "white"}>
             <Box display="flex" alignItems="center" mt={8} mb={2}>
                 <img 
                     src={src}
@@ -29,8 +29,8 @@ const CommentHeader = ({ src, username, href }: CommentHeaderProps) : JSX.Elemen
                     <b>{username}</b>
                 </Text>
             </Box>
-        </ExternalLinkWithText>
-    )
+        </Box>
+    );
 }
 
 
@@ -76,6 +76,7 @@ const PullRequestLink = ({ children, href, username }: PullRequestLinkProps) : J
                         marginRight: "10px", 
                         display: "inline-block",
                         verticalAlign: "middle",
+                        color: colorMode === "light" ? "black" : "white"
                     }} 
                     width={30}
                 />
@@ -128,29 +129,29 @@ const Example = ({
                 fontSize="lg" 
                 textAlign="left"
             >
-                    <ExternalLinkWithText href={repo_url} includeIcon={false}>
-                        {repo_name}
+                <ExternalLinkWithText href={repo_url} includeIcon={false}>
+                    {repo_name}
+                </ExternalLinkWithText>
+                <Text fontSize="2xl">
+                    <ExternalLinkWithText href={issue_url}>
+                        {issue_title} <span style={{color: "#aaa"}}>#{issue_number}</span>
                     </ExternalLinkWithText>
-                    <Text fontSize="2xl">
-                        <ExternalLinkWithText href={issue_url}>
-                            {issue_title} <span style={{color: "#aaa"}}>#{issue_number}</span>
-                        </ExternalLinkWithText>
-                    </Text>
-                    <Comment
-                        src={avatar_href}
-                        username={username}
-                    >
-                        {issue_description}
-                    </Comment>
-                    <Comment
-                        src={logo}
-                        username="sweep-ai"
-                    >
-                        {children}
-                    </Comment>
-                    <PullRequestLink href={pull_request_url} username="sweep-ai">
-                        {pull_request_title}
-                    </PullRequestLink>
+                </Text>
+                <Comment
+                    src={avatar_href}
+                    username={username}
+                >
+                    {issue_description}
+                </Comment>
+                <Comment
+                    src={logo}
+                    username="sweep-ai"
+                >
+                    {children}
+                </Comment>
+                <PullRequestLink href={pull_request_url} username="sweep-ai">
+                    {pull_request_title}
+                </PullRequestLink>
             </Text>
         </Box>
     );
@@ -222,9 +223,10 @@ export default function Examples() {
                     </Box>
                 </Box>
             </Box>
-            <Text mb={16}>
+            <Text mb={16} color={colorMode === "light" ? "black" : "white"}>
                 For more examples, see <ExternalLinkWithText href="https://docs.sweep.dev/examples">Example Sweep tickets</ExternalLinkWithText>
             </Text>
         </>
     );
 }
+
