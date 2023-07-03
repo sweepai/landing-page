@@ -4,13 +4,14 @@ import {
   extendTheme,
   useColorMode,
   ThemeConfig,
+  useState,
+  useEffect,
 } from "@chakra-ui/react";
 import CallToAction from "./components/CallToAction";
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
 import ogimage from "./assets/ogimage.png";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
-import { useEffect } from "react";
 import Testimonials from "./components/Testimonials";
 import Users from "./components/Users";
 
@@ -18,15 +19,23 @@ import circles from "./assets/circles.svg";
 import Features from "./components/Features";
 import Conclusion from "./components/Conclusion";
 
-const config: ThemeConfig = {
+const lightConfig: ThemeConfig = {
+  initialColorMode: "light",
+  useSystemColorMode: false,
+};
+
+const darkConfig: ThemeConfig = {
   initialColorMode: "dark",
   useSystemColorMode: false,
 };
 
-const theme = extendTheme({ config });
+const lightTheme = extendTheme({ lightConfig });
+const darkTheme = extendTheme({ darkConfig });
+
+const [colorMode, setColorMode] = useState("dark");
 
 function ForceDarkMode(props: { children: JSX.Element }) {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { toggleColorMode } = useColorMode();
 
   useEffect(() => {
     if (colorMode === "dark") return;
@@ -42,7 +51,7 @@ export const App = () => {
       <Helmet>
         <meta property="og:image" content={ogimage} />
       </Helmet>
-      <ChakraProvider theme={theme}>
+      <ChakraProvider theme={colorMode === "dark" ? darkTheme : lightTheme}>
         <ForceDarkMode>
           <Box
             textAlign="center"
@@ -55,8 +64,7 @@ export const App = () => {
             bgRepeat="no-repeat"
             overflowX="hidden"
           >
-            {false && <ColorModeSwitcher />}
-            <Navbar />
+            <Navbar colorMode={colorMode} setColorMode={setColorMode} />
             <CallToAction />
             <Users />
             <Features />
@@ -68,3 +76,4 @@ export const App = () => {
     </>
   );
 };
+
