@@ -13,7 +13,7 @@ import {
   MenuList,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { FaBook, FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaBook, FaDiscord, FaGithub, FaTwitter, FaMoon, FaSun } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
 export default function NavBar() {
@@ -75,6 +75,12 @@ export default function NavBar() {
                 }}
               />
             ))}
+            <IconButton
+              icon={colorMode === "dark" ? <FaMoon /> : <FaSun />}
+              variant="ghost"
+              aria-label="Toggle color mode"
+              onClick={() => setColorMode(colorMode === "dark" ? "light" : "dark")}
+            />
           </ButtonGroup>
           <Menu>
             <MenuButton
@@ -111,3 +117,4 @@ export default function NavBar() {
     </Box>
   );
 }
+
