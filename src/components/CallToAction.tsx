@@ -65,7 +65,7 @@ export default function CallToAction() {
           <FaGithub />&nbsp;&nbsp;Install Sweep
         </Button>
         <ExternalLinkWithText
-          href="https://github.com/apps/sweep-ai"
+          href="https://buy.stripe.com/14k2bd26l85q4QUeUX" // updated link
           color="purple.400"
           mt="0 !important"
           style={{
@@ -87,3 +87,4 @@ export default function CallToAction() {
     </Container>
   );
 }
+
