@@ -18,9 +18,11 @@ import circles from "./assets/circles.svg";
 import Features from "./components/Features";
 import Conclusion from "./components/Conclusion";
 
+const { colorMode } = useColorMode();
+
 const config: ThemeConfig = {
-  initialColorMode: "dark",
-  useSystemColorMode: false,
+  initialColorMode: colorMode,
+  useSystemColorMode: true,
 };
 
 const theme = extendTheme({ config });
@@ -68,3 +70,4 @@ export const App = () => {
     </>
   );
 };
+
