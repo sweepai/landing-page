@@ -23,18 +23,6 @@ const config: ThemeConfig = {
 };
 
 const theme = extendTheme({ config });
-
-function ForceDarkMode(props: { children: JSX.Element }) {
-  const { colorMode, toggleColorMode } = useColorMode();
-
-  useEffect(() => {
-    if (colorMode === "dark") return;
-    toggleColorMode();
-  }, [colorMode, toggleColorMode]);
-
-  return props.children;
-}
-
 export const App = () => {
   return (
     <>
@@ -42,7 +30,6 @@ export const App = () => {
         <meta property="og:image" content={ogimage} />
       </Helmet>
       <ChakraProvider theme={theme}>
-        <ForceDarkMode>
           <Box
             textAlign="center"
             fontSize="xl"
@@ -62,7 +49,6 @@ export const App = () => {
             <Testimonials />
             <Conclusion />
           </Box>
-        </ForceDarkMode>
       </ChakraProvider>
     </>
   );
