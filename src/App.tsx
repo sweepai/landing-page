@@ -46,7 +46,7 @@ export const App = () => {
         <ForceDarkMode>
           <Box
             textAlign="center"
-            fontSize="xl"
+            bgColor="white"
             bgColor="#0d0a1a"
             bgImage={circles}
             bgPos="0 0"
@@ -68,3 +68,4 @@ export const App = () => {
     </>
   );
 };
+
