@@ -1,4 +1,5 @@
 import { Box, Button, Code, Flex, HStack, Text, VStack } from "@chakra-ui/react";
+import { useColorModeValue } from "@chakra-ui/react";
 import { FaBook, FaGithub, FaSlack } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // @ts-ignore
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -6,6 +7,9 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import logo from "../assets/icon.png";
 import pills_examples from "../assets/pills_examples.svg";
 import User from "./User";
+export default function Features() {
+  const bgColor = useColorModeValue("white", "#0d0a1a");
+  const textColor = useColorModeValue("black", "white");
 
 const example_code = `import pytest
 from minichain.backend import Id, Mock, Google, Python, Bash, OpenAI, OpenAIEmbed, HuggingFace, HuggingFaceEmbed, Manifest
@@ -51,6 +55,7 @@ const Dialog = ({ children, user, userProps, ...props }: any) => {
     return (
         <HStack alignItems="flex-start" spacing={6} maxW="100% !important">
             <User {...userProps}>{user}</User>
+            <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color={textColor} borderColor={textColor} borderWidth="1px" p={4} {...props}>
             <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="purple.300" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
                 {children}
             </Box>
@@ -66,8 +71,8 @@ export default function Features() {
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
                         <Box>
                             <img src={logo} alt="Sweep logo" width={50} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Clean up your tech debt, automatically</Text>
-                            <Text mt={4} fontSize="md" color="lightgrey">Sweep generates repository-level code at your command. Cut down your dev time on mundane tasks, like tests, documentation, and refactoring.</Text>
+                            <Text mt={4} fontSize="2xl" fontWeight="bold" color={textColor}>Clean up your tech debt, automatically</Text>
+                            <Text mt={4} fontSize="md" color={textColor}>Sweep generates repository-level code at your command. Cut down your dev time on mundane tasks, like tests, documentation, and refactoring.</Text>
                         </Box>
                     </Flex>
                     <Box width={{ base: "100%", md: "45%" }} maxW="100%">
@@ -137,8 +142,8 @@ export default function Features() {
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" display={{ base: "flex", md: "none" }} mb={12}>
                         <Box>
                             <FaSlack size={40} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Preview the plan in Slack</Text>
-                            <Text mt={4} fontSize="md" color="lightgrey">Request tests directly in Slack. Review the progress in a thread. Get alerted when a new PR is created.</Text>
+                            <Text mt={4} fontSize="2xl" fontWeight="bold" color={textColor}>Preview the plan in Slack</Text>
+                            <Text mt={4} fontSize="md" color={textColor}>Request tests directly in Slack. Review the progress in a thread. Get alerted when a new PR is created.</Text>
                             <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://docs.sweep.dev/slack")}>
                                 Download on Slack
                             </Button>
@@ -196,62 +201,6 @@ export default function Features() {
                 </Box>
             </Box >
             <Box display="flex" justifyContent="center" alignItems="center" mb={48}>
-                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
-                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
-                        <Box>
-                            <FaGithub size={40} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Review for confidence</Text>
-                            <Text mt={4} fontSize="md" color="lightgrey">Review all changes by Sweep, directly in Github. Comment if any changes need to be made. Push the commit if all looks good.</Text>
-                            <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://github.com/apps/sweep-ai")}>
-                                Install on your repository
-                            </Button>
-                        </Box>
-                    </Flex>
-                    <Box width={{ base: "100%", md: "45%" }} maxW="100%">
-                        <VStack alignItems="flex-start" spacing={6} maxW="100% !important">
-                            <Dialog user={<img src={logo} alt="Sweep logo" />} maxW="100% !important">
-                                <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%" maxW="100%">
-                                    <b>plugnplai/plugins.py</b>
-                                    <hr style={{
-                                        borderTop: '2px solid grey',
-                                        width: '100%',
-                                        marginTop: '0.5rem',
-                                    }} />
-                                    <SyntaxHighlighter
-                                        language="python"
-                                        style={customStyle}
-                                        wrapLines={true}
-                                        wrapLongLines={true}
-                                        customStyle={{
-                                            padding: 0,
-                                            overflowX: "hidden",
-                                            backgroundColor: "transparent",
-                                            marginBottom: 0,
-                                        }}
-                                    >
-                                        {example_diff_code_prefix}
-                                    </SyntaxHighlighter>
-                                    <SyntaxHighlighter
-                                        language="diff"
-                                        style={customStyle}
-                                        wrapLines={true}
-                                        wrapLongLines={true}
-                                        customStyle={{
-                                            padding: 0,
-                                            overflowX: "hidden",
-                                            backgroundColor: "transparent",
-                                            marginTop: 0,
-                                        }}
-                                    >
-                                        {example_diff_code_diff}
-                                    </SyntaxHighlighter>
-                                </Code>
-                            </Dialog>
-                        </VStack>
-                    </Box>
-                </Box>
-            </Box >
-            <Box display="flex" justifyContent="center" alignItems="center" py={48} bgImage={pills_examples} bgSize="cover">
                 <Box m={8} flexWrap="wrap" justifyContent="space-around" w={{ base: "full", md: "80%" }} textAlign="center">
                     <Text mb={4} fontSize="3xl">See example tickets, handled by Sweep</Text>
                     <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://docs.sweep.dev/examples")}>
@@ -262,3 +211,4 @@ export default function Features() {
         </>
     );
 }
+
