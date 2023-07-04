@@ -22,8 +22,19 @@ const config: ThemeConfig = {
   initialColorMode: "dark",
   useSystemColorMode: false,
 };
+const lightTheme = extendTheme({
+  config: {
+    initialColorMode: "light",
+    useSystemColorMode: false,
+  },
+});
 
-const theme = extendTheme({ config });
+const darkTheme = extendTheme({
+  config: {
+    initialColorMode: "dark",
+    useSystemColorMode: false,
+  },
+});
 
 function ForceDarkMode(props: { children: JSX.Element }) {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -36,7 +47,11 @@ function ForceDarkMode(props: { children: JSX.Element }) {
   return props.children;
 }
 
+
 export const App = () => {
+  const { colorMode } = useColorMode();
+  const theme = colorMode === "dark" ? darkTheme : lightTheme;
+
   return (
     <>
       <Helmet>
@@ -55,7 +70,7 @@ export const App = () => {
             bgRepeat="no-repeat"
             overflowX="hidden"
           >
-            {false && <ColorModeSwitcher />}
+            <ColorModeSwitcher />
             <Navbar />
             <CallToAction />
             <Users />
@@ -68,3 +83,4 @@ export const App = () => {
     </>
   );
 };
+
