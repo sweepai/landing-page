@@ -127,7 +127,7 @@ export default function NavBar() {
 
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay>
-          <DrawerContent>
+          <DrawerContent bgColor="lavender">
             <DrawerCloseButton />
             <DrawerHeader>Sidebar</DrawerHeader>
             <DrawerBody>
