@@ -13,10 +13,12 @@ import {
   MenuList,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import { Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, useDisclosure } from "@chakra-ui/react";
 import { FaBook, FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
 export default function NavBar() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
   const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
@@ -58,6 +60,7 @@ export default function NavBar() {
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
           <HStack>
+            <Button onClick={onOpen}>Open Sidebar</Button>
             <Button variant="ghost">
               <Image src={logo} alt="logo" width={10} borderRadius={12} />
               Sweep AI
@@ -119,7 +122,23 @@ export default function NavBar() {
             </MenuList>
           </Menu>
         </Flex>
+
       </HStack>
+
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+        <DrawerOverlay>
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerHeader>Sidebar</DrawerHeader>
+            <DrawerBody>
+              <p>Dummy Content 1</p>
+              <p>Dummy Content 2</p>
+              <p>Dummy Content 3</p>
+            </DrawerBody>
+          </DrawerContent>
+        </DrawerOverlay>
+      </Drawer>
     </Box>
   );
 }
+
