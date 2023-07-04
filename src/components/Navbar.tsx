@@ -1,4 +1,4 @@
-import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { EmailIcon, HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -11,14 +11,15 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  useColorMode,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { FaBook, FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
 export default function NavBar() {
-
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
+  const { colorMode, toggleColorMode } = useColorMode();
   const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
   const navItems = [
     {
@@ -63,6 +64,13 @@ export default function NavBar() {
               Sweep AI
             </Button>
           </HStack>
+          <IconButton
+            icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+            variant="ghost"
+            aria-label="Toggle color mode"
+            onClick={toggleColorMode}
+            px={2}
+          />
           <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
               <IconButton
@@ -84,26 +92,26 @@ export default function NavBar() {
               variant="ghost"
               aria-label={"Sweep Pro"}
               onClick={() => {
-                window.open("https://buy.stripe.com/14k2bd26l85q4QUeUX", "_blank");
+                window.open(
+                  "https://buy.stripe.com/14k2bd26l85q4QUeUX",
+                  "_blank"
+                );
               }}
               px={2}
               display={menuDisplay}
             />
             <MenuButton
               as={IconButton}
-              aria-label='Options'
+              aria-label="Options"
               icon={<HamburgerIcon />}
-              variant='outline'
+              variant="outline"
               display={menuDisplay}
             />
-            <MenuList
-              backgroundColor="#333"
-            >
+            <MenuList backgroundColor="#333">
               {navItems.map((item) => (
-                <MenuItem backgroundColor="#333">
+                <MenuItem backgroundColor="#333" key={item.label}>
                   {item.label}
-                  {
-                    item.label !== "Buy Sweep Pro" &&
+                  {item.label !== "Buy Sweep Pro" && (
                     <IconButton
                       key={item.label}
                       icon={item.icon}
@@ -113,7 +121,7 @@ export default function NavBar() {
                         window.open(item.link, "_blank");
                       }}
                     />
-                  }
+                  )}
                 </MenuItem>
               ))}
             </MenuList>
@@ -123,3 +131,4 @@ export default function NavBar() {
     </Box>
   );
 }
+

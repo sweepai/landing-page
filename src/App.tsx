@@ -22,7 +22,7 @@ const config: ThemeConfig = {
   initialColorMode: "dark",
   useSystemColorMode: false,
 };
-
+import lightTheme from "./theme/lightTheme"; // Import the light theme
 const theme = extendTheme({ config });
 
 function ForceDarkMode(props: { children: JSX.Element }) {
@@ -35,14 +35,15 @@ function ForceDarkMode(props: { children: JSX.Element }) {
 
   return props.children;
 }
-
 export const App = () => {
+  const { colorMode } = useColorMode(); // Get the current color mode
+
   return (
     <>
       <Helmet>
         <meta property="og:image" content={ogimage} />
       </Helmet>
-      <ChakraProvider theme={theme}>
+      <ChakraProvider theme={colorMode === "light" ? lightTheme : theme}> {/* Use the light theme when the color mode is light */}
         <ForceDarkMode>
           <Box
             textAlign="center"
@@ -68,3 +69,4 @@ export const App = () => {
     </>
   );
 };
+

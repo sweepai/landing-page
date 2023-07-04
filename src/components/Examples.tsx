@@ -1,6 +1,7 @@
 import { Box, Text } from "@chakra-ui/react";
 import { FaArrowRight } from "react-icons/fa";
 import logo from "../assets/icon.png";
+import { useColorMode } from "@chakra-ui/react"; // Import the useColorMode hook
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
 
@@ -103,31 +104,33 @@ type ExampleProps = {
     issue_description: string,
     pull_request_title: string
 }
+export default function Examples() {
+    const { colorMode } = useColorMode(); // Call the useColorMode hook to get the colorMode value
 
-const Example = ({ 
-    children,
-    repo_name,
-    issue_title,
-    issue_number,
-    avatar_href,
-    username,
-    issue_description,
-    pull_request_title
-}: ExampleProps) : JSX.Element => {
-    const repo_url = `https://github.com/${repo_name}`;
-    const issue_url = `https://github.com/${repo_name}/issues/${issue_number}`;
-    const pull_request_url = `https://github.com/${repo_name}/pull/${issue_number}`;
-    return (
-        <Box 
-            overflow="hidden" 
-            p={4} 
-            width={{base: "100%", md: "30%"}}
-            mb={8}
-        >
-            <Text 
-                fontSize="lg" 
-                textAlign="left"
+    const Example = ({ 
+        children,
+        repo_name,
+        issue_title,
+        issue_number,
+        avatar_href,
+        username,
+        issue_description,
+        pull_request_title
+    }: ExampleProps) : JSX.Element => {
+        const repo_url = `https://github.com/${repo_name}`;
+        const issue_url = `https://github.com/${repo_name}/issues/${issue_number}`;
+        const pull_request_url = `https://github.com/${repo_name}/pull/${issue_number}`;
+        return (
+            <Box 
+                overflow="hidden" 
+                p={4} 
+                width={{base: "100%", md: "30%"}}
+                mb={8}
             >
+                <Text 
+                    fontSize="lg" 
+                    textAlign="left"
+                >
                     <ExternalLinkWithText href={repo_url} includeIcon={false}>
                         {repo_name}
                     </ExternalLinkWithText>
@@ -151,14 +154,14 @@ const Example = ({
                     <PullRequestLink href={pull_request_url} username="sweep-ai">
                         {pull_request_title}
                     </PullRequestLink>
-            </Text>
-        </Box>
-    );
-}
+                </Text>
+            </Box>
+        );
+    }
 
-export default function Examples() {
     return (
         <>
+            <Text fontSize="5xl" fontWeight="bold" mb={12} textAlign="center" color={colorMode === "light" ? "black" : "white"}>Example tickets handled by Sweep</Text> {/* Change the color of the text based on the color mode */}
             <Box display="flex" justifyContent="center" alignItems="center">
                 <Box m={8} mt={32} width={{base: "100%", md: "80%"}}>
                     <Text fontSize="5xl" fontWeight="bold" mb={12} textAlign="center">Example tickets handled by Sweep</Text>
@@ -222,9 +225,10 @@ export default function Examples() {
                     </Box>
                 </Box>
             </Box>
-            <Text mb={16}>
+            <Text mb={16} color={colorMode === "light" ? "black" : "white"}> {/* Change the color of the text based on the color mode */}
                 For more examples, see <ExternalLinkWithText href="https://docs.sweep.dev/examples">Example Sweep tickets</ExternalLinkWithText>
             </Text>
         </>
     );
 }
+
