@@ -48,11 +48,6 @@ export default function NavBar() {
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
     },
-    {
-      label: "Buy Sweep Pro",
-      icon: <p>Buy Sweep Pro</p>,
-      link: "https://buy.stripe.com/14k2bd26l85q4QUeUX",
-    },
   ];
 
   return (
@@ -81,17 +76,6 @@ export default function NavBar() {
             ))}
           </ButtonGroup>
           <Menu>
-            <IconButton
-              key={"Sweep Pro"}
-              icon={<p>Sweep Pro</p>}
-              variant="ghost"
-              aria-label={"Sweep Pro"}
-              onClick={() => {
-                window.open("https://buy.stripe.com/14k2bd26l85q4QUeUX", "_blank");
-              }}
-              px={2}
-              display={menuDisplay}
-            />
             <MenuButton
               as={IconButton}
               aria-label='Options'
@@ -105,26 +89,21 @@ export default function NavBar() {
               {navItems.map((item) => (
                 <MenuItem backgroundColor="#333">
                   {item.label}
-                  {
-                    item.label !== "Buy Sweep Pro" &&
-                    <IconButton
-                      key={item.label}
-                      icon={item.icon}
-                      variant="ghost"
-                      aria-label={item.label}
-                      onClick={() => {
-                        window.open(item.link, "_blank");
-                      }}
-                    />
-                  }
+                  <IconButton
+                    key={item.label}
+                    icon={item.icon}
+                    variant="ghost"
+                    aria-label={item.label}
+                    onClick={() => {
+                      window.open(item.link, "_blank");
+                    }}
+                  />
                 </MenuItem>
               ))}
             </MenuList>
           </Menu>
         </Flex>
-
       </HStack>
-
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay>
           <DrawerContent bgColor="lavender">
@@ -132,7 +111,13 @@ export default function NavBar() {
             <DrawerHeader>Sidebar</DrawerHeader>
             <DrawerBody>
               <p>Dummy Content 1</p>
-              <p>Dummy Content 2</p>
+              <Button
+                onClick={() => {
+                  window.open("https://buy.stripe.com/14k2bd26l85q4QUeUX", "_blank");
+                }}
+              >
+                Buy Sweep Pro
+              </Button>
               <p>Dummy Content 3</p>
             </DrawerBody>
           </DrawerContent>
