@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text, useColorMode } from "@chakra-ui/react";
 import { FaArrowRight } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
@@ -156,12 +156,16 @@ const Example = ({
     );
 }
 
-export default function Examples() {
+const Examples = () => {
+    const { colorMode } = useColorMode();
+    const bgColor = colorMode === "dark" ? "#0d0a1a" : "#ffffff";
+    const color = colorMode === "dark" ? "white" : "black";
+
     return (
         <>
             <Box display="flex" justifyContent="center" alignItems="center">
                 <Box m={8} mt={32} width={{base: "100%", md: "80%"}}>
-                    <Text fontSize="5xl" fontWeight="bold" mb={12} textAlign="center">Example tickets handled by Sweep</Text>
+                    <Text fontSize="5xl" fontWeight="bold" mb={12} textAlign="center" color={color}>Example tickets handled by Sweep</Text>
                     <Box display="flex" flexWrap="wrap" justifyContent="space-between">
                         <Example
                             repo_name="edreisMD/plugnplai"
@@ -222,9 +226,12 @@ export default function Examples() {
                     </Box>
                 </Box>
             </Box>
-            <Text mb={16}>
+            <Text mb={16} color={color}>
                 For more examples, see <ExternalLinkWithText href="https://docs.sweep.dev/examples">Example Sweep tickets</ExternalLinkWithText>
             </Text>
         </>
     );
 }
+
+export default Examples;
+
