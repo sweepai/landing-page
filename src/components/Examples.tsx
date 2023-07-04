@@ -1,16 +1,12 @@
+import { useColorModeValue } from "@chakra-ui/react";
 import { Box, Text } from "@chakra-ui/react";
 import { FaArrowRight } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
 
-type CommentHeaderProps = {
-    src: string,
-    username: string,
-    href: string
-}
-
 const CommentHeader = ({ src, username, href }: CommentHeaderProps) : JSX.Element => {
+    const textColor = useColorModeValue("black", "white");
     return (
         <ExternalLinkWithText href={href} includeIcon={false}>
             <Box display="flex" alignItems="center" mt={8} mb={2}>
@@ -25,14 +21,13 @@ const CommentHeader = ({ src, username, href }: CommentHeaderProps) : JSX.Elemen
                     }} 
                     width={30}
                 />
-                <Text size="md">
+                <Text size="md" color={textColor}>
                     <b>{username}</b>
                 </Text>
             </Box>
         </ExternalLinkWithText>
     )
 }
-
 
 type CommentProps = {
     children: React.ReactNode,
@@ -54,7 +49,6 @@ const Comment = ({ children, src, username }: CommentProps) : JSX.Element => {
         </>
     );
 }
-
 
 type PullRequestLinkProps = {
     children: React.ReactNode,
@@ -92,7 +86,6 @@ const PullRequestLink = ({ children, href, username }: PullRequestLinkProps) : J
     );
 }
 
-
 type ExampleProps = {
     children: React.ReactNode,
     repo_name: string,
@@ -117,21 +110,25 @@ const Example = ({
     const repo_url = `https://github.com/${repo_name}`;
     const issue_url = `https://github.com/${repo_name}/issues/${issue_number}`;
     const pull_request_url = `https://github.com/${repo_name}/pull/${issue_number}`;
+    const bgColor = useColorModeValue("white", "#0d0a1a");
+    const textColor = useColorModeValue("black", "white");
     return (
         <Box 
             overflow="hidden" 
             p={4} 
             width={{base: "100%", md: "30%"}}
             mb={8}
+            bgColor={bgColor}
         >
             <Text 
                 fontSize="lg" 
                 textAlign="left"
+                color={textColor}
             >
                     <ExternalLinkWithText href={repo_url} includeIcon={false}>
                         {repo_name}
                     </ExternalLinkWithText>
-                    <Text fontSize="2xl">
+                    <Text fontSize="2xl" color={textColor}>
                         <ExternalLinkWithText href={issue_url}>
                             {issue_title} <span style={{color: "#aaa"}}>#{issue_number}</span>
                         </ExternalLinkWithText>
@@ -228,3 +225,4 @@ export default function Examples() {
         </>
     );
 }
+
