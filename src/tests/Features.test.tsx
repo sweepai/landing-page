@@ -9,8 +9,8 @@ describe('Features component', () => {
 
   test('renders correct content', () => {
     render(<Features />);
-    // Add assertions to check if the correct text or elements are rendered
-    // For example:
+    expect(screen.getByText('Expected text')).toBeInTheDocument();
     // expect(screen.getByText('Features text')).toBeInTheDocument();
   });
 });
+
