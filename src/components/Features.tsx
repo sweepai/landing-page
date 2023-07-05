@@ -1,4 +1,4 @@
-import { Box, Button, Code, Flex, HStack, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Code, Flex, HStack, Text, VStack, useColorMode } from "@chakra-ui/react";
 import { FaBook, FaGithub, FaSlack } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // @ts-ignore
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -58,7 +58,11 @@ const Dialog = ({ children, user, userProps, ...props }: any) => {
     )
 }
 
-export default function Features() {
+const Features = () => {
+    const { colorMode } = useColorMode();
+    const bgColor = colorMode === "dark" ? "#0d0a1a" : "#ffffff";
+    const color = colorMode === "dark" ? "white" : "black";
+
     return (
         <>
             <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
@@ -66,19 +70,19 @@ export default function Features() {
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
                         <Box>
                             <img src={logo} alt="Sweep logo" width={50} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Clean up your tech debt, automatically</Text>
+                            <Text mt={4} fontSize="2xl" fontWeight="bold" color={color}>Clean up your tech debt, automatically</Text>
                             <Text mt={4} fontSize="md" color="lightgrey">Sweep generates repository-level code at your command. Cut down your dev time on mundane tasks, like tests, documentation, and refactoring.</Text>
                         </Box>
                     </Flex>
                     <Box width={{ base: "100%", md: "45%" }} maxW="100%">
                         <VStack alignItems="flex-start" spacing={6}>
                             <Dialog
-                                user={<Text fontSize="md" color="white">KL</Text>}
-                                userProps={{ bgColor: "purple.900", p: 2, borderWidth: 2 }}
-                                bgColor="purple.900"
+                                user={<Text fontSize="md" color={color}>KL</Text>}
+                                userProps={{ bgColor: bgColor, p: 2, borderWidth: 2 }}
+                                bgColor={bgColor}
                                 borderWidth={2}
                             >
-                                <Text fontSize="md" color="white">
+                                <Text fontSize="md" color={color}>
                                     Sweep: Add backend tests
                                 </Text>
                             </Dialog>
@@ -86,7 +90,7 @@ export default function Features() {
                                 <Text
                                     position="relative"
                                     fontSize="md"
-                                    color="white"
+                                    color={color}
                                 >
                                     <Box
                                         position="absolute"
@@ -94,7 +98,7 @@ export default function Features() {
                                         left={0}
                                         right={0}
                                         height="100%"
-                                        background={`linear-gradient(to bottom, transparent, #0d0a1aaa)`}
+                                        background={`linear-gradient(to bottom, transparent, ${bgColor}aa)`}
                                     />
                                     This PR adds test coverage for the Backend classes in minichain/backend.py. Specifically, it:
                                     <br />
@@ -137,7 +141,7 @@ export default function Features() {
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" display={{ base: "flex", md: "none" }} mb={12}>
                         <Box>
                             <FaSlack size={40} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Preview the plan in Slack</Text>
+                            <Text mt={4} fontSize="2xl" fontWeight="bold" color={color}>Preview the plan in Slack</Text>
                             <Text mt={4} fontSize="md" color="lightgrey">Request tests directly in Slack. Review the progress in a thread. Get alerted when a new PR is created.</Text>
                             <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://docs.sweep.dev/slack")}>
                                 Download on Slack
@@ -147,12 +151,12 @@ export default function Features() {
                     <Box width={{ base: "100%", md: "45%" }} maxW="100%" mb={12}>
                         <VStack alignItems="flex-start" spacing={6}>
                             <Dialog
-                                user={<Text fontSize="md" color="white">KL</Text>}
-                                userProps={{ bgColor: "purple.900", p: 2, borderWidth: 2 }}
-                                bgColor="purple.900"
+                                user={<Text fontSize="md" color={color}>KL</Text>}
+                                userProps={{ bgColor: bgColor, p: 2, borderWidth: 2 }}
+                                bgColor={bgColor}
                                 borderWidth={2}
                             >
-                                <Text fontSize="md" color="white">
+                                <Text fontSize="md" color={color}>
                                     /sweep Write tests for backend
                                 </Text>
                             </Dialog>
@@ -160,7 +164,7 @@ export default function Features() {
                                 <Text
                                     position="relative"
                                     fontSize="md"
-                                    color="white"
+                                    color={color}
                                 >
                                     <Box
                                         position="absolute"
@@ -168,7 +172,7 @@ export default function Features() {
                                         left={0}
                                         right={0}
                                         height="100%"
-                                        background={`linear-gradient(to bottom, transparent, #0d0a1aaa)`}
+                                        background={`linear-gradient(to bottom, transparent, ${bgColor}aa)`}
                                     />
                                     I’m going to create a PR with the following:
                                     <br /><br />
@@ -186,7 +190,7 @@ export default function Features() {
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" display={{ base: "none", md: "flex" }} mb={12}>
                         <Box>
                             <FaSlack size={40} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Preview the plan in Slack</Text>
+                            <Text mt={4} fontSize="2xl" fontWeight="bold" color={color}>Preview the plan in Slack</Text>
                             <Text mt={4} fontSize="md" color="lightgrey">Request tests directly in Slack. Review the progress in a thread. Get alerted when a new PR is created.</Text>
                             <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://docs.sweep.dev/slack")}>
                                 Download on Slack
@@ -200,7 +204,7 @@ export default function Features() {
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
                         <Box>
                             <FaGithub size={40} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Review for confidence</Text>
+                            <Text mt={4} fontSize="2xl" fontWeight="bold" color={color}>Review for confidence</Text>
                             <Text mt={4} fontSize="md" color="lightgrey">Review all changes by Sweep, directly in Github. Comment if any changes need to be made. Push the commit if all looks good.</Text>
                             <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://github.com/apps/sweep-ai")}>
                                 Install on your repository
@@ -253,7 +257,7 @@ export default function Features() {
             </Box >
             <Box display="flex" justifyContent="center" alignItems="center" py={48} bgImage={pills_examples} bgSize="cover">
                 <Box m={8} flexWrap="wrap" justifyContent="space-around" w={{ base: "full", md: "80%" }} textAlign="center">
-                    <Text mb={4} fontSize="3xl">See example tickets, handled by Sweep</Text>
+                    <Text mb={4} fontSize="3xl" color={color}>See example tickets, handled by Sweep</Text>
                     <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://docs.sweep.dev/examples")}>
                         <FaBook />&nbsp;&nbsp;Example Sweep tickets
                     </Button>
@@ -262,3 +266,6 @@ export default function Features() {
         </>
     );
 }
+
+export default Features;
+

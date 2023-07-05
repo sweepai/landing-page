@@ -17,7 +17,6 @@ import { FaBook, FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
 export default function NavBar() {
-
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
   const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
   const navItems = [
@@ -53,6 +52,9 @@ export default function NavBar() {
     },
   ];
 
+  const { colorMode, toggleColorMode } = useColorMode();
+  const isDark = colorMode === "dark";
+
   return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
@@ -76,6 +78,7 @@ export default function NavBar() {
                 px={2}
               />
             ))}
+            <Switch color="green" isChecked={isDark} onChange={toggleColorMode} />
           </ButtonGroup>
           <Menu>
             <IconButton
@@ -123,3 +126,4 @@ export default function NavBar() {
     </Box>
   );
 }
+
