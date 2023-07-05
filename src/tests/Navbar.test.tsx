@@ -9,8 +9,8 @@ describe('Navbar component', () => {
 
   test('renders correct content', () => {
     render(<Navbar />);
-    // Add assertions to check if the correct text or elements are rendered
-    // For example:
+    expect(screen.getByText('Expected text')).toBeInTheDocument();
     // expect(screen.getByText('Navbar text')).toBeInTheDocument();
   });
 });
+
