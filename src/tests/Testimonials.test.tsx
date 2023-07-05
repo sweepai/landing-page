@@ -9,8 +9,8 @@ describe('Testimonials component', () => {
 
   test('renders correct content', () => {
     render(<Testimonials />);
-    // Add assertions to check if the correct text or elements are rendered
-    // For example:
+    expect(screen.getByText('Expected text')).toBeInTheDocument();
     // expect(screen.getByText('Testimonial text')).toBeInTheDocument();
   });
 });
+
