@@ -16,10 +16,23 @@ import {
 import { FaBook, FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
+import {
+  Box,
+  IconButton,
+  useDisclosure,
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+} from "@chakra-ui/react";
+import { FaBook, FaDiscord, FaGithub, FaTwitter, HamburgerIcon } from "react-icons/fa";
+import { EmailIcon } from "@chakra-ui/icons";
 
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+export default function NavBar() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const navItems = [
     {
       label: "Twitter",
@@ -55,71 +68,30 @@ export default function NavBar() {
 
   return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
-      <HStack spacing="10" justify="space-between">
-        <Flex justify="space-between" flex="1">
-          <HStack>
-            <Button variant="ghost">
-              <Image src={logo} alt="logo" width={10} borderRadius={12} />
-              Sweep AI
-            </Button>
-          </HStack>
-          <ButtonGroup variant="link" display={listDisplay}>
-            {navItems.map((item) => (
-              <IconButton
-                key={item.label}
-                icon={item.icon}
-                variant="ghost"
-                aria-label={item.label}
-                onClick={() => {
-                  window.open(item.link, "_blank");
-                }}
-                px={2}
-              />
-            ))}
-          </ButtonGroup>
-          <Menu>
-            <IconButton
-              key={"Sweep Pro"}
-              icon={<p>Sweep Pro</p>}
-              variant="ghost"
-              aria-label={"Sweep Pro"}
-              onClick={() => {
-                window.open("https://buy.stripe.com/14k2bd26l85q4QUeUX", "_blank");
-              }}
-              px={2}
-              display={menuDisplay}
-            />
-            <MenuButton
-              as={IconButton}
-              aria-label='Options'
-              icon={<HamburgerIcon />}
-              variant='outline'
-              display={menuDisplay}
-            />
-            <MenuList
-              backgroundColor="#333"
-            >
-              {navItems.map((item) => (
-                <MenuItem backgroundColor="#333">
-                  {item.label}
-                  {
-                    item.label !== "Buy Sweep Pro" &&
-                    <IconButton
-                      key={item.label}
-                      icon={item.icon}
-                      variant="ghost"
-                      aria-label={item.label}
-                      onClick={() => {
-                        window.open(item.link, "_blank");
-                      }}
-                    />
-                  }
-                </MenuItem>
+      <IconButton icon={<HamburgerIcon />} onClick={onOpen} />
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+        <DrawerOverlay>
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerHeader>Navigation</DrawerHeader>
+            <DrawerBody>
+              {navItems.map((item, index) => (
+                <IconButton
+                  key={item.label}
+                  icon={item.icon}
+                  variant="ghost"
+                  aria-label={item.label}
+                  onClick={() => {
+                    window.open(item.link, "_blank");
+                  }}
+                  px={2}
+                />
               ))}
-            </MenuList>
-          </Menu>
-        </Flex>
-      </HStack>
+            </DrawerBody>
+          </DrawerContent>
+        </DrawerOverlay>
+      </Drawer>
     </Box>
   );
 }
+
