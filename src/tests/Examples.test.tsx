@@ -8,9 +8,8 @@ describe('Examples component', () => {
   });
 
   test('renders correct content', () => {
-    render(<Examples />);
-    // Add assertions to check if the correct text or elements are rendered
-    // For example:
-    // expect(screen.getByText('Example text')).toBeInTheDocument();
+    expect(screen.getByText('Expected text')).toBeInTheDocument();
+    expect(screen.getByText('Example text')).toBeInTheDocument();
   });
 });
+
