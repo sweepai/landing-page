@@ -48,8 +48,7 @@ export default function NavBar() {
     },
     {
       label: "Buy Sweep Pro",
-      icon: <p>Buy Sweep Pro</p>,
-      link: "https://buy.stripe.com/14k2bd26l85q4QUeUX",
+      link: "https://buy.stripe.com/fZe03512h99u0AE6os",
     },
   ];
 
@@ -84,6 +83,7 @@ export default function NavBar() {
               variant="ghost"
               aria-label={"Sweep Pro"}
               onClick={() => {
+                window.open("https://buy.stripe.com/fZe03512h99u0AE6os", "_blank");
                 window.open("https://buy.stripe.com/14k2bd26l85q4QUeUX", "_blank");
               }}
               px={2}
@@ -123,3 +123,4 @@ export default function NavBar() {
     </Box>
   );
 }
+
