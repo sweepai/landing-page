@@ -8,10 +8,8 @@ describe('App component', () => {
   });
 
   test('renders correct content', () => {
-    render(<App />);
-    // Add assertions to check if the correct text or elements are rendered
-    // For example:
-    // expect(screen.getByText('App text')).toBeInTheDocument();
+    expect(screen.getByText('Expected text')).toBeInTheDocument();
+    expect(screen.getByText('App text')).toBeInTheDocument();
   });
 
   test('interactions work correctly', () => {
