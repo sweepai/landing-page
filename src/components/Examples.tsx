@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/react";
+import { useColorModeValue } from "@chakra-ui/react";
 import { FaArrowRight } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
@@ -103,7 +103,6 @@ type ExampleProps = {
     issue_description: string,
     pull_request_title: string
 }
-
 const Example = ({ 
     children,
     repo_name,
@@ -117,16 +116,20 @@ const Example = ({
     const repo_url = `https://github.com/${repo_name}`;
     const issue_url = `https://github.com/${repo_name}/issues/${issue_number}`;
     const pull_request_url = `https://github.com/${repo_name}/pull/${issue_number}`;
+    const color = useColorModeValue("black", "white");
+    const bgColor = useColorModeValue("white", "purple.900");
     return (
         <Box 
             overflow="hidden" 
             p={4} 
             width={{base: "100%", md: "30%"}}
             mb={8}
+            bgColor={bgColor}
         >
             <Text 
                 fontSize="lg" 
                 textAlign="left"
+                color={color}
             >
                     <ExternalLinkWithText href={repo_url} includeIcon={false}>
                         {repo_name}
@@ -228,3 +231,4 @@ export default function Examples() {
         </>
     );
 }
+

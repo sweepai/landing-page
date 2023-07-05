@@ -1,6 +1,6 @@
 import { Box, Button, Code, Flex, HStack, Text, VStack } from "@chakra-ui/react";
 import { FaBook, FaGithub, FaSlack } from "react-icons/fa";
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // @ts-ignore
+import { useColorModeValue } from "@chakra-ui/react";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import logo from "../assets/icon.png";
@@ -46,12 +46,14 @@ const customStyle = {
         background: 'transparent',
     },
 };
-
 const Dialog = ({ children, user, userProps, ...props }: any) => {
+    const color = useColorModeValue("black", "white");
+    const bgColor = useColorModeValue("white", "purple.900");
+    const borderColor = useColorModeValue("black", "purple.300");
     return (
         <HStack alignItems="flex-start" spacing={6} maxW="100% !important">
             <User {...userProps}>{user}</User>
-            <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="purple.300" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
+            <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color={color} borderColor={borderColor} borderWidth="1px" p={4} {...props}>
                 {children}
             </Box>
         </HStack>
@@ -260,5 +262,4 @@ export default function Features() {
                 </Box>
             </Box >
         </>
-    );
-}
+
