@@ -19,11 +19,11 @@ def test_mock():
     assert backend.run("test") == "mocked_response"
 
 # Rest of test cases...
-
 def test_manifest():
-    client = Manifest(client=None)  // Mock client
+    client = Manifest(client=None)  # Mock client
     backend = Manifest(client)
-    assert backend.run("test") == "test"  // Mock response
+    assert backend.run("test") == "test"  # Mock response
+    assert backend.run("test") == "test"  # Mock response
 `;
 
 const example_diff_code_prefix = `def deactivate(self, plugin_name: str):
