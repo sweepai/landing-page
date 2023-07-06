@@ -47,7 +47,7 @@ export default function Testimonials() {
                     </Testimonial>
                     <Testimonial name="Eduardo Reis" company="AI @ Stanford AIMI" href="https://plugnplai.com">
                         ✨Wow! Just found sweep.dev from <ExternalLinkWithText href="https://twitter.com/wwzeng1">@wwzeng1</ExternalLinkWithText> <ExternalLinkWithText href="https://twitter.com/KevinLu45010771">@KevinLu45010771</ExternalLinkWithText>. It wrote these two PRs for <ExternalLinkWithText href="https://github.com/edreisMD/plugnplai/pull/91">edreisMD/plugnplai#91</ExternalLinkWithText> <ExternalLinkWithText href="https://github.com/edreisMD/plugnplai/pull/75">edreisMD/plugnplai#75</ExternalLinkWithText>
-                        &nbsp;<b>Total lifesaver</b> 🙌. Sweep just saved me <b>6 hours of work</b>.
+                        &nbsp;<b>Total lifesaver</b> 🙌. Sweep just saved me <b>6 hours of work</b> on GitHub.
                     </Testimonial>
                     <Testimonial name="Kunal Gupta" company="Co-founder of withfriends" href="https://withfriends.co/">
                         Using this, it’s pretty cool. It’s a little bit like having a junior intern, which doesn’t sound like a lot at first, but you can run like <b>100 junior interns</b> at once and they can cover a <b>lot of ground</b> in parallel.
@@ -57,3 +57,4 @@ export default function Testimonials() {
         </Box>
     );
 }
+
