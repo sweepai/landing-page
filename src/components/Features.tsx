@@ -1,5 +1,5 @@
 import { Box, Button, Code, Flex, HStack, Text, VStack } from "@chakra-ui/react";
-import { FaBook, FaGithub, FaSlack } from "react-icons/fa";
+import { FaBook, FaGitHub, FaSlack } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // @ts-ignore
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
@@ -21,9 +21,9 @@ def test_mock():
 # Rest of test cases...
 
 def test_manifest():
-    client = Manifest(client=None)  # Mock client
+    client = Manifest(client=None)  // Mock client
     backend = Manifest(client)
-    assert backend.run("test") == "test"  # Mock response
+    assert backend.run("test") == "test"  // Mock response
 `;
 
 const example_diff_code_prefix = `def deactivate(self, plugin_name: str):
@@ -199,7 +199,7 @@ export default function Features() {
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
                         <Box>
-                            <FaGithub size={40} />
+                            <FaGitHub size={40} />
                             <Text mt={4} fontSize="2xl" fontWeight="bold">Review for confidence</Text>
                             <Text mt={4} fontSize="md" color="lightgrey">Review all changes by Sweep, directly in Github. Comment if any changes need to be made. Push the commit if all looks good.</Text>
                             <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://github.com/apps/sweep-ai")}>
@@ -262,3 +262,4 @@ export default function Features() {
         </>
     );
 }
+
