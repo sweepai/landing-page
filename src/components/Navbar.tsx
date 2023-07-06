@@ -27,7 +27,7 @@ export default function NavBar() {
       link: "https://twitter.com/sweep__ai",
     },
     {
-      label: "Github",
+      label: "GitHub",
       icon: <FaGithub />,
       link: "https://github.com/sweepai",
     },
