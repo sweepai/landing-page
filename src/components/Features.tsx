@@ -35,7 +35,6 @@ const example_diff_code_prefix = `def deactivate(self, plugin_name: str):
 `;
 
 const example_diff_code_diff = `-       self.prompt = self.fill_prompt(self.template)
--       self.tokens = count_tokens(self.prompt)
 +       self.tokens = count_tokens(self.get_prompt())
 `;
 
@@ -200,7 +199,6 @@ export default function Features() {
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
                         <Box>
                             <FaGitHub size={40} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Review for confidence</Text>
                             <Text mt={4} fontSize="md" color="lightgrey">Review all changes by Sweep, directly in GitHub. Comment if any changes need to be made. Push the commit if all looks good.</Text>
                             <Text mt={4} fontSize="md" color="lightgrey">Review all changes by Sweep, directly in GitHub. Comment if any changes need to be made. Push the commit if all looks good.</Text>
                             <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://github.com/apps/sweep-ai")}>
