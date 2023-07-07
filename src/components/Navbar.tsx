@@ -13,7 +13,7 @@ import {
   MenuList,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { FaBook, FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
 export default function NavBar() {
@@ -37,11 +37,6 @@ export default function NavBar() {
       link: "https://discord.gg/sweep-ai",
     },
     {
-      label: "Docs",
-      icon: <FaBook />,
-      link: "https://docs.sweep.dev/start",
-    },
-    {
       label: "Email",
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
@@ -61,6 +56,9 @@ export default function NavBar() {
             <Button variant="ghost">
               <Image src={logo} alt="logo" width={10} borderRadius={12} />
               Sweep AI
+            </Button>
+            <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev/start", "_blank")}>
+              Documentation
             </Button>
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
@@ -123,4 +121,3 @@ export default function NavBar() {
     </Box>
   );
 }
-
