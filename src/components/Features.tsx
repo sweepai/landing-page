@@ -259,7 +259,10 @@ export default function Features() {
                     </Button>
                 </Box>
             </Box >
-        </>
+{/* Add the PyTorch Ignite logo in the appropriate section */}
+<Box>
+    <img src={pytorchIgniteLogo} alt="PyTorch Ignite Logo" />
+</Box>
 {/* Add the PyTorch Ignite logo in the appropriate section */}
 <img src={pytorchIgniteLogo} alt="PyTorch Ignite Logo" />
     );
