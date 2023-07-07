@@ -63,7 +63,7 @@ export default function NavBar() {
               Sweep AI
             </Button>
             <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev/start", "_blank")}>
-              Docs
+              Documentation
             </Button>
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
