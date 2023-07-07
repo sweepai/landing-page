@@ -43,7 +43,7 @@ type CommentProps = {
 const Comment = ({ children, src, username }: CommentProps) : JSX.Element => {
     return (
         <>
-            <CommentHeader src={src} username={username} href={`https://GitHub.com/${username}`} />
+            <CommentHeader src={src} username={username} href={`https://github.com/${username}`} />
             <Text 
                 fontSize="lg" 
                 textAlign="left"
@@ -114,9 +114,9 @@ const Example = ({
     issue_description,
     pull_request_title
 }: ExampleProps) : JSX.Element => {
-    const repo_url = `https://GitHub.com/${repo_name}`;
-    const issue_url = `https://GitHub.com/${repo_name}/issues/${issue_number}`;
-    const pull_request_url = `https://GitHub.com/${repo_name}/pull/${issue_number}`;
+    const repo_url = `https://github.com/${repo_name}`;
+    const issue_url = `https://github.com/${repo_name}/issues/${issue_number}`;
+    const pull_request_url = `https://github.com/${repo_name}/pull/${issue_number}`;
     return (
         <Box 
             overflow="hidden" 
