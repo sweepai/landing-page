@@ -37,11 +37,6 @@ export default function NavBar() {
       link: "https://discord.gg/sweep-ai",
     },
     {
-      label: "Docs",
-      icon: <FaBook />,
-      link: "https://docs.sweep.dev/start",
-    },
-    {
       label: "Email",
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
