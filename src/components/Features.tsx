@@ -2,7 +2,7 @@ import { Box, Button, Code, Flex, HStack, Text, VStack } from "@chakra-ui/react"
 import { FaBook, FaGithub, FaSlack } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // @ts-ignore
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-
+import pytorchIgniteLogo from "../assets/companies/pytorch_ignite.svg";
 import logo from "../assets/icon.png";
 import pills_examples from "../assets/pills_examples.svg";
 import User from "./User";
@@ -260,5 +260,9 @@ export default function Features() {
                 </Box>
             </Box >
         </>
+{/* Add the PyTorch Ignite logo in the appropriate section */}
+<img src={pytorchIgniteLogo} alt="PyTorch Ignite Logo" />
     );
 }
+
+
