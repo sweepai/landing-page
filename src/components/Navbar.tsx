@@ -60,6 +60,14 @@ export default function NavBar() {
             <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev/start", "_blank")}>
               Documentation
             </Button>
+            <IconButton
+              icon={<FaGithub />}
+              variant="ghost"
+              aria-label="Github"
+              onClick={() => {
+                window.open("https://github.com/sweepai", "_blank");
+              }}
+            />
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
