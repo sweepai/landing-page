@@ -3,7 +3,7 @@ import { HStack, Text, Image, Link } from "@chakra-ui/react";
 import StanfordLogo from "../assets/companies/stanford.png";
 import WaterlooLogo from "../assets/companies/waterloo.png";
 import CMULogo from "../assets/companies/cmu.svg";
-import MedPlum from "../assets/companies/MedPlum.svg"
+import MedPlum from "../assets/companies/medplum.svg"
 import PytorchIgniteLogo from "../assets/companies/pytorchignite.svg";
 
 const data = [
