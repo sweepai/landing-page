@@ -1,4 +1,3 @@
-import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -14,10 +13,10 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
+import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
 import logo from "../assets/icon.png";
 
 export default function NavBar() {
-
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
   const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
   const navItems = [
@@ -39,7 +38,7 @@ export default function NavBar() {
     {
       label: "Email",
       icon: <EmailIcon />,
-      link: "mailto:team@sweep.dev",
+      link: "mailto:luke@sweep.dev",
     },
     {
       label: "Buy Sweep Pro",
