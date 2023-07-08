@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
+import ThreeDMesh from './ThreeDMesh';
 
 export default function NavBar() {
 
@@ -118,6 +119,7 @@ export default function NavBar() {
           </Menu>
         </Flex>
       </HStack>
+      <ThreeDMesh />
     </Box>
   );
 }
