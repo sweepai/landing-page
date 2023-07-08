@@ -1,16 +1,15 @@
-from src.new_feature import new_feature
+from src.new_feature import init_feature, run_feature
 
 def main():
-    """
-    This is the main function that calls the 'new_feature' function.
-    """
+    '''
+    This is the main function that initializes and runs the new feature.
+    '''
     
-    # Define the parameters for the 'new_feature' function
-    param1 = 1
-    param2 = 2
+    # Initialize the new feature
+    init_feature()
     
-    # Call the 'new_feature' function with the parameters
-    result = new_feature(param1, param2)
+    # Run the new feature and get the result
+    result = run_feature()
     
     # Print the result
     print(f"The result of the new feature is: {result}")
