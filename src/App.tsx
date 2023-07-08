@@ -16,6 +16,7 @@ import Users from "./components/Users";
 import CallToAction from "./components/CallToAction";
 import Features from "./components/Features";
 import Conclusion from "./components/Conclusion";
+import circles from "./assets/circles.png"; // Add missing import
 
 const config: ThemeConfig = {
   initialColorMode: "dark",
@@ -56,7 +57,7 @@ export const App = () => {
           >
             {false && <ColorModeSwitcher />}
             <Navbar />
-            <ThreeDMesh />
+            <ThreeDMesh /> {/* Review the usage of `ThreeDMesh` */}
             <CallToAction />
             <Users />
             <Features />
