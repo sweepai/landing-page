@@ -4,4 +4,8 @@ def new_helper_function(input1, input2):
 
 def existing_helper_function(input):
     # Modify this function as needed for the new feature
-    return input * 2
+    pass
+
+def helper_func(input):
+    # Process the input for the new feature
+    return input * 3
