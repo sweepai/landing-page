@@ -73,6 +73,7 @@ export default function CallToAction() {
             flexDirection: "row",
             alignItems: "center",
           }}
+          tooltip="Discord Link"
         >
           <ThreeDMesh />
         </ExternalLinkWithText>
