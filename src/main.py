@@ -5,15 +5,22 @@ def main():
 
     # Initialize the new feature
     config = {'new_feature': {}}
-    new_feature.initialize_feature(config)
+    resources = []
+    try:
+        new_feature.initialize_feature(config)
+        
+        # Use the new feature
+        data = 10
+        result = new_feature.perform_operation(data, config['new_feature'])
+        print(f"Result: {result}")
 
-    # Use the new feature
-    data = 10
-    result = new_feature.perform_operation(data)
-    print(f"Result: {result}")
-
-    # Finalize the new feature
-    new_feature.finalize_feature()
+        # Add any acquired resources to the resources list
+        # For example: resources.append(acquired_resource)
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    finally:
+        # Finalize the new feature
+        new_feature.finalize_feature(resources)
 
     # Rest of main function code
 
