@@ -39,7 +39,7 @@ export default function NavBar() {
     {
       label: "Email",
       icon: <EmailIcon />,
-      link: "mailto:team@sweep.dev",
+      link: "mailto:luke@sweep.dev",
     },
     {
       label: "Buy Sweep Pro",
