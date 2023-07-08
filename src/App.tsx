@@ -5,7 +5,7 @@ import {
   useColorMode,
   ThemeConfig,
 } from "@chakra-ui/react";
-import CallToAction from "./components/CallToAction";
+import ThreeDMesh from "./components/ThreeDMesh";
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
 import ogimage from "./assets/ogimage.png";
@@ -13,8 +13,7 @@ import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { useEffect } from "react";
 import Testimonials from "./components/Testimonials";
 import Users from "./components/Users";
-
-import circles from "./assets/circles.svg";
+import CallToAction from "./components/CallToAction";
 import Features from "./components/Features";
 import Conclusion from "./components/Conclusion";
 
@@ -57,6 +56,7 @@ export const App = () => {
           >
             {false && <ColorModeSwitcher />}
             <Navbar />
+            <ThreeDMesh />
             <CallToAction />
             <Users />
             <Features />
