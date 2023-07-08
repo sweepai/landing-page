@@ -11,6 +11,7 @@ import { ArrowForwardIcon } from "@chakra-ui/icons";
 // import { Terminal } from "react-window-ui";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 
+import ThreeDMesh from './ThreeDMesh';
 import logo from "../assets/icon.png";
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
@@ -64,6 +65,7 @@ export default function CallToAction() {
         >
           <FaGithub />&nbsp;&nbsp;Install Sweep
         </Button>
+        <ThreeDMesh />
         <ExternalLinkWithText
           href="https://discord.gg/sweep-ai" // updated link
           color="purple.400"
@@ -87,4 +89,3 @@ export default function CallToAction() {
     </Container>
   );
 }
-
