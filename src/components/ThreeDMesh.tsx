@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import ReactDOM from 'react-dom';
 
 const ThreeDMesh = () => {
   const containerRef = useRef(null);
@@ -37,5 +38,22 @@ const ThreeDMesh = () => {
 
   return <div ref={containerRef} />;
 };
+
+// Tests for ThreeDMesh component
+describe('ThreeDMesh', () => {
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<ThreeDMesh />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  });
+
+  it('creates a cube', () => {
+    // Test if a cube is created
+  });
+
+  it('rotates cube based on mouse movement', () => {
+    // Test if cube rotates based on mouse movement
+  });
+});
 
 export default ThreeDMesh;
