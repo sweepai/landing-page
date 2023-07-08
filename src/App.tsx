@@ -13,6 +13,7 @@ import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { useEffect } from "react";
 import Testimonials from "./components/Testimonials";
 import Users from "./components/Users";
+import ThreeDMesh from "./components/ThreeDMesh"; // Added import for ThreeDMesh
 
 import circles from "./assets/circles.svg";
 import Features from "./components/Features";
@@ -57,6 +58,7 @@ export const App = () => {
           >
             {false && <ColorModeSwitcher />}
             <Navbar />
+            <ThreeDMesh /> {/* Added ThreeDMesh component */}
             <CallToAction />
             <Users />
             <Features />
