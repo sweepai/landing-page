@@ -42,7 +42,7 @@ export default function Testimonials() {
             <Box m={8} mt={32} width={{ base: "100%", md: "80%" }}>
                 <Text fontSize="3xl" mb={12} textAlign="center">What our users are saying</Text>
                 <Box display="flex" flexWrap="wrap" justifyContent="space-between">
-                    <Testimonial name="Jeremy Evans" company="Co-founder + CTO at savvy" href="https://trysavvy.com/">
+                    <Testimonial name="Jeremy Evans" company="Co-founder + CTO at savvy" href="https://trysavvy.com">
                         Holy crap, I'm <b>seriously impressed</b> 🤯. Other than one issue it seems to be <b>word-perfect</b>. Exactly how I'd write it, and it understands all our <b>company-specific concepts</b>. Very impressive! 🙌
                     </Testimonial>
                     <Testimonial name="Eduardo Reis" company="AI @ Stanford AIMI" href="https://plugnplai.com">
