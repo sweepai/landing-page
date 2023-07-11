@@ -29,7 +29,7 @@ export default function NavBar() {
     {
       label: "Github",
       icon: <FaGithub />,
-      link: "https://github.com/sweepai",
+      link: "https://github.com/sweepai/sweep",
     },
     {
       label: "Discord",
