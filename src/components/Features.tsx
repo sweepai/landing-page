@@ -1,6 +1,8 @@
 import { Box, Button, Code, Flex, HStack, Text, VStack } from "@chakra-ui/react";
 import { FaBook, FaGithub, FaSlack } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // @ts-ignore
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import logo from "../assets/icon.png";
@@ -42,13 +44,31 @@ const customStyle = {
 };
 
 const Dialog = ({ children, user, userProps, ...props }: any) => {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+    });
+
+    const variants = {
+        hidden: { opacity: 0, y: 50 },
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.5,
+                ease: "easeOut",
+            },
+        },
+    };
+
     return (
-        <HStack alignItems="flex-start" spacing={6} maxW="100% !important">
-            <User {...userProps}>{user}</User>
-            <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="purple.300" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
-                {children}
-            </Box>
-        </HStack>
+        <motion.div ref={ref} variants={variants} initial="hidden" animate={inView ? "show" : "hidden"}>
+            <HStack alignItems="flex-start" spacing={6} maxW="100% !important">
+                <User {...userProps}>{user}</User>
+                <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="purple.300" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
+                    {children}
+                </Box>
+            </HStack>
+        </motion.div>
     )
 }
 
