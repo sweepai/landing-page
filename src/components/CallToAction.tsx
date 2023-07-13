@@ -7,8 +7,6 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-// @ts-ignore
-// import { Terminal } from "react-window-ui";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 
 import logo from "../assets/icon.png";
@@ -87,4 +85,3 @@ export default function CallToAction() {
     </Container>
   );
 }
-
