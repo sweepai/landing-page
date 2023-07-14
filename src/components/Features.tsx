@@ -1,8 +1,20 @@
+import { motion, useInView } from 'framer-motion';
+
+const boxVariant = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5
+    }
+  }
+};
+
 import { Box, Button, Code, Flex, HStack, Text, VStack } from "@chakra-ui/react";
 import { FaBook, FaGithub, FaSlack } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // @ts-ignore
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-
 import logo from "../assets/icon.png";
 import pills_examples from "../assets/pills_examples.svg";
 import User from "./User";
@@ -53,9 +65,23 @@ const Dialog = ({ children, user, userProps, ...props }: any) => {
 }
 
 export default function Features() {
+    const [ref, inView] = useInView({
+        triggerOnce: true,
+        threshold: 0.1
+    });
+
     return (
         <>
-            <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
+            <motion(Box)
+                ref={ref}
+                variants={boxVariant}
+                initial='hidden'
+                animate={inView ? 'show' : 'hidden'}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                mb={96}
+            >
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
                         <Box>
@@ -125,7 +151,7 @@ export default function Features() {
                         </VStack>
                     </Box>
                 </Box>
-            </Box >
+            </motion(Box>
             <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" display={{ base: "flex", md: "none" }} mb={12}>
@@ -220,7 +246,6 @@ export default function Features() {
                                             padding: 0,
                                             overflowX: "hidden",
                                             backgroundColor: "transparent",
-                                            marginBottom: 0,
                                         }}
                                     >
                                         {example_diff_code_prefix}
@@ -243,14 +268,6 @@ export default function Features() {
                             </Dialog>
                         </VStack>
                     </Box>
-                </Box>
-            </Box >
-            <Box display="flex" justifyContent="center" alignItems="center" py={48} bgImage={pills_examples} bgSize="cover">
-                <Box m={8} flexWrap="wrap" justifyContent="space-around" w={{ base: "full", md: "80%" }} textAlign="center">
-                    <Text mb={4} fontSize="3xl">See example tickets, handled by Sweep</Text>
-                    <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://docs.sweep.dev/examples")}>
-                        <FaBook />&nbsp;&nbsp;Example Sweep tickets
-                    </Button>
                 </Box>
             </Box >
         </>
