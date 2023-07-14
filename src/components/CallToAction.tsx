@@ -6,13 +6,11 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
-// import { ArrowForwardIcon } from "@chakra-ui/icons";
-// @ts-ignore
-// import { Terminal } from "react-window-ui";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 
 import logo from "../assets/icon.png";
 import ExternalLinkWithText from "./ExternalLinkWithText";
+
 const demo = require("../assets/demo.mp4");
 
 export default function CallToAction() {
@@ -26,9 +24,15 @@ export default function CallToAction() {
         style={{ paddingTop: "0 !important" }}
         mb={36}
       >
-        <img src={logo} alt="Logo" width={120} height={120} style={{
-          animation: "bob 0.75s ease-in-out infinite alternate",
-        }} />
+        <img
+          src={logo}
+          alt="Logo"
+          width={120}
+          height={120}
+          style={{
+            animation: "bob 0.75s ease-in-out infinite alternate",
+          }}
+        />
         <style>
           {`
             @keyframes bob {
@@ -64,7 +68,7 @@ export default function CallToAction() {
           <FaGithub />&nbsp;&nbsp;Install Sweep
         </Button>
         <ExternalLinkWithText
-          href="https://discord.gg/sweep-ai" // updated link
+          href="https://discord.gg/sweep-ai"
           color="purple.400"
           mt="0 !important"
           style={{
