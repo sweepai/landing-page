@@ -6,9 +6,6 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
-// import { ArrowForwardIcon } from "@chakra-ui/icons";
-// @ts-ignore
-// import { Terminal } from "react-window-ui";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 
 import logo from "../assets/icon.png";
@@ -27,7 +24,7 @@ export default function CallToAction() {
         mb={36}
       >
         <img src={logo} alt="Logo" width={120} height={120} style={{
-          animation: "bob 0.75s ease-in-out infinite alternate",
+          animation: "bob 0.375s ease-in-out infinite alternate",
         }} />
         <style>
           {`
