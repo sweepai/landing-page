@@ -6,7 +6,7 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+// import { ArrowForwardIcon } from "@chakra-ui/icons";
 // @ts-ignore
 // import { Terminal } from "react-window-ui";
 import { FaDiscord, FaGithub } from "react-icons/fa";
