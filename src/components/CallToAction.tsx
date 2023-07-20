@@ -32,11 +32,20 @@ export default function CallToAction() {
         <style>
           {`
             @keyframes bob {
-              from {
-                transform: translateY(0);
+              0% {
+                transform: rotate(0deg) translate(0, 0);
               }
-              to {
-                transform: translateY(15px);
+              25% {
+                transform: rotate(90deg) translate(15px, 0);
+              }
+              50% {
+                transform: rotate(180deg) translate(15px, 15px);
+              }
+              75% {
+                transform: rotate(270deg) translate(0, 15px);
+              }
+              100% {
+                transform: rotate(360deg) translate(0, 0);
               }
             }
           `}
