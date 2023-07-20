@@ -42,11 +42,11 @@ export default function NavBar() {
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
     },
-    {
-      label: "Buy Sweep Pro",
-      icon: <p>Buy Sweep Pro</p>,
-      link: "https://buy.stripe.com/fZe03512h99u0AE6os",
-    },
+    // {
+    //   label: "Buy Sweep Pro",
+    //   icon: <p>Buy Sweep Pro</p>,
+    //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
+    // },
   ];
 
   return (
@@ -61,6 +61,7 @@ export default function NavBar() {
             <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
               Documentation
             </Button>
+            {listDisplay == "none" && <PricingModal />}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
@@ -75,9 +76,9 @@ export default function NavBar() {
                 px={2}
               />
             ))}
+            <PricingModal />
           </ButtonGroup>
           <Menu>
-            <PricingModal />
             <MenuButton
               as={IconButton}
               aria-label='Options'

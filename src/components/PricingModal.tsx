@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import { Modal, Button } from '@chakra-ui/react';
+import { useState } from 'react';
+import { Text, Modal, Button, ModalBody, ModalFooter, ModalOverlay, ModalContent, SimpleGrid, Box } from '@chakra-ui/react';
+// import { MdDiamond } from "react-icons/md";
 
-const PricingModal = () => {
+
+export default function PricingModal() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -9,28 +11,85 @@ const PricingModal = () => {
 
   return (
     <>
-      <Button colorScheme="teal" onClick={handleShow}>
-        Buy Sweep Pro
+      <Button onClick={handleShow}>
+        Pricing
       </Button>
 
-        <Modal isOpen={show} onClose={handleClose}>
-            <ModalHeader>Sweep Pricing</ModalHeader>
-            <ModalBody>
-                <h5>Free: 5 Sweep tickets</h5>
-                <h5>Pro ($240/seat/month): 120 sweep tickets, attributing Sweep PRs to users instead of Sweep, priority support, commercial TOS</h5>
-                <h5>Enterprise: Contact us for pricing</h5>
-            </ModalBody>
-            <ModalFooter>
-                <Button variant="ghost" onClick={handleClose}>
-                    Close
+      <Modal isOpen={show} onClose={handleClose} size="5xl">
+        <ModalOverlay />
+        <ModalContent p={8} backgroundColor="#0d1117" pb={4}>
+          <ModalBody>
+            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                justifyContent="space-between"
+                height="100%"
+              >
+                <Box>
+                  <Text fontSize="lg" mb={2} textAlign="center">
+                    ⚡ Basic
+                  </Text>
+                  <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
+                    Free
+                  </Text>
+                  <Box as="ul" style={{ listStyleType: 'none' }}>
+                    <li>✔ 5 GPT-4 Sweep tickets / month</li>
+                    <li>✔ Unlimited GPT-3.5 sweep tickets</li>
+                    <li>✔ Non-Commercial TOS</li>
+                  </Box>
+                </Box>
+                <Button colorScheme="purple" mt={12} onClick={() => window.open("https://github.com/sweepai/sweep#-getting-started", "_blank")}>
+                  Install
                 </Button>
-                <Button colorScheme="teal" onClick={() => window.open("https://buy.stripe.com/fZe03512h99u0AE6os", "_blank")}>
-                    Purchase
+              </Box>
+              <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
+                <Box>
+                  <Text fontSize="lg" mb={2} textAlign="center">
+                    💎 Pro
+                  </Text>
+                  <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
+                    $240 <span style={{ fontWeight: "normal" }}>/ month</span>
+                  </Text>
+                  <Box as="ul" style={{ listStyleType: 'none' }}>
+                    <li>✔ 120 GPT-4 sweep tickets / month</li>
+                    <li>✔ Unlimited GPT-3.5 sweep tickets</li>
+                    <li>✔ Priority support</li>
+                    <li>✔ Commercial TOS</li>
+                  </Box>
+                </Box>
+                <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/fZe03512h99u0AE6os", "_blank")}>
+                  Purchase
                 </Button>
-            </ModalFooter>
-        </Modal>
+              </Box>
+              <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
+                <Box>
+                  <Text fontSize="lg" mb={2} textAlign="center">
+                    🏢 Enterprise
+                  </Text>
+                  <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
+                    Custom
+                  </Text>
+                  <Box as="ul" style={{ listStyleType: 'none' }}>
+                    <li>✔ Unlimited GPT-4 sweep tickets</li>
+                    <li>✔ Enterprise support</li>
+                    <li>✔ Fine-tuned retrieval model</li>
+                  </Box>
+                </Box>
+                <Button colorScheme="purple" mt={12} onClick={() => window.open("https://form.typeform.com/to/wliuvyWE", "_blank")}>
+                  Contact us
+                </Button>
+              </Box>
+            </SimpleGrid>
+          </ModalBody>
+          <ModalFooter display="flex" alignItems="center" flexDirection="column">
+            <Button variant="ghost" onClick={handleClose} mt={4}>
+              ✕
+            </Button>
+          </ModalFooter>
+        </ ModalContent>
+      </Modal >
     </>
   );
 }
-
-export default PricingModal;
