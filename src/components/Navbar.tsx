@@ -1,4 +1,5 @@
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
+import PricingModal from './PricingModal';
 import {
   Box,
   Button,
@@ -76,17 +77,7 @@ export default function NavBar() {
             ))}
           </ButtonGroup>
           <Menu>
-            <IconButton
-              key={"Sweep Pro"}
-              icon={<p>Sweep Pro</p>}
-              variant="ghost"
-              aria-label={"Sweep Pro"}
-              onClick={() => {
-                window.open("https://buy.stripe.com/fZe03512h99u0AE6os", "_blank");
-              }}
-              px={2}
-              display={menuDisplay}
-            />
+            <PricingModal />
             <MenuButton
               as={IconButton}
               aria-label='Options'
