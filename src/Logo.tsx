@@ -8,9 +8,9 @@ import {
 } from "@chakra-ui/react"
 import logo from "./logo.svg"
 
-const spin = keyframes`
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+const circle = keyframes`
+  0% { transform: rotate(0deg) translate(20px) rotate(0deg); }
+  100% { transform: rotate(360deg) translate(20px) rotate(-360deg); }
 `
 
 export const Logo = forwardRef<ImageProps, "img">((props, ref) => {
@@ -18,7 +18,7 @@ export const Logo = forwardRef<ImageProps, "img">((props, ref) => {
 
   const animation = prefersReducedMotion
     ? undefined
-    : `${spin} infinite 20s linear`
+    : `${circle} infinite 20s linear`
 
   return <chakra.img animation={animation} src={logo} ref={ref} {...props} />
 })
