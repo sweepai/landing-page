@@ -1,18 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+interface Particle {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  size: number;
+}
+
 interface ParticlesProps {
   numParticles: number;
   particleSize: number;
   speed: number;
 }
 
-const Particles: React.FC<ParticlesProps> = ({ numParticles, particleSize, speed }) => {
+const Particles: React.FC<ParticlesProps>: JSX.Element = ({ numParticles, particleSize, speed }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [particles, setParticles] = useState<Array<{x: number, y: number, vx: number, vy: number, size: number}>>([]);
+  const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
     // Generate particles
-    const newParticles = [];
+    const newParticles: Particle[] = [];
     for (let i = 0; i < numParticles; i++) {
       newParticles.push({
         x: Math.random() * (canvasRef.current ? canvasRef.current.width : 0),
@@ -20,7 +28,7 @@ const Particles: React.FC<ParticlesProps> = ({ numParticles, particleSize, speed
         vx: (Math.random() - 0.5) * speed,
         vy: (Math.random() - 0.5) * speed,
         size: Math.random() * particleSize,
-      });
+      } as Particle);
     }
     setParticles(newParticles);
   }, [numParticles, particleSize, speed]);
@@ -29,7 +37,7 @@ const Particles: React.FC<ParticlesProps> = ({ numParticles, particleSize, speed
     // Animate particles
     if (canvasRef.current) {
       const ctx = canvasRef.current.getContext('2d');
-      if (ctx !== null) {
+      if (ctx) {
         const animate = () => {
           ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
           particles.forEach(particle => {
