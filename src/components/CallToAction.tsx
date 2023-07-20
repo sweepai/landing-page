@@ -10,9 +10,10 @@ import {
 // @ts-ignore
 // import { Terminal } from "react-window-ui";
 import { FaDiscord, FaGithub } from "react-icons/fa";
-
+import { FaDiscord, FaGithub } from "react-icons/fa";
 import logo from "../assets/icon.png";
 import ExternalLinkWithText from "./ExternalLinkWithText";
+import Particles from "./Particles";
 const demo = require("../assets/demo.mp4");
 
 export default function CallToAction() {
@@ -29,6 +30,7 @@ export default function CallToAction() {
         <img src={logo} alt="Logo" width={120} height={120} style={{
           animation: "bob 0.75s ease-in-out infinite alternate",
         }} />
+        <Particles numParticles={100} particleSize={5} speed={2} />
         <style>
           {`
             @keyframes bob {
