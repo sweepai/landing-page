@@ -20,7 +20,7 @@ function handleButtonClick() {
   Particles.init({
     selector: '.particles',
     maxParticles: 100,
-    color: '#ffffff',
+    color: '#000000',
     connectParticles: true
   });
 
