@@ -6,7 +6,8 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
-// import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { FaDiscord, FaGithub } from "react-icons/fa";
+import Particles from 'particles.js';
 // @ts-ignore
 // import { Terminal } from "react-window-ui";
 import { FaDiscord, FaGithub } from "react-icons/fa";
@@ -14,6 +15,19 @@ import { FaDiscord, FaGithub } from "react-icons/fa";
 import logo from "../assets/icon.png";
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
+
+function handleButtonClick() {
+  Particles.init({
+    selector: '.particles',
+    maxParticles: 100,
+    color: '#ffffff',
+    connectParticles: true
+  });
+
+  setTimeout(() => {
+    Particles.destroy();
+  }, 5000);
+}
 
 export default function CallToAction() {
   return (
@@ -57,7 +71,7 @@ export default function CallToAction() {
           colorScheme={"purple"}
           bg={"purple.400"}
           _hover={{ bg: "purple.600" }}
-          onClick={() => window.open("https://github.com/sweepai/sweep#-getting-started")}
+          onClick={handleButtonClick}
           fontSize={"xl"}
           mb="1rem !important"
         >
