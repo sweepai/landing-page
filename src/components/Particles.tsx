@@ -1,7 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const Particles = ({ numParticles, particleSize, speed }) => {
-  const canvasRef = useRef(null);
+interface ParticlesProps {
+  numParticles: number;
+  particleSize: number;
+  speed: number;
+}
+
+const Particles: React.FC<ParticlesProps> = ({ numParticles, particleSize, speed }) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [particles, setParticles] = useState([]);
 
   useEffect(() => {
