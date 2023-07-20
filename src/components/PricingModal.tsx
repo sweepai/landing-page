@@ -13,22 +13,22 @@ const PricingModal = () => {
         Buy Sweep Pro
       </Button>
 
-      <Modal isOpen={show} onClose={handleClose}>
-        <Modal.Header>Sweep Pricing</Modal.Header>
-        <Modal.Body>
-          <h5>Free: 5 Sweep tickets</h5>
-          <h5>Pro ($240/seat/month): 120 sweep tickets, attributing Sweep PRs to users instead of Sweep, priority support, commercial TOS</h5>
-          <h5>Enterprise: Contact us for pricing</h5>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="ghost" onClick={handleClose}>
-            Close
-          </Button>
-          <Button colorScheme="teal" onClick={() => window.open("https://buy.stripe.com/fZe03512h99u0AE6os", "_blank")}>
-            Purchase
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        <Modal isOpen={show} onClose={handleClose}>
+            <ModalHeader>Sweep Pricing</ModalHeader>
+            <ModalBody>
+                <h5>Free: 5 Sweep tickets</h5>
+                <h5>Pro ($240/seat/month): 120 sweep tickets, attributing Sweep PRs to users instead of Sweep, priority support, commercial TOS</h5>
+                <h5>Enterprise: Contact us for pricing</h5>
+            </ModalBody>
+            <ModalFooter>
+                <Button variant="ghost" onClick={handleClose}>
+                    Close
+                </Button>
+                <Button colorScheme="teal" onClick={() => window.open("https://buy.stripe.com/fZe03512h99u0AE6os", "_blank")}>
+                    Purchase
+                </Button>
+            </ModalFooter>
+        </Modal>
     </>
   );
 }
