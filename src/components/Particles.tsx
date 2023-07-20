@@ -29,18 +29,20 @@ const Particles: React.FC<ParticlesProps> = ({ numParticles, particleSize, speed
     // Animate particles
     if (canvasRef.current) {
       const ctx = canvasRef.current.getContext('2d');
-      const animate = () => {
-        ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-        particles.forEach(particle => {
-          particle.x += particle.vx;
-          particle.y += particle.vy;
-          ctx.beginPath();
-          ctx.arc(particle.x, particle.y, particle.size, 0, 2 * Math.PI);
-          ctx.fill();
-        });
-        requestAnimationFrame(animate);
-      };
-      animate();
+      if (ctx !== null) {
+        const animate = () => {
+          ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+          particles.forEach(particle => {
+            particle.x += particle.vx;
+            particle.y += particle.vy;
+            ctx.beginPath();
+            ctx.arc(particle.x, particle.y, particle.size, 0, 2 * Math.PI);
+            ctx.fill();
+          });
+          requestAnimationFrame(animate);
+        };
+        animate();
+      }
     }
   }, [particles]);
 
