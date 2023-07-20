@@ -6,6 +6,7 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
+import Particles from './Particles';
 // import { ArrowForwardIcon } from "@chakra-ui/icons";
 // @ts-ignore
 // import { Terminal } from "react-window-ui";
@@ -28,7 +29,9 @@ export default function CallToAction() {
       >
         <img src={logo} alt="Logo" width={120} height={120} style={{
           animation: "bob 0.75s ease-in-out infinite alternate",
-        }} />
+        }} >
+          <Particles numParticles={100} particleSize={5} speed={2} />
+        </img>
         <style>
           {`
             @keyframes bob {
