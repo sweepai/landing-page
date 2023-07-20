@@ -59,7 +59,7 @@ export default function PricingModal() {
                     <li>✔ Commercial TOS</li>
                   </Box>
                 </Box>
-                <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/fZe03512h99u0AE6os", "_blank")}>
+                <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/9AQ8zB26letOgzC5kp", "_blank")}>
                   Purchase
                 </Button>
               </Box>
