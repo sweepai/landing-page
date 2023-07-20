@@ -8,7 +8,7 @@ interface ParticlesProps {
 
 const Particles: React.FC<ParticlesProps> = ({ numParticles, particleSize, speed }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [particles, setParticles] = useState([]);
+  const [particles, setParticles] = useState<Array<{x: number, y: number, vx: number, vy: number, size: number}>>([]);
 
   useEffect(() => {
     // Generate particles
