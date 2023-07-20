@@ -33,24 +33,10 @@ export default function CallToAction() {
           {`
             @keyframes circle {
               0% {
-                top: 0;
-                left: 0;
-              }
-              25% {
-                top: 0;
-                left: 100%;
-              }
-              50% {
-                top: 100%;
-                left: 100%;
-              }
-              75% {
-                top: 100%;
-                left: 0;
+                transform: rotate(0deg);
               }
               100% {
-                top: 0;
-                left: 0;
+                transform: rotate(360deg);
               }
             }
           `}
