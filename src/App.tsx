@@ -8,6 +8,7 @@ import {
 import CallToAction from "./components/CallToAction";
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
+import PricingModal from './components/PricingModal';
 import ogimage from "./assets/ogimage.png";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { useEffect } from "react";
@@ -15,13 +16,6 @@ import Testimonials from "./components/Testimonials";
 import Users from "./components/Users";
 
 import circles from "./assets/circles.svg";
-import Features from "./components/Features";
-import Conclusion from "./components/Conclusion";
-
-const config: ThemeConfig = {
-  initialColorMode: "dark",
-  useSystemColorMode: false,
-};
 
 const theme = extendTheme({ config });
 
@@ -37,6 +31,7 @@ function ForceDarkMode(props: { children: JSX.Element }) {
 }
 
 export const App = () => {
+  const [showPricingModal, setShowPricingModal] = React.useState(false);
   return (
     <>
       <Helmet>
@@ -56,12 +51,13 @@ export const App = () => {
             overflowX="hidden"
           >
             {false && <ColorModeSwitcher />}
-            <Navbar />
+            <Navbar setShowPricingModal={setShowPricingModal} />
             <CallToAction />
             <Users />
             <Features />
             <Testimonials />
             <Conclusion />
+            <PricingModal show={showPricingModal} handleClose={() => setShowPricingModal(false)} />
           </Box>
         </ForceDarkMode>
       </ChakraProvider>
