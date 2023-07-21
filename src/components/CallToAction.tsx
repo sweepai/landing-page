@@ -36,13 +36,13 @@ export default function CallToAction() {
                 transform: translate(0, 0);
               }
               25% {
-                transform: translate(10px, 10px);
+                transform: translate(20px, 20px);
               }
               50% {
-                transform: translate(0, 20px);
+                transform: translate(0, 40px);
               }
               75% {
-                transform: translate(-10px, 10px);
+                transform: translate(-20px, 20px);
               }
               100% {
                 transform: translate(0, 0);
