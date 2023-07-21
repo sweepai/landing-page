@@ -35,14 +35,26 @@ export default function CallToAction() {
               0% {
                 transform: translate(0, 0);
               }
-              25% {
+              12.5% {
                 transform: translate(10px, 20px);
               }
-              50% {
+              25% {
                 transform: translate(20px, 0);
               }
-              75% {
+              37.5% {
                 transform: translate(10px, -20px);
+              }
+              50% {
+                transform: translate(0, 0);
+              }
+              62.5% {
+                transform: translate(-10px, 20px);
+              }
+              75% {
+                transform: translate(-20px, 0);
+              }
+              87.5% {
+                transform: translate(-10px, -20px);
               }
               100% {
                 transform: translate(0, 0);
