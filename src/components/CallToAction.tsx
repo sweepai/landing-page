@@ -26,18 +26,48 @@ export default function CallToAction() {
         style={{ paddingTop: "0 !important" }}
         mb={36}
       >
-        <img src={logo} alt="Logo" width={120} height={120} style={{
-          animation: "bob 0.75s ease-in-out infinite alternate",
-        }} />
+        <img src={logo} alt="Logo" className="eight" width={120} height={120} />
         <style>
           {`
-            @keyframes bob {
-              from {
-                transform: translateY(0);
-              }
-              to {
-                transform: translateY(15px);
-              }
+            .eight {
+              margin: 4em auto;
+              background: transparent;
+              width: 8em;
+              height: 8em;
+              position: relative;
+              -webkit-transform-origin: center center 0;
+              transform-origin: center center 0;
+              -webkit-animation: flip 1s infinite step-end;
+              animation: flip 1s infinite step-end;
+            }
+            .eight:before {
+              content: "";
+              display: block;
+              position: absolute;
+              top:0;
+              left:3.5em;
+              width: 1em;
+              height: 4em;
+              background: transparent;
+              box-shadow:0 -0.5em 0 0 #fff,0 0.5em 0 0 #fff inset;
+              -webkit-transform-origin: center bottom 0;
+              transform-origin: center bottom 0;
+              -webkit-animation: roll 1s infinite linear;
+              animation: roll 1s infinite linear;
+            }
+            @keyframes roll {
+              100% { transform: rotateZ(-2turn); }
+            }
+            @-webkit-keyframes roll {
+              100% { -webkit-transform: rotateZ(-2turn); }
+            }
+            @keyframes flip {
+              25% { transform: rotateY(0.5turn) translate(0,-8em); }
+              75% { transform: rotateY(0turn); }
+            }
+            @-webkit-keyframes flip {
+              25% { -webkit-transform: rotateY(0.5turn) translate(0,-8em); }
+              75% { -webkit-transform: rotateY(0turn); }
             }
           `}
         </style>
