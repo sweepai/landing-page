@@ -27,8 +27,8 @@ export default function CallToAction() {
         mb={36}
       >
         <img src={logo} alt="Logo" width={120} height={120} style={{
-          animation: "figure8 2s linear infinite",
-          transition: "all 0.5s ease",
+          animation: "figure8 16s linear infinite",
+          transition: "all 1s ease",
         }} />
         <style>
           {`
@@ -36,26 +36,50 @@ export default function CallToAction() {
               0% {
                 transform: translate(0, 0);
               }
+              6.25% {
+                transform: translate(10px, 20px);
+              }
               12.5% {
                 transform: translate(20px, 40px);
+              }
+              18.75% {
+                transform: translate(30px, 20px);
               }
               25% {
                 transform: translate(40px, 0);
               }
+              31.25% {
+                transform: translate(30px, -20px);
+              }
               37.5% {
                 transform: translate(20px, -40px);
+              }
+              43.75% {
+                transform: translate(10px, -20px);
               }
               50% {
                 transform: translate(0, 0);
               }
+              56.25% {
+                transform: translate(-10px, 20px);
+              }
               62.5% {
                 transform: translate(-20px, 40px);
+              }
+              68.75% {
+                transform: translate(-30px, 20px);
               }
               75% {
                 transform: translate(-40px, 0);
               }
+              81.25% {
+                transform: translate(-30px, -20px);
+              }
               87.5% {
                 transform: translate(-20px, -40px);
+              }
+              93.75% {
+                transform: translate(-10px, -20px);
               }
               100% {
                 transform: translate(0, 0);
