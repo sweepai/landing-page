@@ -6,6 +6,7 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
+import particlesJS from 'particles.js';
 // import { ArrowForwardIcon } from "@chakra-ui/icons";
 // @ts-ignore
 // import { Terminal } from "react-window-ui";
@@ -16,6 +17,12 @@ import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
 export default function CallToAction() {
+  const generateParticles = () => {
+    particlesJS.load('particles-js', 'assets/particles.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
+  }
+  
   return (
     <Container maxW={"5xl"}>
       <Stack
@@ -57,7 +64,10 @@ export default function CallToAction() {
           colorScheme={"purple"}
           bg={"purple.400"}
           _hover={{ bg: "purple.600" }}
-          onClick={() => window.open("https://github.com/sweepai/sweep#-getting-started")}
+          onClick={() => { 
+            window.open("https://github.com/sweepai/sweep#-getting-started");
+            generateParticles();
+          }}
           fontSize={"xl"}
           mb="1rem !important"
         >
