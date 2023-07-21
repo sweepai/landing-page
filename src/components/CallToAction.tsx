@@ -27,34 +27,22 @@ export default function CallToAction() {
         mb={36}
       >
         <img src={logo} alt="Logo" width={120} height={120} style={{
-          animation: "figureEight 1s ease-in-out infinite",
+          animation: "twoCircles 1s ease-in-out infinite",
         }} />
         <style>
           {`
-            @keyframes figureEight {
+            @keyframes twoCircles {
               0% {
                 transform: translate(0, 0);
               }
-              10% {
-                transform: translate(10px, 10px);
-              }
               25% {
-                transform: translate(20px, 20px);
-              }
-              35% {
-                transform: translate(10px, 30px);
+                transform: translate(20px, 0);
               }
               50% {
-                transform: translate(0, 40px);
-              }
-              65% {
-                transform: translate(-10px, 30px);
+                transform: translate(20px, 20px);
               }
               75% {
-                transform: translate(-20px, 20px);
-              }
-              90% {
-                transform: translate(-10px, 10px);
+                transform: translate(0, 20px);
               }
               100% {
                 transform: translate(0, 0);
