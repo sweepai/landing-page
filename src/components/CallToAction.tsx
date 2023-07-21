@@ -27,7 +27,7 @@ export default function CallToAction() {
         mb={36}
       >
         <img src={logo} alt="Logo" width={120} height={120} style={{
-          animation: "figure8 2s ease-in-out infinite",
+          animation: "figure8 1s linear infinite",
         }} />
         <style>
           {`
