@@ -26,8 +26,8 @@ export default function CallToAction() {
         style={{ paddingTop: "0 !important" }}
         mb={36}
       >
-        <img src={logo} alt="Logo" width={120} height={120} style={{
-          animation: "figureEight 1s ease-in-out infinite",
+        <img src={logo} alt="Logo" width={480} height={480} style={{
+          animation: "figureEight 4s ease-in-out infinite",
         }} />
         <style>
           {`
