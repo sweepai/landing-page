@@ -32,11 +32,23 @@ export default function CallToAction() {
         <style>
           {`
             @keyframes figureEight {
-              0% { transform: translateX(0) rotate(0deg); }
-              25% { transform: translateX(60px) rotate(180deg); }
-              50% { transform: translateX(0) rotate(360deg); }
-              75% { transform: translateX(-60px) rotate(540deg); }
-              100% { transform: translateX(0) rotate(720deg); }
+              0% { transform: translate(0, 0) rotate(0deg); }
+              6.25% { transform: translate(30px, 15px) rotate(45deg); }
+              12.5% { transform: translate(60px, 30px) rotate(90deg); }
+              18.75% { transform: translate(90px, 45px) rotate(135deg); }
+              25% { transform: translate(120px, 60px) rotate(180deg); }
+              31.25% { transform: translate(150px, 75px) rotate(225deg); }
+              37.5% { transform: translate(180px, 90px) rotate(270deg); }
+              43.75% { transform: translate(210px, 105px) rotate(315deg); }
+              50% { transform: translate(240px, 120px) rotate(360deg); }
+              56.25% { transform: translate(210px, 105px) rotate(405deg); }
+              62.5% { transform: translate(180px, 90px) rotate(450deg); }
+              68.75% { transform: translate(150px, 75px) rotate(495deg); }
+              75% { transform: translate(120px, 60px) rotate(540deg); }
+              81.25% { transform: translate(90px, 45px) rotate(585deg); }
+              87.5% { transform: translate(60px, 30px) rotate(630deg); }
+              93.75% { transform: translate(30px, 15px) rotate(675deg); }
+              100% { transform: translate(0, 0) rotate(720deg); }
             }
           `}
         </style>
