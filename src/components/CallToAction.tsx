@@ -26,16 +26,16 @@ export default function CallToAction() {
         style={{ paddingTop: "0 !important" }}
         mb={36}
       >
-        <img src={logo} alt="Logo" width={480} height={480} style={{
+        <img src={logo} alt="Logo" width={120} height={120} style={{
           animation: "figureEight 4s ease-in-out infinite",
         }} />
         <style>
           {`
             @keyframes figureEight {
               0% { transform: translateX(0) rotate(0deg); }
-              25% { transform: translateX(15px) rotate(180deg); }
+              25% { transform: translateX(60px) rotate(180deg); }
               50% { transform: translateX(0) rotate(360deg); }
-              75% { transform: translateX(-15px) rotate(540deg); }
+              75% { transform: translateX(-60px) rotate(540deg); }
               100% { transform: translateX(0) rotate(720deg); }
             }
           `}
