@@ -27,16 +27,25 @@ export default function CallToAction() {
         mb={36}
       >
         <img src={logo} alt="Logo" width={120} height={120} style={{
-          animation: "bob 0.75s ease-in-out infinite alternate",
+          animation: "bob 0.75s ease-in-out infinite alternate, rotate 2s linear infinite 0.75s",
         }} />
         <style>
           {`
             @keyframes bob {
-              from {
+              0% {
                 transform: translateY(0);
               }
-              to {
+              100% {
                 transform: translateY(15px);
+              }
+            }
+
+            @keyframes rotate {
+              from {
+                transform: rotate(0deg);
+              }
+              to {
+                transform: rotate(360deg);
               }
             }
           `}
