@@ -27,7 +27,7 @@ export default function CallToAction() {
         mb={36}
       >
         <img src={logo} alt="Logo" width={120} height={120} style={{
-          animation: "bob 0.375s ease-in-out infinite alternate",
+          animation: "bob 0.09375s ease-in-out infinite alternate",
         }} />
         <style>
           {`
