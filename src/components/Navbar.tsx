@@ -19,8 +19,8 @@ import logo from "../assets/icon.png";
 
 export default function NavBar() {
 
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+  const listDisplay = useBreakpointValue({ base: "none", md: "flex" });
+  const menuDisplay = useBreakpointValue({ base: "flex", md: "none" });
   const navItems = [
     {
       label: "Twitter",
@@ -85,6 +85,7 @@ export default function NavBar() {
               icon={<HamburgerIcon />}
               variant='outline'
               display={menuDisplay}
+              size="lg"
             />
             <MenuList
               backgroundColor="#333"
