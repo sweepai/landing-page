@@ -119,9 +119,9 @@ const Example = ({
     const pull_request_url = `https://github.com/${repo_name}/pull/${issue_number}`;
     return (
         <Box 
-            overflow="hidden" 
-            p={4} 
-            width={{base: "100%", md: "30%"}}
+            overflow="auto" 
+            p={{base: 2, md: 4}} 
+            width="100%"
             mb={8}
         >
             <Text 
