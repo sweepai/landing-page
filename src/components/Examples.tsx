@@ -120,13 +120,14 @@ const Example = ({
     return (
         <Box 
             overflow="auto" 
-            p={{base: 2, md: 4}} 
+            p={{base: 4, md: 6}} 
             width="100%"
             mb={8}
         >
             <Text 
                 fontSize="lg" 
                 textAlign="left"
+                p={4}
             >
                     <ExternalLinkWithText href={repo_url} includeIcon={false}>
                         {repo_name}
