@@ -56,7 +56,7 @@ export default function Features() {
     return (
         <>
             <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
-                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
+                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w={{base: "100%", md: "80%"}} textAlign="left">
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
                         <Box>
                             <img src={logo} alt="Sweep logo" width={50} />
@@ -127,7 +127,7 @@ export default function Features() {
                 </Box>
             </Box >
             <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
-                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
+                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w={{base: "100%", md: "80%"}} textAlign="left">
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" display={{ base: "flex", md: "none" }} mb={12}>
                         <Box>
                             <FaSlack size={40} />
@@ -190,7 +190,7 @@ export default function Features() {
                 </Box>
             </Box >
             <Box display="flex" justifyContent="center" alignItems="center" mb={48}>
-                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
+                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w={{base: "100%", md: "80%"}} textAlign="left">
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
                         <Box>
                             <FaGithub size={40} />
