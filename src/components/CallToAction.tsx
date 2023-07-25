@@ -6,11 +6,11 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
-// import { ArrowForwardIcon } from "@chakra-ui/icons";
-// @ts-ignore
-// import { Terminal } from "react-window-ui";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 
+import ThreeJsSphere from "./ThreeJsSphere";
+import ExternalLinkWithText from "./ExternalLinkWithText";
+const demo = require("../assets/demo.mp4");
 import logo from "../assets/icon.png";
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
@@ -26,21 +26,7 @@ export default function CallToAction() {
         style={{ paddingTop: "0 !important" }}
         mb={36}
       >
-        <img src={logo} alt="Logo" width={120} height={120} style={{
-          animation: "bob 0.75s ease-in-out infinite alternate",
-        }} />
-        <style>
-          {`
-            @keyframes bob {
-              from {
-                transform: translateY(0);
-              }
-              to {
-                transform: translateY(15px);
-              }
-            }
-          `}
-        </style>
+        <ThreeJsSphere />
         <Heading
           fontWeight={600}
           fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
