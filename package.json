@@ -16,7 +16,6 @@
     "@types/react-dom": "^18.0.11",
     "@types/react-helmet": "^6.1.6",
     "@types/react-syntax-highlighter": "^15.5.7",
-    "avataaars": "^2.0.0",
     "framer-motion": "^6.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -26,6 +25,7 @@
     "react-snap": "^1.23.0",
     "react-syntax-highlighter": "^15.5.0",
     "react-window-ui": "^2.2.0",
+    "three": "^0.135.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -50,5 +50,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/three": "^0.153.0"
   }
 }
