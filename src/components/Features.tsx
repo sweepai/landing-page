@@ -7,23 +7,17 @@ import logo from "../assets/icon.png";
 import pills_examples from "../assets/pills_examples.svg";
 import User from "./User";
 
-const example_code = `import pytest
-from minichain.backend import Id, Mock, Google, Python, Bash, OpenAI, OpenAIEmbed, HuggingFace, HuggingFaceEmbed, Manifest
-
-def test_id():
-    backend = Id()
-    assert backend.run("test") == "test"
-
-def test_mock():
-    backend = Mock(["mocked_response"])
-    assert backend.run("test") == "mocked_response"
-
-# Rest of test cases...
-
-def test_manifest():
-    client = Manifest(client=None)  # Mock client
-    backend = Manifest(client)
-    assert backend.run("test") == "test"  # Mock response
+const example_code = `import os
+import tempfile
+from git import Repo
+...
+try:
+    repo_dir = os.path.join(tempfile.gettempdir(), repo_full_name)
+    if os.path.exists(repo_dir):
+        git_repo = Repo(repo_dir)
+        git_repo.remotes.origin.pull()
+    else:
+        Repo.clone_from(repo_url, repo_dir)
 `;
 
 const example_diff_code_prefix = `def deactivate(self, plugin_name: str):
@@ -78,7 +72,7 @@ export default function Features() {
                                 borderWidth={2}
                             >
                                 <Text fontSize="md" color="white">
-                                    Sweep: Add backend tests
+                                    Sweep: Use OS Agnostic Temp Directory
                                 </Text>
                             </Dialog>
                             <Dialog user={<img src={logo} alt="Sweep logo" />}>
@@ -95,18 +89,18 @@ export default function Features() {
                                         height="100%"
                                         background={`linear-gradient(to bottom, transparent, #0d0a1aaa)`}
                                     />
-                                    This PR adds test coverage for the Backend classes in minichain/backend.py. Specifically, it:
+                                    This PR addresses issue #367, which pointed out that the current implementation of the temporary directory in sweepai/app/ui.py is not compatible with Windows.
                                     <br />
-                                    <ul>
-                                        <li style={{ marginLeft: 20 }}>
-                                            Creates a test file tests/test_backend.py with test cases for normal usage and edge cases...
-                                        </li>
-                                    </ul>
+                                    {/*<ul>*/}
+                                    {/*    <li style={{ marginLeft: 20 }}>*/}
+                                    {/*        Creates a test file tests/test_backend.py with test cases for normal usage and edge cases...*/}
+                                    {/*    </li>*/}
+                                    {/*</ul>*/}
                                 </Text>
                             </Dialog>
                             <Dialog user={<img src={logo} alt="Sweep logo" />}>
                                 <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
-                                    <b>tests/test_backend.py</b>
+                                    <b>sweepai/app/ui.py</b>
                                     <hr style={{
                                         borderTop: '2px solid grey',
                                         width: '100%',
