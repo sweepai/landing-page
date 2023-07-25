@@ -6,9 +6,6 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
-// import { ArrowForwardIcon } from "@chakra-ui/icons";
-// @ts-ignore
-// import { Terminal } from "react-window-ui";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 
 import logo from "../assets/icon.png";
@@ -16,9 +13,34 @@ import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
 export default function CallToAction() {
+  import { motion, useInView } from 'framer-motion';
+
+  const containerVariant = {
+    hidden: { opacity: 0, y: 50 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
+
   return (
-    <Container maxW={"5xl"}>
-      <Stack
+    <motion(Container)
+      ref={ref}
+      variants={containerVariant}
+      initial='hidden'
+      animate={inView ? 'show' : 'hidden'}
+      maxW={"5xl"}
+    >
+      <motion(Stack)
+        variants={containerVariant}
         textAlign={"center"}
         align={"center"}
         spacing={{ base: 8, md: 10 }}

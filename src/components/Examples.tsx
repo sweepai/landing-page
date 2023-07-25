@@ -1,7 +1,19 @@
+import { motion, useInView } from 'framer-motion';
+
+const boxVariant = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5
+    }
+  }
+};
+
 import { Box, Text } from "@chakra-ui/react";
 import { FaArrowRight } from "react-icons/fa";
 import logo from "../assets/icon.png";
-
 import ExternalLinkWithText from "./ExternalLinkWithText";
 
 type CommentHeaderProps = {
@@ -157,9 +169,22 @@ const Example = ({
 }
 
 export default function Examples() {
-    return (
-        <>
-            <Box display="flex" justifyContent="center" alignItems="center">
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
+
+  return (
+    <>
+      <motion(Box)
+        ref={ref}
+        variants={boxVariant}
+        initial='hidden'
+        animate={inView ? 'show' : 'hidden'}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
                 <Box m={8} mt={32} width={{base: "100%", md: "80%"}}>
                     <Text fontSize="5xl" fontWeight="bold" mb={12} textAlign="center">Example tickets handled by Sweep</Text>
                     <Box display="flex" flexWrap="wrap" justifyContent="space-between">
@@ -221,10 +246,7 @@ export default function Examples() {
                         </Example>
                     </Box>
                 </Box>
-            </Box>
-            <Text mb={16}>
-                For more examples, see <ExternalLinkWithText href="https://docs.sweep.dev/examples">Example Sweep tickets</ExternalLinkWithText>
-            </Text>
-        </>
-    );
+      </motion(Box>
+    </>
+  );
 }
