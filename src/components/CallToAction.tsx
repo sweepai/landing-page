@@ -10,7 +10,7 @@ import {
 // @ts-ignore
 // import { Terminal } from "react-window-ui";
 import { FaDiscord, FaGithub } from "react-icons/fa";
-
+import ThreeDMesh from "./ThreeDMesh";
 import logo from "../assets/icon.png";
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
@@ -72,8 +72,9 @@ export default function CallToAction() {
             flexDirection: "row",
             alignItems: "center",
           }}
+          tooltip="Discord Link"
         >
-          <FaDiscord />&nbsp;&nbsp;Join our Discord
+          <ThreeDMesh />
         </ExternalLinkWithText>
         <Flex w={"full"} mt="4rem !important">
           <Container width="100vw" boxShadow="0 0 80px #181818" p={0} maxWidth="full">
