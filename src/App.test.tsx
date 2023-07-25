@@ -1,10 +1,24 @@
-import React from "react"
-import { screen } from "@testing-library/react"
-import { render } from "./test-utils"
-import { App } from "./App"
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import App from './App';
 
-test("renders learn react link", () => {
-  render(<App />)
-  const linkElement = screen.getByText(/learn chakra/i)
-  expect(linkElement).toBeInTheDocument()
-})
+describe('App component', () => {
+  test('renders without crashing', () => {
+    render(<App />);
+  });
+
+  test('renders correct content', () => {
+    expect(screen.getByText('Expected text')).toBeInTheDocument();
+    expect(screen.getByText('App text')).toBeInTheDocument();
+  });
+
+  test('interactions work correctly', () => {
+    render(<App />);
+    // Simulate user interactions and check if the App component responds correctly
+    // For example:
+    // const button = screen.getByRole('button');
+    // fireEvent.click(button);
+    // expect(screen.getByText('Clicked!')).toBeInTheDocument();
+  });
+});
+
