@@ -2,43 +2,46 @@ import React, { Component } from 'react';
 import * as THREE from 'three';
 
 class InteractiveSphere extends Component {
-  componentDidMount() {
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer();
+    mount: HTMLDivElement | null = null;
+    renderer: THREE.WebGLRenderer | null = null;
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    this.mount.appendChild(renderer.domElement);
+    componentDidMount() {
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
 
-    const geometry = new THREE.SphereGeometry(1, 32, 32);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const sphere = new THREE.Mesh(geometry, material);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        this.mount.appendChild(renderer.domElement);
 
-    scene.add(sphere);
+        const geometry = new THREE.SphereGeometry(1, 32, 32);
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const sphere = new THREE.Mesh(geometry, material);
 
-    camera.position.z = 5;
+        scene.add(sphere);
 
-    const animate = function () {
-      requestAnimationFrame(animate);
+        camera.position.z = 5;
 
-      sphere.rotation.x += 0.01;
-      sphere.rotation.y += 0.01;
+        const animate = function () {
+            requestAnimationFrame(animate);
 
-      renderer.render(scene, camera);
-    };
+            sphere.rotation.x += 0.01;
+            sphere.rotation.y += 0.01;
 
-    animate();
-  }
+            renderer.render(scene, camera);
+        };
 
-  componentWillUnmount() {
-    this.mount.removeChild(this.renderer.domElement);
-  }
+        animate();
+    }
 
-  render() {
-    return (
-      <div ref={ref => (this.mount = ref)} />
-    );
-  }
+    componentWillUnmount() {
+        this.mount.removeChild(this.renderer.domElement);
+    }
+
+    render() {
+        return (
+            <div ref={ref => (this.mount = ref)} />
+        );
+    }
 }
 
 export default InteractiveSphere;
