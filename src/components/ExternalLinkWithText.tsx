@@ -9,7 +9,7 @@ type ExternalLinkWithTextProps = {
 
 export default function ExternalLinkWithText({ children, href, includeIcon = true, ...rest }: ExternalLinkWithTextProps) : JSX.Element {
     return (
-        <Link href={href} isExternal {...rest}>
+        <Link href={href} isExternal rel="noopener noreferrer" {...rest}>
             {children}{includeIcon && <>&nbsp;<ExternalLinkIcon /></>}
         </Link>
     );
