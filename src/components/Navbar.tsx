@@ -1,4 +1,5 @@
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
+import PricingModal from './PricingModal';
 import {
   Box,
   Button,
@@ -30,7 +31,7 @@ export default function NavBar() {
     {
       label: "Github",
       icon: <FaGithub />,
-      link: "https://github.com/sweepai",
+      link: "https://github.com/sweepai/sweep",
     },
     {
       label: "Discord",
@@ -42,11 +43,11 @@ export default function NavBar() {
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
     },
-    {
-      label: "Buy Sweep Pro",
-      icon: <p>Buy Sweep Pro</p>,
-      link: "https://buy.stripe.com/fZe03512h99u0AE6os",
-    },
+    // {
+    //   label: "Buy Sweep Pro",
+    //   icon: <p>Buy Sweep Pro</p>,
+    //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
+    // },
   ];
 
   return (
@@ -58,9 +59,10 @@ export default function NavBar() {
               <Image src={logo} alt="logo" width={10} borderRadius={12} />
               Sweep AI
             </Button>
-            <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev/start", "_blank")}>
+            <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
               Documentation
             </Button>
+            {listDisplay === "none" && <PricingModal />}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
@@ -75,19 +77,9 @@ export default function NavBar() {
                 px={2}
               />
             ))}
+            <PricingModal />
           </ButtonGroup>
           <Menu>
-            <IconButton
-              key={"Sweep Pro"}
-              icon={<p>Sweep Pro</p>}
-              variant="ghost"
-              aria-label={"Sweep Pro"}
-              onClick={() => {
-                window.open("https://buy.stripe.com/fZe03512h99u0AE6os", "_blank");
-              }}
-              px={2}
-              display={menuDisplay}
-            />
             <MenuButton
               as={IconButton}
               aria-label='Options'
