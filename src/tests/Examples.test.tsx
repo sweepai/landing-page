@@ -1,15 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Examples from '../components/Examples';
 
-describe('App component', () => {
+describe('Examples component', () => {
   test('renders without crashing', () => {
-    render(<App />);
+    render(<Examples />);
     expect(screen.getByText(/Example tickets handled by Sweep/i)).toBeInTheDocument();
-    expect(screen.getByText(/What our users are saying/i)).toBeInTheDocument();
-    expect(screen.getByText(/Clean up your tech debt, automatically/i)).toBeInTheDocument();
   });
 
   // Add more tests as needed
 });
-
