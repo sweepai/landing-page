@@ -1,4 +1,5 @@
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
+import PricingModal from './PricingModal';
 import {
   Box,
   Button,
@@ -13,7 +14,7 @@ import {
   MenuList,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { FaBook, FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 export default function NavBar() {
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
@@ -27,7 +28,7 @@ export default function NavBar() {
     {
       label: "Github",
       icon: <FaGithub />,
-      link: "https://github.com/sweepai",
+      link: "https://github.com/sweepai/sweep",
     },
     {
       label: "Discord",
@@ -35,20 +36,15 @@ export default function NavBar() {
       link: "https://discord.gg/sweep-ai",
     },
     {
-      label: "Docs",
-      icon: <FaBook />,
-      link: "https://docs.sweep.dev/start",
-    },
-    {
       label: "Email",
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
     },
-    {
-      label: "Buy Sweep Pro",
-      icon: <p>Buy Sweep Pro</p>,
-      link: "https://buy.stripe.com/14k2bd26l85q4QUeUX",
-    },
+    // {
+    //   label: "Buy Sweep Pro",
+    //   icon: <p>Buy Sweep Pro</p>,
+    //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
+    // },
   ];
   return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
@@ -59,6 +55,10 @@ export default function NavBar() {
               <Image src={logo} alt="logo" width={10} borderRadius={12} />
               Sweep AI
             </Button>
+            <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
+              Documentation
+            </Button>
+            {listDisplay === "none" && <PricingModal />}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
@@ -68,10 +68,12 @@ export default function NavBar() {
                 variant="ghost"
                 aria-label={item.label}
                 onClick={() => {
-                  document.location.href = item.link;
+                  window.open(item.link, "_blank");
                 }}
+                px={2}
               />
             ))}
+            <PricingModal />
           </ButtonGroup>
           <Menu>
             <MenuButton
@@ -95,7 +97,7 @@ export default function NavBar() {
                       variant="ghost"
                       aria-label={item.label}
                       onClick={() => {
-                        document.location.href = item.link;
+                        window.open(item.link, "_blank");
                       }}
                     />
                   }
