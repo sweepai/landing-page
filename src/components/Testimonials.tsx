@@ -47,7 +47,7 @@ export default function Testimonials() {
                     </Testimonial>
                     <Testimonial name="Eduardo Reis" company="AI @ Stanford AIMI" href="https://plugnplai.com">
                         ✨Wow! Just found sweep.dev from <ExternalLinkWithText href="https://twitter.com/wwzeng1">@wwzeng1</ExternalLinkWithText> <ExternalLinkWithText href="https://twitter.com/KevinLu45010771">@KevinLu45010771</ExternalLinkWithText>. It wrote these two PRs for <ExternalLinkWithText href="https://github.com/edreisMD/plugnplai/pull/91">edreisMD/plugnplai#91</ExternalLinkWithText> <ExternalLinkWithText href="https://github.com/edreisMD/plugnplai/pull/75">edreisMD/plugnplai#75</ExternalLinkWithText>
-                        &nbsp;<b>Total lifesaver</b> 🙌. Sweep just saved me <b>6 hours of work</b>.
+                        &nbsp;<b>Total lifesaver</b> 🙌. Sweep just saved me <b>6 hours of work</b> on GitHub.
                     </Testimonial>
                     <Testimonial name="Sagar Patil" company="Product Manager, SSL Zen" href="https://sslzen.com">
                         Sweep helped me fix 2 issues in less than 10 mins. This would have took me at least 30-45 mins manually. I also have to say everything is very fast now. It's working great, just one message and it intelligently understands the problem and suggests a fix that just works! Kudos to you guys!
@@ -57,3 +57,4 @@ export default function Testimonials() {
         </Box>
     );
 }
+
