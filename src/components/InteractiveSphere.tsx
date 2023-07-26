@@ -3,6 +3,7 @@ import * as THREE from 'three';
 
 class InteractiveSphere extends Component {
     style?: React.CSSProperties;
+    style?: React.CSSProperties;
     mount!: HTMLDivElement | null;
     renderer!: THREE.WebGLRenderer;
 
@@ -45,7 +46,7 @@ class InteractiveSphere extends Component {
 
     render() {
         return (
-            <div ref={ref => (this.mount = ref)} />
+            <div style={this.props.style} ref={ref => (this.mount = ref)} />
         );
     }
 }
