@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as THREE from 'three';
 
 class InteractiveSphere extends Component {
+    style?: React.CSSProperties;
     mount!: HTMLDivElement | null;
     renderer!: THREE.WebGLRenderer;
 
