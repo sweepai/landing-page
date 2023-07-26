@@ -23,7 +23,7 @@ export default function CallToAction() {
         style={{ paddingTop: "0 !important" }}
         mb={36}
       >
-        <InteractiveSphere />
+        <InteractiveSphere style={{ width: '100%', height: '100%' }} />
         <Heading
           fontWeight={600}
           fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
