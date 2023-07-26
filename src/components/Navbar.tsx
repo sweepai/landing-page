@@ -15,8 +15,8 @@ import {
   Text,
   Link,
   useBreakpointValue,
-  Fragment
 } from "@chakra-ui/react";
+import { Fragment } from "react";
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
