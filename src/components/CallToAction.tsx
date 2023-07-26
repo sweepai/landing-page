@@ -10,12 +10,15 @@ import {
 // @ts-ignore
 // import { Terminal } from "react-window-ui";
 import { FaDiscord, FaGithub } from "react-icons/fa";
+import Spline from '@splinetool/react-spline';
 
-import logo from "../assets/icon.png";
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
 export default function CallToAction() {
+  // const canvas = document.getElementById('canvas3d');
+  // const app = new Application(canvas);
+  // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
   return (
     <Container maxW={"5xl"}>
       <Stack
@@ -26,9 +29,17 @@ export default function CallToAction() {
         style={{ paddingTop: "0 !important" }}
         mb={36}
       >
-        <img src={logo} alt="Logo" width={120} height={120} style={{
+        <Spline
+          scene="https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode"
+          style={{
+            width: 500,
+            height: 200,
+            animation: "bob 0.75s ease-in-out infinite alternate",
+          }}
+        />
+        {/* <img src={logo} alt="Logo" width={120} height={120} style={{
           animation: "bob 0.75s ease-in-out infinite alternate",
-        }} />
+        }} /> */}
         <style>
           {`
             @keyframes bob {
@@ -45,6 +56,7 @@ export default function CallToAction() {
           fontWeight={600}
           fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
           lineHeight={"110%"}
+          mt="0 !important"
         >
           Ship code faster
         </Heading>
