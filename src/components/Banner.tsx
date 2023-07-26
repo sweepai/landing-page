@@ -5,7 +5,7 @@ const Banner = () => {
     <Box bg="purple.500" w="100%" p={2} color="white">
       <Link href="https://github.com/sweepai/sweep" isExternal>
         <Text fontSize="xl">
-          ⭐ Give us a star on GitHub <img src="https://img.shields.io/github/stars/sweepai/landing-page?style=social" alt="GitHub stars badge" />
+          ⭐ Give us a star on GitHub <img src="https://img.shields.io/github/stars/sweepai/landing-page?style=social" alt="GitHub stars badge" style="display: inline-block; margin-bottom: -2px;" />
         </Text>
       </Link>
     </Box>
