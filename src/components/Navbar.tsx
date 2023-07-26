@@ -52,18 +52,20 @@ export default function NavBar() {
   ];
 
   return (
-    <Box bg="bg-surface" boxShadow="sm" width="full" p={4}>
-      <Text color="white" mb={2}>
-        Give us a star on 
-        <Link color="teal.500" href="https://github.com/sweepai/sweep" isExternal>
-          GitHub!
-        </Link>
-      </Text>
-    </Box>
-    <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
-      <HStack spacing="10" justify="space-between">
-        <Flex justify="space-between" flex="1">
-          <HStack>
+    <>
+      <Box bg="bg-surface" boxShadow="sm" width="full" p={4}>
+        <Text color="white" mb={2}>
+          Give us a star on 
+          <Link color="teal.500" href="https://github.com/sweepai/sweep" isExternal>
+            GitHub!
+          </Link>
+        </Text>
+      </Box>
+      <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
+        ...
+      </Box>
+    </>
+  );
             <Button variant="ghost">
               <Image src={logo} alt="logo" width={10} borderRadius={12} />
               Sweep AI
