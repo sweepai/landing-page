@@ -7,6 +7,7 @@ const Banner = () => {
         <Text fontSize="xl">
           ⭐ Give us a star on GitHub
         </Text>
+        <img src="https://img.shields.io/github/stars/sweepai/landing-page?style=social" alt="GitHub stars badge" />
       </Link>
     </Box>
   );
