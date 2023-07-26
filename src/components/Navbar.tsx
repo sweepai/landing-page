@@ -12,6 +12,8 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  Text,
+  Link,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
@@ -50,6 +52,14 @@ export default function NavBar() {
   ];
 
   return (
+    <Box bg="bg-surface" boxShadow="sm" width="full" p={4}>
+      <Text color="white" mb={2}>
+        Give us a star on 
+        <Link color="teal.500" href="https://github.com/sweepai/sweep" isExternal>
+          GitHub!
+        </Link>
+      </Text>
+    </Box>
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
