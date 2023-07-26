@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as THREE from 'three';
 
 class InteractiveSphere extends Component {
-  mount!: HTMLDivElement;
+  mount!: HTMLDivElement | null;
   renderer!: THREE.WebGLRenderer;
 
   componentDidMount() {
@@ -11,7 +11,7 @@ class InteractiveSphere extends Component {
     const renderer = new THREE.WebGLRenderer();
 
     renderer.setSize(window.innerWidth, window.innerHeight);
-    this.mount.appendChild(renderer.domElement);
+    this.mount!.appendChild(renderer.domElement);
 
     const geometry = new THREE.SphereGeometry(1, 32, 32);
     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
@@ -34,7 +34,7 @@ class InteractiveSphere extends Component {
   }
 
   componentWillUnmount() {
-    this.mount.removeChild(this.renderer.domElement);
+    this.mount!.removeChild(this.renderer.domElement);
   }
 
   render() {
