@@ -15,6 +15,7 @@ import {
   Text,
   Link,
   useBreakpointValue,
+  Fragment
 } from "@chakra-ui/react";
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
@@ -52,7 +53,7 @@ export default function NavBar() {
   ];
 
   return (
-    <>
+    <Fragment>
       <Box bg="bg-surface" boxShadow="sm" width="full" p={4}>
         <Text color="white" mb={2}>
           Give us a star on 
@@ -62,66 +63,66 @@ export default function NavBar() {
         </Text>
       </Box>
       <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
-        ...
-      </Box>
-    </>
-  );
-            <Button variant="ghost">
-              <Image src={logo} alt="logo" width={10} borderRadius={12} />
-              Sweep AI
-            </Button>
-            <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
-              Documentation
-            </Button>
-            {listDisplay === "none" && <PricingModal />}
-          </HStack>
-          <ButtonGroup variant="link" display={listDisplay}>
-            {navItems.map((item) => (
-              <IconButton
-                key={item.label}
-                icon={item.icon}
-                variant="ghost"
-                aria-label={item.label}
-                onClick={() => {
-                  window.open(item.link, "_blank");
-                }}
-                px={2}
-              />
-            ))}
-            <PricingModal />
-          </ButtonGroup>
-          <Menu>
-            <MenuButton
-              as={IconButton}
-              aria-label='Options'
-              icon={<HamburgerIcon />}
-              variant='outline'
-              display={menuDisplay}
-            />
-            <MenuList
-              backgroundColor="#333"
-            >
+        <HStack spacing="10" justify="space-between">
+          <Flex justify="space-between" flex="1">
+            <HStack>
+              <Button variant="ghost">
+                <Image src={logo} alt="logo" width={10} borderRadius={12} />
+                Sweep AI
+              </Button>
+              <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
+                Documentation
+              </Button>
+              {listDisplay === "none" && <PricingModal />}
+            </HStack>
+            <ButtonGroup variant="link" display={listDisplay}>
               {navItems.map((item) => (
-                <MenuItem backgroundColor="#333">
-                  {item.label}
-                  {
-                    item.label !== "Buy Sweep Pro" &&
-                    <IconButton
-                      key={item.label}
-                      icon={item.icon}
-                      variant="ghost"
-                      aria-label={item.label}
-                      onClick={() => {
-                        window.open(item.link, "_blank");
-                      }}
-                    />
-                  }
-                </MenuItem>
+                <IconButton
+                  key={item.label}
+                  icon={item.icon}
+                  variant="ghost"
+                  aria-label={item.label}
+                  onClick={() => {
+                    window.open(item.link, "_blank");
+                  }}
+                  px={2}
+                />
               ))}
-            </MenuList>
-          </Menu>
-        </Flex>
-      </HStack>
-    </Box>
+              <PricingModal />
+            </ButtonGroup>
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                aria-label='Options'
+                icon={<HamburgerIcon />}
+                variant='outline'
+                display={menuDisplay}
+              />
+              <MenuList
+                backgroundColor="#333"
+              >
+                {navItems.map((item) => (
+                  <MenuItem backgroundColor="#333">
+                    {item.label}
+                    {
+                      item.label !== "Buy Sweep Pro" &&
+                      <IconButton
+                        key={item.label}
+                        icon={item.icon}
+                        variant="ghost"
+                        aria-label={item.label}
+                        onClick={() => {
+                          window.open(item.link, "_blank");
+                        }}
+                      />
+                    }
+                  </MenuItem>
+                ))}
+              </MenuList>
+            </Menu>
+          </Flex>
+        </HStack>
+      </Box>
+    </Fragment>
   );
 }
