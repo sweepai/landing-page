@@ -34,7 +34,7 @@ export default function Users() {
                             mx={4}
                             width={{ base: "100%", md: "150px" }}
                             mb={{ base: 8, md: 0 }}
-                            filter={href == "https://llamahub.ai" ? "grayscale(100%)" : "grayscale(100%) invert(1)"}
+                            filter={href === "https://llamahub.ai" ? "grayscale(100%)" : "grayscale(100%) invert(1)"}
                             transition="filter 0.3s linear"
                             _hover={{ filter: "none" }}
                             {...props}
