@@ -5,9 +5,11 @@ import WaterlooLogo from "../assets/companies/waterloo.png";
 import CMULogo from "../assets/companies/cmu.svg";
 import MedPlum from "../assets/companies/medplum.svg"
 import PytorchIgniteLogo from "../assets/companies/pytorchignite.svg";
+import LlamaIndexLogo from "../assets/companies/llamaindex.png";
 
 const data = [
     // {logo: "https://static.wixstatic.com/media/8db8c5_c97c7fc2b2e04d32a03e81812be38786~mv2.png/v1/fill/w_51,h_51,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8db8c5_c97c7fc2b2e04d32a03e81812be38786~mv2.png", href: "https://plugnplai.com"},
+    { logo: LlamaIndexLogo, href: "https://llamahub.ai" },
     { logo: PytorchIgniteLogo, href: "https://pytorch-ignite.ai" },
     { logo: MedPlum, href: "https://www.medplum.com/" },
     // { logo: "https://assets.website-files.com/627d96126a4d3386dc82ba44/627ef87b95730e9069f4b45e_savvy%20logo%20new.png", href: "https://trysavvy.com" },
@@ -32,7 +34,7 @@ export default function Users() {
                             mx={4}
                             width={{ base: "100%", md: "150px" }}
                             mb={{ base: 8, md: 0 }}
-                            filter="grayscale(100%) invert(1)"
+                            filter={href == "https://llamahub.ai" ? "grayscale(100%)" : "grayscale(100%) invert(1)"}
                             transition="filter 0.3s linear"
                             _hover={{ filter: "none" }}
                             {...props}
