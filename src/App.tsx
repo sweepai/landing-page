@@ -5,6 +5,7 @@ import {
   useColorMode,
   ThemeConfig,
 } from "@chakra-ui/react";
+import { tsParticles, loadConfettiPreset } from "tsparticles";
 import CallToAction from "./components/CallToAction";
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
