@@ -17,7 +17,10 @@ import Spline from '@splinetool/react-spline';
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
+import { useState } from "react";
+
 export default function CallToAction() {
+  const [spin, setSpin] = useState(false);
   // const canvas = document.getElementById('canvas3d');
   // const app = new Application(canvas);
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
@@ -36,12 +39,13 @@ export default function CallToAction() {
           style={{
             width: 500,
             height: 200,
-            animation: "bob 0.75s ease-in-out infinite alternate",
+            animation: spin ? "spin 2s linear" : "bob 0.75s ease-in-out infinite alternate",
             marginTop: "-2rem !important",
             transform: "rotate(45deg)",
             borderRadius: "50%"
           }}
           onClick={async () => {
+            setSpin(!spin);
             await loadConfettiPreset(tsParticles);
             await tsParticles.load("tsparticles", {
               preset: "confetti",
@@ -64,6 +68,14 @@ export default function CallToAction() {
               }
               to {
                 transform: translateY(15px);
+              }
+            }
+            @keyframes spin {
+              from {
+                transform: rotate(0deg);
+              }
+              to {
+                transform: rotate(360deg);
               }
             }
           `}
