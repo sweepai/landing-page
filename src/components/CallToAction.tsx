@@ -17,7 +17,25 @@ import Spline from '@splinetool/react-spline';
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
+import {
+  Flex,
+  Container,
+  Heading,
+  Stack,
+  Text,
+  Button,
+} from "@chakra-ui/react";
+import { tsParticles } from "tsparticles";
+import { loadConfettiPreset } from "tsparticles-preset-confetti";
+// import { ArrowForwardIcon } from "@chakra-ui/icons";
+// @ts-ignore
+// import { Terminal } from "react-window-ui";
+import { FaDiscord, FaGithub } from "react-icons/fa";
+import Spline from '@splinetool/react-spline';
 import { useState } from "react";
+
+import ExternalLinkWithText from "./ExternalLinkWithText";
+const demo = require("../assets/demo.mp4");
 
 export default function CallToAction() {
   const [spin, setSpin] = useState(false);
