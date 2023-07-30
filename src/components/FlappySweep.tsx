@@ -8,15 +8,41 @@ const FlappySweep = () => {
     boxes: [],
   });
 
+  // Add keydown event listener
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Space') {
+        setGameState(prevState => ({
+          ...prevState,
+          sweepPosition: { ...prevState.sweepPosition, y: prevState.sweepPosition.y - 10 },
+        }));
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   // Game loop
   useEffect(() => {
-    // TODO: Update game state
+    // Update game state
+    setGameState(prevState => ({
+      ...prevState,
+      sweepPosition: { ...prevState.sweepPosition, y: prevState.sweepPosition.y + 1 },
+      boxes: prevState.boxes.map(box => ({ ...box, x: box.x - 1 })),
+    }));
   }, [gameState]);
 
   // Render game elements
   return (
     <Box>
-      {/* TODO: Render Sweep logo and boxes based on game state */}
+      <SweepLogo style={{ left: gameState.sweepPosition.x, top: gameState.sweepPosition.y }} />
+      {gameState.boxes.map((box, index) => (
+        <Box key={index} style={{ left: box.x, top: box.y }} />
+      ))}
     </Box>
   );
 };
