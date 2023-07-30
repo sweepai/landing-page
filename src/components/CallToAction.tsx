@@ -46,7 +46,7 @@ export default function CallToAction() {
               preset: "confetti",
               particles: {
                 color: {
-                  value: ["#0000ff", "#00ff00"],
+                  value: ["#800080", "#FFFFFF"],
                 },
               },
             });
@@ -67,10 +67,10 @@ export default function CallToAction() {
             }
             @keyframes spin {
               from {
-                transform: rotate(0deg);
+                transform: rotate(0deg) scale(1);
               }
               to {
-                transform: rotate(360deg);
+                transform: rotate(360deg) scale(3);
               }
             }
           `}
