@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import sweepLogo from '../assets/icon.png';
 
 const FlappyBirdGame = () => {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [gameState, setGameState] = useState({
     player: {
       x: 50,
