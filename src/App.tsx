@@ -7,6 +7,7 @@ import {
 } from "@chakra-ui/react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CallToAction from "./components/CallToAction";
+import FlappySweep from './components/FlappySweep';
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
