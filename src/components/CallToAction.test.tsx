@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { createMemorySource, createHistory } from 'history';
-import { Router } from 'react-router-dom';
+import { createMemoryHistory, createHashHistory } from 'history';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import CallToAction from './CallToAction';
 
 describe('CallToAction', () => {
@@ -9,9 +9,9 @@ describe('CallToAction', () => {
     const source = createMemorySource('/start');
     const history = createHistory(source);
     const { getByTestId } = render(
-      <Router history={history}>
+      <BrowserRouter>
         <CallToAction />
-      </Router>
+      </BrowserRouter>
     );
 
     fireEvent.click(getByTestId('flappy-sweep-button'));
