@@ -8,6 +8,7 @@ const FlappySweep = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    if (!canvas) return;
     const context = canvas.getContext('2d');
 
     // Game loop
@@ -22,9 +23,9 @@ const FlappySweep = () => {
   }, []);
 
   return (
-    <Canvas ref={canvasRef} width={800} height={600}>
+    <canvas ref={canvasRef} width={800} height={600}>
       <img src={logo} alt="Sweep logo" />
-    </Canvas>
+    </canvas>
   );
 };
 
