@@ -37,7 +37,6 @@ export default function CallToAction() {
             height: 200,
             animation: spin ? "spin 2s linear" : "bob 0.75s ease-in-out infinite alternate",
             marginTop: "-2rem !important",
-            transform: "rotate(45deg)",
             borderRadius: "50%"
           }}
           onClick={async () => {
