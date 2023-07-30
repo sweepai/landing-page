@@ -45,8 +45,9 @@ const FlappySweep = () => {
       // Generate and move boxes
       if (checkCollision()) {
         setGameOver(true);
+      } else if (playerHasNavigatedThroughObstacles()) { // This function needs to be implemented
+        setScore(prevScore => prevScore + 1);
       }
-      // Update score
     }
   }, [logoPosition, logoVelocity, boxes, score, gameOver]);
 
@@ -60,7 +61,7 @@ const FlappySweep = () => {
       {boxes.map((box, index) => (
         <Box key={index} position="absolute" left={box.x} top={box.y} w="50px" h="50px" bg="black" />
       ))}
-      <Text fontSize="xl">Score: {score}</Text>
+  <Text fontSize="xl" position="absolute" top="0" w="100%" textAlign="center">Score: {score}</Text>
       <Button onClick={startGame} colorScheme="teal">Start</Button>
     </div>
   );
