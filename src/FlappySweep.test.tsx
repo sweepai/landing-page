@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import FlappySweep from './FlappySweep';
+import FlappySweep from './components/FlappySweep';
 
 describe('FlappySweep', () => {
   test('renders correctly', () => {
