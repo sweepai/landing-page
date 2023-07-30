@@ -5,7 +5,7 @@ import logo from '../assets/icon.png';
 const FlappySweep = () => {
   const [logoPosition, setLogoPosition] = useState({ x: 0, y: 0 });
   const [logoVelocity, setLogoVelocity] = useState({ x: 0, y: 0 });
-  const [boxes, setBoxes] = useState([]);
+  const [boxes, setBoxes] = useState<{x: number, y: number}[]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
