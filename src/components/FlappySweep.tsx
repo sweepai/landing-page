@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '@chakra-ui/react';
+// No import for Canvas from '@chakra-ui/react';
 import logo from '../assets/icon.png';
 
 const FlappySweep = () => {
@@ -9,7 +9,7 @@ const FlappySweep = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const context = canvas ? canvas.getContext('2d') : null;
+    const context = canvas && canvas.getContext ? canvas.getContext('2d') : null;
 
     // Game loop
     const gameLoop = () => {
