@@ -5,6 +5,7 @@ import {
   useColorMode,
   ThemeConfig,
 } from "@chakra-ui/react";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CallToAction from "./components/CallToAction";
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
@@ -39,7 +40,7 @@ function ForceDarkMode(props: { children: JSX.Element }) {
 
 export const App = () => {
   return (
-    <>
+    <Router>
       <Helmet>
         <meta property="og:image" content={ogimage} />
         <link rel="icon" type="image/png" sizes="16x16" href="/final-sweep-wizard_16x16.png" />
@@ -64,15 +65,22 @@ export const App = () => {
           >
             {false && <ColorModeSwitcher />}
             <Banner />
-            <Navbar />
-            <CallToAction />
-            <Users />
-            <Features />
-            <Testimonials />
-            <Conclusion />
+            <Switch>
+              <Route path="/game">
+                {/* Game component will be added here */}
+              </Route>
+              <Route path="/">
+                <Navbar />
+                <CallToAction />
+                <Users />
+                <Features />
+                <Testimonials />
+                <Conclusion />
+              </Route>
+            </Switch>
           </Box>
         </ForceDarkMode>
       </ChakraProvider>
-    </>
+    </Router>
   );
 };
