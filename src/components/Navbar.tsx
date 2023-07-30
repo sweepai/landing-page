@@ -14,7 +14,7 @@ import {
   MenuList,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaTwitter, FaGamepad } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
 export default function NavBar() {
