@@ -23,12 +23,12 @@ const Game = () => {
 
     new Phaser.Game(config);
 
-    const preload = () => {
-      this.load.image('sweep', sweepLogo);
+    const preload = (game) => {
+      game.load.image('sweep', sweepLogo);
     }
 
-    const create = () => {
-      this.add.image(400, 300, 'sweep');
+    const create = (game) => {
+      game.add.image(400, 300, 'sweep');
     }
 
     function update() {
