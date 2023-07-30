@@ -22,7 +22,7 @@ const FlappyBirdGame = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const context = canvas.getContext('2d');
+    const context = canvas ? canvas.getContext('2d') : null;
 
     gameState.player.image.src = sweepLogo;
 
