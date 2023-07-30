@@ -5,9 +5,11 @@ import {
   useColorMode,
   ThemeConfig,
 } from "@chakra-ui/react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CallToAction from "./components/CallToAction";
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
+import Game from "./components/Game";
 import Banner from "./components/Banner";
 import ogimage from "./assets/ogimage.png";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
@@ -63,13 +65,22 @@ export const App = () => {
             overflowX="hidden"
           >
             {false && <ColorModeSwitcher />}
-            <Banner />
-            <Navbar />
-            <CallToAction />
-            <Users />
-            <Features />
-            <Testimonials />
-            <Conclusion />
+            <Router>
+              <Switch>
+                <Route path="/game">
+                  <Game />
+                </Route>
+                <Route path="/">
+                  <Banner />
+                  <Navbar />
+                  <CallToAction />
+                  <Users />
+                  <Features />
+                  <Testimonials />
+                  <Conclusion />
+                </Route>
+              </Switch>
+            </Router>
           </Box>
         </ForceDarkMode>
       </ChakraProvider>
