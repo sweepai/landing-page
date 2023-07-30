@@ -1,12 +1,13 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { createMemoryHistory } from 'history';
+import { createMemorySource, createHistory } from 'history';
 import { Router } from 'react-router-dom';
 import CallToAction from './CallToAction';
 
 describe('CallToAction', () => {
   it('navigates to FlappySweep page when FlappySweep button is clicked', () => {
-    const history = createMemoryHistory();
+    const source = createMemorySource('/start');
+    const history = createHistory(source);
     const { getByTestId } = render(
       <Router history={history}>
         <CallToAction />
