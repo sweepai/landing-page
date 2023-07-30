@@ -11,7 +11,7 @@ import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
 import ogimage from "./assets/ogimage.png";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Testimonials from "./components/Testimonials";
 import Users from "./components/Users";
 
