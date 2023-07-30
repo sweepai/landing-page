@@ -14,6 +14,7 @@ import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { useEffect } from "react";
 import Testimonials from "./components/Testimonials";
 import Users from "./components/Users";
+import FlappyBirdGame from "./components/FlappyBirdGame";
 
 import circles from "./assets/circles.svg";
 import Features from "./components/Features";
@@ -51,7 +52,7 @@ export const App = () => {
       </Helmet>
       <ChakraProvider theme={theme}>
         <ForceDarkMode>
-          <Box
+            <Box
             textAlign="center"
             fontSize="xl"
             bgColor="#0d0a1a"
@@ -65,6 +66,7 @@ export const App = () => {
             {false && <ColorModeSwitcher />}
             <Banner />
             <Navbar />
+            <Route path="/game" component={FlappyBirdGame} />
             <CallToAction />
             <Users />
             <Features />
