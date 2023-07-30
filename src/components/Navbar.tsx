@@ -42,6 +42,11 @@ export default function NavBar() {
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
     },
+    {
+      label: "Game",
+      icon: <FaGamepad />,
+      onClick: () => <FlappySweep />,
+    },
     // {
     //   label: "Buy Sweep Pro",
     //   icon: <p>Buy Sweep Pro</p>,
