@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box } from '@chakra-ui/react';
 import SweepLogo from './SweepLogo';
+import SweepLogoComponent from './SweepLogoComponent';
 
 const FlappySweep = () => {
   // Initialize game state
@@ -40,7 +41,7 @@ const FlappySweep = () => {
   // Render game elements
   return (
     <Box>
-      <SweepLogo style={{ left: gameState.sweepPosition.x, top: gameState.sweepPosition.y }} />
+      <SweepLogoComponent style={{ left: gameState.sweepPosition.x, top: gameState.sweepPosition.y }} />
       {gameState.boxes.map((box, index) => (
         <Box key={index} style={{ left: box.x, top: box.y }} />
       ))}
