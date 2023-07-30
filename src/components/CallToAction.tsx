@@ -40,8 +40,8 @@ export default function CallToAction() {
             cursor: "pointer",
             transition: "transform 0.3s"
           }}
-          onClick={async () => {
-            await loadConfettiPreset(tsParticles);
+          onClick={async (event) => {
+            // Replace with the correct function from the `tsparticles` library
             await tsParticles.load("tsparticles", {
               preset: "confetti",
               particles: {
@@ -50,7 +50,7 @@ export default function CallToAction() {
                 },
               },
             });
-            this.style.transform = "rotate(360deg)";
+            event.target.style.transform = "rotate(360deg)";
           }}
         />
         {/* <img src={logo} alt="Logo" width={120} height={120} style={{
