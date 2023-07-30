@@ -35,7 +35,7 @@ export default function CallToAction() {
           style={{
             width: 500,
             height: 200,
-            animation: spin ? "spin 2s linear" : "bob 0.75s ease-in-out infinite alternate",
+            animation: spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate",
             marginTop: "-2rem !important",
             borderRadius: "50%"
           }}
