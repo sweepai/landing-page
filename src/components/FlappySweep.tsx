@@ -3,8 +3,8 @@ import { Box, Text, Button } from '@chakra-ui/react';
 import logo from '../assets/icon.png';
 
 const FlappySweep = () => {
-  const [logoPosition, setLogoPosition] = useState({ x: 0, y: 0 });
-  const [logoVelocity, setLogoVelocity] = useState({ x: 0, y: 0 });
+  const [logoPosition, setLogoPosition] = useState<{x: number, y: number}>({ x: 0, y: 0 });
+  const [logoVelocity, setLogoVelocity] = useState<{x: number, y: number}>({ x: 0, y: 0 });
   const [boxes, setBoxes] = useState<{x: number, y: number}[]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
