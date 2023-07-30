@@ -3,8 +3,8 @@ import { Box, Text, Button } from '@chakra-ui/react';
 import logo from '../assets/icon.png';
 
 const FlappySweep = () => {
-  const [logoPosition, setLogoPosition] = useState<{x: number, y: number}>({ x: 0, y: 0 });
-  const [logoVelocity, setLogoVelocity] = useState<{x: number, y: number}>({ x: 0, y: 0 });
+  const [logoPosition, setLogoPosition] = useState({ x: 0, y: 0 });
+  const [logoVelocity, setLogoVelocity] = useState({ x: 0, y: 0 });
   const [boxes, setBoxes] = useState<{x: number, y: number}[]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
@@ -27,11 +27,25 @@ const FlappySweep = () => {
     };
   }, []);
 
+  const checkCollision = () => {
+    for (let box of boxes) {
+      if (logoPosition.x < box.x + 50 &&
+          logoPosition.x + 50 > box.x &&
+          logoPosition.y < box.y + 50 &&
+          logoPosition.y + 50 > box.y) {
+        return true;
+      }
+    }
+    return false;
+  };
+
   useEffect(() => {
     if (!gameOver) {
       // Update logo position and velocity
       // Generate and move boxes
-      // Detect collisions
+      if (checkCollision()) {
+        setGameOver(true);
+      }
       // Update score
     }
   }, [logoPosition, logoVelocity, boxes, score, gameOver]);
