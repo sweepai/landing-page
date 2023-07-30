@@ -40,7 +40,7 @@ const FlappySweep = () => {
   // Render game elements
   return (
     <Box>
-      <SweepLogoComponent style={{ left: gameState.sweepPosition.x, top: gameState.sweepPosition.y }} />
+      <SweepLogo style={{ left: gameState.sweepPosition.x, top: gameState.sweepPosition.y }} />
       {gameState.boxes.map((box, index) => (
         <Box key={index} style={{ left: box.x, top: box.y }} />
       ))}
