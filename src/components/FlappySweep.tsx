@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Box, Text, Button } from '@chakra-ui/react';
 import logo from '../assets/icon.png';
 
 const FlappySweep = () => {
@@ -23,12 +24,12 @@ const FlappySweep = () => {
 
   return (
     <div>
-      <img src={logo} style={{ position: 'absolute', left: logoPosition.x, top: logoPosition.y }} />
+      <Box as="img" src={logo} position="absolute" left={logoPosition.x} top={logoPosition.y} />
       {boxes.map((box, index) => (
-        <div key={index} style={{ position: 'absolute', left: box.x, top: box.y, width: 50, height: 50, backgroundColor: 'black' }} />
+        <Box key={index} position="absolute" left={box.x} top={box.y} w="50px" h="50px" bg="black" />
       ))}
-      <p>Score: {score}</p>
-      <button onClick={startGame}>Start</button>
+      <Text fontSize="xl">Score: {score}</Text>
+      <Button onClick={startGame} colorScheme="teal">Start</Button>
     </div>
   );
 };
