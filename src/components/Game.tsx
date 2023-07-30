@@ -4,6 +4,18 @@ import sweepLogo from '../assets/sweepLogo.png';
 
 const Game = () => {
   useEffect(() => {
+    const preload = (game) => {
+      game.load.image('sweep', sweepLogo);
+    }
+
+    const create = (game) => {
+      game.add.image(400, 300, 'sweep');
+    }
+
+    function update() {
+      // Game update logic
+    }
+
     const config = {
       type: Phaser.AUTO,
       width: 800,
@@ -22,18 +34,6 @@ const Game = () => {
     };
 
     new Phaser.Game(config);
-
-    const preload = (game) => {
-      game.load.image('sweep', sweepLogo);
-    }
-
-    const create = (game) => {
-      game.add.image(400, 300, 'sweep');
-    }
-
-    function update() {
-      // Game update logic
-    }
   }, []);
 
   return (
