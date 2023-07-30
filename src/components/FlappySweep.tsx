@@ -14,8 +14,8 @@ const FlappySweep = () => {
   };
 
   const playerHasNavigatedThroughObstacles = () => {
-    // TODO: Implement the logic to check if the player has navigated through the obstacles
-    return false;
+    // Check if the player's current position is beyond the last obstacle's position
+    return boxes.length > 0 && logoPosition.x > boxes[boxes.length - 1].x;
   };
 
   useEffect(() => {
