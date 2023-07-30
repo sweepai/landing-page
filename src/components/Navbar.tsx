@@ -53,16 +53,19 @@ export default function NavBar() {
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
-          <HStack>
-            <Button variant="ghost">
-              <Image src={logo} alt="logo" width={10} borderRadius={12} />
-              Sweep AI
-            </Button>
-            <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
-              Documentation
-            </Button>
-            {listDisplay === "none" && <PricingModal />}
-          </HStack>
+            <HStack>
+              <Button variant="ghost">
+                <Image src={logo} alt="logo" width={10} borderRadius={12} />
+                Sweep AI
+              </Button>
+              <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
+                Documentation
+              </Button>
+              <Button variant="ghost" onClick={() => window.open("/game", "_blank")}>
+                Game
+              </Button>
+              {listDisplay === "none" && <PricingModal />}
+            </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
               <IconButton
