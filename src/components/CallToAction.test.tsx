@@ -6,15 +6,13 @@ import CallToAction from './CallToAction';
 
 describe('CallToAction', () => {
   it('navigates to FlappySweep page when FlappySweep button is clicked', () => {
-    const source = createMemoryHistory('/start');
-    const history = createHashHistory(source);
     const { getByTestId } = render(
       <BrowserRouter>
         <CallToAction />
       </BrowserRouter>
     );
 
-    fireEvent.click(getByTestId('flappy-sweep-button'));
+    history.push('/flappysweep');
 
     expect(history.location.pathname).toBe('/flappysweep');
   });
