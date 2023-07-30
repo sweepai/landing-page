@@ -4,8 +4,9 @@ import {
   extendTheme,
   useColorMode,
   ThemeConfig,
+  Button,
 } from "@chakra-ui/react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, useHistory } from "react-router-dom";
 import CallToAction from "./components/CallToAction";
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
@@ -76,7 +77,9 @@ export const App = () => {
                 </Route>
                 <Route path="/">
                   <Banner />
-                  <Navbar />
+                  <Navbar>
+                    <Button onClick={() => useHistory().push('/gamepage')}>Play Game</Button>
+                  </Navbar>
                   <CallToAction />
                   <Users />
                   <Features />
