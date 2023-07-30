@@ -37,7 +37,7 @@ function ForceDarkMode(props: { children: React.ReactNode }) {
     toggleColorMode();
   }, [colorMode, toggleColorMode]);
 
-  return props.children;
+  return <>{props.children}</>;
 }
 
 export const App = () => {
@@ -54,40 +54,42 @@ export const App = () => {
       </Helmet>
       <ChakraProvider theme={theme}>
         <ForceDarkMode>
-          <Box
-            textAlign="center"
-            fontSize="xl"
-            bgColor="#0d0a1a"
-            bgImage={circles}
-            bgPos="0 0"
-            bgSize="100%"
-            minH="100vh"
-            bgRepeat="no-repeat"
-            overflowX="hidden"
-          >
-            {false && <ColorModeSwitcher />}
-            <Router>
-              <Switch>
-                <Route path="/game">
-                  <Game />
-                </Route>
-                <Route path="/gamepage">
-                  <GamePage />
-                </Route>
-                <Route path="/">
-                  <Banner />
-                  <Navbar>
-                    <Button onClick={() => useHistory().push('/gamepage')}>Play Game</Button>
-                  </Navbar>
-                  <CallToAction />
-                  <Users />
-                  <Features />
-                  <Testimonials />
-                  <Conclusion />
-                </Route>
-              </Switch>
-            </Router>
-          </Box>
+          <>
+            <Box
+              textAlign="center"
+              fontSize="xl"
+              bgColor="#0d0a1a"
+              bgImage={circles}
+              bgPos="0 0"
+              bgSize="100%"
+              minH="100vh"
+              bgRepeat="no-repeat"
+              overflowX="hidden"
+            >
+              {false && <ColorModeSwitcher />}
+              <Router>
+                <Switch>
+                  <Route path="/game">
+                    <Game />
+                  </Route>
+                  <Route path="/gamepage">
+                    <GamePage />
+                  </Route>
+                  <Route path="/">
+                    <Banner />
+                    <Navbar>
+                      <Button onClick={() => useHistory().push('/gamepage')}>Play Game</Button>
+                    </Navbar>
+                    <CallToAction />
+                    <Users />
+                    <Features />
+                    <Testimonials />
+                    <Conclusion />
+                  </Route>
+                </Switch>
+              </Router>
+            </Box>
+          </>
         </ForceDarkMode>
       </ChakraProvider>
     </>
