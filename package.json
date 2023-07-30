@@ -18,6 +18,7 @@
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@types/react-helmet": "^6.1.6",
+    "@types/react-router-dom": "^5.3.1",
     "@types/react-syntax-highlighter": "^15.5.7",
     "avataaars": "^2.0.0",
     "framer-motion": "^6.5.1",
