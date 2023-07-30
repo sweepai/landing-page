@@ -119,6 +119,7 @@ export default function CallToAction() {
           onClick={() => window.open("/flappysweep")}
           fontSize={"xl"}
           mb="1rem !important"
+          data-testid="flappy-sweep-button"
         >
           Play FlappySweep
         </Button>
