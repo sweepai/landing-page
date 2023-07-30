@@ -21,7 +21,6 @@ import FlappySweep from '../FlappySweep';
 
 export default function NavBar() {
   const [gameClicked, setGameClicked] = useState(false);
-  const [gameClicked, setGameClicked] = useState(false);
 
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
   const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
