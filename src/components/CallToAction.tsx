@@ -6,6 +6,7 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
+import { loadConfettiPreset, tsParticles } from "tsparticles";
 // import { ArrowForwardIcon } from "@chakra-ui/icons";
 // @ts-ignore
 // import { Terminal } from "react-window-ui";
@@ -35,7 +36,21 @@ export default function CallToAction() {
             width: 500,
             height: 200,
             animation: "bob 0.75s ease-in-out infinite alternate",
-            marginTop: "-2rem !important"
+            marginTop: "-2rem !important",
+            cursor: "pointer",
+            transition: "transform 0.3s"
+          }}
+          onClick={async () => {
+            await loadConfettiPreset(tsParticles);
+            await tsParticles.load("tsparticles", {
+              preset: "confetti",
+              particles: {
+                color: {
+                  value: ["#0000ff", "#00ff00"],
+                },
+              },
+            });
+            this.style.transform = "rotate(360deg)";
           }}
         />
         {/* <img src={logo} alt="Logo" width={120} height={120} style={{
