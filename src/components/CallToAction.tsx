@@ -110,6 +110,18 @@ export default function CallToAction() {
         >
           <FaDiscord />&nbsp;&nbsp;Join our Discord
         </ExternalLinkWithText>
+        <Button
+          color="white"
+          p={6}
+          colorScheme={"purple"}
+          bg={"purple.400"}
+          _hover={{ bg: "purple.600" }}
+          onClick={() => window.open("/flappysweep")}
+          fontSize={"xl"}
+          mb="1rem !important"
+        >
+          Play FlappySweep
+        </Button>
         <Flex w={"full"} mt="4rem !important">
           <Container width="100vw" boxShadow="0 0 80px #181818" p={0} maxWidth="full">
             <video src={demo} autoPlay muted loop playsInline>
