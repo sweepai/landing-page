@@ -14,10 +14,12 @@ import {
   MenuList,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaTwitter, FaGamepad } from "react-icons/fa";
 import logo from "../assets/icon.png";
+import FlappySweep from './FlappySweep';
 
 export default function NavBar() {
+  const [gameClicked, setGameClicked] = useState(false);
 
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
   const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
