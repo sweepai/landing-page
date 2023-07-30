@@ -67,7 +67,7 @@ export const App = () => {
             {false && <ColorModeSwitcher />}
             <Banner />
             <Navbar />
-            <Route path="/game" component={FlappyBirdGame} />
+            <Route path="/game" Component={FlappyBirdGame} />
             <CallToAction />
             <Users />
             <Features />
