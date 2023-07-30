@@ -29,7 +29,7 @@ const config: ThemeConfig = {
 
 const theme = extendTheme({ config });
 
-function ForceDarkMode(props: { children: JSX.Element }) {
+function ForceDarkMode(props: { children: React.ReactNode }) {
   const { colorMode, toggleColorMode } = useColorMode();
 
   useEffect(() => {
