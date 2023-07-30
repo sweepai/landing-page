@@ -65,6 +65,9 @@ export default function NavBar() {
             <Button as={Link} to="/flappysweep" variant="ghost">
               Play FlappySweep
             </Button>
+            <Button as={Link} to="/flappysweep" variant="ghost">
+              Play FlappySweep
+            </Button>
             {listDisplay === "none" && <PricingModal />}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
