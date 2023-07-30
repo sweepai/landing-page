@@ -1,4 +1,5 @@
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
 import PricingModal from './PricingModal';
 import {
   Box,
@@ -64,9 +65,11 @@ export default function NavBar() {
             {listDisplay === "none" && <PricingModal />}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
-            <Button variant="ghost" onClick={() => window.location.href = "/game"}>
-              Game
-            </Button>
+            <Link to="/game">
+              <Button variant="ghost">
+                Play Game
+              </Button>
+            </Link>
             {navItems.map((item) => (
               <IconButton
                 key={item.label}
