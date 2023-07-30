@@ -5,7 +5,7 @@ import {
   useColorMode,
   ThemeConfig,
 } from "@chakra-ui/react";
-import { Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import CallToAction from "./components/CallToAction";
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
