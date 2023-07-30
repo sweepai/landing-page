@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box } from '@chakra-ui/react';
+import SweepLogo from './SweepLogo';
 
 const FlappySweep = () => {
   // Initialize game state
@@ -10,7 +11,7 @@ const FlappySweep = () => {
 
   // Add keydown event listener
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown = (event: KeyboardEvent): void => {
       if (event.key === 'Space') {
         setGameState(prevState => ({
           ...prevState,
@@ -32,7 +33,7 @@ const FlappySweep = () => {
     setGameState(prevState => ({
       ...prevState,
       sweepPosition: { ...prevState.sweepPosition, y: prevState.sweepPosition.y + 1 },
-      boxes: prevState.boxes.map(box => ({ ...box, x: box.x - 1 })),
+      boxes: prevState.boxes.map((box: { x: number; y: number; }) => ({ ...box, x: box.x - 1 })),
     }));
   }, [gameState]);
 
