@@ -4,7 +4,7 @@ import logo from '../assets/icon.png';
 
 const FlappySweep = () => {
   const [gameState, setGameState] = useState(null);
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
