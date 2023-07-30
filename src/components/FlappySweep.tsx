@@ -5,12 +5,12 @@ const FlappySweep = () => {
   // Initialize game state
   const [gameState, setGameState] = useState({
     sweepPosition: { x: 0, y: 0 },
-    boxes: [],
+    boxes: [] as { x: number; y: number; }[],
   });
 
   // Add keydown event listener
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Space') {
         setGameState(prevState => ({
           ...prevState,
@@ -39,7 +39,7 @@ const FlappySweep = () => {
   // Render game elements
   return (
     <Box>
-      <SweepLogo style={{ left: gameState.sweepPosition.x, top: gameState.sweepPosition.y }} />
+      <SweepLogoComponent style={{ left: gameState.sweepPosition.x, top: gameState.sweepPosition.y }} />
       {gameState.boxes.map((box, index) => (
         <Box key={index} style={{ left: box.x, top: box.y }} />
       ))}
