@@ -13,6 +13,11 @@ const FlappySweep = () => {
     setLogoVelocity(prev => ({ ...prev, y: -5 }));
   };
 
+  const playerHasNavigatedThroughObstacles = () => {
+    // TODO: Implement the logic to check if the player has navigated through the obstacles
+    return false;
+  };
+
   useEffect(() => {
     const handleUserInteraction = () => {
       jump();
