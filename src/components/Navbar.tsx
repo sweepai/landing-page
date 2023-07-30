@@ -45,6 +45,11 @@ export default function NavBar() {
     {
       label: "Game",
       icon: <FaGamepad />,
+      onClick: () => setGameClicked(true),
+    },
+    {
+      label: "Game",
+      icon: <FaGamepad />,
       onClick: () => <FlappySweep />,
     },
     // {
