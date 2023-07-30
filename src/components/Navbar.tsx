@@ -47,6 +47,11 @@ export default function NavBar() {
       icon: <FaGamepad />,
       link: "/flappy-sweep",
     },
+    {
+      label: "Flappy Sweep",
+      icon: <FaGamepad />,
+      link: "/flappy-sweep",
+    },
     // {
     //   label: "Buy Sweep Pro",
     //   icon: <p>Buy Sweep Pro</p>,
