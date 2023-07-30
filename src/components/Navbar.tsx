@@ -21,7 +21,7 @@ export default function NavBar() {
 
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
   const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
-  const navItems = [
+    const navItems = [
     {
       label: "Twitter",
       icon: <FaTwitter />,
@@ -41,6 +41,11 @@ export default function NavBar() {
       label: "Email",
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
+    },
+    {
+      label: "Play Game",
+      icon: <FaGamepad />,
+      link: "/flappy-sweep",
     },
     // {
     //   label: "Buy Sweep Pro",
