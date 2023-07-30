@@ -4,8 +4,8 @@ import {
   extendTheme,
   useColorMode,
   ThemeConfig,
-  Route,
 } from "@chakra-ui/react";
+import { Route } from "react-router-dom";
 import CallToAction from "./components/CallToAction";
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
@@ -67,7 +67,6 @@ export const App = () => {
             {false && <ColorModeSwitcher />}
             <Banner />
             <Navbar />
-            <Route path="/game" component={FlappyBirdGame} />
             <Route path="/game" component={FlappyBirdGame} />
             <CallToAction />
             <Users />
