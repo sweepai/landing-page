@@ -6,8 +6,9 @@ import CallToAction from './CallToAction';
 
 describe('CallToAction', () => {
   it('navigates to FlappySweep page when FlappySweep button is clicked', () => {
+    const history = createMemoryHistory();
     const { getByTestId } = render(
-      <BrowserRouter>
+      <BrowserRouter history={history}>
         <CallToAction />
       </BrowserRouter>
     );
