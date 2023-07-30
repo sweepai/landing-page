@@ -9,6 +9,24 @@ const FlappySweep = () => {
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
+  const jump = () => {
+    setLogoVelocity(prev => ({ ...prev, y: -5 }));
+  };
+
+  useEffect(() => {
+    const handleUserInteraction = () => {
+      jump();
+    };
+
+    window.addEventListener('keydown', handleUserInteraction);
+    window.addEventListener('click', handleUserInteraction);
+
+    return () => {
+      window.removeEventListener('keydown', handleUserInteraction);
+      window.removeEventListener('click', handleUserInteraction);
+    };
+  }, []);
+
   useEffect(() => {
     if (!gameOver) {
       // Update logo position and velocity
