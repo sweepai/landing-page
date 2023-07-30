@@ -64,6 +64,9 @@ export default function NavBar() {
             {listDisplay === "none" && <PricingModal />}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
+            <Button variant="ghost" onClick={() => window.location.href = "/game"}>
+              Game
+            </Button>
             {navItems.map((item) => (
               <IconButton
                 key={item.label}
