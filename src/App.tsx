@@ -16,7 +16,8 @@ import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { useEffect } from "react";
 import Testimonials from "./components/Testimonials";
 import Users from "./components/Users";
-
+import Users from "./components/Users";
+import GamePage from "./components/GamePage";
 import circles from "./assets/circles.svg";
 import Features from "./components/Features";
 import Conclusion from "./components/Conclusion";
@@ -69,6 +70,9 @@ export const App = () => {
               <Switch>
                 <Route path="/game">
                   <Game />
+                </Route>
+                <Route path="/gamepage">
+                  <GamePage />
                 </Route>
                 <Route path="/">
                   <Banner />
