@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import { FaDiscord, FaGithub, FaTwitter, FaGamepad } from "react-icons/fa";
 import logo from "../assets/icon.png";
-import FlappySweep from '../FlappySweep';
+import FlappySweep from './FlappySweep';
 
 export default function NavBar() {
   const [gameClicked, setGameClicked] = useState(false);
