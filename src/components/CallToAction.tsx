@@ -6,6 +6,7 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 // import { ArrowForwardIcon } from "@chakra-ui/icons";
 // @ts-ignore
 // import { Terminal } from "react-window-ui";
@@ -88,6 +89,9 @@ export default function CallToAction() {
         >
           <FaDiscord />&nbsp;&nbsp;Join our Discord
         </ExternalLinkWithText>
+        <Button as={Link} to="/game" color="white" p={6} colorScheme={"purple"} bg={"purple.400"} _hover={{ bg: "purple.600" }} fontSize={"xl"} mb="1rem !important">
+          Play Game
+        </Button>
         <Flex w={"full"} mt="4rem !important">
           <Container width="100vw" boxShadow="0 0 80px #181818" p={0} maxWidth="full">
             <video src={demo} autoPlay muted loop playsInline>
