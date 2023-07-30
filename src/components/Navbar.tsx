@@ -42,6 +42,11 @@ export default function NavBar() {
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
     },
+    {
+      label: "Game",
+      icon: <FaGamepad />, // Assuming FaGamepad is a suitable icon from react-icons
+      link: "/game",
+    },
     // {
     //   label: "Buy Sweep Pro",
     //   icon: <p>Buy Sweep Pro</p>,
