@@ -44,7 +44,7 @@ export default function NavBar() {
     },
     {
       label: "Play Game",
-      icon: undefined,
+      icon: <div></div>,
       link: "/game",
     },
     // {
