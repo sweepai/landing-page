@@ -17,6 +17,14 @@ import {
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
+const [starCount, setStarCount] = useState(0);
+
+useEffect(() => {
+  fetch('https://api.github.com/repos/sweepai/sweep')
+    .then(response => response.json())
+    .then(data => setStarCount(data.stargazers_count));
+}, []);
+
 export default function NavBar() {
 
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
@@ -26,11 +34,6 @@ export default function NavBar() {
       label: "Twitter",
       icon: <FaTwitter />,
       link: "https://twitter.com/sweep__ai",
-    },
-    {
-      label: "Github",
-      icon: <FaGithub />,
-      link: "https://github.com/sweepai/sweep",
     },
     {
       label: "Discord",
@@ -47,6 +50,11 @@ export default function NavBar() {
     //   icon: <p>Buy Sweep Pro</p>,
     //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
     // },
+    {
+      label: "Github",
+      icon: <FaGithub />,
+      link: "https://github.com/sweepai/sweep",
+    },
   ];
 
   return (
@@ -75,6 +83,7 @@ export default function NavBar() {
                 }}
                 px={2}
               />
+              {item.label === 'Github' && <Text>{starCount}</Text>}
             ))}
             <PricingModal />
           </ButtonGroup>
