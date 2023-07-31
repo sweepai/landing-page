@@ -98,7 +98,7 @@ export default function NavBar() {
                       as="span"
                       display="inline-flex"
                       alignItems="center"
-                      borderRadius="full"
+                      borderRadius="md"
                       border="1px"
                       borderColor="slate.300"
                       bg="slate.100"
