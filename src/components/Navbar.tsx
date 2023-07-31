@@ -83,7 +83,7 @@ export default function NavBar() {
                 }}
                 px={2}
               />
-              {item.label === 'Github' && <Text>{starCount}</Text>}
+              {item.label === 'Github' && (<Text>{starCount}</Text>)}
             ))}
             <PricingModal />
           </ButtonGroup>
