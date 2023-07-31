@@ -1,4 +1,5 @@
-import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
+import React, { useState, useEffect } from 'react';
+import { EmailIcon, HamburgerIcon, Text } from "@chakra-ui/icons";
 import PricingModal from './PricingModal';
 import {
   Box,
