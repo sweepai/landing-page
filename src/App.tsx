@@ -8,7 +8,7 @@ import {
 import CallToAction from "./components/CallToAction";
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
-import Banner from "./components/Banner";
+// Banner component removed
 import ogimage from "./assets/ogimage.png";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { useEffect } from "react";
@@ -63,7 +63,7 @@ export const App = () => {
             overflowX="hidden"
           >
             {false && <ColorModeSwitcher />}
-            <Banner />
+            // Banner component usage removed
             <Navbar />
             <CallToAction />
             <Users />
