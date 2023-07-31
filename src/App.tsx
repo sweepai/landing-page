@@ -63,7 +63,7 @@ export const App = () => {
             overflowX="hidden"
           >
             {false && <ColorModeSwitcher />}
-            // Banner component usage removed
+            {/* Banner component usage removed */}
             <Navbar />
             <CallToAction />
             <Users />
