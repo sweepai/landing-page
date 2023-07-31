@@ -19,6 +19,14 @@ import {
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
+function formatStarCount(count) {
+  if (count >= 1000) {
+    return (count / 1000).toFixed(1) + 'k';
+  } else {
+    return count.toString();
+  }
+}
+
 export default function NavBar() {
   const [starCount, setStarCount] = useState(0);
 
