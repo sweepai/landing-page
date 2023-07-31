@@ -26,8 +26,7 @@ export default function NavBar() {
       const bannerElement = document.getElementById('banner');
       const navBarElement = document.getElementById('navbar');
       const bannerHeight = bannerElement ? bannerElement.offsetHeight : 0;
-      const navBarHeight = navBarElement ? navBarElement.offsetHeight : 0;
-      setIsFixed(window.scrollY > (bannerHeight + navBarHeight));
+      setIsFixed(window.scrollY > bannerHeight);
     };
 
     window.addEventListener('scroll', handleScroll);
