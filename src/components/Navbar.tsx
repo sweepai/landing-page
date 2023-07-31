@@ -1,4 +1,6 @@
+import React, { useState, useEffect } from 'react';
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { Text } from "@chakra-ui/react";
 import PricingModal from './PricingModal';
 import {
   Box,
@@ -17,7 +19,22 @@ import {
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
+function formatStarCount(count: number) {
+  if (count >= 1000) {
+    return (count / 1000).toFixed(1) + 'k';
+  } else {
+    return count.toString();
+  }
+}
+
 export default function NavBar() {
+  const [starCount, setStarCount] = useState(0);
+
+  useEffect(() => {
+    fetch('https://api.github.com/repos/sweepai/sweep')
+      .then(response => response.json())
+      .then(data => setStarCount(data.stargazers_count));
+  }, []);
 
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
   const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
@@ -26,11 +43,6 @@ export default function NavBar() {
       label: "Twitter",
       icon: <FaTwitter />,
       link: "https://twitter.com/sweep__ai",
-    },
-    {
-      label: "Github",
-      icon: <FaGithub />,
-      link: "https://github.com/sweepai/sweep",
     },
     {
       label: "Discord",
@@ -47,6 +59,11 @@ export default function NavBar() {
     //   icon: <p>Buy Sweep Pro</p>,
     //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
     // },
+    {
+      label: "Github",
+      icon: <FaGithub />,
+      link: "https://github.com/sweepai/sweep",
+    },
   ];
 
   return (
@@ -64,18 +81,39 @@ export default function NavBar() {
             {listDisplay === "none" && <PricingModal />}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
-            {navItems.map((item) => (
-              <IconButton
-                key={item.label}
-                icon={item.icon}
-                variant="ghost"
-                aria-label={item.label}
-                onClick={() => {
-                  window.open(item.link, "_blank");
-                }}
-                px={2}
-              />
-            ))}
+              {navItems.map((item) => (
+                <>
+                  <IconButton
+                    key={item.label}
+                    icon={item.icon}
+                    variant="ghost"
+                    aria-label={item.label}
+                    onClick={() => {
+                      window.open(item.link, "_blank");
+                    }}
+                    px={2}
+                  />
+                  {item.label === 'Github' && (
+                    <Box
+                      as="span"
+                      display="inline-flex"
+                      alignItems="center"
+                      borderRadius="md"
+                      border="1px"
+                      borderColor="slate.300"
+                      bg="slate.100"
+                      px={2}
+                      py={0.5}
+                      fontSize="sm"
+                      fontWeight="medium"
+                      color="slate.500"
+                      _groupHover={{ color: "slate.700" }}
+                    >
+                      <Text>{formatStarCount(starCount)}</Text>
+                    </Box>
+                  )}
+                </>
+              ))}
             <PricingModal />
           </ButtonGroup>
           <Menu>
