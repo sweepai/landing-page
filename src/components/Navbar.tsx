@@ -72,19 +72,21 @@ export default function NavBar() {
             {listDisplay === "none" && <PricingModal />}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
-            {navItems.map((item) => (
-              <IconButton
-                key={item.label}
-                icon={item.icon}
-                variant="ghost"
-                aria-label={item.label}
-                onClick={() => {
-                  window.open(item.link, "_blank");
-                }}
-                px={2}
-              />
-              {item.label === 'Github' && (<Text>{starCount}</Text>)}
-            ))}
+              {navItems.map((item) => (
+                <>
+                  <IconButton
+                    key={item.label}
+                    icon={item.icon}
+                    variant="ghost"
+                    aria-label={item.label}
+                    onClick={() => {
+                      window.open(item.link, "_blank");
+                    }}
+                    px={2}
+                  />
+                  {item.label === 'Github' && (<Text>{starCount}</Text>)}
+                </>
+              ))}
             <PricingModal />
           </ButtonGroup>
           <Menu>
