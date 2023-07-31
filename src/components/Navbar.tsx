@@ -19,15 +19,14 @@ import {
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-const [starCount, setStarCount] = useState(0);
-
-useEffect(() => {
-  fetch('https://api.github.com/repos/sweepai/sweep')
-    .then(response => response.json())
-    .then(data => setStarCount(data.stargazers_count));
-}, []);
-
 export default function NavBar() {
+  const [starCount, setStarCount] = useState(0);
+
+  useEffect(() => {
+    fetch('https://api.github.com/repos/sweepai/sweep')
+      .then(response => response.json())
+      .then(data => setStarCount(data.stargazers_count));
+  }, []);
 
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
   const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
