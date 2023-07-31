@@ -11,13 +11,14 @@ import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
 import ogimage from "./assets/ogimage.png";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Testimonials from "./components/Testimonials";
 import Users from "./components/Users";
 
 import circles from "./assets/circles.svg";
 import Features from "./components/Features";
 import Conclusion from "./components/Conclusion";
+import FlappySweep from "./components/FlappySweep";
 
 const config: ThemeConfig = {
   initialColorMode: "dark",
@@ -38,6 +39,7 @@ function ForceDarkMode(props: { children: JSX.Element }) {
 }
 
 export const App = () => {
+  const [gameClicked, setGameClicked] = useState(false);
   return (
     <>
       <Helmet>
@@ -69,7 +71,15 @@ export const App = () => {
             <Users />
             <Features />
             <Testimonials />
-            <Conclusion />
+            {gameClicked ? <FlappySweep /> : (
+              <>
+                <CallToAction />
+                <Users />
+                <Features />
+                <Testimonials />
+                <Conclusion />
+              </>
+            )}
           </Box>
         </ForceDarkMode>
       </ChakraProvider>

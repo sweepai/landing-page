@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
 import PricingModal from './PricingModal';
 import {
@@ -14,10 +15,12 @@ import {
   MenuList,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaTwitter, FaGamepad } from "react-icons/fa";
 import logo from "../assets/icon.png";
+import FlappySweep from './FlappySweep';
 
 export default function NavBar() {
+  const [gameClicked, setGameClicked] = useState(false);
 
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
   const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
@@ -41,6 +44,16 @@ export default function NavBar() {
       label: "Email",
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
+    },
+    {
+      label: "Game",
+      icon: <FaGamepad />,
+      onClick: () => setGameClicked(true),
+    },
+    {
+      label: "Game",
+      icon: <FaGamepad />,
+      onClick: () => <FlappySweep />,
     },
     // {
     //   label: "Buy Sweep Pro",
