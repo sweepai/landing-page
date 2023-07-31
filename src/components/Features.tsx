@@ -30,6 +30,12 @@ const example_diff_code_prefix = `def deactivate(self, plugin_name: str):
         del self.active_plugins[plugin_name]
 `;
 
+const example_diff_code_gha = `- import { loadConfettiPreset, tsParticles } from "tsparticles";
++ import { tsParticles } from "tsparticles";
+...
+- target.style.transform = "rotate(360deg)";
++ (target as HTMLElement).style.transform = "rotate(360deg)";`;
+
 const example_diff_code_diff = `-       self.prompt = self.fill_prompt(self.template)
 -       self.tokens = count_tokens(self.prompt)
 +       self.tokens = count_tokens(self.get_prompt())
@@ -48,6 +54,17 @@ const Dialog = ({ children, user, userProps, ...props }: any) => {
         <HStack alignItems="flex-start" spacing={6} maxW="100% !important">
             <User {...userProps}>{user}</User>
             <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="purple.300" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
+                {children}
+            </Box>
+        </HStack>
+    )
+}
+
+const GithubDialog = ({ children, user, userProps, ...props }: any) => {
+    return (
+        <HStack alignItems="flex-start" spacing={6} maxW="100% !important">
+            <User {...userProps}>{user}</User>
+            <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="white.900" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
                 {children}
             </Box>
         </HStack>
@@ -142,16 +159,18 @@ export default function Features() {
                     </Flex>
                     <Box width={{ base: "100%", md: "45%" }} maxW="100%" mb={12}>
                         <VStack alignItems="flex-start" spacing={6}>
-                            <Dialog
-                                user={<Text fontSize="md" color="white">KL</Text>}
-                                userProps={{ bgColor: "purple.900", p: 2, borderWidth: 2 }}
-                                bgColor="purple.900"
+                            <GithubDialog
+                                user={<FaGithub size={40} color="white" />}
+                                userProps={{ bgColor: "white.900", p: 2, borderWidth: 2 }}
+                                bgColor="white.900"
                                 borderWidth={2}
                             >
                                 <Text fontSize="md" color="white">
-                                    /sweep Write tests for backend
+                                    <span style={{ color: "rgb(250, 108, 117)" }}>Error:</span> Module '"tsparticles"' has no exported member 'loadConfettiPreset'.
+                                    <br />
+                                    <span style={{ color: "rgb(250, 108, 117)" }}>Error:</span> Property 'style' does not exist on type 'EventTarget'.
                                 </Text>
-                            </Dialog>
+                            </GithubDialog>
                             <Dialog user={<img src={logo} alt="Sweep logo" />}>
                                 <Text
                                     position="relative"
@@ -164,29 +183,43 @@ export default function Features() {
                                         left={0}
                                         right={0}
                                         height="100%"
-                                        background={`linear-gradient(to bottom, transparent, #0d0a1aaa)`}
+                                        background={`linear-gradient(to bottom, transparent, transparent)`}
                                     />
-                                    I’m going to create a PR with the following:
-                                    <br /><br />
-                                    Add test for backend
-                                    This PR adds test cases for the Google, Bash, and Python backends in the ‘minichain’ library.
-                                    <br /><br />
-                                    I have the following plan:
-                                    <ul>
-                                        <li style={{ marginLeft: 20 }}><code>test/test_backend.py</code>: Create a new file ‘test_backend.py’ in the ‘tests’ directory. Add the following test cases...</li>
-                                    </ul>
+                                    I will fix this by importing the correct module and adding a type annotation to the event target.
                                 </Text>
+                            </Dialog>
+                            <Dialog user={<img src={logo} alt="Sweep logo" />}>
+                                <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%" maxW="100%">
+                                    <b>components/test.py</b>
+                                    <hr style={{
+                                        borderTop: '2px solid grey',
+                                        width: '100%',
+                                        marginTop: '0.5rem',
+                                    }} />
+                                    <SyntaxHighlighter
+                                        language="diff"
+                                        style={customStyle}
+                                        wrapLines={true}
+                                        wrapLongLines={true}
+                                        customStyle={{
+                                            padding: 0,
+                                            overflowX: "hidden",
+                                            backgroundColor: "transparent",
+                                            marginBottom: 0,
+                                        }}
+                                    >
+                                        {example_diff_code_gha}
+                                    </SyntaxHighlighter>
+                                </Code>
                             </Dialog>
                         </VStack>
                     </Box>
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" display={{ base: "none", md: "flex" }} mb={12}>
                         <Box>
-                            <FaSlack size={40} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Preview the plan in Slack</Text>
-                            <Text mt={4} fontSize="md" color="lightgrey">Request tests directly in Slack. Review the progress in a thread. Get alerted when a new PR is created.</Text>
-                            <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://docs.sweep.dev/slack")}>
-                                Download on Slack
-                            </Button>
+                            <FaGithub size={40} />
+                            <Text mt={4} fontSize="2xl" fontWeight="bold">Integrate with GitHub Actions</Text>
+                            <Text mt={4} fontSize="md" color="lightgrey">Sweep reads GitHub Action logs to ensure its changes compile and past tests. If the code errors, Sweep writes a fix.</Text>
+
                         </Box>
                     </Flex>
                 </Box>
