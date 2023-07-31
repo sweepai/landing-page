@@ -85,7 +85,14 @@ export default function NavBar() {
                     }}
                     px={2}
                   />
-                  {item.label === 'Github' && (<Text>{starCount}</Text>)}
+                  {item.label === 'Github' && (
+                    <Box
+                      as="span"
+                      className="inline-flex items-center rounded-md border border-slate-300 bg-slate-100/50 px-2 py-0.5 text-xs font-medium text-slate-500 group-hover:text-slate-700"
+                    >
+                      <Text>{formatStarCount(starCount)}</Text>
+                    </Box>
+                  )}
                 </>
               ))}
             <PricingModal />
