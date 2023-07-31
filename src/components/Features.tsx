@@ -1,5 +1,5 @@
 import { Box, Button, Code, Flex, HStack, Text, VStack } from "@chakra-ui/react";
-import { FaBook, FaGithub, FaSlack } from "react-icons/fa";
+import { FaBook, FaGithub } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // @ts-ignore
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
@@ -128,16 +128,6 @@ export default function Features() {
             </Box >
             <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
-                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" display={{ base: "flex", md: "none" }} mb={12}>
-                        <Box>
-                            <FaSlack size={40} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Preview the plan in Slack</Text>
-                            <Text mt={4} fontSize="md" color="lightgrey">Request tests directly in Slack. Review the progress in a thread. Get alerted when a new PR is created.</Text>
-                            <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://docs.sweep.dev/slack")}>
-                                Download on Slack
-                            </Button>
-                        </Box>
-                    </Flex>
                     <Box width={{ base: "100%", md: "45%" }} maxW="100%" mb={12}>
                         <VStack alignItems="flex-start" spacing={6}>
                             <Dialog
@@ -177,16 +167,6 @@ export default function Features() {
                             </Dialog>
                         </VStack>
                     </Box>
-                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" display={{ base: "none", md: "flex" }} mb={12}>
-                        <Box>
-                            <FaSlack size={40} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Preview the plan in Slack</Text>
-                            <Text mt={4} fontSize="md" color="lightgrey">Request tests directly in Slack. Review the progress in a thread. Get alerted when a new PR is created.</Text>
-                            <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://docs.sweep.dev/slack")}>
-                                Download on Slack
-                            </Button>
-                        </Box>
-                    </Flex>
                 </Box>
             </Box >
             <Box display="flex" justifyContent="center" alignItems="center" mb={48}>
