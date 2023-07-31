@@ -1,5 +1,5 @@
 import { Box, Button, Code, Flex, HStack, Text, VStack } from "@chakra-ui/react";
-import { FaBook, FaGit, FaGithub, FaSlack } from "react-icons/fa";
+import { FaBook, FaGithub, FaSlack } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // @ts-ignore
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
@@ -30,11 +30,28 @@ const example_diff_code_prefix = `def deactivate(self, plugin_name: str):
         del self.active_plugins[plugin_name]
 `;
 
-const example_diff_code_gha = `- import { loadConfettiPreset, tsParticles } from "tsparticles";
+const example_gha_log = `Error: Module '"tsparticles"' has no exported member 'loadConfettiPreset'.
+Error: Property 'style' does not exist on type 'EventTarget'.`;
+
+const example_diff_code_gha = `import { Flex, Container, Heading, Stack, Text, Button } from "@chakra-ui/react";
+- import { loadConfettiPreset, tsParticles } from "tsparticles";
 + import { tsParticles } from "tsparticles";
+import { FaDiscord, FaGithub } from "react-icons/fa";
+import Spline from '@splinetool/react-spline';
 ...
-- target.style.transform = "rotate(360deg)";
-+ (target as HTMLElement).style.transform = "rotate(360deg)";`;
+        await tsParticles.load("tsparticles", {
+            preset: "confetti",
+            particles: {
+            color: {
+                value: ["#0000ff", "#00ff00"],
+            },
+            },
+        });
+-       target.style.transform = "rotate(360deg)";
++       (target as HTMLElement).style.transform = "rotate(360deg)";
+    }}
+...
+`;
 
 const example_diff_code_diff = `-       self.prompt = self.fill_prompt(self.template)
 -       self.tokens = count_tokens(self.prompt)
@@ -62,7 +79,7 @@ const Dialog = ({ children, user, userProps, ...props }: any) => {
 
 const GithubDialog = ({ children, user, userProps, ...props }: any) => {
     return (
-        <HStack alignItems="flex-start" spacing={6} maxW="100% !important">
+        <HStack alignItems="flex-start" spacing={6} maxW="100% !important" w="100% !important">
             <User {...userProps}>{user}</User>
             <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="white.900" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
                 {children}
@@ -164,12 +181,25 @@ export default function Features() {
                                 userProps={{ bgColor: "white.900", p: 2, borderWidth: 2 }}
                                 bgColor="white.900"
                                 borderWidth={2}
+                                w="100%"
                             >
-                                <Text fontSize="md" color="white">
-                                    <span style={{ color: "rgb(250, 108, 117)" }}>Error:</span> Module '"tsparticles"' has no exported member 'loadConfettiPreset'.
-                                    <br />
-                                    <span style={{ color: "rgb(250, 108, 117)" }}>Error:</span> Property 'style' does not exist on type 'EventTarget'.
-                                </Text>
+                                <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
+                                    <SyntaxHighlighter
+                                        language="coffeescript" // this one looks the best
+                                        style={customStyle}
+                                        wrapLines={true}
+                                        wrapLongLines={true}
+                                        customStyle={{
+                                            padding: 0,
+                                            overflowX: "hidden",
+                                            backgroundColor: "transparent",
+                                            marginBottom: 0,
+                                            marginTop: 0,
+                                        }}
+                                    >
+                                        {example_gha_log}
+                                    </SyntaxHighlighter>
+                                </Code>
                             </GithubDialog>
                             <Dialog user={<img src={logo} alt="Sweep logo" />}>
                                 <Text
@@ -190,7 +220,7 @@ export default function Features() {
                             </Dialog>
                             <Dialog user={<img src={logo} alt="Sweep logo" />}>
                                 <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%" maxW="100%">
-                                    <b>components/test.py</b>
+                                    <b>src/components/CallToAction.tsx</b>
                                     <hr style={{
                                         borderTop: '2px solid grey',
                                         width: '100%',
@@ -216,10 +246,12 @@ export default function Features() {
                     </Box>
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" display={{ base: "none", md: "flex" }} mb={12}>
                         <Box>
-                            <FaGithub size={40} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Integrate with GitHub Actions</Text>
-                            <Text mt={4} fontSize="md" color="lightgrey">Sweep reads GitHub Action logs to ensure its changes compile and past tests. If the code errors, Sweep writes a fix.</Text>
-
+                            <img src={GHAIcon} alt="GitHub Actions Icon" />
+                            <Text mt={4} fontSize="2xl" fontWeight="bold">Respond to GitHub Actions</Text>
+                            <Text mt={4} fontSize="md" color="lightgrey">Sweep reads GitHub Action logs to ensure its changes compiles and passes tests. If the code errors, Sweep updates it's code to fix it.</Text>
+                            <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://github.com/sweepai/landing-page/pull/236")}>
+                                See the example
+                            </Button>
                         </Box>
                     </Flex>
                 </Box>
