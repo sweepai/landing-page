@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { EmailIcon, HamburgerIcon, Text } from "@chakra-ui/icons";
+import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { Text } from "@chakra-ui/react";
 import PricingModal from './PricingModal';
 import {
   Box,
