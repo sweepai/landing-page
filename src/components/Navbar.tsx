@@ -19,8 +19,8 @@ import logo from "../assets/icon.png";
 
 export default function NavBar() {
 
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+  const listDisplay = useBreakpointValue({ base: "none", md: "flex" });
+  const menuDisplay = useBreakpointValue({ base: "flex", md: "none" });
   const navItems = [
     {
       label: "Twitter",
@@ -51,9 +51,9 @@ export default function NavBar() {
 
   return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
-      <HStack spacing="10" justify="space-between">
+      <HStack spacing="10" justify="space-between" p={5}>
         <Flex justify="space-between" flex="1">
-          <HStack>
+          <HStack p={5}>
             <Button variant="ghost">
               <Image src={logo} alt="logo" width={10} borderRadius={12} />
               Sweep AI
@@ -63,7 +63,7 @@ export default function NavBar() {
             </Button>
             {listDisplay === "none" && <PricingModal />}
           </HStack>
-          <ButtonGroup variant="link" display={listDisplay}>
+          <ButtonGroup variant="link" display={listDisplay} p={5}>
             {navItems.map((item) => (
               <IconButton
                 key={item.label}
@@ -85,6 +85,7 @@ export default function NavBar() {
               icon={<HamburgerIcon />}
               variant='outline'
               display={menuDisplay}
+              size="lg"
             />
             <MenuList
               backgroundColor="#333"

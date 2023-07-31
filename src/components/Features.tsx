@@ -55,9 +55,9 @@ const Dialog = ({ children, user, userProps, ...props }: any) => {
 export default function Features() {
     return (
         <>
-            <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
-                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
-                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
+            <Box display="flex" justifyContent="center" alignItems="center" mb={96} p={8}>
+                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w={{base: "100%", md: "80%"}} textAlign="left" p={8}>
+                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12} p={8}>
                         <Box>
                             <img src={logo} alt="Sweep logo" width={50} />
                             <Text mt={4} fontSize="2xl" fontWeight="bold">Clean up your tech debt, automatically</Text>
@@ -126,9 +126,9 @@ export default function Features() {
                     </Box>
                 </Box>
             </Box >
-            <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
-                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
-                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" display={{ base: "flex", md: "none" }} mb={12}>
+            <Box display="flex" justifyContent="center" alignItems="center" mb={96} p={8}>
+                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w={{base: "100%", md: "80%"}} textAlign="left" p={8}>
+                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12} p={8}>
                         <Box>
                             <FaSlack size={40} />
                             <Text mt={4} fontSize="2xl" fontWeight="bold">Preview the plan in Slack</Text>
@@ -138,8 +138,8 @@ export default function Features() {
                             </Button>
                         </Box>
                     </Flex>
-                    <Box width={{ base: "100%", md: "45%" }} maxW="100%" mb={12}>
-                        <VStack alignItems="flex-start" spacing={6}>
+                    <Box width={{ base: "100%", md: "45%" }} maxW="100%" mb={12} p={8}>
+                        <VStack alignItems="flex-start" spacing={6} p={8}>
                             <Dialog
                                 user={<Text fontSize="md" color="white">KL</Text>}
                                 userProps={{ bgColor: "purple.900", p: 2, borderWidth: 2 }}
@@ -189,9 +189,9 @@ export default function Features() {
                     </Flex>
                 </Box>
             </Box >
-            <Box display="flex" justifyContent="center" alignItems="center" mb={48}>
-                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
-                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
+            <Box display="flex" justifyContent="center" alignItems="center" mb={48} p={8}>
+                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w={{base: "100%", md: "80%"}} textAlign="left" p={8}>
+                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12} p={8}>
                         <Box>
                             <FaGithub size={40} />
                             <Text mt={4} fontSize="2xl" fontWeight="bold">Review for confidence</Text>
