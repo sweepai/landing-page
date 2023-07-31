@@ -24,8 +24,10 @@ export default function NavBar() {
   useEffect(() => {
     const handleScroll = () => {
       const bannerElement = document.getElementById('banner');
+      const navBarElement = document.getElementById('navbar');
       const bannerHeight = bannerElement ? bannerElement.offsetHeight : 0;
-      setIsFixed(window.scrollY > bannerHeight);
+      const navBarHeight = navBarElement ? navBarElement.offsetHeight : 0;
+      setIsFixed(window.scrollY > (bannerHeight + navBarHeight));
     };
 
     window.addEventListener('scroll', handleScroll);
