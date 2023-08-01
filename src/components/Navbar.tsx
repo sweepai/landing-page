@@ -14,7 +14,7 @@ import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 
 export default function NavBar() {
 
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+  const listDisplay = useBreakpointValue({ base: "flex", lg: "none" });
   const navItems = [
     {
       label: "Twitter",
