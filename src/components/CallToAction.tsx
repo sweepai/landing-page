@@ -35,7 +35,7 @@ export default function CallToAction() {
           style={{
             width: 500,
             height: 200,
-            animation: spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate",
+            animation: spin ? "spin 0.167s linear" : "bob 0.75s ease-in-out infinite alternate",
             marginTop: "-2rem !important",
             borderRadius: "50%"
           }}
@@ -70,7 +70,7 @@ export default function CallToAction() {
                 transform: rotate(0deg) scale(1);
               }
               to {
-                transform: rotate(360deg);
+                transform: rotate(1800deg);
               }
             }
           `}
