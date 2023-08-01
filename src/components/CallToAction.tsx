@@ -7,16 +7,16 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { tsParticles } from "tsparticles";
-// import { ArrowForwardIcon } from "@chakra-ui/icons";
-// @ts-ignore
-// import { Terminal } from "react-window-ui";
+import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 import Spline from '@splinetool/react-spline';
+import { useState } from "react";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
 export default function CallToAction() {
+  const [spin, setSpin] = useState(false);
   // const canvas = document.getElementById('canvas3d');
   // const app = new Application(canvas);
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
@@ -63,6 +63,14 @@ export default function CallToAction() {
               }
               to {
                 transform: translateY(15px);
+              }
+            }
+            @keyframes spin {
+              from {
+                transform: rotate(0deg) scale(1);
+              }
+              to {
+                transform: rotate(360deg);
               }
             }
           `}
