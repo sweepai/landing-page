@@ -18,7 +18,7 @@ const Testimonial = ({ children, name, company, href }: TestimonialProps): JSX.E
             mb={8}
             width={{ base: "100%", md: "30%" }}
             backgroundColor="purple.900"
-            borderRadius="5%"
+            borderRadius="10px"
             borderColor="purple.300"
             borderWidth={1}
         >
