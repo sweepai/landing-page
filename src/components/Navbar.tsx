@@ -1,13 +1,9 @@
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
-import PricingModal from './PricingModal';
 import {
   Box,
-  Button,
-  ButtonGroup,
   Flex,
   HStack,
   IconButton,
-  Image,
   Menu,
   MenuButton,
   MenuItem,
@@ -15,11 +11,9 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
-import logo from "../assets/icon.png";
 
 export default function NavBar() {
 
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
   const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
   const navItems = [
     {
