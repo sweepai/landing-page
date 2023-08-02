@@ -14,9 +14,6 @@ const data = [
     { logo: MedPlum, href: "https://www.medplum.com/" },
     // { logo: "https://assets.website-files.com/627d96126a4d3386dc82ba44/627ef87b95730e9069f4b45e_savvy%20logo%20new.png", href: "https://trysavvy.com" },
     // { logo: WithFriendsLogo, href: "https://withfriends.com" },
-    { logo: StanfordLogo, href: "https://stanford.edu" },
-    { logo: CMULogo, href: "https://cmu.edu" },
-    { logo: WaterlooLogo, href: "https://www.waterloo.ca" },
 ];
 
 export default function Users() {
