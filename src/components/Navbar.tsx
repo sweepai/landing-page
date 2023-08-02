@@ -79,21 +79,27 @@ export default function NavBar() {
             </Button>
             {listDisplay === "none" && <PricingModal />}
           </HStack>
-          <ButtonGroup variant="link" display={listDisplay}>
-            {navItems.map((item) => (
-              <IconButton
-                key={item.label}
-                icon={item.icon}
-                variant="ghost"
-                aria-label={item.label}
-                onClick={() => {
-                  window.open(item.link, "_blank");
-                }}
-                px={2}
-              />
-            ))}
-            <PricingModal />
-          </ButtonGroup>
+            <ButtonGroup variant="link" display={listDisplay}>
+                {navItems.map((item) => (
+                  <IconButton
+                    key={item.label}
+                    icon={item.icon}
+                    variant="ghost"
+                    aria-label={item.label}
+                    onClick={() => {
+                      window.open(item.link, "_blank");
+                    }}
+                    px={2}
+                  />
+                ))}
+                <Button
+                  variant="ghost"
+                  dangerouslySetInnerHTML={{
+                    __html: `<a href=https://www.ycombinator.com/launches/JAE-sweep-ai-powered-junior-developer target='_blank'><img alt=Launch YC: 🧹 Sweep - AI-powered junior developer src=https://www.ycombinator.com/launches/JAE-sweep-ai-powered-junior-developer/upvote_embed.svg/></a>`
+                  }}
+                />
+                <PricingModal />
+              </ButtonGroup>
           <Menu>
             <MenuButton
               as={IconButton}
