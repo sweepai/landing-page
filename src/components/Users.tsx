@@ -1,8 +1,5 @@
 import { HStack, Text, Image, Link } from "@chakra-ui/react";
 // import WithFriendsLogo from "../assets/companies/withfriends.svg";
-import StanfordLogo from "../assets/companies/stanford.png";
-import WaterlooLogo from "../assets/companies/waterloo.png";
-import CMULogo from "../assets/companies/cmu.svg";
 import MedPlum from "../assets/companies/medplum.svg"
 import PytorchIgniteLogo from "../assets/companies/pytorchignite.svg";
 import LlamaIndexLogo from "../assets/companies/llamaindex.png";
@@ -14,9 +11,6 @@ const data = [
     { logo: MedPlum, href: "https://www.medplum.com/" },
     // { logo: "https://assets.website-files.com/627d96126a4d3386dc82ba44/627ef87b95730e9069f4b45e_savvy%20logo%20new.png", href: "https://trysavvy.com" },
     // { logo: WithFriendsLogo, href: "https://withfriends.com" },
-    { logo: StanfordLogo, href: "https://stanford.edu" },
-    { logo: CMULogo, href: "https://cmu.edu" },
-    { logo: WaterlooLogo, href: "https://www.waterloo.ca" },
 ];
 
 export default function Users() {
