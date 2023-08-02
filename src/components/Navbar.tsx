@@ -74,56 +74,45 @@ export default function NavBar() {
               <Image src={logo} alt="logo" width={10} borderRadius={12} />
               Sweep AI
             </Button>
-            <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
-              Documentation
-            </Button>
-            {listDisplay === "none" && <PricingModal />}
-          </HStack>
-          <ButtonGroup variant="link" display={listDisplay}>
-            {navItems.map((item) => (
-              <IconButton
-                key={item.label}
-                icon={item.icon}
-                variant="ghost"
-                aria-label={item.label}
-                onClick={() => {
-                  window.open(item.link, "_blank");
-                }}
-                px={2}
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                aria-label='Options'
+                icon={<HamburgerIcon />}
+                variant='outline'
+                display={menuDisplay}
               />
-            ))}
-            <PricingModal />
-          </ButtonGroup>
-          <Menu>
-            <MenuButton
-              as={IconButton}
-              aria-label='Options'
-              icon={<HamburgerIcon />}
-              variant='outline'
-              display={menuDisplay}
-            />
-            <MenuList
-              backgroundColor="#333"
-            >
-              {navItems.map((item) => (
-                <MenuItem backgroundColor="#333">
-                  {item.label}
-                  {
-                    item.label !== "Buy Sweep Pro" &&
-                    <IconButton
-                      key={item.label}
-                      icon={item.icon}
-                      variant="ghost"
-                      aria-label={item.label}
-                      onClick={() => {
-                        window.open(item.link, "_blank");
-                      }}
-                    />
-                  }
+              <MenuList
+                backgroundColor="#333"
+              >
+                {navItems.map((item) => (
+                  <MenuItem backgroundColor="#333">
+                    {item.label}
+                    {
+                      item.label !== "Buy Sweep Pro" &&
+                      <IconButton
+                        key={item.label}
+                        icon={item.icon}
+                        variant="ghost"
+                        aria-label={item.label}
+                        onClick={() => {
+                          window.open(item.link, "_blank");
+                        }}
+                      />
+                    }
+                  </MenuItem>
+                ))}
+                <MenuItem>
+                  <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
+                    Documentation
+                  </Button>
                 </MenuItem>
-              ))}
-            </MenuList>
-          </Menu>
+                <MenuItem>
+                  {listDisplay === "none" && <PricingModal />}
+                </MenuItem>
+              </MenuList>
+            </Menu>
+          </HStack>
         </Flex>
       </HStack>
     </Box>
