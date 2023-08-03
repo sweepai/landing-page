@@ -3,12 +3,14 @@ import { HStack, Text, Image, Link } from "@chakra-ui/react";
 import MedPlum from "../assets/companies/medplum.svg"
 import PytorchIgniteLogo from "../assets/companies/pytorchignite.svg";
 import LlamaIndexLogo from "../assets/companies/llamaindex.png";
+import AirbyteLogo from "../assets/companies/airbyte.svg";
 
 const data = [
     // {logo: "https://static.wixstatic.com/media/8db8c5_c97c7fc2b2e04d32a03e81812be38786~mv2.png/v1/fill/w_51,h_51,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8db8c5_c97c7fc2b2e04d32a03e81812be38786~mv2.png", href: "https://plugnplai.com"},
     { logo: LlamaIndexLogo, href: "https://llamahub.ai" },
     { logo: PytorchIgniteLogo, href: "https://pytorch-ignite.ai" },
     { logo: MedPlum, href: "https://www.medplum.com/" },
+    { logo: AirbyteLogo, href: "https://www.airbyte.io/" },
     // { logo: "https://assets.website-files.com/627d96126a4d3386dc82ba44/627ef87b95730e9069f4b45e_savvy%20logo%20new.png", href: "https://trysavvy.com" },
     // { logo: WithFriendsLogo, href: "https://withfriends.com" },
 ];
