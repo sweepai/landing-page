@@ -44,6 +44,7 @@ const Comment = ({ children, src, username }: CommentProps) : JSX.Element => {
     return (
         <>
             <CommentHeader src={src} username={username} href={`https://github.com/${username}`} />
+            <CommentHeader src={src} username={username} href={`https://GitHub.com/${username}`} />
             <Text 
                 fontSize="lg" 
                 textAlign="left"
@@ -128,29 +129,29 @@ const Example = ({
                 fontSize="lg" 
                 textAlign="left"
             >
-                    <ExternalLinkWithText href={repo_url} includeIcon={false}>
-                        {repo_name}
+                <ExternalLinkWithText href={repo_url} includeIcon={false}>
+                    {repo_name}
+                </ExternalLinkWithText>
+                <Text fontSize="2xl">
+                    <ExternalLinkWithText href={issue_url}>
+                        {issue_title} <span style={{color: "#aaa"}}>#{issue_number}</span>
                     </ExternalLinkWithText>
-                    <Text fontSize="2xl">
-                        <ExternalLinkWithText href={issue_url}>
-                            {issue_title} <span style={{color: "#aaa"}}>#{issue_number}</span>
-                        </ExternalLinkWithText>
-                    </Text>
-                    <Comment
-                        src={avatar_href}
-                        username={username}
-                    >
-                        {issue_description}
-                    </Comment>
-                    <Comment
-                        src={logo}
-                        username="sweep-ai"
-                    >
-                        {children}
-                    </Comment>
-                    <PullRequestLink href={pull_request_url} username="sweep-ai">
-                        {pull_request_title}
-                    </PullRequestLink>
+                </Text>
+                <Comment
+                    src={avatar_href}
+                    username={username}
+                >
+                    {issue_description}
+                </Comment>
+                <Comment
+                    src={logo}
+                    username="sweep-ai"
+                >
+                    {children}
+                </Comment>
+                <PullRequestLink href={pull_request_url} username="sweep-ai">
+                    {pull_request_title}
+                </PullRequestLink>
             </Text>
         </Box>
     );
@@ -228,3 +229,4 @@ export default function Examples() {
         </>
     );
 }
+
