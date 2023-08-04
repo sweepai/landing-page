@@ -6,6 +6,7 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
+import { render, screen, fireEvent } from '@testing-library/react';
 import { tsParticles } from "tsparticles";
 import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { FaDiscord, FaGithub } from "react-icons/fa";
