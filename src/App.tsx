@@ -8,6 +8,7 @@ import {
 import CallToAction from "./components/CallToAction";
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
+import Banner from "./components/Banner";
 import ogimage from "./assets/ogimage.png";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { useEffect } from "react";
@@ -41,6 +42,12 @@ export const App = () => {
     <>
       <Helmet>
         <meta property="og:image" content={ogimage} />
+        <link rel="icon" type="image/png" sizes="16x16" href="/final-sweep-wizard_16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/final-sweep-wizard_32x32.png" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/final-sweep-wizard_48x48.png" />
+        <link rel="icon" type="image/png" sizes="64x64" href="/final-sweep-wizard_64x64.png" />
+        <link rel="icon" type="image/png" sizes="128x128" href="/final-sweep-wizard_128x128.png" />
+        <link rel="icon" type="image/png" sizes="256x256" href="/final-sweep-wizard_256x256.png" />
       </Helmet>
       <ChakraProvider theme={theme}>
         <ForceDarkMode>
@@ -56,6 +63,7 @@ export const App = () => {
             overflowX="hidden"
           >
             {false && <ColorModeSwitcher />}
+            <Banner />
             <Navbar />
             <CallToAction />
             <Users />
