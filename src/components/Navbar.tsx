@@ -76,7 +76,7 @@ export default function NavBar() {
             <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
               Documentation
             </Button>
-            {listDisplay === "none" && <PricingModal />}
+            {listDisplay === "none" && null}
           </HStack>
           <Menu>
             <MenuButton
@@ -101,9 +101,7 @@ export default function NavBar() {
                   />
                 </MenuItem>
               ))}
-              <MenuItem>
-                <PricingModal />
-              </MenuItem>
+              null
             </MenuList>
           </Menu>
         </Flex>
