@@ -91,7 +91,7 @@ export default function NavBar() {
               backgroundColor="#333"
             >
               {navItems.map((item) => (
-                <MenuItem backgroundColor="#333" key={item.label} onClick={() => {
+                <MenuItem backgroundColor="#666" key={item.label} onClick={() => {
                   window.open(item.link, "_blank");
                 }}>
                   {item.label}
