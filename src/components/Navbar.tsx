@@ -35,6 +35,7 @@ export default function NavBar() {
     };
   }, []);
 
+  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
   const menuDisplay = "flex";
   const navItems = [
     {
