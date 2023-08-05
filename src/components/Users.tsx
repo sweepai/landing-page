@@ -3,9 +3,11 @@ import { HStack, Text, Image, Link } from "@chakra-ui/react";
 import MedPlum from "../assets/companies/medplum.svg"
 import PytorchIgniteLogo from "../assets/companies/pytorchignite.svg";
 import LlamaIndexLogo from "../assets/companies/llamaindex.png";
+import GradioLogo from "../assets/companies/gradio.svg";
 
 const data = [
     // {logo: "https://static.wixstatic.com/media/8db8c5_c97c7fc2b2e04d32a03e81812be38786~mv2.png/v1/fill/w_51,h_51,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8db8c5_c97c7fc2b2e04d32a03e81812be38786~mv2.png", href: "https://plugnplai.com"},
+    { logo: GradioLogo, href: "https://gradio.app" },
     { logo: LlamaIndexLogo, href: "https://llamahub.ai" },
     { logo: PytorchIgniteLogo, href: "https://pytorch-ignite.ai" },
     { logo: MedPlum, href: "https://www.medplum.com/" },
