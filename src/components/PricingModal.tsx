@@ -53,7 +53,7 @@ export default function PricingModal() {
                   </Text>
                   <Box as="ul" style={{ listStyleType: 'none' }}>
                     <li>✔ 120 GPT-4 sweep tickets / month</li>
-                    <li>✔ Unlimited GPT-3.5 sweep tickets</li>
+                    <li>✔ Faster search with live re-indexing</li>
                     <li>✔ Priority support</li>
                     <li>✔ Commercial SLA</li>
                   </Box>
