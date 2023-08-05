@@ -36,7 +36,7 @@ export default function NavBar() {
   }, []);
 
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = "flex";
+  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
   const navItems = [
     {
       label: "Twitter",
