@@ -35,8 +35,7 @@ export default function NavBar() {
     };
   }, []);
 
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+  const menuDisplay = "flex";
   const navItems = [
     {
       label: "Twitter",
@@ -79,21 +78,6 @@ export default function NavBar() {
             </Button>
             {listDisplay === "none" && <PricingModal />}
           </HStack>
-          <ButtonGroup variant="link" display={listDisplay}>
-            {navItems.map((item) => (
-              <IconButton
-                key={item.label}
-                icon={item.icon}
-                variant="ghost"
-                aria-label={item.label}
-                onClick={() => {
-                  window.open(item.link, "_blank");
-                }}
-                px={2}
-              />
-            ))}
-            <PricingModal />
-          </ButtonGroup>
           <Menu>
             <MenuButton
               as={IconButton}
@@ -106,22 +90,20 @@ export default function NavBar() {
               backgroundColor="#333"
             >
               {navItems.map((item) => (
-                <MenuItem backgroundColor="#333">
+                <MenuItem backgroundColor="#333" key={item.label} onClick={() => {
+                  window.open(item.link, "_blank");
+                }}>
                   {item.label}
-                  {
-                    item.label !== "Buy Sweep Pro" &&
-                    <IconButton
-                      key={item.label}
-                      icon={item.icon}
-                      variant="ghost"
-                      aria-label={item.label}
-                      onClick={() => {
-                        window.open(item.link, "_blank");
-                      }}
-                    />
-                  }
+                  <IconButton
+                    icon={item.icon}
+                    variant="ghost"
+                    aria-label={item.label}
+                  />
                 </MenuItem>
               ))}
+              <MenuItem>
+                <PricingModal />
+              </MenuItem>
             </MenuList>
           </Menu>
         </Flex>
