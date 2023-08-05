@@ -22,14 +22,17 @@ export default function CallToAction() {
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
   return (
     <Container maxW={"5xl"}>
-      <Stack
-        textAlign={"center"}
-        align={"center"}
-        spacing={{ base: 8, md: 10 }}
-        py={{ base: 4, md: 15 }}
-        style={{ paddingTop: "0 !important" }}
-        mb={36}
-      >
+    <a href="https://www.ycombinator.com/launches/JAE-sweep-ai-powered-junior-developer" target="_blank">
+    <img src="https://www.ycombinator.com/launches/JAE-sweep-ai-powered-junior-developer/upvote_embed.svg/" alt="Launch YC: 🧹 Sweep - AI-powered junior developer" />
+    </a>
+    <Stack
+    textAlign={"center"}
+    align={"center"}
+    spacing={{ base: 8, md: 10 }}
+    py={{ base: 4, md: 15 }}
+    style={{ paddingTop: "0 !important" }}
+    mb={36}
+    >
         <Spline
           scene="https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode"
           style={{
