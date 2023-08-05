@@ -77,6 +77,9 @@ export default function NavBar() {
             <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
               Documentation
             </Button>
+            <Button variant="ghost">
+              New Button
+            </Button>
             {listDisplay === "none" && null}
           </HStack>
           <Menu>
