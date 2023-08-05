@@ -100,7 +100,6 @@ export default function NavBar() {
                   {item.label}
                   <IconButton
                     icon={item.icon}
-                    variant="ghost"
                     aria-label={item.label}
                   />
                 </MenuItem>
