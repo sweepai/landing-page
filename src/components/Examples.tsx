@@ -3,6 +3,7 @@ import { FaArrowRight } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
+import { render, screen } from '@testing-library/react';
 
 type CommentHeaderProps = {
     src: string,

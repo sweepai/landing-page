@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
 import PricingModal from './PricingModal';
 import {
