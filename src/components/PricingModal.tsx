@@ -39,7 +39,7 @@ export default function PricingModal() {
                     <li>✔ Unlimited GPT-3.5 Sweep issues</li>
                     <br />
                     <li>$ Extended trial - make a one-time purchase of 15 additional PRs
-                      <Button colorScheme="purple" onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
+                      <Button colorScheme="purple" onClick={() => window.open("https://buy.stripe.com/7sI4jlaCR3PaabebIP", "_blank")}>
                         here
                       </Button>
                     </li>
@@ -64,7 +64,7 @@ export default function PricingModal() {
                     <li>✔ Commercial SLA</li>
                   </Box>
                 </Box>
-                <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/9AQ8zB26letOgzC5kp", "_blank")}>
+                <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
                   Purchase
                 </Button>
               </Box>
