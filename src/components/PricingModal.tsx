@@ -38,10 +38,11 @@ export default function PricingModal() {
                     <li>✔ 5 GPT-4 Sweep tickets / month</li>
                     <li>✔ Unlimited GPT-3.5 Sweep issues</li>
                     <br />
-                    <li>$ Extended trial - make a one-time purchase of 15 additional PRs
+                    <li>
                       <Button colorScheme="purple" onClick={() => window.open("https://buy.stripe.com/7sI4jlaCR3PaabebIP", "_blank")}>
-                        here
+                        Extended trial
                       </Button>
+                      &nbsp;- make a <b>one-time purchase</b> of 15 additional PRs
                     </li>
                   </Box>
                 </Box>
@@ -78,8 +79,9 @@ export default function PricingModal() {
                   </Text>
                   <Box as="ul" style={{ listStyleType: 'none' }}>
                     <li>✔ Unlimited GPT-4 Sweep issues</li>
-                    <li>✔ Enterprise support</li>
                     <li>✔ Fine-tuned retrieval model</li>
+                    <li>✔ Self-hosted backend</li>
+                    <li>✔ Enterprise support</li>
                   </Box>
                 </Box>
                 <Button colorScheme="purple" mt={12} onClick={() => window.open("https://form.typeform.com/to/wliuvyWE", "_blank")}>
