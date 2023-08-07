@@ -29,7 +29,9 @@ export default function NavBar() {
       const bannerElement = document.getElementById('banner');
       const bannerHeight = bannerElement ? bannerElement.offsetHeight : 0;
       setIsFixed(window.scrollY > bannerHeight);
-      setColorfulLinesState(window.scrollY);
+      if (setColorfulLinesState) {
+        setColorfulLinesState(window.scrollY);
+      }
     };
   
     window.addEventListener('scroll', handleScroll);
