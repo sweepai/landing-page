@@ -70,7 +70,7 @@ export default function CallToAction() {
                 transform: rotate(0deg) scale(1);
               }
               to {
-                transform: rotate(360deg);
+                transform: rotate(1800deg);
               }
             }
           `}
