@@ -72,7 +72,7 @@ export const App = () => {
               <Features />
               <Testimonials />
               <Conclusion />
-              <ColorfulLines style={{ position: 'absolute', zIndex: 9999 }} />
+              <ColorfulLines scrollPosition={0} />
           </Box>
         </ForceDarkMode>
       </ChakraProvider>
