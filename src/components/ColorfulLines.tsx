@@ -15,7 +15,9 @@ const ColorfulLines = ({ scrollPosition }) => {
 function calculateAnimation(scrollPosition) {
   // Calculate the animation properties based on the scroll position
   // This is a placeholder and should be replaced with the actual implementation
-  return {};
+  const speed = scrollPosition / 1000; // example calculation, replace with actual implementation
+  const direction = scrollPosition % 2 === 0 ? 'left' : 'right'; // example calculation, replace with actual implementation
+  return { animationDuration: `${speed}s`, animationDirection: direction };
 }
 
 export default ColorfulLines;
