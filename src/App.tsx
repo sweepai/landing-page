@@ -6,6 +6,7 @@ import {
   ThemeConfig,
 } from "@chakra-ui/react";
 import CallToAction from "./components/CallToAction";
+import ColorfulLines from "./components/ColorfulLines";
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
@@ -52,24 +53,26 @@ export const App = () => {
       <ChakraProvider theme={theme}>
         <ForceDarkMode>
           <Box
-            textAlign="center"
-            fontSize="xl"
-            bgColor="#0d0a1a"
-            bgImage={circles}
-            bgPos="0 0"
-            bgSize="100%"
-            minH="100vh"
-            bgRepeat="no-repeat"
-            overflowX="hidden"
+              textAlign="center"
+              fontSize="xl"
+              bgColor="#0d0a1a"
+              bgImage={circles}
+              bgPos="0 0"
+              bgSize="100%"
+              minH="100vh"
+              bgRepeat="no-repeat"
+              overflowX="hidden"
+              position="relative"
           >
-            {false && <ColorModeSwitcher />}
-            <Banner />
-            <Navbar />
-            <CallToAction />
-            <Users />
-            <Features />
-            <Testimonials />
-            <Conclusion />
+              {false && <ColorModeSwitcher />}
+              <Banner />
+              <Navbar />
+              <CallToAction />
+              <Users />
+              <Features />
+              <Testimonials />
+              <Conclusion />
+              <ColorfulLines style={{ position: 'absolute', zIndex: 9999 }} />
           </Box>
         </ForceDarkMode>
       </ChakraProvider>
