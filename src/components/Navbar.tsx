@@ -94,13 +94,13 @@ export default function NavBar() {
             ))}
             {listDisplay === "none" && <PricingModal />}
             </ButtonGroup>
-            <Menu display={menuDisplay}>
+            <Box display={menuDisplay}>
+            <Menu>
             <MenuButton
               as={IconButton}
               aria-label='Options'
               icon={<HamburgerIcon />}
               variant='outline'
-              display={menuDisplay}
             />
             <MenuList
               backgroundColor="#333"
