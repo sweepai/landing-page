@@ -77,23 +77,11 @@ export default function NavBar() {
             <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
               Documentation
             </Button>
-            {listDisplay === "none" && <PricingModal />}
+            <Button variant="ghost">
+              New Button
+            </Button>
+            {listDisplay === "none" && null}
           </HStack>
-          <ButtonGroup variant="link" display={listDisplay}>
-            {navItems.map((item) => (
-              <IconButton
-                key={item.label}
-                icon={item.icon}
-                variant="ghost"
-                aria-label={item.label}
-                onClick={() => {
-                  window.open(item.link, "_blank");
-                }}
-                px={2}
-              />
-            ))}
-            <PricingModal />
-          </ButtonGroup>
           <Menu>
             <MenuButton
               as={IconButton}
@@ -106,22 +94,17 @@ export default function NavBar() {
               backgroundColor="#333"
             >
               {navItems.map((item) => (
-                <MenuItem backgroundColor="#333">
+                <MenuItem backgroundColor="#666" key={item.label} onClick={() => {
+                  window.open(item.link, "_blank");
+                }}>
                   {item.label}
-                  {
-                    item.label !== "Buy Sweep Pro" &&
-                    <IconButton
-                      key={item.label}
-                      icon={item.icon}
-                      variant="ghost"
-                      aria-label={item.label}
-                      onClick={() => {
-                        window.open(item.link, "_blank");
-                      }}
-                    />
-                  }
+                  <IconButton
+                    icon={item.icon}
+                    aria-label={item.label}
+                  />
                 </MenuItem>
               ))}
+              null
             </MenuList>
           </Menu>
         </Flex>
