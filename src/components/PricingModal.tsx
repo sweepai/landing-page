@@ -49,7 +49,7 @@ export default function PricingModal() {
                     💎 Pro
                   </Text>
                   <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
-                    $240 <span style={{ fontWeight: "normal" }}>/ month</span>
+                    $480 <span style={{ fontWeight: "normal" }}>/ month</span>
                   </Text>
                   <Box as="ul" style={{ listStyleType: 'none' }}>
                     <li>✔ 120 GPT-4 sweep tickets / month</li>
@@ -58,7 +58,7 @@ export default function PricingModal() {
                     <li>✔ Commercial SLA</li>
                   </Box>
                 </Box>
-                <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/9AQ8zB26letOgzC5kp", "_blank")}>
+                <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
                   Purchase
                 </Button>
               </Box>
