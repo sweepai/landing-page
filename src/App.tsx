@@ -9,7 +9,7 @@ import CallToAction from "./components/CallToAction";
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
-import ogimage from "./assets/ogimage.png";
+import og_image from "./assets/og_image.png";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { useEffect } from "react";
 import Testimonials from "./components/Testimonials";
@@ -41,7 +41,7 @@ export const App = () => {
   return (
     <>
       <Helmet>
-        <meta property="og:image" content={ogimage} />
+        <meta property="og:image" content={og_image} />
         <link rel="icon" type="image/png" sizes="16x16" href="/final-sweep-wizard_16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/final-sweep-wizard_32x32.png" />
         <link rel="icon" type="image/png" sizes="48x48" href="/final-sweep-wizard_48x48.png" />
