@@ -1,4 +1,3 @@
-{`
 import React, { useState } from 'react';
 
 const ColorfulLinesContext = React.createContext(null);
@@ -18,4 +17,3 @@ const ColorfulLinesProvider = ({ children }) => {
 };
 
 export { ColorfulLinesContext, ColorfulLinesProvider };
-`}
