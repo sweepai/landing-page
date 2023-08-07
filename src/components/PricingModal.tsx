@@ -36,7 +36,13 @@ export default function PricingModal() {
                   </Text>
                   <Box as="ul" style={{ listStyleType: 'none' }}>
                     <li>✔ 5 GPT-4 Sweep tickets / month</li>
-                    <li>✔ Unlimited GPT-3.5 sweep tickets</li>
+                    <li>✔ Unlimited GPT-3.5 Sweep issues</li>
+                    <br />
+                    <li>$ Extended trial - make a one-time purchase of 15 additional PRs
+                      <Button colorScheme="purple" onClick={() => window.open("https://buy.stripe.com/7sI4jlaCR3PaabebIP", "_blank")}>
+                        here
+                      </Button>
+                    </li>
                   </Box>
                 </Box>
                 <Button colorScheme="purple" mt={12} onClick={() => window.open("https://github.com/sweepai/sweep#-getting-started", "_blank")}>
@@ -52,7 +58,7 @@ export default function PricingModal() {
                     $480 <span style={{ fontWeight: "normal" }}>/ month</span>
                   </Text>
                   <Box as="ul" style={{ listStyleType: 'none' }}>
-                    <li>✔ 120 GPT-4 sweep tickets / month</li>
+                    <li>✔ 120 GPT-4 Sweep issues / month</li>
                     <li>✔ Faster search with live re-indexing</li>
                     <li>✔ Priority support</li>
                     <li>✔ Commercial SLA</li>
@@ -71,7 +77,7 @@ export default function PricingModal() {
                     Custom
                   </Text>
                   <Box as="ul" style={{ listStyleType: 'none' }}>
-                    <li>✔ Unlimited GPT-4 sweep tickets</li>
+                    <li>✔ Unlimited GPT-4 Sweep issues</li>
                     <li>✔ Enterprise support</li>
                     <li>✔ Fine-tuned retrieval model</li>
                   </Box>
