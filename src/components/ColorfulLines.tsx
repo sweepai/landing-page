@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 
-const ColorfulLines = ({ scrollPosition }) => {
+const ColorfulLines = ({ style }: { style: React.CSSProperties }) => {
   // Calculate the animation properties based on the scroll position
-  const animationProps = calculateAnimation(scrollPosition);
+  const animationProps = calculateAnimation(0);
 
   return (
     <Box position="absolute" zIndex="9999" {...animationProps}>
@@ -12,7 +12,7 @@ const ColorfulLines = ({ scrollPosition }) => {
   );
 };
 
-function calculateAnimation(scrollPosition) {
+function calculateAnimation(scrollPosition: number) {
   // Calculate the animation properties based on the scroll position
   // This is a placeholder and should be replaced with the actual implementation
   const speed = scrollPosition / 1000; // example calculation, replace with actual implementation
