@@ -17,3 +17,4 @@ const ColorfulLinesProvider = ({ children }) => {
 };
 
 export { ColorfulLinesContext, ColorfulLinesProvider };
+export {};
