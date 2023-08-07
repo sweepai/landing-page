@@ -78,22 +78,6 @@ export default function NavBar() {
               Documentation
             </Button>
             {listDisplay === "none" && <PricingModal />}
-          </HStack>
-          <ButtonGroup variant="link" display={listDisplay}>
-            {navItems.map((item) => (
-              <IconButton
-                key={item.label}
-                icon={item.icon}
-                variant="ghost"
-                aria-label={item.label}
-                onClick={() => {
-                  window.open(item.link, "_blank");
-                }}
-                px={2}
-              />
-            ))}
-            {listDisplay === "none" && <PricingModal />}
-            </ButtonGroup>  // Add this line
             </HStack>
             <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
@@ -108,7 +92,7 @@ export default function NavBar() {
                 px={2}
               />
             ))}
-            <PricingModal />
+            {listDisplay === "none" && <PricingModal />}
             </ButtonGroup>
             <Menu display={menuDisplay}>
             <MenuButton
@@ -139,9 +123,9 @@ export default function NavBar() {
                 </MenuItem>
               ))}
             </MenuList>
-          </Menu>
-        </Flex>
-      </HStack>
+            </Menu>
+            </Flex>
+            </HStack>
     </Box>
   );
 }
