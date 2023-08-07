@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { ColorfulLinesContext } from '../context/ColorfulLinesContext';
 import PricingModal from './PricingModal';
 import {
   Box,
@@ -21,15 +22,18 @@ import logo from "../assets/icon.png";
 export default function NavBar() {
   const [isFixed, setIsFixed] = useState(false);
 
+  const { setColorfulLinesState } = useContext(ColorfulLinesContext);
+  
   useEffect(() => {
     const handleScroll = () => {
       const bannerElement = document.getElementById('banner');
       const bannerHeight = bannerElement ? bannerElement.offsetHeight : 0;
       setIsFixed(window.scrollY > bannerHeight);
+      setColorfulLinesState(window.scrollY);
     };
-
+  
     window.addEventListener('scroll', handleScroll);
-
+  
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
