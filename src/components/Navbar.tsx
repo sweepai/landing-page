@@ -14,22 +14,25 @@ import {
   MenuItem,
   MenuList,
   useBreakpointValue,
+  keyframes,
 } from "@chakra-ui/react";
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
 export default function NavBar() {
   const [isFixed, setIsFixed] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const bannerElement = document.getElementById('banner');
       const bannerHeight = bannerElement ? bannerElement.offsetHeight : 0;
       setIsFixed(window.scrollY > bannerHeight);
+      setIsAnimating(window.scrollY > 0);
     };
-
+  
     window.addEventListener('scroll', handleScroll);
-
+  
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -65,8 +68,14 @@ export default function NavBar() {
     // },
   ];
 
+  const animateLines = keyframes`
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
+  `;
+  
   return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4} position={isFixed ? 'fixed' : 'relative'} zIndex={isFixed ? 10 : 1}>
+      <Box position="absolute" top="0" left="0" width="100%" height="100%" zIndex="20" bgImage="url('/path/to/lines.png')" bgRepeat="repeat" animation={`${isAnimating ? `${animateLines} 3s linear infinite` : 'none'}`} />
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
           <HStack>
