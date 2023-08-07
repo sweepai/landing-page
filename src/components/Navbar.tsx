@@ -37,7 +37,7 @@ export default function NavBar() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [setColorfulLinesState]);
 
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
   const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
