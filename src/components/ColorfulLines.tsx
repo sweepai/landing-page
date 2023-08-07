@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 
-const ColorfulLines = ({ style }: { style: React.CSSProperties }) => {
+const ColorfulLines = ({ style, scrollPosition }: { style: React.CSSProperties, scrollPosition: number }) => {
   // Calculate the animation properties based on the scroll position
-  const animationProps = calculateAnimation(0);
+  const animationProps = calculateAnimation(scrollPosition);
 
   return (
     <Box position="absolute" zIndex="9999" {...animationProps}>
