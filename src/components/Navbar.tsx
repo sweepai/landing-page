@@ -79,12 +79,28 @@ export default function NavBar() {
             </Button>
             {listDisplay === "none" && <PricingModal />}
           </HStack>
-          <Menu display="flex">
+          <ButtonGroup variant="link" display={listDisplay}>
+            {navItems.map((item) => (
+              <IconButton
+                key={item.label}
+                icon={item.icon}
+                variant="ghost"
+                aria-label={item.label}
+                onClick={() => {
+                  window.open(item.link, "_blank");
+                }}
+                px={2}
+              />
+            ))}
+            <PricingModal />
+          </ButtonGroup>
+          <Menu>
             <MenuButton
               as={IconButton}
               aria-label='Options'
               icon={<HamburgerIcon />}
               variant='outline'
+              display={menuDisplay}
             />
             <MenuList
               backgroundColor="#333"
