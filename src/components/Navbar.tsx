@@ -93,6 +93,7 @@ export default function NavBar() {
               />
             ))}
             {listDisplay === "none" && <PricingModal />}
+            </ButtonGroup>  // Add this line
             </HStack>
             <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
