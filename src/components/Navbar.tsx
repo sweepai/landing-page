@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
-import { ColorfulLinesContext } from '../context/ColorfulLinesContext';
+import { ColorfulLinesContext } from '../context/ColorfulLinesContext.tsx';
 import PricingModal from './PricingModal';
 import {
   Box,
@@ -22,7 +22,7 @@ import logo from "../assets/icon.png";
 export default function NavBar() {
   const [isFixed, setIsFixed] = useState(false);
 
-  const { setColorfulLinesState } = useContext(ColorfulLinesContext);
+  const { setColorfulLinesState } = useContext<ColorfulLinesContextType>(ColorfulLinesContext);
   
   useEffect(() => {
     const handleScroll = () => {
