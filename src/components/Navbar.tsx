@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
 import PricingModal from './PricingModal';
 import {
@@ -19,22 +18,6 @@ import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
 export default function NavBar() {
-  const [isFixed, setIsFixed] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const bannerElement = document.getElementById('banner');
-      const bannerHeight = bannerElement ? bannerElement.offsetHeight : 0;
-      setIsFixed(window.scrollY > bannerHeight);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
   const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
   const navItems = [
@@ -66,7 +49,7 @@ export default function NavBar() {
   ];
 
   return (
-    <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4} position={isFixed ? 'fixed' : 'relative'} zIndex={isFixed ? 10 : 1}>
+    <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
           <HStack>
