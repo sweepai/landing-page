@@ -56,8 +56,8 @@
     -->
   <script>
     window.intercomSettings = {
-      api_base: "https://api-iam.intercom.io",
-      app_id: "ce8fl00z"
+      api_base: process.env.INTERCOM_API_BASE || "https://api-iam.intercom.io",
+      app_id: process.env.INTERCOM_APP_ID || "ce8fl00z"
     };
   </script>
 
