@@ -36,7 +36,14 @@ export default function PricingModal() {
                   </Text>
                   <Box as="ul" style={{ listStyleType: 'none' }}>
                     <li>✔ 5 GPT-4 Sweep tickets / month</li>
-                    <li>✔ Unlimited GPT-3.5 sweep tickets</li>
+                    <li>✔ Unlimited GPT-3.5 Sweep issues</li>
+                    <br />
+                    <li>
+                      <Button colorScheme="purple" onClick={() => window.open("https://buy.stripe.com/7sI4jlaCR3PaabebIP", "_blank")}>
+                        Extended trial
+                      </Button>
+                      &nbsp;- make a <b>one-time purchase</b> of 15 additional PRs
+                    </li>
                   </Box>
                 </Box>
                 <Button colorScheme="purple" mt={12} onClick={() => window.open("https://github.com/sweepai/sweep#-getting-started", "_blank")}>
@@ -49,16 +56,16 @@ export default function PricingModal() {
                     💎 Pro
                   </Text>
                   <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
-                    $240 <span style={{ fontWeight: "normal" }}>/ month</span>
+                    $480 <span style={{ fontWeight: "normal" }}>/ month</span>
                   </Text>
                   <Box as="ul" style={{ listStyleType: 'none' }}>
-                    <li>✔ 120 GPT-4 sweep tickets / month</li>
-                    <li>✔ Unlimited GPT-3.5 sweep tickets</li>
+                    <li>✔ 120 GPT-4 Sweep issues / month</li>
+                    <li>✔ Faster search with live re-indexing</li>
                     <li>✔ Priority support</li>
                     <li>✔ Commercial SLA</li>
                   </Box>
                 </Box>
-                <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/9AQ8zB26letOgzC5kp", "_blank")}>
+                <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
                   Purchase
                 </Button>
               </Box>
@@ -71,9 +78,10 @@ export default function PricingModal() {
                     Custom
                   </Text>
                   <Box as="ul" style={{ listStyleType: 'none' }}>
-                    <li>✔ Unlimited GPT-4 sweep tickets</li>
-                    <li>✔ Enterprise support</li>
+                    <li>✔ Unlimited GPT-4 Sweep issues</li>
                     <li>✔ Fine-tuned retrieval model</li>
+                    <li>✔ Self-hosted backend</li>
+                    <li>✔ Enterprise support</li>
                   </Box>
                 </Box>
                 <Button colorScheme="purple" mt={12} onClick={() => window.open("https://form.typeform.com/to/wliuvyWE", "_blank")}>
