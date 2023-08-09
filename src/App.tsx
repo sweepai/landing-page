@@ -41,7 +41,8 @@ function ForceDarkMode(props: { children: JSX.Element }) {
 // @ts-ignore
 window.intercomSettings = {
   api_base: "https://api-iam.intercom.io",
-  app_id: "ce8fl00z"
+  app_id: "ce8fl00z",
+  action_color: "#placeholder" // replace "#placeholder" with the actual color value
 };
 
 export const App = () => {
