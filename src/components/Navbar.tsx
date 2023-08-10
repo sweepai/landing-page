@@ -25,9 +25,7 @@ class NavBar extends React.Component {
     this.state = {
       listDisplay: "none",
       menuDisplay: "flex",
-    };
-  }
-  componentDidMount() {
+      navItems: [
     this.setState({
       listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
       menuDisplay: window.innerWidth >= 1024 ? "none" : "flex",
