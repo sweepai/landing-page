@@ -15,8 +15,15 @@ import { useState } from "react";
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
-export default function CallToAction() {
-  const [spin, setSpin] = useState(false);
+import React from 'react';
+
+export default class CallToAction extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      spin: false,
+    };
+  }
   // const canvas = document.getElementById('canvas3d');
   // const app = new Application(canvas);
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
@@ -40,7 +47,7 @@ export default function CallToAction() {
             borderRadius: "50%"
           }}
           onClick={async () => {
-            setSpin(!spin);
+            this.setState({ spin: !this.state.spin });
             await loadConfettiPreset(tsParticles);
             await tsParticles.load("tsparticles", {
               preset: "confetti",
