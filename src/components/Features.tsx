@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box, Button, Code, Flex, HStack, Text, VStack } from "@chakra-ui/react";
 import { FaBook, FaGithub, FaSlack } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // @ts-ignore
@@ -8,8 +9,6 @@ import GHAIcon from "../assets/gha.svg";
 import logo from "../assets/icon.png";
 import pills_examples from "../assets/pills_examples.svg";
 import User from "./User";
-
-const example_code = `import os
 import tempfile
 from git import Repo
 ...
