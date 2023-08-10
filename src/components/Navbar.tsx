@@ -71,7 +71,7 @@ class NavBar extends React.Component {
             </Button>
             <Button variant="ghost" onClick={() => this.openLink("https://docs.sweep.dev")}>
               Documentation
-            </Button>;
+            </Button>
             {listDisplay === "none" && <PricingModal />}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
