@@ -23,17 +23,12 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.openLink = this.openLink.bind(this);
-  }
-
-  openLink(url) {
-    window.open(url, '_blank');
-  }
-  const navItems = [
-    {
-      label: "Twitter",
-      icon: <FaTwitter />,
-      link: "https://twitter.com/sweep__ai",
-    },
+    this.navItems = [
+      {
+        label: "Twitter",
+        icon: <FaTwitter />,
+        link: "https://twitter.com/sweep__ai",
+      },
     {
       label: "Github",
       icon: <FaGithub />,
@@ -54,7 +49,12 @@ class NavBar extends React.Component {
     //   icon: <p>Buy Sweep Pro</p>,
     //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
     // },
-  ];
+    ];
+  }
+  
+  openLink(url) {
+    window.open(url, '_blank');
+  }
 
   render() {
     const { breakpoint } = this.props;
