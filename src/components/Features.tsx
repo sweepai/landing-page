@@ -88,7 +88,10 @@ const GithubDialog = ({ children, user, userProps, ...props }: any) => {
     )
 }
 
-export default function Features() {
+import React from 'react';
+
+class Features extends React.Component {
+  render() {
     return (
         <>
             <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
@@ -322,4 +325,7 @@ export default function Features() {
             </Box >
         </>
     );
+  }
 }
+
+export default Features;
