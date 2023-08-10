@@ -16,10 +16,14 @@ import { styled } from '@emotion/react';
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
+interface StyledSplineProps {
+  spin: boolean;
+}
+
 const StyledSpline = styled(Spline)`
   width: 500px;
   height: 200px;
-  animation: ${props => props.spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate"};
+  animation: ${(props: StyledSplineProps) => props.spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate"};
   margin-top: -2rem !important;
   border-radius: 50%;
   &:hover {
