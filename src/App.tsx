@@ -77,6 +77,10 @@ export const App = () => {
             minH="100vh"
             bgRepeat="no-repeat"
             overflowX="hidden"
+            _hover={{
+              transform: "rotate(360deg)",
+              transition: "transform 20s linear"
+            }}
           >
             {false && <ColorModeSwitcher />}
             <Banner />
