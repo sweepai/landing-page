@@ -35,7 +35,7 @@ export default function CallToAction() {
           style={{
             width: 500,
             height: 200,
-            animation: spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate",
+            animation: spin ? "spin 0.5s linear" : "slowRotate 20s linear infinite",
             marginTop: "-2rem !important",
             borderRadius: "50%"
           }}
@@ -68,6 +68,14 @@ export default function CallToAction() {
             @keyframes spin {
               from {
                 transform: rotate(0deg) scale(1);
+              }
+              to {
+                transform: rotate(360deg);
+              }
+            }
+            @keyframes slowRotate {
+              from {
+                transform: rotate(0deg);
               }
               to {
                 transform: rotate(360deg);
