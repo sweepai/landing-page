@@ -25,8 +25,9 @@ export default class CallToAction extends React.Component {
   // const canvas = document.getElementById('canvas3d');
   // const app = new Application(canvas);
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
-  return (
-    <Container maxW={"5xl"}>
+  render() {
+    return (
+      <Container maxW={"5xl"}>
       <Stack
         textAlign={"center"}
         align={"center"}
@@ -123,6 +124,7 @@ export default class CallToAction extends React.Component {
           </Container>
         </Flex>
       </Stack>
-    </Container>
-  );
+      </Container>
+    );
+  }
 }
