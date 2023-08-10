@@ -65,19 +65,11 @@ export const App = () => {
         <link rel="icon" type="image/png" sizes="128x128" href="/final-sweep-wizard_128x128.png" />
         <link rel="icon" type="image/png" sizes="256x256" href="/final-sweep-wizard_256x256.png" />
       </Helmet>
-      <style>
-        @keyframes rotate {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-      </style>
+      import './styles/animations.css';
       <ChakraProvider theme={theme}>
         <ForceDarkMode>
           <Box
+            className="rotate"
             textAlign="center"
             fontSize="xl"
             bgColor="#0d0a1a"
@@ -87,7 +79,6 @@ export const App = () => {
             minH="100vh"
             bgRepeat="no-repeat"
             overflowX="hidden"
-            animation="rotate 60s infinite linear"
           >
             {false && <ColorModeSwitcher />}
             <Banner />
