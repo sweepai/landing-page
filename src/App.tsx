@@ -77,17 +77,7 @@ export const App = () => {
             minH="100vh"
             bgRepeat="no-repeat"
             overflowX="hidden"
-            sx={{
-              '&:hover': {
-                transform: 'scale(1.1)',
-              },
-              transform: 'rotate(0deg)',
-              '@keyframes rotate': {
-                from: { transform: 'rotate(0deg)' },
-                to: { transform: 'rotate(360deg)' },
-              },
-              animation: 'rotate 60s linear infinite',
-            }}
+            sx={{}}
           >
             {false && <ColorModeSwitcher />}
             <Banner />
