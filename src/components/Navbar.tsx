@@ -17,9 +17,14 @@ import {
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+import React from 'react';
+import withBreakpoints from 'react-socks';
+
+class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.openLink = this.openLink.bind(this);
+  }
   const navItems = [
     {
       label: "Twitter",
@@ -48,8 +53,11 @@ export default function NavBar() {
     // },
   ];
 
-  return (
-    <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
+  render() {
+    const listDisplay = this.props.breakpoint === 'lg' ? 'flex' : 'none';
+    const menuDisplay = this.props.breakpoint === 'lg' ? 'none' : 'flex';
+    return (
+      <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
           <HStack>
@@ -57,7 +65,7 @@ export default function NavBar() {
               <Image src={logo} alt="logo" width={10} borderRadius={12} />
               Sweep AI
             </Button>
-            <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
+            <Button variant="ghost" onClick={() => this.openLink("https://docs.sweep.dev")}>
               Documentation
             </Button>
             {listDisplay === "none" && <PricingModal />}
