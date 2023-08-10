@@ -15,8 +15,6 @@ import { useState } from "react";
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
-import React from 'react';
-
 export default class CallToAction extends React.Component {
   constructor(props) {
     super(props);
