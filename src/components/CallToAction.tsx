@@ -128,4 +128,5 @@ export default class CallToAction extends React.Component {
       </Stack>
     </Container>
   );
+  }
 }
