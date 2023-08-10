@@ -60,7 +60,7 @@ class NavBar extends React.Component {
   render() {
     const { breakpoint } = this.props;
     const listDisplay = breakpoint === 'lg' ? 'flex' : 'none';
-    const menuDisplay = breakpoint === 'lg' ? 'none' : 'flex';
+  render() {
     return (
       <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
