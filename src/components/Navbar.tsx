@@ -61,8 +61,8 @@ export default function NavBar() {
               Documentation
             </Button>
             {listDisplay === "none" && <PricingModal />}
-          </HStack>
-          <ButtonGroup variant="link" display={listDisplay}>
+            </HStack>
+            <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
               <IconButton
                 key={item.label}
@@ -75,15 +75,15 @@ export default function NavBar() {
                 px={2}
               />
             ))}
-            <PricingModal />
-          </ButtonGroup>
-          <Menu>
+            {listDisplay === "none" && <PricingModal />}
+            </ButtonGroup>
+            <Box display={menuDisplay}>
+            <Menu>
             <MenuButton
               as={IconButton}
               aria-label='Options'
               icon={<HamburgerIcon />}
               variant='outline'
-              display={menuDisplay}
             />
             <MenuList
               backgroundColor="#333"
@@ -106,9 +106,9 @@ export default function NavBar() {
                 </MenuItem>
               ))}
             </MenuList>
-          </Menu>
-        </Flex>
-      </HStack>
+            </Menu>
+            </Flex>
+            </HStack>
     </Box>
   );
 }
