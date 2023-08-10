@@ -34,12 +34,21 @@ export default class NavBar extends React.Component {
     window.removeEventListener("resize", this.updateDimensions);
   }
 
-  updateDimensions = () => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listDisplay: window.innerWidth > 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth <= 1024 ? "flex" : "none",
+    };
+    this.updateDimensions = this.updateDimensions.bind(this);
+  }
+  
+  updateDimensions() {
     this.setState({
       listDisplay: window.innerWidth > 1024 ? "flex" : "none",
       menuDisplay: window.innerWidth <= 1024 ? "flex" : "none",
     });
-  };
+  }
   const navItems = [
     {
       label: "Twitter",
