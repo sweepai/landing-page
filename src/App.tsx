@@ -2,8 +2,8 @@ import {
   ChakraProvider,
   Box,
   extendTheme,
-  useColorMode,
   ThemeConfig,
+  ColorModeContext,
 } from "@chakra-ui/react";
 import CallToAction from "./components/CallToAction";
 import { Helmet } from "react-helmet";
@@ -27,8 +27,10 @@ const config: ThemeConfig = {
 const theme = extendTheme({ config });
 
 class ForceDarkMode extends React.Component {
+  static contextType = ColorModeContext;
+
   componentDidMount() {
-    const { colorMode, toggleColorMode } = useColorMode();
+    const { colorMode, toggleColorMode } = this.context;
     if (colorMode !== "dark") {
       toggleColorMode();
     }
