@@ -67,17 +67,25 @@ export const App = () => {
       </Helmet>
       <ChakraProvider theme={theme}>
         <ForceDarkMode>
-          <Box
-            textAlign="center"
-            fontSize="xl"
-            bgColor="#0d0a1a"
-            bgImage={circles}
-            bgPos="0 0"
-            bgSize="100%"
-            minH="100vh"
-            bgRepeat="no-repeat"
-            overflowX="hidden"
-          >
+            <Box
+                textAlign="center"
+                fontSize="xl"
+                bgColor="#0d0a1a"
+                bgImage={circles}
+                bgPos="0 0"
+                bgSize="100%"
+                minH="100vh"
+                bgRepeat="no-repeat"
+                overflowX="hidden"
+                animation="hover 60s infinite linear"
+                css={{
+                    "@keyframes hover": {
+                        "0%": { backgroundPosition: "0 0" },
+                        "50%": { backgroundPosition: "10px 10px" },
+                        "100%": { backgroundPosition: "0 0" },
+                    },
+                }}
+            >
             {false && <ColorModeSwitcher />}
             <Banner />
             <Navbar />
