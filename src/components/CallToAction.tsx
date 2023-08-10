@@ -21,7 +21,7 @@ export default function CallToAction() {
   // const app = new Application(canvas);
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
   return (
-    <Container maxW={"5xl"}>
+    <Container maxW={"5xl"} style={{animation: "slowRotate 20s linear infinite"}}>
       <Stack
         textAlign={"center"}
         align={"center"}
@@ -35,7 +35,6 @@ export default function CallToAction() {
           style={{
             width: 500,
             height: 200,
-            animation: spin ? "spin 0.5s linear" : "slowRotate 20s linear infinite",
             marginTop: "-2rem !important",
             borderRadius: "50%"
           }}
