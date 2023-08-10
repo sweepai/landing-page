@@ -77,7 +77,7 @@ export const App = () => {
                 minH="100vh"
                 bgRepeat="no-repeat"
                 overflowX="hidden"
-                animation="hover 60s infinite linear"
+                animation="hover 1s infinite linear"
                 css={{
                     "@keyframes hover": {
                         "0%": { backgroundPosition: "0 0" },
