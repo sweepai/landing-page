@@ -17,9 +17,30 @@ import {
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+import React from 'react';
+
+class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listDisplay: "none",
+      menuDisplay: "flex",
+    };
+  }
+  componentDidMount() {
+    this.setState({
+      listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth >= 1024 ? "none" : "flex",
+    });
+  }
+  componentDidUpdate() {
+    window.addEventListener("resize", () => {
+      this.setState({
+        listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+        menuDisplay: window.innerWidth >= 1024 ? "none" : "flex",
+      });
+    });
+  }
   const navItems = [
     {
       label: "Twitter",
@@ -48,7 +69,8 @@ export default function NavBar() {
     // },
   ];
 
-  return (
+  render() {
+    return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
@@ -60,9 +82,9 @@ export default function NavBar() {
             <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
               Documentation
             </Button>
-            {listDisplay === "none" && <PricingModal />}
+            {this.state.listDisplay === "none" && <PricingModal />}
           </HStack>
-          <ButtonGroup variant="link" display={listDisplay}>
+          <ButtonGroup variant="link" display={this.state.listDisplay}>
             {navItems.map((item) => (
               <IconButton
                 key={item.label}
@@ -83,7 +105,7 @@ export default function NavBar() {
               aria-label='Options'
               icon={<HamburgerIcon />}
               variant='outline'
-              display={menuDisplay}
+              display={this.state.menuDisplay}
             />
             <MenuList
               backgroundColor="#333"
