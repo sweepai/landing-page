@@ -17,8 +17,6 @@ import {
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-import React from 'react';
-
 export default class NavBar extends React.Component {
   constructor(props) {
     super(props);
