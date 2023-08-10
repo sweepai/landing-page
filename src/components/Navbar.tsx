@@ -30,7 +30,6 @@ class NavBar extends React.Component {
       listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
       menuDisplay: window.innerWidth >= 1024 ? "none" : "flex",
     });
-  }
   componentDidUpdate() {
     window.addEventListener("resize", () => {
       this.setState({
