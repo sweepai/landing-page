@@ -77,6 +77,7 @@ export const App = () => {
             minH="100vh"
             bgRepeat="no-repeat"
             overflowX="hidden"
+            animation="rotate 60s infinite linear"
           >
             {false && <ColorModeSwitcher />}
             <Banner />
