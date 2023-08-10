@@ -37,7 +37,10 @@ export default function CallToAction() {
             height: 200,
             animation: spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate",
             marginTop: "-2rem !important",
-            borderRadius: "50%"
+            borderRadius: "50%",
+            ':hover': {
+              animation: "slowRotate 5s linear infinite"
+            }
           }}
           onClick={async () => {
             setSpin(!spin);
@@ -68,6 +71,15 @@ export default function CallToAction() {
             @keyframes spin {
               from {
                 transform: rotate(0deg) scale(1);
+              }
+              to {
+                transform: rotate(360deg);
+              }
+            }
+            
+            @keyframes slowRotate {
+              from {
+                transform: rotate(0deg);
               }
               to {
                 transform: rotate(360deg);
