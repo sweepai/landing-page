@@ -329,7 +329,7 @@ class Features extends React.Component {
           </Button>
         </Box>
       </Box >
-    </>
-  );
+      </>
+    );
   }
 }
