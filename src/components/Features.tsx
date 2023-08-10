@@ -88,8 +88,6 @@ const GithubDialog = ({ children, user, userProps, ...props }: any) => {
     )
 }
 
-import React from 'react';
-
 export default class Features extends React.Component {
     return (
         <>
