@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Flex,
   Container,
@@ -10,12 +11,9 @@ import { tsParticles } from "tsparticles";
 import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 import Spline from '@splinetool/react-spline';
-import { useState } from "react";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
-
-import React from 'react';
 
 class CallToAction extends React.Component {
   constructor(props) {
