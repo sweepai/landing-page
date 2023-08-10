@@ -89,9 +89,10 @@ const GithubDialog = ({ children, user, userProps, ...props }: any) => {
 }
 
 export default class Features extends React.Component {
-    return (
-        <>
-            <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
+    render() {
+        return (
+            <>
+                <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
                         <Box>
