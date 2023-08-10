@@ -17,9 +17,31 @@ import {
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+import React from 'react';
+
+export default class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listDisplay: window.innerWidth > 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth <= 1024 ? "flex" : "none",
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions);
+  }
+
+  updateDimensions = () => {
+    this.setState({
+      listDisplay: window.innerWidth > 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth <= 1024 ? "flex" : "none",
+    });
+  };
   const navItems = [
     {
       label: "Twitter",
@@ -60,9 +82,9 @@ export default function NavBar() {
             <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
               Documentation
             </Button>
-            {listDisplay === "none" && <PricingModal />}
+            {this.state.listDisplay === "none" && <PricingModal />}
           </HStack>
-          <ButtonGroup variant="link" display={listDisplay}>
+          <ButtonGroup variant="link" display={this.state.listDisplay}>
             {navItems.map((item) => (
               <IconButton
                 key={item.label}
@@ -83,7 +105,7 @@ export default function NavBar() {
               aria-label='Options'
               icon={<HamburgerIcon />}
               variant='outline'
-              display={menuDisplay}
+              display={this.state.menuDisplay}
             />
             <MenuList
               backgroundColor="#333"
