@@ -9,8 +9,8 @@ import GHAIcon from "../assets/gha.svg";
 import logo from "../assets/icon.png";
 import pills_examples from "../assets/pills_examples.svg";
 import User from "./User";
-import tempfile
-from git import Repo
+import tempfile;
+from git import Repo;
 ...
 try:
     repo_dir = os.path.join(tempfile.gettempdir(), repo_full_name)
