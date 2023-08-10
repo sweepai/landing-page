@@ -94,4 +94,4 @@ export class App extends React.Component {
       </ChakraProvider>
     </>
   );
-};
+}
