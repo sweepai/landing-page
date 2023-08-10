@@ -25,6 +25,10 @@ class NavBar extends React.Component {
     super(props);
     this.openLink = this.openLink.bind(this);
   }
+
+  openLink(url) {
+    window.open(url, '_blank');
+  }
   const navItems = [
     {
       label: "Twitter",
@@ -54,8 +58,9 @@ class NavBar extends React.Component {
   ];
 
   render() {
-    const listDisplay = this.props.breakpoint === 'lg' ? 'flex' : 'none';
-    const menuDisplay = this.props.breakpoint === 'lg' ? 'none' : 'flex';
+    const { breakpoint } = this.props;
+    const listDisplay = breakpoint === 'lg' ? 'flex' : 'none';
+    const menuDisplay = breakpoint === 'lg' ? 'none' : 'flex';
     return (
       <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
