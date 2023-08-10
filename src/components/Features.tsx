@@ -316,19 +316,20 @@ class Features extends React.Component {
                                         {example_diff_code_diff}
                                     </SyntaxHighlighter>
                                 </Code>
-                            </Dialog>
-                        </VStack>
-                    </Box>
-                </Box>
-            </Box >
-            <Box display="flex" justifyContent="center" alignItems="center" py={48} bgImage={pills_examples} bgSize="cover">
-                <Box m={8} flexWrap="wrap" justifyContent="space-around" w={{ base: "full", md: "80%" }} textAlign="center">
-                    <Text mb={4} fontSize="3xl">See example tickets, handled by Sweep</Text>
-                    <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://docs.sweep.dev/examples")}>
-                        <FaBook />&nbsp;&nbsp;Example Sweep tickets
-                    </Button>
-                </Box>
-            </Box >
-        </>
-    );
+  render() {
+    return (
+      <>
+      <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
+      ...
+      <Box display="flex" justifyContent="center" alignItems="center" py={48} bgImage={pills_examples} bgSize="cover">
+        <Box m={8} flexWrap="wrap" justifyContent="space-around" w={{ base: "full", md: "80%" }} textAlign="center">
+          <Text mb={4} fontSize="3xl">See example tickets, handled by Sweep</Text>
+          <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://docs.sweep.dev/examples")}>
+            <FaBook />&nbsp;&nbsp;Example Sweep tickets
+          </Button>
+        </Box>
+      </Box >
+    </>
+  );
+  }
 }
