@@ -77,12 +77,12 @@ export const App = () => {
                 minH="100vh"
                 bgRepeat="no-repeat"
                 overflowX="hidden"
-                animation="hover 1s infinite linear"
+                animation="hover 2s infinite linear"
                 css={{
                     "@keyframes hover": {
-                        "0%": { backgroundPosition: "0 0" },
-                        "50%": { backgroundPosition: "50px 50px" },
-                        "100%": { backgroundPosition: "0 0" },
+                        "0%": { backgroundPosition: "0 0", transform: "scale(1) rotate(0deg)" },
+                        "50%": { backgroundPosition: "50px 50px", transform: "scale(1.1) rotate(10deg)" },
+                        "100%": { backgroundPosition: "0 0", transform: "scale(1) rotate(0deg)" },
                     },
                 }}
             >
