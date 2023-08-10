@@ -65,6 +65,16 @@ export const App = () => {
         <link rel="icon" type="image/png" sizes="128x128" href="/final-sweep-wizard_128x128.png" />
         <link rel="icon" type="image/png" sizes="256x256" href="/final-sweep-wizard_256x256.png" />
       </Helmet>
+      <style>
+        @keyframes rotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      </style>
       <ChakraProvider theme={theme}>
         <ForceDarkMode>
           <Box
