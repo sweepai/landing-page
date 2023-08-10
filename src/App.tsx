@@ -81,7 +81,7 @@ export const App = () => {
                 css={{
                     "@keyframes hover": {
                         "0%": { backgroundPosition: "0 0" },
-                        "50%": { backgroundPosition: "10px 10px" },
+                        "50%": { backgroundPosition: "50px 50px" },
                         "100%": { backgroundPosition: "0 0" },
                     },
                 }}
