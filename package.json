@@ -30,7 +30,6 @@
     "react-window-ui": "^2.2.0",
     "tsparticles": "^1.37.3",
     "tsparticles-preset-confetti": "^1.0.0",
-    "particles.js": "^2.0.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
