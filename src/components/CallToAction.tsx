@@ -31,6 +31,9 @@ export default function CallToAction() {
           enable: true,
           speed: 2,
         },
+        color: {
+          value: '#ADD8E6',
+        },
       },
     });
 
