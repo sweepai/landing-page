@@ -35,7 +35,7 @@ export default function CallToAction() {
     });
 
     const handleScroll = () => {
-      tsParticles.dom().play();
+      tsParticles.dom().forEach((p) => p.play());
     };
 
     window.addEventListener('scroll', handleScroll);
