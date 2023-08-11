@@ -11,7 +11,7 @@ import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 import Spline from '@splinetool/react-spline';
 import { useState, useEffect } from "react";
-import particlesJS from 'particles.js';
+import { tsParticles } from "tsparticles";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
@@ -20,12 +20,12 @@ export default function CallToAction() {
   const [spin, setSpin] = useState(false);
 
   useEffect(() => {
-    particlesJS.load('particles-js', 'assets/particles.json', function() {
+    tsParticles.load('particles-js', 'assets/particles.json', function() {
       console.log('callback - particles.js config loaded');
     });
 
     window.addEventListener('scroll', () => {
-      particlesJS('particles-js', {
+      tsParticles.load('particles-js', {
         particles: {
           color: '#000000',
           line_linked: {
