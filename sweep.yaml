@@ -1,1 +1,3 @@
 gha_enabled: True
+description: "This is a landing page made with create-react-app. It has been changed since. When you write code write a separate unit test that tests the code."
+docs: {"particles": "https://particles.js.org/docs"}
