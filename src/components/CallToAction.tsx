@@ -48,7 +48,7 @@ export default function CallToAction() {
   // const app = new Application(canvas);
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
   return (
-    <Container maxW={"5xl"}>
+    <Container id="particles-js" maxW={"5xl"}>
       <Stack
         textAlign={"center"}
         align={"center"}
