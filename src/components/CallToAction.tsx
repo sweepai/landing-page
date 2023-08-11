@@ -10,13 +10,40 @@ import { tsParticles } from "tsparticles";
 import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 import Spline from '@splinetool/react-spline';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
 export default function CallToAction() {
   const [spin, setSpin] = useState(false);
+
+  useEffect(() => {
+    tsParticles.load('particles-js', {
+      particles: {
+        number: {
+          value: 50,
+        },
+        shape: {
+          type: 'line',
+        },
+        move: {
+          enable: true,
+          speed: 2,
+        },
+      },
+    });
+
+    const handleScroll = () => {
+      tsParticles.dom().play();
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   // const canvas = document.getElementById('canvas3d');
   // const app = new Application(canvas);
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
