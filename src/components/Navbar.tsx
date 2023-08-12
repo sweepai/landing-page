@@ -1,4 +1,5 @@
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
 import PricingModal from './PricingModal';
 import {
   Box,
@@ -59,6 +60,12 @@ export default function NavBar() {
             </Button>
             <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
               Documentation
+            </Button>
+            <Button as={Link} to="/flappysweep" variant="ghost">
+              Play FlappySweep
+            </Button>
+            <Button as={Link} to="/flappysweep" variant="ghost">
+              Play FlappySweep
             </Button>
             {listDisplay === "none" && <PricingModal />}
           </HStack>
