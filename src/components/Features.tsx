@@ -66,31 +66,40 @@ const customStyle = {
     },
 };
 
-const Dialog = ({ children, user, userProps, ...props }: any) => {
-    return (
-        <HStack alignItems="flex-start" spacing={6} maxW="100% !important">
-            <User {...userProps}>{user}</User>
-            <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="purple.300" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
-                {children}
-            </Box>
-        </HStack>
-    )
+class Dialog extends React.Component {
+    render() {
+        const { children, user, userProps, ...props } = this.props;
+        return (
+            <HStack alignItems="flex-start" spacing={6} maxW="100% !important">
+                <User {...userProps}>{user}</User>
+                <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="purple.300" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
+                    {children}
+                </Box>
+            </HStack>
+        )
+    }
 }
 
-const GithubDialog = ({ children, user, userProps, ...props }: any) => {
-    return (
-        <HStack alignItems="flex-start" spacing={6} maxW="100% !important" w="100% !important">
-            <User {...userProps}>{user}</User>
-            <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="white.900" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
-                {children}
-            </Box>
-        </HStack>
-    )
+class GithubDialog extends React.Component {
+    render() {
+        const { children, user, userProps, ...props } = this.props;
+        return (
+            <HStack alignItems="flex-start" spacing={6} maxW="100% !important" w="100% !important">
+                <User {...userProps}>{user}</User>
+                <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="white.900" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
+                    {children}
+                </Box>
+            </HStack>
+        )
+    }
 }
 
-export default function Features() {
-    return (
-        <>
+import React from 'react';
+
+class Features extends React.Component {
+    render() {
+        return (
+            <>
             <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
@@ -307,19 +316,20 @@ export default function Features() {
                                         {example_diff_code_diff}
                                     </SyntaxHighlighter>
                                 </Code>
-                            </Dialog>
-                        </VStack>
-                    </Box>
-                </Box>
-            </Box >
-            <Box display="flex" justifyContent="center" alignItems="center" py={48} bgImage={pills_examples} bgSize="cover">
-                <Box m={8} flexWrap="wrap" justifyContent="space-around" w={{ base: "full", md: "80%" }} textAlign="center">
-                    <Text mb={4} fontSize="3xl">See example tickets, handled by Sweep</Text>
-                    <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://docs.sweep.dev/examples")}>
-                        <FaBook />&nbsp;&nbsp;Example Sweep tickets
-                    </Button>
-                </Box>
-            </Box >
-        </>
+  render() {
+    return (
+      <>
+      <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
+      ...
+      <Box display="flex" justifyContent="center" alignItems="center" py={48} bgImage={pills_examples} bgSize="cover">
+        <Box m={8} flexWrap="wrap" justifyContent="space-around" w={{ base: "full", md: "80%" }} textAlign="center">
+          <Text mb={4} fontSize="3xl">See example tickets, handled by Sweep</Text>
+          <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://docs.sweep.dev/examples")}>
+            <FaBook />&nbsp;&nbsp;Example Sweep tickets
+          </Button>
+        </Box>
+      </Box >
+      </>
     );
+  }
 }

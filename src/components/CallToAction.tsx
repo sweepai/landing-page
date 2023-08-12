@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Flex,
   Container,
@@ -10,18 +11,23 @@ import { tsParticles } from "tsparticles";
 import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 import Spline from '@splinetool/react-spline';
-import { useState } from "react";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
-export default function CallToAction() {
-  const [spin, setSpin] = useState(false);
+export default class CallToAction extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      spin: false,
+    };
+  }
   // const canvas = document.getElementById('canvas3d');
   // const app = new Application(canvas);
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
-  return (
-    <Container maxW={"5xl"}>
+  render() {
+    return (
+      <Container maxW={"5xl"}>
       <Stack
         textAlign={"center"}
         align={"center"}
@@ -40,7 +46,7 @@ export default function CallToAction() {
             borderRadius: "50%"
           }}
           onClick={async () => {
-            setSpin(!spin);
+            this.setState({ spin: !this.state.spin });
             await loadConfettiPreset(tsParticles);
             await tsParticles.load("tsparticles", {
               preset: "confetti",
@@ -120,4 +126,5 @@ export default function CallToAction() {
       </Stack>
     </Container>
   );
+  }
 }

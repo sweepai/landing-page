@@ -12,20 +12,23 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
-  const navItems = [
-    {
-      label: "Twitter",
-      icon: <FaTwitter />,
-      link: "https://twitter.com/sweep__ai",
-    },
+import React from 'react';
+import withBreakpoints from 'react-socks';
+
+class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.openLink = this.openLink.bind(this);
+    this.navItems = [
+      {
+        label: "Twitter",
+        icon: <FaTwitter />,
+        link: "https://twitter.com/sweep__ai",
+      },
     {
       label: "Github",
       icon: <FaGithub />,
@@ -46,10 +49,19 @@ export default function NavBar() {
     //   icon: <p>Buy Sweep Pro</p>,
     //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
     // },
-  ];
+    ];
+  }
+  
+  openLink(url) {
+    window.open(url, '_blank');
+  }
 
-  return (
-    <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
+  render() {
+    const { breakpoint } = this.props;
+    const listDisplay = breakpoint === 'lg' ? 'flex' : 'none';
+  render() {
+    return (
+      <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
           <HStack>
@@ -57,7 +69,7 @@ export default function NavBar() {
               <Image src={logo} alt="logo" width={10} borderRadius={12} />
               Sweep AI
             </Button>
-            <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
+            <Button variant="ghost" onClick={() => this.openLink("https://docs.sweep.dev")}>
               Documentation
             </Button>
             {listDisplay === "none" && <PricingModal />}
