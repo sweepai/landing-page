@@ -34,16 +34,20 @@ root.render(
   <React.StrictMode>
     <ColorModeScript />
     <App />
-  // Intercom script
-  (function(){var w=window as any;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args:any){i.q.push(args);};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/ce8fl00z';var x=d.getElementsByTagName('script')[0];if(x && x.parentNode){x.parentNode.insertBefore(s,x);}}if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}})();
-  
-  // Intercom initialization
-  window.Intercom("boot", {
-    app_id: "ce8fl00z"
-  });
-  
-  // Intercom update
-  window.Intercom("update");
+  </React.StrictMode>,
+)
+
+// Intercom script
+(function(){var w=window as any;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args:any){i.q.push(args);};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/ce8fl00z';var x=d.getElementsByTagName('script')[0];if(x && x.parentNode){x.parentNode.insertBefore(s,x);}}if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}})();
+
+// Intercom initialization
+window.Intercom("boot", {
+  app_id: "ce8fl00z"
+});
+
+// Intercom update
+window.Intercom("update");
+
 // Learn more about service workers: https://cra.link/PWA
 serviceWorker.unregister()
 
