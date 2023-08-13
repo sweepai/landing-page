@@ -34,7 +34,7 @@ export default function NavBar() {
     {
       label: "Discord",
       icon: <FaDiscord />,
-      link: "https://discord.gg/sweep-ai",
+      link: "https://discord.gg/sweep",
     },
     {
       label: "Email",
