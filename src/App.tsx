@@ -88,7 +88,7 @@ export const App = () => {
             <Features />
             <Testimonials />
             <Conclusion />
-            <Route path="/about-us" component={AboutUs} />
+            <Route path="/about-us" element={<AboutUs />} />
           </Box>
         </ForceDarkMode>
       </ChakraProvider>
