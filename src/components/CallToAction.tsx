@@ -99,7 +99,7 @@ export default function CallToAction() {
           <FaGithub />&nbsp;&nbsp;Install Sweep
         </Button>
         <ExternalLinkWithText
-          href="https://discord.gg/sweep-ai" // updated link
+          href="https://discord.gg/sweep" // updated link
           color="purple.400"
           mt="0 !important"
           style={{
