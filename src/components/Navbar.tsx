@@ -60,7 +60,7 @@ export default function NavBar() {
             <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
               Documentation
             </Button>
-            {listDisplay === "none" && <PricingModal />}
+            {/* Removed conditional rendering of PricingModal */}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
@@ -75,6 +75,7 @@ export default function NavBar() {
                 px={2}
               />
             ))}
+            {/* Added PricingModal to always be displayed */}
             <PricingModal />
           </ButtonGroup>
           <Menu>
