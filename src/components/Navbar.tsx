@@ -14,6 +14,7 @@ import {
   MenuList,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
@@ -60,6 +61,11 @@ export default function NavBar() {
             <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
               Documentation
             </Button>
+            <Link to="/about-us">
+              <Button variant="ghost">
+                About Us
+              </Button>
+            </Link>
             {listDisplay === "none" && <PricingModal />}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
