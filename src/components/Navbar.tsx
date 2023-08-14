@@ -66,7 +66,7 @@ export default function NavBar() {
                 About Us
               </Button>
             </Link>
-            {listDisplay === "none" && <PricingModal />}
+            {/* Removed conditional rendering of PricingModal */}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
@@ -81,6 +81,7 @@ export default function NavBar() {
                 px={2}
               />
             ))}
+            {/* Added PricingModal to always be displayed */}
             <PricingModal />
           </ButtonGroup>
           <Menu>
