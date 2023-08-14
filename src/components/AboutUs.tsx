@@ -16,6 +16,10 @@ const AboutUs = () => {
           <Image src={process.env.PUBLIC_URL + '/KEVIN.jpeg'} alt="Kevin" boxSize="150px" />
           <Text>Kevin - Dropout from Waterloo</Text>
         </Box>
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Image src={process.env.PUBLIC_URL + '/Luke_Picture.jpeg'} alt="lukejagg" boxSize="150px" />
+          <Text>lukejagg</Text>
+        </Box>
       </Box>
     </Box>
   );
