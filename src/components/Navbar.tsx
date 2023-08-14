@@ -14,6 +14,7 @@ import {
   MenuList,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
@@ -60,7 +61,12 @@ export default function NavBar() {
             <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
               Documentation
             </Button>
-            {listDisplay === "none" && <PricingModal />}
+            <Link to="/about-us">
+              <Button variant="ghost">
+                About Us
+              </Button>
+            </Link>
+            {/* Removed conditional rendering of PricingModal */}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
@@ -75,6 +81,7 @@ export default function NavBar() {
                 px={2}
               />
             ))}
+            {/* Added PricingModal to always be displayed */}
             <PricingModal />
           </ButtonGroup>
           <Menu>
