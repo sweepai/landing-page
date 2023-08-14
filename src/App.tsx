@@ -14,6 +14,8 @@ import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { useEffect } from "react";
 import Testimonials from "./components/Testimonials";
 import Users from "./components/Users";
+import AboutUs from "./components/AboutUs";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import circles from "./assets/circles.svg";
 import Features from "./components/Features";
@@ -88,12 +90,21 @@ export const App = () => {
             >
             {false && <ColorModeSwitcher />}
             <Banner />
-            <Navbar />
-            <CallToAction />
-            <Users />
-            <Features />
-            <Testimonials />
-            <Conclusion />
+            <Router>
+              <Navbar />
+              <Switch>
+                <Route exact path="/">
+                  <CallToAction />
+                  <Users />
+                  <Features />
+                  <Testimonials />
+                  <Conclusion />
+                </Route>
+                <Route path="/about-us">
+                  <AboutUs />
+                </Route>
+              </Switch>
+            </Router>
           </Box>
         </ForceDarkMode>
       </ChakraProvider>
