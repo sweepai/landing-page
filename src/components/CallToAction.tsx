@@ -81,7 +81,7 @@ export default function CallToAction() {
           lineHeight={"110%"}
           mt="0 !important"
         >
-          Ship code faster
+          Write code faster
         </Heading>
         <Text color={"purple.400"} maxW={"3xl"} mt="1rem !important" mb="1rem !important">
           Let Sweep handle your tech debt so you can focus on the exciting problems
