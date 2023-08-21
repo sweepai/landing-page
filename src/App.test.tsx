@@ -4,7 +4,8 @@ import { render } from "./test-utils"
 import { App } from "./App"
 
 test("renders learn react link", () => {
-  render(<App />)
+  const props = {}; // Add any props that ColorModeSwitcher expects
+  render(<App {...props} />)
   const linkElement = screen.getByText(/learn chakra/i)
   expect(linkElement).toBeInTheDocument()
 })
