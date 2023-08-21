@@ -13,7 +13,7 @@ type CommentHeaderProps = {
 class CommentHeader extends React.Component<CommentHeaderProps> {
     render() {
     return (
-        <ExternalLinkWithText href={href} includeIcon={false}>
+        <ExternalLinkWithText href={this.props.href} includeIcon={false}>
             <Box display="flex" alignItems="center" mt={8} mb={2}>
                 <img 
                     src={src}
@@ -45,7 +45,7 @@ class Comment extends React.Component<CommentProps> {
     render() {
     return (
         <>
-            <CommentHeader src={src} username={username} href={`https://github.com/${username}`} />
+            <CommentHeader src={this.props.src} username={this.props.username} href={`https://github.com/${this.props.username}`} />
             <Text 
                 fontSize="lg" 
                 textAlign="left"
@@ -109,9 +109,9 @@ type ExampleProps = {
 
 class Example extends React.Component<ExampleProps> {
     render() {
-    const repo_url = `https://github.com/${repo_name}`;
-    const issue_url = `https://github.com/${repo_name}/issues/${issue_number}`;
-    const pull_request_url = `https://github.com/${repo_name}/pull/${issue_number}`;
+    const repo_url = `https://github.com/${this.props.repo_name}`;
+    const issue_url = `https://github.com/${this.props.repo_name}/issues/${this.props.issue_number}`;
+    const pull_request_url = `https://github.com/${this.props.repo_name}/pull/${this.props.issue_number}`;
     return (
         <Box 
             overflow="hidden" 
