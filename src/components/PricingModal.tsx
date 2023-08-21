@@ -7,16 +7,13 @@ import React from 'react';
 
 interface PricingModalProps {
     show: boolean;
+    onClose: () => void;
 }
 
 export default class PricingModal extends React.Component<PricingModalProps> {
     constructor(props: PricingModalProps) {
         super(props);
-        this.state = { show: this.props.show };
     }
-
-    handleClose = () => this.setState({ show: false });
-    handleShow = () => this.setState({ show: true });
 
     render() {
         return (
@@ -25,7 +22,7 @@ export default class PricingModal extends React.Component<PricingModalProps> {
                     Pricing
                 </Button>
     
-                <Modal isOpen={this.state.show} onClose={this.handleClose} size="5xl">
+                <Modal isOpen={this.props.show} onClose={this.props.onClose} size="5xl">
         <ModalOverlay />
         <ModalContent p={8} backgroundColor="#0d1117" pb={4}>
           <ModalBody>
