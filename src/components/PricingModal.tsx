@@ -5,10 +5,14 @@ import { Text, Modal, Button, ModalBody, ModalFooter, ModalOverlay, ModalContent
 
 import React from 'react';
 
-export default class PricingModal extends React.Component {
+interface PricingModalProps {
+    show: boolean;
+}
+
+export default class PricingModal extends React.Component<PricingModalProps> {
     constructor(props) {
         super(props);
-        this.state = { show: false };
+        this.state = { show: this.props.show };
     }
 
     handleClose = () => this.setState({ show: false });
