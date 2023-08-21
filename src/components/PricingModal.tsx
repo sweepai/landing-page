@@ -3,11 +3,20 @@ import { Text, Modal, Button, ModalBody, ModalFooter, ModalOverlay, ModalContent
 // import { MdDiamond } from "react-icons/md";
 
 
-export default function PricingModal() {
-  const [show, setShow] = useState(false);
+import React from 'react';
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+export default class PricingModal extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { show: false };
+    }
+
+    handleClose = () => this.setState({ show: false });
+    handleShow = () => this.setState({ show: true });
+
+    render() {
+        return (
+            <>
 
   return (
     <>
@@ -94,9 +103,7 @@ export default function PricingModal() {
             <Button variant="ghost" onClick={handleClose} mt={4}>
               ✕
             </Button>
-          </ModalFooter>
-        </ ModalContent>
-      </Modal >
-    </>
-  );
+            </>
+        );
+    }
 }
