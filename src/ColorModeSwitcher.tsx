@@ -4,6 +4,7 @@ import {
   useColorModeValue,
   IconButton,
   IconButtonProps,
+  ColorModeContext,
 } from "@chakra-ui/react"
 import { FaMoon, FaSun } from "react-icons/fa"
 
@@ -11,9 +12,9 @@ type ColorModeSwitcherProps = Omit<IconButtonProps, "aria-label">
 
 export class ColorModeSwitcher extends React.Component<ColorModeSwitcherProps, {}> {
   static contextType = ColorModeContext;
-  toggleColorMode = this.context.toggleColorMode;
-  text = this.context.colorMode === "light" ? "dark" : "light";
-  SwitchIcon = this.context.colorMode === "light" ? FaMoon : FaSun;
+  toggleColorMode = this.context;
+  text = this.context === "light" ? "dark" : "light";
+  SwitchIcon = this.context === "light" ? FaMoon : FaSun;
 
   render() {
     return (
