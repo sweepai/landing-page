@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Flex,
   Container,
@@ -9,14 +10,13 @@ import {
 import { tsParticles } from "tsparticles";
 import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { FaDiscord, FaGithub } from "react-icons/fa";
-import { useState } from "react";
 import logo from "../assets/icon.png";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
 export default class CallToAction extends React.Component {
-  constructor(props) {
+  constructor(props: {}) {
     super(props);
     this.state = { spin: false };
   }
@@ -32,18 +32,18 @@ export default class CallToAction extends React.Component {
         style={{ paddingTop: "0 !important" }}
         mb={36}
       >
-        <img src={logo} alt="Logo" style={{ width: '200px', animation: spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate", marginTop: "-2rem !important", borderRadius: "50%" }} onClick={async () => {
-            setSpin(!spin);
-            await loadConfettiPreset(tsParticles);
-            await tsParticles.load("tsparticles", {
-              preset: "confetti",
-              particles: {
-                color: {
-                  value: ["#800080", "#FFFFFF"],
-                },
-              },
-            });
-          }} />
+        <img src={logo} alt="Logo" style={{ width: '200px', animation: this.state.spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate", marginTop: "-2rem !important", borderRadius: "50%" }} onClick={async () => {
+                    this.setState({ spin: !this.state.spin });
+                    await loadConfettiPreset(tsParticles);
+                    await tsParticles.load("tsparticles", {
+                      preset: "confetti",
+                      particles: {
+                        color: {
+                          value: ["#800080", "#FFFFFF"],
+                        },
+                      },
+                    });
+                  }} />
         {/* <img src={logo} alt="Logo" width={120} height={120} style={{
           animation: "bob 0.75s ease-in-out infinite alternate",
         }} /> */}
