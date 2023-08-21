@@ -7,10 +7,15 @@ type ExternalLinkWithTextProps = {
     includeIcon?: boolean
 } & LinkProps;
 
-export default function ExternalLinkWithText({ children, href, includeIcon = true, ...rest }: ExternalLinkWithTextProps) : JSX.Element {
-    return (
-        <Link href={href} isExternal rel="noopener noreferrer" {...rest}>
-            {children}{includeIcon && <>&nbsp;<ExternalLinkIcon /></>}
-        </Link>
-    );
+import React from 'react';
+
+export default class ExternalLinkWithText extends React.Component<ExternalLinkWithTextProps> {
+    render() {
+        const { children, href, includeIcon = true, ...rest } = this.props;
+        return (
+            <Link href={href} isExternal rel="noopener noreferrer" {...rest}>
+                {children}{includeIcon && <>&nbsp;<ExternalLinkIcon /></>}
+            </Link>
+        );
+    }
 }
