@@ -19,11 +19,12 @@ export class ColorModeSwitcher extends React.Component<ColorModeSwitcherProps, {
   static contextType = ColorModeContext;
   context: IColorModeContext;
 
-  constructor(props: ColorModeSwitcherProps) {
-    super(props);
-    this.toggleColorMode = this.toggleColorMode.bind(this);
-    this.SwitchIcon = this.SwitchIcon.bind(this);
-  }
+  constructor(props: ColorModeSwitcherProps, context: IColorModeContext) {
+      super(props, context);
+      this.context = context;
+      this.toggleColorMode = this.toggleColorMode.bind(this);
+      this.SwitchIcon = this.SwitchIcon.bind(this);
+    }
 
   toggleColorMode() {
     return this.context.toggleColorMode;
