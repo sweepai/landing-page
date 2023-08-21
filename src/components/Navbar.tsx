@@ -44,8 +44,8 @@ export default class NavBar extends React.Component {
   }
 
   render() {
-    const listDisplay = this.state.display;
-    const menuDisplay = this.state.display;
+    const listDisplay = this.state.listDisplay;
+    const menuDisplay = this.state.menuDisplay;
     const navItems = [
     {
       label: "Twitter",
