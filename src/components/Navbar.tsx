@@ -25,6 +25,13 @@ interface NavbarProps {
 }
 
 class NavBar extends React.Component<NavbarProps> {
+    state = {
+        showModal: false
+    }
+
+    handleShowModal = () => this.setState({ showModal: true });
+    handleCloseModal = () => this.setState({ showModal: false });
+
     render() {
         const listDisplay = this.props.width < 1024 ? "none" : "flex";
         const menuDisplay = this.props.width < 1024 ? "flex" : "none";
@@ -89,7 +96,7 @@ class NavBar extends React.Component<NavbarProps> {
               />
             ))}
             {/* Added PricingModal to always be displayed */}
-            <PricingModal />
+            <PricingModal show={this.state.showModal} onClose={this.handleCloseModal} />
           </ButtonGroup>
           <Menu>
             <MenuButton
