@@ -16,10 +16,6 @@ export default class PricingModal extends React.Component {
 
     render() {
         return (
-            <>
-
-  return (
-    <>
       <Button onClick={handleShow}>
         Pricing
       </Button>
