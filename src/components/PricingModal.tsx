@@ -15,6 +15,9 @@ export default class PricingModal extends React.Component<PricingModalProps> {
         super(props);
     }
 
+    handleShow = () => this.setState({ show: true });
+    handleClose = () => this.setState({ show: false });
+
     render() {
         return (
             <React.Fragment>
