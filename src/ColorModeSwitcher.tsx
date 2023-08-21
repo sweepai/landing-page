@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react"
 import {
   useColorMode,
   useColorModeValue,
@@ -17,9 +17,9 @@ export class ColorModeSwitcher extends React.Component<ColorModeSwitcherProps> {
   };
 
   componentDidMount() {
-    const { colorMode, toggleColorMode } = useColorMode();
-    const text = useColorModeValue("dark", "light");
-    const SwitchIcon = useColorModeValue(FaMoon, FaSun);
+    const { colorMode, toggleColorMode } = this.props;
+    const text = colorMode === "light" ? "dark" : "light";
+    const SwitchIcon = colorMode === "light" ? FaMoon : FaSun;
 
     this.setState({
       colorMode,
@@ -29,9 +29,9 @@ export class ColorModeSwitcher extends React.Component<ColorModeSwitcherProps> {
   }
 
   componentDidUpdate() {
-    const { colorMode, toggleColorMode } = useColorMode();
-    const text = useColorModeValue("dark", "light");
-    const SwitchIcon = useColorModeValue(FaMoon, FaSun);
+    const { colorMode, toggleColorMode } = this.props;
+    const text = colorMode === "light" ? "dark" : "light";
+    const SwitchIcon = colorMode === "light" ? FaMoon : FaSun;
 
     this.setState({
       colorMode,
@@ -42,7 +42,7 @@ export class ColorModeSwitcher extends React.Component<ColorModeSwitcherProps> {
 
   render() {
     const { colorMode, text, SwitchIcon } = this.state;
-    const { toggleColorMode } = useColorMode();
+    const { toggleColorMode } = this.props;
 
     return (
       <IconButton
