@@ -55,7 +55,7 @@ export default class NavBar extends React.Component {
     //   icon: <p>Buy Sweep Pro</p>,
     //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
     // },
-  ];
+  }
 
   return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
