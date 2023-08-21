@@ -11,14 +11,14 @@ import { FaMoon, FaSun } from "react-icons/fa"
 type ColorModeSwitcherProps = Omit<IconButtonProps, "aria-label">
 
 export class ColorModeSwitcher extends React.Component<ColorModeSwitcherProps> {
-  static contextType = useColorMode;
+  static contextType = ColorModeContext;
 
   getColorModeValue(lightValue: string, darkValue: string) {
     return this.context === "light" ? lightValue : darkValue;
   }
 
   render() {
-    const { toggleColorMode } = this.context;
+    const toggleColorMode = this.context.toggleColorMode;
     const text = this.getColorModeValue("dark", "light");
     const SwitchIcon = this.getColorModeValue(FaMoon, FaSun);
 
