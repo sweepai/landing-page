@@ -1,3 +1,4 @@
+import React from 'react';
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { Link, LinkProps } from "@chakra-ui/react";
 
@@ -6,8 +7,6 @@ type ExternalLinkWithTextProps = {
     href: string
     includeIcon?: boolean
 } & LinkProps;
-
-import React from 'react';
 
 export default class ExternalLinkWithText extends React.Component<ExternalLinkWithTextProps> {
     render() {
