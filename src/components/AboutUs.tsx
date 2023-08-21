@@ -3,8 +3,9 @@ import { Box, Image, Text } from '@chakra-ui/react';
 
 
 
-const AboutUs = () => {
-  return (
+class AboutUs extends React.Component {
+  render() {
+    return (
     <Box>
       <Text fontSize="2xl" fontWeight="bold">About Us</Text>
       <Box display="flex" flexDirection="row" justifyContent="space-around" marginTop="2rem">
@@ -18,8 +19,9 @@ const AboutUs = () => {
         </Box>
       </Box>
     </Box>
-  );
-};
+    );
+  }
+}
 
 export default AboutUs;
 
