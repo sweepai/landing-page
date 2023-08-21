@@ -12,7 +12,8 @@ export default class PricingModal extends React.Component {
   handleClose = () => this.setState({ show: false });
   handleShow = () => this.setState({ show: true });
 
-  return (
+  render() {
+    return (
     <>
       <Button onClick={handleShow}>
         Pricing
