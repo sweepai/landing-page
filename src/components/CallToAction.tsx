@@ -9,8 +9,8 @@ import {
 import { tsParticles } from "tsparticles";
 import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { FaDiscord, FaGithub } from "react-icons/fa";
-import Spline from '@splinetool/react-spline';
 import { useState } from "react";
+import logo from "../assets/icon.png";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
@@ -30,16 +30,7 @@ export default function CallToAction() {
         style={{ paddingTop: "0 !important" }}
         mb={36}
       >
-        <Spline
-          scene="https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode"
-          style={{
-            width: 500,
-            height: 200,
-            animation: spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate",
-            marginTop: "-2rem !important",
-            borderRadius: "50%"
-          }}
-          onClick={async () => {
+        <img src={logo} alt="Logo" style={{ width: '200px', animation: spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate", marginTop: "-2rem !important", borderRadius: "50%" }} onClick={async () => {
             setSpin(!spin);
             await loadConfettiPreset(tsParticles);
             await tsParticles.load("tsparticles", {
@@ -50,8 +41,7 @@ export default function CallToAction() {
                 },
               },
             });
-          }}
-        />
+          }} />
         {/* <img src={logo} alt="Logo" width={120} height={120} style={{
           animation: "bob 0.75s ease-in-out infinite alternate",
         }} /> */}
