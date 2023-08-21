@@ -49,7 +49,7 @@ class ForceDarkMode extends React.Component<{ children: JSX.Element }, { colorMo
 
 
 
-export const App = () => {
+export const AppFunc = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.type = "text/javascript";
