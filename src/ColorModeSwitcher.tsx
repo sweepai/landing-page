@@ -16,10 +16,19 @@ interface IColorModeContext {
 type ColorModeSwitcherProps = Omit<IconButtonProps, "aria-label">
 
 export class ColorModeSwitcher extends React.Component<ColorModeSwitcherProps, {}> {
-  static contextType: React.ContextType<typeof ColorModeContext> = ColorModeContext;
-  toggleColorMode = this.context.toggleColorMode;
-  text = this.context.colorMode === "light" ? "dark" : "light";
-  SwitchIcon = this.context.colorMode === "light" ? FaMoon : FaSun;
+  static contextType = ColorModeContext;
+
+  toggleColorMode() {
+    return this.context.toggleColorMode;
+  }
+
+  text() {
+    return this.context.colorMode === "light" ? "dark" : "light";
+  }
+
+  SwitchIcon() {
+    return this.context.colorMode === "light" ? FaMoon : FaSun;
+  }
 
   render() {
     return (
@@ -29,9 +38,9 @@ export class ColorModeSwitcher extends React.Component<ColorModeSwitcherProps, {
         variant="ghost"
         color="current"
         marginLeft="2"
-        onClick={this.toggleColorMode}
-        icon={<this.SwitchIcon />}
-        aria-label={`Switch to ${this.text} mode`}
+        onClick={this.toggleColorMode()}
+        icon={<this.SwitchIcon() />}
+        aria-label={`Switch to ${this.text()} mode`}
         {...this.props}
       />
     )
