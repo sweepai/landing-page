@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { Text, Modal, Button, ModalBody, ModalFooter, ModalOverlay, ModalContent, SimpleGrid, Box } from '@chakra-ui/react';
 // import { MdDiamond } from "react-icons/md";
 
@@ -19,7 +19,7 @@ export default class PricingModal extends React.Component {
           Pricing
         </Button>
 
-      <Modal isOpen={show} onClose={handleClose} size="5xl">
+      <Modal isOpen={this.state.show} onClose={this.handleClose} size="5xl">
         <ModalOverlay />
         <ModalContent p={8} backgroundColor="#0d1117" pb={4}>
           <ModalBody>
@@ -95,7 +95,7 @@ export default class PricingModal extends React.Component {
             </SimpleGrid>
           </ModalBody>
           <ModalFooter display="flex" alignItems="center" flexDirection="column">
-            <Button variant="ghost" onClick={handleClose} mt={4}>
+            <Button variant="ghost" onClick={this.handleClose} mt={4}>
               ✕
             </Button>
           </ModalFooter>
