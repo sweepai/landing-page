@@ -18,10 +18,11 @@ import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
-  const navItems = [
+export default class NavBar extends React.Component {
+  render() {
+    const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
+    const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+    const navItems = [
     {
       label: "Twitter",
       icon: <FaTwitter />,
@@ -47,10 +48,10 @@ export default function NavBar() {
     //   icon: <p>Buy Sweep Pro</p>,
     //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
     // },
-  ];
+    ];
 
-  return (
-    <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
+    return (
+      <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
           <HStack>
@@ -116,6 +117,7 @@ export default function NavBar() {
           </Menu>
         </Flex>
       </HStack>
-    </Box>
-  );
+      </Box>
+    );
+  }
 }
