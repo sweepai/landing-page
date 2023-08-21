@@ -123,3 +123,4 @@ export default class NavBar extends React.Component {
     </Box>
   );
 }
+}
