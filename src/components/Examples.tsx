@@ -10,9 +10,10 @@ type CommentHeaderProps = {
     href: string
 }
 
-const CommentHeader = ({ src, username, href }: CommentHeaderProps) : JSX.Element => {
+class CommentHeader extends React.Component<CommentHeaderProps> {
+    render() {
     return (
-        <ExternalLinkWithText href={href} includeIcon={false}>
+        <ExternalLinkWithText href={this.props.href} includeIcon={false}>
             <Box display="flex" alignItems="center" mt={8} mb={2}>
                 <img 
                     src={src}
@@ -40,10 +41,11 @@ type CommentProps = {
     username: string
 }
 
-const Comment = ({ children, src, username }: CommentProps) : JSX.Element => {
+class Comment extends React.Component<CommentProps> {
+    render() {
     return (
         <>
-            <CommentHeader src={src} username={username} href={`https://github.com/${username}`} />
+            <CommentHeader src={this.props.src} username={this.props.username} href={`https://github.com/${this.props.username}`} />
             <Text 
                 fontSize="lg" 
                 textAlign="left"
@@ -62,7 +64,8 @@ type PullRequestLinkProps = {
     username: string
 }
 
-const PullRequestLink = ({ children, href, username }: PullRequestLinkProps) : JSX.Element => {
+class PullRequestLink extends React.Component<PullRequestLinkProps> {
+    render() {
     return (
         <Text>
             <Box display="flex" alignItems="center" mb={2} mt={8}>
@@ -104,19 +107,11 @@ type ExampleProps = {
     pull_request_title: string
 }
 
-const Example = ({ 
-    children,
-    repo_name,
-    issue_title,
-    issue_number,
-    avatar_href,
-    username,
-    issue_description,
-    pull_request_title
-}: ExampleProps) : JSX.Element => {
-    const repo_url = `https://github.com/${repo_name}`;
-    const issue_url = `https://github.com/${repo_name}/issues/${issue_number}`;
-    const pull_request_url = `https://github.com/${repo_name}/pull/${issue_number}`;
+class Example extends React.Component<ExampleProps> {
+    render() {
+    const repo_url = `https://github.com/${this.props.repo_name}`;
+    const issue_url = `https://github.com/${this.props.repo_name}/issues/${this.props.issue_number}`;
+    const pull_request_url = `https://github.com/${this.props.repo_name}/pull/${this.props.issue_number}`;
     return (
         <Box 
             overflow="hidden" 
@@ -156,7 +151,8 @@ const Example = ({
     );
 }
 
-export default function Examples() {
+export default class Examples extends React.Component {
+    render() {
     return (
         <>
             <Box display="flex" justifyContent="center" alignItems="center">

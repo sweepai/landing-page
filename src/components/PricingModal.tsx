@@ -3,19 +3,23 @@ import { Text, Modal, Button, ModalBody, ModalFooter, ModalOverlay, ModalContent
 // import { MdDiamond } from "react-icons/md";
 
 
-export default function PricingModal() {
-  const [show, setShow] = useState(false);
+export default class PricingModal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { show: false };
+  }
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  handleClose = () => this.setState({ show: false });
+  handleShow = () => this.setState({ show: true });
 
-  return (
+  render() {
+    return (
     <>
       <Button onClick={handleShow}>
         Pricing
       </Button>
 
-      <Modal isOpen={show} onClose={handleClose} size="5xl">
+      <Modal isOpen={this.state.show} onClose={this.handleClose} size="5xl">
         <ModalOverlay />
         <ModalContent p={8} backgroundColor="#0d1117" pb={4}>
           <ModalBody>
