@@ -88,79 +88,81 @@ const GithubDialog = ({ children, user, userProps, ...props }: any) => {
     )
 }
 
-export default function Features() {
-    return (
-        <>
-            <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
-                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
-                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
-                        <Box>
-                            <img src={logo} alt="Sweep logo" width={50} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Clean up your tech debt, automatically</Text>
-                            <Text mt={4} fontSize="md" color="lightgrey">Sweep generates repository-level code at your command. Cut down your dev time on mundane tasks, like tests, documentation, and refactoring.</Text>
-                        </Box>
-                    </Flex>
-                    <Box width={{ base: "100%", md: "45%" }} maxW="100%">
-                        <VStack alignItems="flex-start" spacing={6}>
-                            <Dialog
-                                user={<Text fontSize="md" color="white">KL</Text>}
-                                userProps={{ bgColor: "purple.900", p: 2, borderWidth: 2 }}
-                                bgColor="purple.900"
-                                borderWidth={2}
-                            >
-                                <Text fontSize="md" color="white">
-                                    Sweep: Use OS Agnostic Temp Directory
-                                </Text>
-                            </Dialog>
-                            <Dialog user={<img src={logo} alt="Sweep logo" />}>
-                                <Text
-                                    position="relative"
-                                    fontSize="md"
-                                    color="white"
+export default class Features extends React.Component {
+    render() {
+        return (
+            <>
+                <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
+                    <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
+                        <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
+                            <Box>
+                                <img src={logo} alt="Sweep logo" width={50} />
+                                <Text mt={4} fontSize="2xl" fontWeight="bold">Clean up your tech debt, automatically</Text>
+                                <Text mt={4} fontSize="md" color="lightgrey">Sweep generates repository-level code at your command. Cut down your dev time on mundane tasks, like tests, documentation, and refactoring.</Text>
+                            </Box>
+                        </Flex>
+                        <Box width={{ base: "100%", md: "45%" }} maxW="100%">
+                            <VStack alignItems="flex-start" spacing={6}>
+                                <Dialog
+                                    user={<Text fontSize="md" color="white">KL</Text>}
+                                    userProps={{ bgColor: "purple.900", p: 2, borderWidth: 2 }}
+                                    bgColor="purple.900"
+                                    borderWidth={2}
                                 >
-                                    <Box
-                                        position="absolute"
-                                        bottom={0}
-                                        left={0}
-                                        right={0}
-                                        height="100%"
-                                        background={`linear-gradient(to bottom, transparent, #0d0a1aaa)`}
-                                    />
-                                    This PR addresses issue #367, which pointed out that the current implementation of the temporary directory in sweepai/app/ui.py is not compatible with Windows.
-                                    <br />
-                                    {/*<ul>*/}
-                                    {/*    <li style={{ marginLeft: 20 }}>*/}
-                                    {/*        Creates a test file tests/test_backend.py with test cases for normal usage and edge cases...*/}
-                                    {/*    </li>*/}
-                                    {/*</ul>*/}
-                                </Text>
-                            </Dialog>
-                            <Dialog user={<img src={logo} alt="Sweep logo" />}>
-                                <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
-                                    <b>sweepai/app/ui.py</b>
-                                    <hr style={{
-                                        borderTop: '2px solid grey',
-                                        width: '100%',
-                                        marginTop: '0.5rem',
-                                    }} />
-                                    <SyntaxHighlighter
-                                        language="python"
-                                        style={customStyle}
-                                        wrapLines={true}
-                                        wrapLongLines={true}
-                                        customStyle={{
-                                            padding: 0,
-                                            overflowX: "hidden",
-                                            backgroundColor: "transparent",
-                                        }}
+                                    <Text fontSize="md" color="white">
+                                        Sweep: Use OS Agnostic Temp Directory
+                                    </Text>
+                                </Dialog>
+                                <Dialog user={<img src={logo} alt="Sweep logo" />}>
+                                    <Text
+                                        position="relative"
+                                        fontSize="md"
+                                        color="white"
                                     >
-                                        {example_code}
-                                    </SyntaxHighlighter>
-                                </Code>
-                            </Dialog>
-                        </VStack>
+                                        <Box
+                                            position="absolute"
+                                            bottom={0}
+                                            left={0}
+                                            right={0}
+                                            height="100%"
+                                            background={`linear-gradient(to bottom, transparent, #0d0a1aaa)`}
+                                        />
+                                        This PR addresses issue #367, which pointed out that the current implementation of the temporary directory in sweepai/app/ui.py is not compatible with Windows.
+                                        <br />
+                                    </Text>
+                                </Dialog>
+                                <Dialog user={<img src={logo} alt="Sweep logo" />}>
+                                    <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
+                                        <b>sweepai/app/ui.py</b>
+                                        <hr style={{
+                                            borderTop: '2px solid grey',
+                                            width: '100%',
+                                            marginTop: '0.5rem',
+                                        }} />
+                                        <SyntaxHighlighter
+                                            language="python"
+                                            style={customStyle}
+                                            wrapLines={true}
+                                            wrapLongLines={true}
+                                            customStyle={{
+                                                padding: 0,
+                                                overflowX: "hidden",
+                                                backgroundColor: "transparent",
+                                            }}
+                                        >
+                                            {example_code}
+                                        </SyntaxHighlighter>
+                                    </Code>
+                                </Dialog>
+                            </VStack>
+                        </Box>
                     </Box>
-                </Box>
+                </Box >
+                ...
+            </>
+        );
+    }
+}
             </Box >
             <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
