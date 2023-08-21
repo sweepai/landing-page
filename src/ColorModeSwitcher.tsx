@@ -9,22 +9,25 @@ import { FaMoon, FaSun } from "react-icons/fa"
 
 type ColorModeSwitcherProps = Omit<IconButtonProps, "aria-label">
 
-export const ColorModeSwitcher: React.FC<ColorModeSwitcherProps> = (props) => {
-  const { toggleColorMode } = useColorMode()
-  const text = useColorModeValue("dark", "light")
-  const SwitchIcon = useColorModeValue(FaMoon, FaSun)
+export class ColorModeSwitcher extends React.Component<ColorModeSwitcherProps, {}> {
+  static contextType = ColorModeContext;
+  toggleColorMode = this.context.toggleColorMode;
+  text = this.context.colorMode === "light" ? "dark" : "light";
+  SwitchIcon = this.context.colorMode === "light" ? FaMoon : FaSun;
 
-  return (
-    <IconButton
-      size="md"
-      fontSize="lg"
-      variant="ghost"
-      color="current"
-      marginLeft="2"
-      onClick={toggleColorMode}
-      icon={<SwitchIcon />}
-      aria-label={`Switch to ${text} mode`}
-      {...props}
-    />
-  )
+  render() {
+    return (
+      <IconButton
+        size="md"
+        fontSize="lg"
+        variant="ghost"
+        color="current"
+        marginLeft="2"
+        onClick={this.toggleColorMode}
+        icon={<this.SwitchIcon />}
+        aria-label={`Switch to ${this.text} mode`}
+        {...this.props}
+      />
+    )
+  }
 }
