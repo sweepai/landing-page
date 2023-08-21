@@ -52,9 +52,8 @@ export default class NavBar extends React.Component {
     const listDisplay = this.getBreakpointValue({ base: "none", lg: "flex" });
     const menuDisplay = this.getBreakpointValue({ base: "flex", lg: "none" });
     const { navItems } = this.state;
-  }
 
-  return (
+    return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
