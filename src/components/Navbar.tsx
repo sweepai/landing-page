@@ -46,7 +46,8 @@ export default class NavBar extends React.Component<NavBarProps, NavBarState> {
 
   updateDisplay() {
     this.setState({
-      display: window.matchMedia("(min-width: 1024px)").matches ? "flex" : "none",
+      listDisplay: window.matchMedia("(min-width: 1024px)").matches ? "flex" : "none",
+      menuDisplay: window.matchMedia("(min-width: 1024px)").matches ? "flex" : "none",
     });
   }
 
