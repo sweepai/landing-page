@@ -1,3 +1,4 @@
+import React from 'react';
 import { HStack, Text, Image, Link } from "@chakra-ui/react";
 // import WithFriendsLogo from "../assets/companies/withfriends.svg";
 import MedPlum from "../assets/companies/medplum.svg"
