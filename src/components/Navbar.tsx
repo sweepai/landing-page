@@ -22,12 +22,12 @@ import logo from "../assets/icon.png";
 interface NavBarProps {}
 
 interface NavBarState {
-  listDisplay: string;
-  menuDisplay: string;
+  listDisplay: "flex" | "none";
+  menuDisplay: "flex" | "none";
 }
 
 export default class NavBar extends React.Component<NavBarProps, NavBarState> {
-  constructor(props) {
+  constructor(props: NavBarProps) {
     super(props);
     this.state = {
       listDisplay: window.matchMedia("(min-width: 1024px)").matches ? "flex" : "none",
