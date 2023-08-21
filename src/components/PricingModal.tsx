@@ -1,5 +1,4 @@
 import React from 'react';
-import React from 'react';
 import { Text, Modal, Button, ModalBody, ModalFooter, ModalOverlay, ModalContent, SimpleGrid, Box } from '@chakra-ui/react';
 // import { MdDiamond } from "react-icons/md";
 
