@@ -18,31 +18,32 @@ import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
-  const navItems = [
-    {
-      label: "Twitter",
-      icon: <FaTwitter />,
-      link: "https://twitter.com/sweep__ai",
-    },
-    {
-      label: "Github",
-      icon: <FaGithub />,
-      link: "https://github.com/sweepai/sweep",
-    },
-    {
-      label: "Discord",
-      icon: <FaDiscord />,
-      link: "https://discord.gg/sweep",
-    },
-    {
-      label: "Email",
-      icon: <EmailIcon />,
-      link: "mailto:team@sweep.dev",
-    },
-    // {
+export default class NavBar extends React.Component {
+  render() {
+    const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
+    const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+    const navItems = [
+      {
+        label: "Twitter",
+        icon: <FaTwitter />,
+        link: "https://twitter.com/sweep__ai",
+      },
+      {
+        label: "Github",
+        icon: <FaGithub />,
+        link: "https://github.com/sweepai/sweep",
+      },
+      {
+        label: "Discord",
+        icon: <FaDiscord />,
+        link: "https://discord.gg/sweep",
+      },
+      {
+        label: "Email",
+        icon: <EmailIcon />,
+        link: "mailto:team@sweep.dev",
+      },
+    ];
     //   label: "Buy Sweep Pro",
     //   icon: <p>Buy Sweep Pro</p>,
     //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
