@@ -19,9 +19,31 @@ import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
 export default class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      display: window.matchMedia("(min-width: 1024px)").matches ? "flex" : "none",
+    };
+    this.updateDisplay = this.updateDisplay.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDisplay);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDisplay);
+  }
+
+  updateDisplay() {
+    this.setState({
+      display: window.matchMedia("(min-width: 1024px)").matches ? "flex" : "none",
+    });
+  }
+
   render() {
-    const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-    const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+    const listDisplay = this.state.display;
+    const menuDisplay = this.state.display;
     const navItems = [
     {
       label: "Twitter",
