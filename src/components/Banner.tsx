@@ -1,8 +1,9 @@
 import { Box, Text, Link } from "@chakra-ui/react";
 import { FaStar } from 'react-icons/fa';
 
-const Banner = () => {
-  return (
+class Banner extends React.Component {
+  render() {
+    return (
     <Box w="100%" p={2} color="white" bgColor="blackAlpha.400">
       <Link href="https://github.com/sweepai/sweep" isExternal>
         <Text fontSize="lg" display="flex" justifyContent="center" alignItems="center" color="lightgrey">
@@ -10,7 +11,8 @@ const Banner = () => {
         </Text>
       </Link>
     </Box>
-  );
-};
+    );
+  }
+}
 
 export default Banner;
