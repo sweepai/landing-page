@@ -1,9 +1,15 @@
 import React from 'react';
+import React from 'react';
 import { Text, Modal, Button, ModalBody, ModalFooter, ModalOverlay, ModalContent, SimpleGrid, Box } from '@chakra-ui/react';
 // import { MdDiamond } from "react-icons/md";
 
+interface PricingModalProps {}
 
-export default class PricingModal extends React.Component {
+interface PricingModalState {
+  show: boolean;
+}
+
+export default class PricingModal extends React.Component<PricingModalProps, PricingModalState> {
   constructor(props) {
     super(props);
     this.state = { show: false };
