@@ -19,7 +19,14 @@ import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default class NavBar extends React.Component {
+interface NavBarProps {}
+
+interface NavBarState {
+  listDisplay: string;
+  menuDisplay: string;
+}
+
+export default class NavBar extends React.Component<NavBarProps, NavBarState> {
   constructor(props) {
     super(props);
     this.state = {
