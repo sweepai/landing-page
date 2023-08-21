@@ -51,10 +51,7 @@ export default class NavBar extends React.Component {
   render() {
     const listDisplay = this.getBreakpointValue({ base: "none", lg: "flex" });
     const menuDisplay = this.getBreakpointValue({ base: "flex", lg: "none" });
-    //   label: "Buy Sweep Pro",
-    //   icon: <p>Buy Sweep Pro</p>,
-    //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
-    // },
+    const { navItems } = this.state;
   }
 
   return (
