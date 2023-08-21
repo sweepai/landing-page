@@ -8,10 +8,15 @@ import {
 } from "@chakra-ui/react"
 import { FaMoon, FaSun } from "react-icons/fa"
 
+interface IColorModeContext {
+  colorMode: string;
+  toggleColorMode: () => void;
+}
+
 type ColorModeSwitcherProps = Omit<IconButtonProps, "aria-label">
 
 export class ColorModeSwitcher extends React.Component<ColorModeSwitcherProps, {}> {
-  static contextType = ColorModeContext;
+  static contextType: React.ContextType<typeof ColorModeContext> = ColorModeContext;
   toggleColorMode = this.context.toggleColorMode;
   text = this.context.colorMode === "light" ? "dark" : "light";
   SwitchIcon = this.context.colorMode === "light" ? FaMoon : FaSun;
