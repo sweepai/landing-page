@@ -30,7 +30,7 @@ export default function CallToAction() {
         style={{ paddingTop: "0 !important" }}
         mb={36}
       >
-        <img src={logo} alt="Logo" style={{ width: '50px', animation: spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate", marginTop: "-2rem !important", borderRadius: "50%" }} onClick={async () => {
+        <img src={logo} alt="Logo" style={{ width: '200px', animation: spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate", marginTop: "-2rem !important", borderRadius: "50%" }} onClick={async () => {
             setSpin(!spin);
             await loadConfettiPreset(tsParticles);
             await tsParticles.load("tsparticles", {
