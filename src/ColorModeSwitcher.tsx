@@ -18,6 +18,12 @@ type ColorModeSwitcherProps = Omit<IconButtonProps, "aria-label">
 export class ColorModeSwitcher extends React.Component<ColorModeSwitcherProps, {}> {
   static contextType = ColorModeContext;
 
+  constructor(props) {
+    super(props);
+    this.toggleColorMode = this.toggleColorMode.bind(this);
+    this.SwitchIcon = this.SwitchIcon.bind(this);
+  }
+
   toggleColorMode() {
     return this.context.toggleColorMode;
   }
@@ -38,8 +44,8 @@ export class ColorModeSwitcher extends React.Component<ColorModeSwitcherProps, {
         variant="ghost"
         color="current"
         marginLeft="2"
-        onClick={this.toggleColorMode()}
-        icon={<this.SwitchIcon() />}
+        onClick={this.toggleColorMode}
+        icon={this.SwitchIcon}
         aria-label={`Switch to ${this.text()} mode`}
         {...this.props}
       />
