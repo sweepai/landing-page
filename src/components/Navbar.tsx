@@ -18,9 +18,13 @@ import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+import React from 'react';
+import { withResizeDetector } from 'react-resize-detector';
+
+class NavBar extends React.Component {
+    render() {
+        const listDisplay = this.props.width < 1024 ? "none" : "flex";
+        const menuDisplay = this.props.width < 1024 ? "flex" : "none";
   const navItems = [
     {
       label: "Twitter",
@@ -49,8 +53,8 @@ export default function NavBar() {
     // },
   ];
 
-  return (
-    <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
+        return (
+            <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
           <HStack>
@@ -116,6 +120,9 @@ export default function NavBar() {
           </Menu>
         </Flex>
       </HStack>
-    </Box>
-  );
+            </Box>
+        );
+    }
 }
+
+export default withResizeDetector(NavBar);
