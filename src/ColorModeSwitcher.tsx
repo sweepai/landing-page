@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, Context } from 'react';
 import {
   useColorMode,
   useColorModeValue,
@@ -12,9 +12,9 @@ import { FaMoon, FaSun } from "react-icons/fa"
 type ColorModeSwitcherProps = Omit<IconButtonProps, "aria-label">
 
 export class ColorModeSwitcher extends React.Component<ColorModeSwitcherProps> {
-  static contextType: Context<ColorModeContextType> = ColorModeContext;
+  static contextType: Context<ColorMode | undefined> = ColorModeContext;
 
-  getColorModeValue(lightValue: JSX.Element, darkValue: JSX.Element): JSX.Element {
+  getColorModeValue(lightValue: ReactNode, darkValue: ReactNode): ReactNode {
     return this.context === "light" ? lightValue : darkValue;
   }
 
