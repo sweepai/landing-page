@@ -26,7 +26,7 @@ export default function CallToAction() {
     
       render() {
         return (
-          <div>
+          <>
             <Container maxW={"5xl"}>
               <Stack
                 textAlign={"center"}
@@ -50,7 +50,7 @@ export default function CallToAction() {
                 }} />
             </Stack>
           </Container>
-          </div>
+          </>
       );
     }
       }
