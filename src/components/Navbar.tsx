@@ -12,7 +12,6 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
