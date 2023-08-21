@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   ChakraProvider,
   Box,
@@ -56,7 +57,7 @@ class App extends React.Component {
   }
 }
 
-export const App = () => {
+export const AppFunc = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.type = "text/javascript";
