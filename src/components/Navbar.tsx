@@ -23,7 +23,8 @@ export default class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      display: window.matchMedia("(min-width: 1024px)").matches ? "flex" : "none",
+      listDisplay: window.matchMedia("(min-width: 1024px)").matches ? "flex" : "none",
+      menuDisplay: window.matchMedia("(min-width: 1024px)").matches ? "flex" : "none",
     };
     this.updateDisplay = this.updateDisplay.bind(this);
   }
