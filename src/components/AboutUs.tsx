@@ -3,9 +3,10 @@ import { Box, Image, Text } from '@chakra-ui/react';
 
 
 
-const AboutUs = () => {
-  return (
-    <Box>
+class AboutUs extends React.Component {
+  render() {
+    return (
+      <Box>
       <Text fontSize="2xl" fontWeight="bold">About Us</Text>
       <Box display="flex" flexDirection="row" justifyContent="space-around" marginTop="2rem">
         <Box display="flex" flexDirection="column" alignItems="center">
@@ -17,9 +18,10 @@ const AboutUs = () => {
           <Text>Kevin - Dropout from Waterloo</Text>
         </Box>
       </Box>
-    </Box>
-  );
-};
+      </Box>
+    );
+  }
+}
 
 export default AboutUs;
 
