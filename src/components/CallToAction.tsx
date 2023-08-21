@@ -35,18 +35,18 @@ export default function CallToAction() {
             style={{ paddingTop: "0 !important" }}
             mb={36}
           >
-            <img src={logo} alt="Logo" style={{ width: '200px', animation: this.state.spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate", marginTop: "-2rem !important", borderRadius: "50%" }} onClick={async () => {
-                this.setState({ spin: !this.state.spin });
-                await loadConfettiPreset(tsParticles);
-                await tsParticles.load("tsparticles", {
-                  preset: "confetti",
-                  particles: {
-                    color: {
-                      value: ["#800080", "#FFFFFF"],
-                    },
-                  },
-                });
-              }} />
+        <img src={logo} alt="Logo" style={{ width: '200px', animation: this.state.spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate", marginTop: "-2rem !important", borderRadius: "50%" }} onClick={async () => {
+            this.setState({ spin: !this.state.spin });
+            await loadConfettiPreset(tsParticles);
+            await tsParticles.load("tsparticles", {
+              preset: "confetti",
+              particles: {
+                color: {
+                  value: ["#800080", "#FFFFFF"],
+                },
+              },
+            });
+          }} />
         {/* <img src={logo} alt="Logo" width={120} height={120} style={{
           animation: "bob 0.75s ease-in-out infinite alternate",
         }} /> */}
