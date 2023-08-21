@@ -16,11 +16,12 @@ export default class PricingModal extends React.Component {
 
     render() {
         return (
-      <Button onClick={this.handleShow}>
-        Pricing
-      </Button>
-
-      <Modal isOpen={this.state.show} onClose={this.handleClose} size="5xl">
+            <React.Fragment>
+                <Button onClick={this.handleShow}>
+                    Pricing
+                </Button>
+    
+                <Modal isOpen={this.state.show} onClose={this.handleClose} size="5xl">
         <ModalOverlay />
         <ModalContent p={8} backgroundColor="#0d1117" pb={4}>
           <ModalBody>
@@ -102,6 +103,7 @@ export default class PricingModal extends React.Component {
             </ModalFooter>
             </ModalContent>
             </Modal>
-        );
-    }
+        </React.Fragment>
+    );
+}
 }
