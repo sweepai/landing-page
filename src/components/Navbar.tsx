@@ -20,7 +20,11 @@ import logo from "../assets/icon.png";
 import React from 'react';
 import { withResizeDetector } from 'react-resize-detector';
 
-class NavBar extends React.Component {
+interface NavbarProps {
+    width: number;
+}
+
+class NavBar extends React.Component<NavbarProps> {
     render() {
         const listDisplay = this.props.width < 1024 ? "none" : "flex";
         const menuDisplay = this.props.width < 1024 ? "flex" : "none";
