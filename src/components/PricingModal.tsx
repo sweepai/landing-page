@@ -10,7 +10,7 @@ interface PricingModalState {
 }
 
 export default class PricingModal extends React.Component<PricingModalProps, PricingModalState> {
-  constructor(props) {
+  constructor(props: PricingModalProps) {
     super(props);
     this.state = { show: false };
   }
