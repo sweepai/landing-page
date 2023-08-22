@@ -1,7 +1,5 @@
 import React from 'react';
 import { Box, Image, Text } from '@chakra-ui/react';
-import React from 'react';
-import { Box, Image, Text } from '@chakra-ui/react';
 
 class AboutUs extends React.Component {
   render() {
