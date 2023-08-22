@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
 import logo from "../assets/icon.png";
