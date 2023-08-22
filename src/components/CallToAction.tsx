@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Flex,
   Container,
@@ -16,7 +15,7 @@ import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
 export default class CallToAction extends React.Component {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = { spin: false };
   }
