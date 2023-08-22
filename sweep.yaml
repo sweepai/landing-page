@@ -3,6 +3,6 @@ description: "This is a landing page made with create-react-app. It has been cha
 docs: {"particles": "https://particles.js.org/docs"}
 
 sandbox:
-  install: "yarn install --ignore-engines""
+  install: "yarn install --ignore-engines"
   formatter: "npx prettier --write {files}"
   linter: "yarn lint && yarn run tsc"
