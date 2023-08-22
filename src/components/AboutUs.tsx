@@ -1,5 +1,3 @@
-import React from 'react';
-import { Box, Image, Text } from '@chakra-ui/react';
 import React, { Component } from 'react';
 import { Box, Image, Text } from '@chakra-ui/react';
 
