@@ -15,8 +15,8 @@ import logo from "../assets/icon.png";
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
-class CallToAction extends React.Component {
-  constructor(props) {
+class CallToAction extends React.Component<{}, { spin: boolean }> {
+  constructor(props: {}) {
     super(props);
     this.state = {
       spin: false,
