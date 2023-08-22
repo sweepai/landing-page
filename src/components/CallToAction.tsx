@@ -22,11 +22,10 @@ export default class CallToAction extends React.Component {
   }
 
   render() {
+    // const app = new Application(canvas);
+    // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
     return (
-  // const app = new Application(canvas);
-  // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
-  return (
-    <Container maxW={"5xl"}>
+      <Container maxW={"5xl"}>
       <Stack
         textAlign={"center"}
         align={"center"}
