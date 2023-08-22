@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Flex,
   Container,
@@ -14,7 +15,11 @@ import logo from "../assets/icon.png";
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
-export default class CallToAction extends React.Component {
+interface State {
+  spin: boolean;
+}
+
+export default class CallToAction extends React.Component<{}, State> {
   constructor(props: any) {
     super(props);
     this.state = { spin: false };
