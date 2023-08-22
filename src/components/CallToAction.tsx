@@ -108,6 +108,7 @@ export default function CallToAction() {
           </Container>
         </Flex>
       </Stack>
-    </Container>
-  );
+      </Container>
+    );
+  }
 }
