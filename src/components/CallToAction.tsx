@@ -27,7 +27,6 @@ export default class CallToAction extends React.Component {
   }
 
   render() {
-    return (
   // const app = new Application(canvas);
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
   return (
