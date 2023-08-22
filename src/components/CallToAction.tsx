@@ -15,9 +15,19 @@ import logo from "../assets/icon.png";
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
-export default function CallToAction() {
-  const [spin, setSpin] = useState(false);
-  // const canvas = document.getElementById('canvas3d');
+class CallToAction extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { spin: false };
+    this.toggleSpin = this.toggleSpin.bind(this);
+  }
+
+  toggleSpin() {
+    this.setState(state => ({ spin: !state.spin }));
+  }
+
+  render() {
+    return (
   // const app = new Application(canvas);
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
   return (
@@ -109,5 +119,6 @@ export default function CallToAction() {
         </Flex>
       </Stack>
     </Container>
-  );
+    );
+  }
 }
