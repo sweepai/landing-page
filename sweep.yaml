@@ -3,8 +3,6 @@ description: "This is a landing page made with create-react-app. It has been cha
 docs: {"particles": "https://particles.js.org/docs"}
 
 sandbox:
-  enabled: true
-  image: "Nodejs"
-  install: "rm package.json; npm install --save-dev prettier eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin"
+  install: "yarn"
   formatter: "npx prettier --write {files}"
-  linter: "npx eslint {files}"
+  linter: "yarn lint && yarn run tsc"
