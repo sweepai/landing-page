@@ -1,3 +1,10 @@
 gha_enabled: True
 description: "This is a landing page made with create-react-app. It has been changed since. When you write code write a separate unit test that tests the code."
 docs: {"particles": "https://particles.js.org/docs"}
+
+sandbox:
+  enabled: true
+  image: "Nodejs"
+  install: "npm install --save-dev prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin"
+  formatter: "npx prettier --write {files}"
+  linter: "npx eslint {files}"
