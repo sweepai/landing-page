@@ -27,6 +27,7 @@ class CallToAction extends React.Component {
   // const canvas = document.getElementById('canvas3d');
   // const app = new Application(canvas);
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
+  
   render() {
     return (
       <Container maxW={"5xl"}>
@@ -119,6 +120,3 @@ class CallToAction extends React.Component {
       </Container>
     );
   }
-  }
-  
-  export default CallToAction;
