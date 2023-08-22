@@ -3,9 +3,10 @@ import { FaGithub } from "react-icons/fa";
 import logo from "../assets/icon.png";
 import pills_bottom from "../assets/pills_bottom.svg";
 import Footer from "./Footer";
-export default function Conclusion() {
-    return (
-        <Box bgImage={pills_bottom} bgPos="-100px 0" bgSize="cover">
+export default class Conclusion extends React.Component {
+    render() {
+        return (
+            <Box bgImage={pills_bottom} bgPos="-100px 0" bgSize="cover">
             <Flex justifyContent="center" alignItems="center" py={64}>
                 <Box m={8} flexWrap="wrap" justifyContent="space-around" w="80%" textAlign="center" alignItems="center">
                     <Flex w="full" justifyContent="center" mb={4}>
@@ -18,6 +19,7 @@ export default function Conclusion() {
                 </Box>
             </Flex>
             <Footer />
-        </Box>
-    )
+            </Box>
+        )
+    }
 }
