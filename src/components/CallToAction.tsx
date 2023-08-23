@@ -15,8 +15,29 @@ import logo from "../assets/icon.png";
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
-export default function CallToAction() {
-  const [spin, setSpin] = useState(false);
+import React from 'react';
+
+export default class CallToAction extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { spin: false };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  async handleClick() {
+    this.setState({ spin: !this.state.spin });
+    await loadConfettiPreset(tsParticles);
+    await tsParticles.load("tsparticles", {
+      preset: "confetti",
+      particles: {
+        color: {
+          value: ["#800080", "#FFFFFF"],
+        },
+      },
+    });
+  }
+
+  render() {
   // const canvas = document.getElementById('canvas3d');
   // const app = new Application(canvas);
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
