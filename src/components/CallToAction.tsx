@@ -40,7 +40,7 @@ export default class CallToAction extends React.Component {
   render() {
   // const canvas = document.getElementById('canvas3d');
   // const app = new Application(canvas);
-  // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
+  render() {
   return (
     <Container maxW={"5xl"}>
       <Stack
@@ -51,18 +51,7 @@ export default class CallToAction extends React.Component {
         style={{ paddingTop: "0 !important" }}
         mb={36}
       >
-        <img src={logo} alt="Logo" style={{ width: '200px', animation: spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate", marginTop: "-2rem !important", borderRadius: "50%" }} onClick={async () => {
-            setSpin(!spin);
-            await loadConfettiPreset(tsParticles);
-            await tsParticles.load("tsparticles", {
-              preset: "confetti",
-              particles: {
-                color: {
-                  value: ["#800080", "#FFFFFF"],
-                },
-              },
-            });
-          }} />
+        <img src={logo} alt="Logo" style={{ width: '200px', animation: this.state.spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate", marginTop: "-2rem !important", borderRadius: "50%" }} onClick={this.handleClick} />
         {/* <img src={logo} alt="Logo" width={120} height={120} style={{
           animation: "bob 0.75s ease-in-out infinite alternate",
         }} /> */}
