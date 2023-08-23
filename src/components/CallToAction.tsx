@@ -17,8 +17,12 @@ const demo = require("../assets/demo.mp4");
 
 import React from 'react';
 
-export default class CallToAction extends React.Component {
-  constructor(props) {
+interface CallToActionState {
+  spin: boolean;
+}
+
+export default class CallToAction extends React.Component<{}, CallToActionState> {
+  constructor(props: {}) {
     super(props);
     this.state = { spin: false };
     this.handleClick = this.handleClick.bind(this);
