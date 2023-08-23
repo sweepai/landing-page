@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box, Text } from "@chakra-ui/react";
 import { FaArrowRight } from "react-icons/fa";
 import logo from "../assets/icon.png";
@@ -156,8 +157,9 @@ const Example = ({
     );
 }
 
-export default function Examples() {
-    return (
+export default class Examples extends React.Component {
+    render() {
+        return (
         <>
             <Box display="flex" justifyContent="center" alignItems="center">
                 <Box m={8} mt={32} width={{base: "100%", md: "80%"}}>
@@ -226,5 +228,6 @@ export default function Examples() {
                 For more examples, see <ExternalLinkWithText href="https://docs.sweep.dev/about/examples">Example Sweep tickets</ExternalLinkWithText>
             </Text>
         </>
-    );
+        );
+    }
 }
