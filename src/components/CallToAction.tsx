@@ -40,7 +40,6 @@ export default class CallToAction extends React.Component {
   render() {
   // const canvas = document.getElementById('canvas3d');
   // const app = new Application(canvas);
-  render() {
   return (
     <Container maxW={"5xl"}>
       <Stack
