@@ -5,4 +5,4 @@ docs: {"particles": "https://particles.js.org/docs"}
 sandbox:
   install: "yarn install --ignore-engines"
   formatter: "npx prettier --write {files}"
-  linter: "yarn lint && yarn run tsc || exit 1"
+  linter: "yarn lint --quiet && yarn run tsc || exit 1"
