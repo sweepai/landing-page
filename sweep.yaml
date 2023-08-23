@@ -5,4 +5,4 @@ docs: {"particles": "https://particles.js.org/docs"}
 sandbox:
   install: "yarn install --ignore-engines"
   formatter: "npx prettier --write {files}"
-  linter: "(yarn run --prettier check . || (exit_code=$?; if [ $exit_code -eq 2 ]; then exit 2; fi; exit 0)) && yarn run lint && yarn run tsc"
+  linter: "(yarn run prettier --check . || (exit_code=$?; if [ $exit_code -eq 2 ]; then exit 2; fi; exit 0)) && yarn run lint && yarn run tsc"
