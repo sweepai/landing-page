@@ -38,10 +38,10 @@ export default class CallToAction extends React.Component {
   }
 
   render() {
-  // const canvas = document.getElementById('canvas3d');
-  // const app = new Application(canvas);
-  return (
-    <Container maxW={"5xl"}>
+    // const canvas = document.getElementById('canvas3d');
+    // const app = new Application(canvas);
+    return (
+      <Container maxW={"5xl"}>
       <Stack
         textAlign={"center"}
         align={"center"}
@@ -117,9 +117,9 @@ export default class CallToAction extends React.Component {
           </Container>
         </Flex>
       </Stack>
-    </Container>
-  );
+      </Container>
+    );
+  }
 }
-};
 
 </file>
