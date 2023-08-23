@@ -3,19 +3,29 @@ import { Text, Modal, Button, ModalBody, ModalFooter, ModalOverlay, ModalContent
 // import { MdDiamond } from "react-icons/md";
 
 
-export default function PricingModal() {
-  const [show, setShow] = useState(false);
+import React from 'react';
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+interface PricingModalProps {
+    show: boolean;
+    onClose: () => void;
+}
 
-  return (
-    <>
-      <Button onClick={handleShow}>
-        Pricing
-      </Button>
+export default class PricingModal extends React.Component<PricingModalProps> {
+    constructor(props: PricingModalProps) {
+        super(props);
+    }
 
-      <Modal isOpen={show} onClose={handleClose} size="5xl">
+    handleShow = () => this.setState({ show: true });
+    handleClose = () => this.setState({ show: false });
+
+    render() {
+        return (
+            <React.Fragment>
+                <Button onClick={this.handleShow}>
+                    Pricing
+                </Button>
+    
+                <Modal isOpen={this.props.show} onClose={this.props.onClose} size="5xl">
         <ModalOverlay />
         <ModalContent p={8} backgroundColor="#0d1117" pb={4}>
           <ModalBody>
@@ -91,12 +101,13 @@ export default function PricingModal() {
             </SimpleGrid>
           </ModalBody>
           <ModalFooter display="flex" alignItems="center" flexDirection="column">
-            <Button variant="ghost" onClick={handleClose} mt={4}>
+            <Button variant="ghost" onClick={this.handleClose} mt={4}>
               ✕
             </Button>
-          </ModalFooter>
-        </ ModalContent>
-      </Modal >
-    </>
-  );
+            </ModalFooter>
+            </ModalContent>
+            </Modal>
+        </React.Fragment>
+    );
+}
 }

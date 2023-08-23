@@ -1,9 +1,12 @@
 import { Box, Link, Stack } from "@chakra-ui/react";
 import YCLogo from "../assets/yc.webp";
 
-export default function Footer() {
-  return (
-    <Box as="footer" py={4}>
+import React from 'react';
+
+export default class Footer extends React.Component {
+    render() {
+        return (
+            <Box as="footer" py={4}>
       <Stack direction={{ base: "column", md: "row" }} spacing={4} align="center" justify="center" fontSize={"sm"} my={{ base: 4, md: 0 }}>
         <Link href="https://github.com/sweepai" textAlign={{ base: "center", md: "left" }}>Github</Link>
         <Link href="https://discord.gg/j8XxQmpHEF" textAlign={{ base: "center", md: "left" }}>Discord</Link>
@@ -13,6 +16,7 @@ export default function Footer() {
           Backed by <img src={YCLogo} alt="Y Combinator" style={{ marginLeft: "10px" }} height="10px" />
         </Link>
       </Stack>
-    </Box>
-  );
+            </Box>
+        );
+    }
 }
