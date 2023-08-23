@@ -59,7 +59,7 @@ export default function PricingModal() {
                     $480 <span style={{ fontWeight: "normal" }}>/ month</span>
                   </Text>
                   <Box as="ul" style={{ listStyleType: 'none' }}>
-                    <li>✔ 120 GPT-4 Sweep issues / month</li>
+                    <li>✔ Unlimited GPT-4 Sweep issues</li>
                     <li>✔ Faster search with live re-indexing</li>
                     <li>✔ Priority support</li>
                     <li>✔ Commercial SLA</li>
