@@ -110,4 +110,4 @@ export default function CallToAction() {
       </Stack>
     </Container>
   );
-}
+};
