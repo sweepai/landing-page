@@ -121,5 +121,3 @@ export default class CallToAction extends React.Component {
     );
   }
 }
-
-</file>
