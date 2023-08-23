@@ -225,7 +225,7 @@ export default class Examples extends React.Component {
                 </Box>
             </Box>
             <Text mb={16}>
-                For more examples, see <ExternalLinkWithText href="https://docs.sweep.dev/examples">Example Sweep tickets</ExternalLinkWithText>
+                For more examples, see <ExternalLinkWithText href="https://docs.sweep.dev/about/examples">Example Sweep tickets</ExternalLinkWithText>
             </Text>
         </>
         );
