@@ -5,6 +5,7 @@ import {
   useColorMode,
   ThemeConfig,
 } from "@chakra-ui/react";
+import { Helmet } from "react-helmet";
 import CallToAction from "./components/CallToAction";
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
@@ -17,6 +18,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React from 'react';
 
 import circles from "./assets/circles.svg";
+import og_image from "./assets/og_image.png";
 import Features from "./components/Features";
 import Conclusion from "./components/Conclusion";
 
