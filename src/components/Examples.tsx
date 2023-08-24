@@ -10,8 +10,10 @@ type CommentHeaderProps = {
     href: string
 }
 
-const CommentHeader = ({ src, username, href }: CommentHeaderProps) : JSX.Element => {
-    return (
+class CommentHeader extends React.Component<CommentHeaderProps, {}> {
+    render() {
+        const { src, username, href } = this.props;
+        return (
         <ExternalLinkWithText href={href} includeIcon={false}>
             <Box display="flex" alignItems="center" mt={8} mb={2}>
                 <img 
@@ -30,7 +32,8 @@ const CommentHeader = ({ src, username, href }: CommentHeaderProps) : JSX.Elemen
                 </Text>
             </Box>
         </ExternalLinkWithText>
-    )
+        )
+    }
 }
 
 
@@ -40,8 +43,10 @@ type CommentProps = {
     username: string
 }
 
-const Comment = ({ children, src, username }: CommentProps) : JSX.Element => {
-    return (
+class Comment extends React.Component<CommentProps, {}> {
+    render() {
+        const { children, src, username } = this.props;
+        return (
         <>
             <CommentHeader src={src} username={username} href={`https://github.com/${username}`} />
             <Text 
@@ -52,7 +57,8 @@ const Comment = ({ children, src, username }: CommentProps) : JSX.Element => {
                 {children}
             </Text>
         </>
-    );
+        );
+    }
 }
 
 
@@ -62,8 +68,10 @@ type PullRequestLinkProps = {
     username: string
 }
 
-const PullRequestLink = ({ children, href, username }: PullRequestLinkProps) : JSX.Element => {
-    return (
+class PullRequestLink extends React.Component<PullRequestLinkProps, {}> {
+    render() {
+        const { children, href, username } = this.props;
+        return (
         <Text>
             <Box display="flex" alignItems="center" mb={2} mt={8}>
                 <FaArrowRight />
@@ -89,7 +97,8 @@ const PullRequestLink = ({ children, href, username }: PullRequestLinkProps) : J
                 </ExternalLinkWithText>
             </Box>
         </Text>
-    );
+        );
+    }
 }
 
 
@@ -104,7 +113,9 @@ type ExampleProps = {
     pull_request_title: string
 }
 
-const Example = ({ 
+class Example extends React.Component<ExampleProps, {}> {
+    render() {
+        const { 
     children,
     repo_name,
     issue_title,
@@ -113,7 +124,7 @@ const Example = ({
     username,
     issue_description,
     pull_request_title
-}: ExampleProps) : JSX.Element => {
+        } = this.props;
     const repo_url = `https://github.com/${repo_name}`;
     const issue_url = `https://github.com/${repo_name}/issues/${issue_number}`;
     const pull_request_url = `https://github.com/${repo_name}/pull/${issue_number}`;
@@ -156,8 +167,9 @@ const Example = ({
     );
 }
 
-export default function Examples() {
-    return (
+export default class Examples extends React.Component {
+    render() {
+        return (
         <>
             <Box display="flex" justifyContent="center" alignItems="center">
                 <Box m={8} mt={32} width={{base: "100%", md: "80%"}}>
@@ -226,5 +238,6 @@ export default function Examples() {
                 For more examples, see <ExternalLinkWithText href="https://docs.sweep.dev/about/examples">Example Sweep tickets</ExternalLinkWithText>
             </Text>
         </>
-    );
+        );
+    }
 }
