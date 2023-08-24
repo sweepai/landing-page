@@ -1,21 +1,33 @@
-import { useState } from 'react';
+import { Component } from 'react';
 import { Text, Modal, Button, ModalBody, ModalFooter, ModalOverlay, ModalContent, SimpleGrid, Box } from '@chakra-ui/react';
-// import { MdDiamond } from "react-icons/md";
 
+export default class PricingModal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: false,
+    };
+    this.handleClose = this.handleClose.bind(this);
+    this.handleShow = this.handleShow.bind(this);
+  }
 
-export default function PricingModal() {
-  const [show, setShow] = useState(false);
+  handleClose() {
+    this.setState({ show: false });
+  }
 
-  const handleClose = () => setShow(false);
+  handleShow() {
+    this.setState({ show: true });
+  }
   const handleShow = () => setShow(true);
 
-  return (
-    <>
-      <Button onClick={handleShow}>
-        Pricing
-      </Button>
+  render() {
+    return (
+      <>
+        <Button onClick={this.handleShow}>
+          Pricing
+        </Button>
 
-      <Modal isOpen={show} onClose={handleClose} size="5xl">
+      <Modal isOpen={this.state.show} onClose={this.handleClose} size="5xl">
         <ModalOverlay />
         <ModalContent p={8} backgroundColor="#0d1117" pb={4}>
           <ModalBody>
