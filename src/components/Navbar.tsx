@@ -3,9 +3,47 @@ import { PricingModal } from "./PricingModal";
 import React from 'react';
 
 const NavBar = () => {
-  const [listDisplay, setListDisplay] = useBreakpointValue({ base: "none", lg: "flex" });
-  const [menuDisplay, setMenuDisplay] = useBreakpointValue({ base: "flex", lg: "none" });
-  const navItems = [];
+  state = {
+    listDisplay: window.innerWidth > 1024 ? "flex" : "none",
+    menuDisplay: window.innerWidth <= 1024 ? "flex" : "none",
+  };
+  
+  componentDidMount() {
+    window.addEventListener("resize", this.handleResize);
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+  }
+  
+  handleResize = () => {
+    this.setState({
+      listDisplay: window.innerWidth > 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth <= 1024 ? "flex" : "none",
+    });
+  };
+  const navItems = [
+    {
+      label: "Twitter",
+      icon: <FaTwitter />,
+      link: "https://twitter.com/sweep__ai",
+    },
+    {
+      label: "Github",
+      icon: <FaGithub />,
+      link: "https://github.com/sweepai/sweep",
+    },
+    {
+      label: "Discord",
+      icon: <FaDiscord />,
+      link: "https://discord.gg/sweep",
+    },
+    {
+      label: "Email",
+      icon: <EmailIcon />,
+      link: "mailto:team@sweep.dev",
+    },
+  ];
   
   return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
