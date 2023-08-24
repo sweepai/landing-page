@@ -3,7 +3,7 @@ import { Box, Image, Text } from '@chakra-ui/react';
 
 
 
-const AboutUs = () => {
+export default const AboutUs = () => {
   return (
     <Box>
       <Text fontSize="2xl" fontWeight="bold">About Us</Text>
@@ -17,7 +17,9 @@ const AboutUs = () => {
         <Text>Kevin - Dropout from Waterloo</Text>
       </Box>
     </Box>
-    some code
-    some code
-    some code
-    some code
+    </Box>
+    </Box>
+    // Replace "some code" with actual code
+    // Replace "some code" with actual code
+    // Replace "some code" with actual code
+    // Replace "some code" with actual code
