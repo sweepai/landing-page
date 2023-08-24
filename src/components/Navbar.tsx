@@ -1,26 +1,27 @@
-import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
-import PricingModal from './PricingModal';
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Flex,
-  HStack,
-  IconButton,
-  Image,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  useBreakpointValue,
-} from "@chakra-ui/react";
-import { Link } from 'react-router-dom';
-import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
-import logo from "../assets/icon.png";
+import { HamburgerIcon, Box, HStack, Flex, Button, Image, Link, ButtonGroup, IconButton, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
+import { PricingModal } from "./PricingModal";
+import React from 'react';
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+const NavBar = () => {
+  state = {
+    listDisplay: window.innerWidth > 1024 ? "flex" : "none",
+    menuDisplay: window.innerWidth <= 1024 ? "flex" : "none",
+  };
+  
+  componentDidMount() {
+    window.addEventListener("resize", this.handleResize);
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+  }
+  
+  handleResize = () => {
+    this.setState({
+      listDisplay: window.innerWidth > 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth <= 1024 ? "flex" : "none",
+    });
+  };
   const navItems = [
     {
       label: "Twitter",
@@ -42,13 +43,8 @@ export default function NavBar() {
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
     },
-    // {
-    //   label: "Buy Sweep Pro",
-    //   icon: <p>Buy Sweep Pro</p>,
-    //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
-    // },
   ];
-
+  
   return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
@@ -118,4 +114,6 @@ export default function NavBar() {
       </HStack>
     </Box>
   );
-}
+};
+
+export default NavBar;
