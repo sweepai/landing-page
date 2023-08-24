@@ -12,16 +12,18 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
-  const navItems = [
+import React from 'react';
+export default class NavBar extends React.Component {
+  state = {
+    listDisplay: 'block',
+    menuDisplay: 'none',
+  };
+  static navItems = [
     {
       label: "Twitter",
       icon: <FaTwitter />,
@@ -49,8 +51,9 @@ export default function NavBar() {
     // },
   ];
 
-  return (
-    <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
+  render() {
+    return (
+      <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
           <HStack>
@@ -68,8 +71,8 @@ export default function NavBar() {
             </Link>
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
-          <ButtonGroup variant="link" display={listDisplay}>
-            {navItems.map((item) => (
+          <ButtonGroup variant="link" display={this.state.listDisplay}>
+            {NavBar.navItems.map((item: { label: string, icon: JSX.Element, link: string }) => (
               <IconButton
                 key={item.label}
                 icon={item.icon}
@@ -81,7 +84,6 @@ export default function NavBar() {
                 px={2}
               />
             ))}
-            {/* Added PricingModal to always be displayed */}
             <PricingModal />
           </ButtonGroup>
           <Menu>
@@ -90,12 +92,12 @@ export default function NavBar() {
               aria-label='Options'
               icon={<HamburgerIcon />}
               variant='outline'
-              display={menuDisplay}
+              display={this.state.menuDisplay}
             />
             <MenuList
               backgroundColor="#333"
             >
-              {navItems.map((item) => (
+              {NavBar.navItems.map((item: { label: string, icon: JSX.Element, link: string }) => (
                 <MenuItem backgroundColor="#333">
                   {item.label}
                   {
@@ -118,4 +120,5 @@ export default function NavBar() {
       </HStack>
     </Box>
   );
+}
 }
