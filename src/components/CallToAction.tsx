@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Flex,
   Container,
@@ -9,19 +10,34 @@ import {
 import { tsParticles } from "tsparticles";
 import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { FaDiscord, FaGithub } from "react-icons/fa";
-import { useState } from "react";
 import logo from "../assets/icon.png";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
-export default function CallToAction() {
-  const [spin, setSpin] = useState(false);
-  // const canvas = document.getElementById('canvas3d');
-  // const app = new Application(canvas);
-  // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
-  return (
-    <Container maxW={"5xl"}>
+export default class CallToAction extends React.Component<any, {spin: boolean}> {
+  export default class CallToAction extends React.Component<any, {spin: boolean}> {
+    constructor(props: any) {
+      super(props);
+      this.state = { spin: false };
+      this.handleClick = this.handleClick.bind(this);
+    }
+    handleClick = async () => {
+        this.setState({ spin: !this.state.spin });
+        await loadConfettiPreset(tsParticles);
+        await tsParticles.load("tsparticles", {
+          preset: "confetti",
+          particles: {
+            color: {
+              value: ["#800080", "#FFFFFF"],
+            },
+          },
+        });
+      };
+    
+      render() {
+        return (
+          <Container maxW={"5xl"}>
       <Stack
         textAlign={"center"}
         align={"center"}
@@ -30,18 +46,7 @@ export default function CallToAction() {
         style={{ paddingTop: "0 !important" }}
         mb={36}
       >
-        <img src={logo} alt="Logo" style={{ width: '200px', animation: spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate", marginTop: "-2rem !important", borderRadius: "50%" }} onClick={async () => {
-            setSpin(!spin);
-            await loadConfettiPreset(tsParticles);
-            await tsParticles.load("tsparticles", {
-              preset: "confetti",
-              particles: {
-                color: {
-                  value: ["#800080", "#FFFFFF"],
-                },
-              },
-            });
-          }} />
+        <img src={logo} alt="Logo" style={{ width: '200px', animation: this.state.spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate", marginTop: "-2rem !important", borderRadius: "50%" }} onClick={this.handleClick} />
         {/* <img src={logo} alt="Logo" width={120} height={120} style={{
           animation: "bob 0.75s ease-in-out infinite alternate",
         }} /> */}
@@ -110,4 +115,5 @@ export default function CallToAction() {
       </Stack>
     </Container>
   );
-};
+}
+}
