@@ -7,6 +7,8 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
+import { tsParticles } from "tsparticles";
+import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
@@ -28,7 +30,26 @@ export default class CallToAction extends React.Component<CallToActionProps, Cal
 
   handleLogoClick() {
     this.setState({ spin: !this.state.spin });
+    tsParticles.load("tsparticles", {
+      preset: "confetti",
+      particles: {
+        color: {
+          value: ["#800080", "#FFFFFF"],
+        },
+      },
+    });
   }
+  componentDidMount() {
+    tsParticles.load("tsparticles", {
+      preset: "confetti",
+      particles: {
+        color: {
+          value: ["#800080", "#FFFFFF"],
+        },
+      },
+    });
+  }
+  
   render() {
     return (
       <Container maxW={"5xl"}>
