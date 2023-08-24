@@ -66,26 +66,32 @@ const customStyle = {
     },
 };
 
-const Dialog = ({ children, user, userProps, ...props }: any) => {
-    return (
-        <HStack alignItems="flex-start" spacing={6} maxW="100% !important">
-            <User {...userProps}>{user}</User>
-            <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="purple.300" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
-                {children}
-            </Box>
-        </HStack>
-    )
+class Dialog extends React.Component {
+    render() {
+        const { children, user, userProps, ...props } = this.props;
+        return (
+            <HStack alignItems="flex-start" spacing={6} maxW="100% !important">
+                <User {...userProps}>{user}</User>
+                <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="purple.300" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
+                    {children}
+                </Box>
+            </HStack>
+        )
+    }
 }
 
-const GithubDialog = ({ children, user, userProps, ...props }: any) => {
-    return (
-        <HStack alignItems="flex-start" spacing={6} maxW="100% !important" w="100% !important">
-            <User {...userProps}>{user}</User>
-            <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="white.900" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
-                {children}
-            </Box>
-        </HStack>
-    )
+class GithubDialog extends React.Component {
+    render() {
+        const { children, user, userProps, ...props } = this.props;
+        return (
+            <HStack alignItems="flex-start" spacing={6} maxW="100% !important" w="100% !important">
+                <User {...userProps}>{user}</User>
+                <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="white.900" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
+                    {children}
+                </Box>
+            </HStack>
+        )
+    }
 }
 
 export default function Features() {
