@@ -12,14 +12,12 @@ const AboutUs = () => {
           <Image src={process.env.PUBLIC_URL + '/wz_pfp.png'} alt="William" boxSize="150px" />
           <Text>William - Engineer at Roblox</Text>
         </Box>
-        <Box display="flex" flexDirection="column" alignItems="center">
-          <Image src={process.env.PUBLIC_URL + '/KEVIN.jpeg'} alt="Kevin" boxSize="150px" />
-          <Text>Kevin - Dropout from Waterloo</Text>
-        </Box>
+      <Box display="flex" flexDirection="column" alignItems="center">
+        <Image src={process.env.PUBLIC_URL + '/KEVIN.jpeg'} alt="Kevin" boxSize="150px" />
+        <Text>Kevin - Dropout from Waterloo</Text>
       </Box>
     </Box>
-  );
-};
-
-export default AboutUs;
-
+    some code
+    some code
+    some code
+    some code
