@@ -2,6 +2,8 @@ import * as React from "react"
 import {
   IconButton,
   IconButtonProps,
+  useColorMode,
+  useColorModeValue,
 } from "@chakra-ui/react"
 import { FaMoon, FaSun } from "react-icons/fa"
 
