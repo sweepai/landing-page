@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Flex,
   Container,
@@ -9,18 +10,37 @@ import {
 import { tsParticles } from "tsparticles";
 import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { FaDiscord, FaGithub } from "react-icons/fa";
-import { useState } from "react";
+import ExternalLinkWithText from './ExternalLinkWithText';
 import logo from "../assets/icon.png";
+import demo from "../assets/demo.mp4";
 
-import ExternalLinkWithText from "./ExternalLinkWithText";
-const demo = require("../assets/demo.mp4");
+export default class CallToAction extends React.Component<any, any> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      spin: false,
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-export default function CallToAction() {
-  const [spin, setSpin] = useState(false);
+  async handleClick() {
+    this.setState({ spin: !this.state.spin });
+    await loadConfettiPreset(tsParticles);
+    await tsParticles.load("tsparticles", {
+      preset: "confetti",
+      particles: {
+        color: {
+          value: ["#800080", "#FFFFFF"],
+        },
+      },
+    });
+  }
+
+  render() {
   // const canvas = document.getElementById('canvas3d');
   // const app = new Application(canvas);
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
-  return (
+    return (
     <Container maxW={"5xl"}>
       <Stack
         textAlign={"center"}
@@ -107,7 +127,14 @@ export default function CallToAction() {
             </video>
           </Container>
         </Flex>
+        <div>
+          <Container maxW={"5xl"}>
+            ...
+          </Container>
+          <img src={logo} alt="Logo" style={{ width: '200px', animation: this.state.spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate", marginTop: "-2rem !important", borderRadius: "50%" }} onClick={this.handleClick} />
+        </div>
       </Stack>
-    </Container>
-  );
-};
+      </Container>
+    );
+  }
+}
