@@ -1,3 +1,4 @@
+import React from 'react';
 import { HStack, Text, Image, Link } from "@chakra-ui/react";
 // import WithFriendsLogo from "../assets/companies/withfriends.svg";
 import MedPlum from "../assets/companies/medplum.svg"
@@ -15,30 +16,32 @@ const data = [
     // { logo: WithFriendsLogo, href: "https://withfriends.com" },
 ];
 
-export default function Users() {
-    return (
-        <>
-            <Text fontSize="5xl" mb={12} mt={64}>
-                Trusted by engineers from
-            </Text>
-            <HStack spacing={4} justifyContent="center" mb={64} flexWrap="wrap" p={{ base: 20, md: "initial" }}>
-                {data.map(({ logo, href, ...props }) => (
-                    <Link href={href} isExternal key={logo}>
-                        <Image
-                            src={logo}
-                            alt="placeholder"
-                            mx={4}
-                            width={{ base: "100%", md: "150px" }}
-                            mb={{ base: 8, md: 0 }}
-                            filter={href === "https://llamahub.ai" ? "grayscale(100%)" : "grayscale(100%) invert(1)"}
-                            transition="filter 0.3s linear"
-                            _hover={{ filter: "none" }}
-                            {...props}
-                        />
-                    </Link>
-                ))}
-            </HStack>
+export default class Users extends React.Component {
+    render() {
+        return (
+            <>
+                <Text fontSize="5xl" mb={12} mt={64}>
+                    Trusted by engineers from
+                </Text>
+                <HStack spacing={4} justifyContent="center" mb={64} flexWrap="wrap" p={{ base: 20, md: "initial" }}>
+                    {data.map(({ logo, href, ...props }) => (
+                        <Link href={href} isExternal key={logo}>
+                            <Image
+                                src={logo}
+                                alt="placeholder"
+                                mx={4}
+                                width={{ base: "100%", md: "150px" }}
+                                mb={{ base: 8, md: 0 }}
+                                filter={href === "https://llamahub.ai" ? "grayscale(100%)" : "grayscale(100%) invert(1)"}
+                                transition="filter 0.3s linear"
+                                _hover={{ filter: "none" }}
+                                {...props}
+                            />
+                        </Link>
+                    ))}
+                </HStack>
 
-        </>
-    )
+            </>
+        )
+    }
 }
