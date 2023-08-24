@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box, Flex, Text } from "@chakra-ui/react";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
@@ -36,12 +37,13 @@ const Testimonial = ({ children, name, company, href }: TestimonialProps): JSX.E
     );
 }
 
-export default function Testimonials() {
-    return (
-        <Box display="flex" justifyContent="center" alignItems="center">
-            <Box m={8} mt={32} width={{ base: "100%", md: "80%" }}>
-                <Text fontSize="3xl" mb={12} textAlign="center">What our users are saying</Text>
-                <Box display="flex" flexWrap="wrap" justifyContent="space-between">
+export default class Testimonials extends React.Component {
+    render() {
+        return (
+            <Box display="flex" justifyContent="center" alignItems="center">
+                <Box m={8} mt={32} width={{ base: "100%", md: "80%" }}>
+                    <Text fontSize="3xl" mb={12} textAlign="center">What our users are saying</Text>
+                    <Box display="flex" flexWrap="wrap" justifyContent="space-between">
                     <Testimonial name="Cody Ebberson" company="Co-founder + CTO at Medplum" href="https://medplum.com">
                         The true ingenuity lies in their many product intricacies ... from adhering to <b>coding standards</b> and integrating with <b>static analysis</b>, to <b>responsive feedback</b>. Their commitment to getting every detail right, paired with a swift incorporation of lessons into tangible enhancements, really sets Sweep AI apart.
                     </Testimonial>
@@ -65,4 +67,5 @@ export default function Testimonials() {
             </Box>
         </Box>
     );
+  }
 }
