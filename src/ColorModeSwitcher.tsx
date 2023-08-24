@@ -18,14 +18,14 @@ export class ColorModeSwitcher extends React.Component<ColorModeSwitcherProps> {
       SwitchIcon: FaSun,
     };
     this.toggleColorMode = this.toggleColorMode.bind(this);
-  }
-
-  componentDidMount() {
     this.setState({
       colorMode: this.state.colorMode === "light" ? "dark" : "light",
       text: this.state.text === "dark" ? "light" : "dark",
       SwitchIcon: this.state.SwitchIcon === FaSun ? FaMoon : FaSun,
     });
+  }
+
+  componentDidMount() {
   }
 
   toggleColorMode() {
