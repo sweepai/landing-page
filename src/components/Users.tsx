@@ -1,3 +1,4 @@
+import React from 'react';
 import { HStack, Text, Image, Link } from "@chakra-ui/react";
 // import WithFriendsLogo from "../assets/companies/withfriends.svg";
 import MedPlum from "../assets/companies/medplum.svg"
@@ -15,9 +16,10 @@ const data = [
     // { logo: WithFriendsLogo, href: "https://withfriends.com" },
 ];
 
-export default function Users() {
-    return (
-        <>
+export default class Users extends React.Component {
+    render() {
+        return (
+            <>
             <Text fontSize="5xl" mb={12} mt={64}>
                 Trusted by engineers from
             </Text>
@@ -40,5 +42,6 @@ export default function Users() {
             </HStack>
 
         </>
-    )
+        );
+    }
 }
