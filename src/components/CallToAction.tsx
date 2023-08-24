@@ -21,14 +21,8 @@ export default class CallToAction extends React.Component {
     this.state = {
       spin: false,
     };
-    export default class CallToAction extends React.Component {
-      constructor(props) {
-        super(props);
-        this.state = {
-          spin: false,
-        };
-        this.handleLogoClick = this.handleLogoClick.bind(this);
-      }
+    this.handleLogoClick = this.handleLogoClick.bind(this);
+  }
     
       async handleLogoClick() {
         this.setState({ spin: !this.state.spin });
