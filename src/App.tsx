@@ -5,7 +5,7 @@ import {
   useColorMode,
   ThemeConfig,
 } from "@chakra-ui/react";
-import CallToAction from "./components/CallToAction";
+import { CallToAction } from "./components/CallToAction";
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
