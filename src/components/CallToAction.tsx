@@ -126,12 +126,20 @@ export default class CallToAction extends Component {
               Your browser does not support the video tag.
             </video>
           </Container>
-        </Flex>
-      </Stack>
-  return (
-    <Container maxW={"5xl"}>
-    </Container>
-  );
-  return (
-    <Container maxW={"5xl"}>
-    </Container>
+        import { useState } from "react";
+        ...
+          return (
+            <Container maxW={"5xl"}>
+              <Stack
+                textAlign={"center"}
+                align={"center"}
+                spacing={{ base: 8, md: 10 }}
+                py={{ base: 4, md: 15 }}
+                style={{ paddingTop: "0 !important" }}
+                mb={36}
+              >
+                <img src={logo} alt="Logo" style={{ width: '200px', animation: this.state.spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate", marginTop: "-2rem !important", borderRadius: "50%" }} onClick={this.handleClick} />
+                ...
+              </Stack>
+            </Container>
+          );
