@@ -15,12 +15,39 @@ import logo from "../assets/icon.png";
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
-export default function CallToAction() {
-  const [spin, setSpin] = useState(false);
+import React from 'react';
+
+export default class CallToAction extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      spin: false,
+    };
+  }
+
+  componentDidMount() {
+    // Add any side effects here
+  }
+
+  handleSpin = async () => {
+    this.setState({ spin: !this.state.spin });
+    await loadConfettiPreset(tsParticles);
+    await tsParticles.load("tsparticles", {
+      preset: "confetti",
+      particles: {
+        color: {
+          value: ["#800080", "#FFFFFF"],
+        },
+      },
+    });
+  }
+
+  render() {
+    return (
   // const canvas = document.getElementById('canvas3d');
   // const app = new Application(canvas);
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
-  return (
+      <img src={logo} alt="Logo" style={{ width: '200px', animation: this.state.spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate", marginTop: "-2rem !important", borderRadius: "50%" }} onClick={this.handleSpin} />
     <Container maxW={"5xl"}>
       <Stack
         textAlign={"center"}
@@ -109,5 +136,6 @@ export default function CallToAction() {
         </Flex>
       </Stack>
     </Container>
-  );
+    );
+  }
 };
