@@ -17,8 +17,9 @@ test("renders CallToAction component", () => {
 })
 
 test("updates state and UI on button click", () => {
-  render(<CallToAction />)
+  const { container } = render(<CallToAction />)
   const buttonElement = screen.getByRole('button')
   fireEvent.click(buttonElement)
-  expect(buttonElement).toHaveClass('spin')
+  const logoElement = container.querySelector('img')
+  expect(logoElement).toHaveClass('spin')
 })
