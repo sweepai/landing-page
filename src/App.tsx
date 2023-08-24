@@ -36,10 +36,6 @@ function ForceDarkMode(props: { children: JSX.Element }) {
     toggleColorMode();
   }, [colorMode, toggleColorMode]);
 
-  return props.children;
-}
-
-
 // @ts-ignore
 window.intercomSettings = {
   api_base: "https://api-iam.intercom.io",
@@ -100,6 +96,6 @@ export const App = () => {
           </Box>
         </ForceDarkMode>
       </ChakraProvider>
-    </>
+    </Container>
   );
-};
+}
