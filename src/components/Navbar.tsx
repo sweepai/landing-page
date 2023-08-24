@@ -18,10 +18,13 @@ import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
-  const navItems = [
+export default class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listDisplay: "none",
+      menuDisplay: "flex",
+      navItems: [
     {
       label: "Twitter",
       icon: <FaTwitter />,
@@ -49,8 +52,26 @@ export default function NavBar() {
     // },
   ];
 
-  return (
-    <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDisplayValues);
+    this.updateDisplayValues();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDisplayValues);
+  }
+
+  updateDisplayValues = () => {
+    const windowWidth = window.innerWidth;
+    this.setState({
+      listDisplay: windowWidth >= 1024 ? "flex" : "none",
+      menuDisplay: windowWidth >= 1024 ? "none" : "flex",
+    });
+  };
+
+  render() {
+    return (
+      <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
           <HStack>
