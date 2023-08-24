@@ -1,5 +1,6 @@
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { Link, LinkProps } from "@chakra-ui/react";
+import React from "react";
 
 type ExternalLinkWithTextProps = {
     children: React.ReactNode,
@@ -7,10 +8,13 @@ type ExternalLinkWithTextProps = {
     includeIcon?: boolean
 } & LinkProps;
 
-export default function ExternalLinkWithText({ children, href, includeIcon = true, ...rest }: ExternalLinkWithTextProps) : JSX.Element {
-    return (
-        <Link href={href} isExternal rel="noopener noreferrer" {...rest}>
-            {children}{includeIcon && <>&nbsp;<ExternalLinkIcon /></>}
-        </Link>
-    );
+export default class ExternalLinkWithText extends React.Component<ExternalLinkWithTextProps> {
+    render() {
+        const { children, href, includeIcon = true, ...rest } = this.props;
+        return (
+            <Link href={href} isExternal rel="noopener noreferrer" {...rest}>
+                {children}{includeIcon && <>&nbsp;<ExternalLinkIcon /></>}
+            </Link>
+        );
+    }
 }
