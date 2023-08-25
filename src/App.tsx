@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react'; 
 import {
   ChakraProvider,
   Box,
@@ -10,12 +11,10 @@ import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
 import og_image from "./assets/og_image.png";
-import { ColorModeSwitcher } from "./ColorModeSwitcher";
-import { useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Testimonials from "./components/Testimonials";
 import Users from "./components/Users";
 import AboutUs from "./components/AboutUs";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import circles from "./assets/circles.svg";
 import Features from "./components/Features";
@@ -80,7 +79,6 @@ export const App = () => {
             bgRepeat="no-repeat"
             overflowX="hidden"
           >
-            {false && <ColorModeSwitcher />}
             <Banner />
             <Router>
               <Navbar />
@@ -94,6 +92,9 @@ export const App = () => {
                 </Route>
                 <Route path="/about-us">
                   <AboutUs />
+                </Route>
+                <Route path="/pricing">
+                  <PricingPage />
                 </Route>
               </Switch>
             </Router>
