@@ -1,5 +1,4 @@
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
-import PricingModal from './PricingModal';
 import {
   Box,
   Button,
@@ -17,6 +16,10 @@ import {
 import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
 
 export default function NavBar() {
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
@@ -81,8 +84,12 @@ export default function NavBar() {
                 px={2}
               />
             ))}
-            {/* Added PricingModal to always be displayed */}
-            <PricingModal />
+            {/* Replaced PricingModal with Link to PricingPage */}
+            <Link to="/pricing">
+              <Button variant="ghost">
+                Pricing
+              </Button>
+            </Link>
           </ButtonGroup>
           <Menu>
             <MenuButton
@@ -103,19 +110,14 @@ export default function NavBar() {
                     <IconButton
                       key={item.label}
                       icon={item.icon}
-                      variant="ghost"
-                      aria-label={item.label}
-                      onClick={() => {
-                        window.open(item.link, "_blank");
-                      }}
                     />
                   }
                 </MenuItem>
               ))}
             </MenuList>
-          </Menu>
-        </Flex>
-      </HStack>
-    </Box>
-  );
-}
+            </Menu>
+          </Flex>
+          </HStack>
+          </Box>
+        )
+      }
