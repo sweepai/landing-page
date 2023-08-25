@@ -16,10 +16,6 @@ import {
 import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
 
 export default function NavBar() {
   const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
