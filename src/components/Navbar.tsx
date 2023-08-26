@@ -72,13 +72,12 @@ export default function NavBar() {
 <IconButton
   key={item.label}
   icon={item.icon}
-                variant="ghost"
-                aria-label={item.label}
-                onClick={() => {
-                  window.open(item.link, "_blank");
-                }}
-                px={2}
+  variant="ghost"
   aria-label={item.label}
+  onClick={() => {
+    window.open(item.link, "_blank");
+  }}
+  px={2}
 />
             ))}
             {/* Replaced PricingModal with Link to PricingPage */}
