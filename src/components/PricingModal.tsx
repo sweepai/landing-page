@@ -1,21 +1,32 @@
-import { useState } from 'react';
+import React from 'react';
 import { Text, Modal, Button, ModalBody, ModalFooter, ModalOverlay, ModalContent, SimpleGrid, Box } from '@chakra-ui/react';
 // import { MdDiamond } from "react-icons/md";
 
 
-export default function PricingModal() {
-  const [show, setShow] = useState(false);
+export default class PricingModal extends React.Component<{}, { show: boolean }> {
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      show: false,
+    };
+  }
+  
+  handleClose = () => {
+    this.setState({ show: false });
+  };
+  
+  handleShow = () => {
+    this.setState({ show: true });
+  };
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  return (
+  render() {
+    return (
     <>
-      <Button onClick={handleShow}>
+      <Button onClick={this.handleShow}>
         Pricing
       </Button>
-
-      <Modal isOpen={show} onClose={handleClose} size="5xl">
+      
+      <Modal isOpen={this.state.show} onClose={this.handleClose} size="5xl">
         <ModalOverlay />
         <ModalContent p={8} backgroundColor="#0d1117" pb={4}>
           <ModalBody>
@@ -91,12 +102,13 @@ export default function PricingModal() {
             </SimpleGrid>
           </ModalBody>
           <ModalFooter display="flex" alignItems="center" flexDirection="column">
-            <Button variant="ghost" onClick={handleClose} mt={4}>
+            <Button variant="ghost" onClick={this.handleClose} mt={4}>
               ✕
             </Button>
           </ModalFooter>
         </ ModalContent>
       </Modal >
     </>
-  );
+    );
+  }
 }

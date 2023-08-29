@@ -1,3 +1,4 @@
+import React from 'react';
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
 import PricingModal from './PricingModal';
 import {
@@ -12,16 +13,18 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
-  const navItems = [
+export default class NavBar extends React.Component<any, any> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      listDisplay: window.innerWidth > 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth <= 1024 ? "flex" : "none",
+      navItems: [
     {
       label: "Twitter",
       icon: <FaTwitter />,
@@ -47,9 +50,12 @@ export default function NavBar() {
     //   icon: <p>Buy Sweep Pro</p>,
     //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
     // },
-  ];
+      ],
+    };
+  }
 
-  return (
+  render() {
+    return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
@@ -68,54 +74,54 @@ export default function NavBar() {
             </Link>
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
-          <ButtonGroup variant="link" display={listDisplay}>
-            {navItems.map((item) => (
-              <IconButton
-                key={item.label}
-                icon={item.icon}
-                variant="ghost"
-                aria-label={item.label}
-                onClick={() => {
-                  window.open(item.link, "_blank");
-                }}
-                px={2}
-              />
-            ))}
-            {/* Added PricingModal to always be displayed */}
-            <PricingModal />
-          </ButtonGroup>
-          <Menu>
-            <MenuButton
-              as={IconButton}
-              aria-label='Options'
-              icon={<HamburgerIcon />}
-              variant='outline'
-              display={menuDisplay}
-            />
-            <MenuList
-              backgroundColor="#333"
-            >
-              {navItems.map((item) => (
-                <MenuItem backgroundColor="#333">
-                  {item.label}
-                  {
-                    item.label !== "Buy Sweep Pro" &&
-                    <IconButton
-                      key={item.label}
-                      icon={item.icon}
-                      variant="ghost"
-                      aria-label={item.label}
-                      onClick={() => {
-                        window.open(item.link, "_blank");
-                      }}
-                    />
-                  }
-                </MenuItem>
+          <ButtonGroup variant="link" display={this.state.listDisplay}>
+              {this.state.navItems.map((item: any) => (
+                <IconButton
+                  key={item.label}
+                  icon={item.icon}
+                  variant="ghost"
+                  aria-label={item.label}
+                  onClick={() => {
+                    window.open(item.link, "_blank");
+                  }}
+                  px={2}
+                />
               ))}
-            </MenuList>
-          </Menu>
+              <PricingModal />
+            </ButtonGroup>
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                aria-label='Options'
+                icon={<HamburgerIcon />}
+                variant='outline'
+                display={this.state.menuDisplay}
+              />
+              <MenuList
+                backgroundColor="#333"
+              >
+                {this.state.navItems.map((item: any) => (
+                  <MenuItem backgroundColor="#333">
+                    {item.label}
+                    {
+                      item.label !== "Buy Sweep Pro" &&
+                      <IconButton
+                        key={item.label}
+                        icon={item.icon}
+                        variant="ghost"
+                        aria-label={item.label}
+                        onClick={() => {
+                          window.open(item.link, "_blank");
+                        }}
+                      />
+                    }
+                  </MenuItem>
+                ))}
+              </MenuList>
+            </Menu>
         </Flex>
       </HStack>
     </Box>
-  );
+    );
+  }
 }
