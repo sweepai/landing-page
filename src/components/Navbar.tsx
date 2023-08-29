@@ -55,7 +55,7 @@ export default function NavBar() {
         <Flex justify="space-between" flex="1">
           <HStack>
             <Button variant="ghost">
-              <Image src={logo} alt="logo" width={10} borderRadius={12} />
+              <Image src={logo} alt="logo" width={100} borderRadius={12} />
               Sweep AI
             </Button>
             <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
