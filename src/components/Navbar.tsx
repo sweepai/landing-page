@@ -68,22 +68,26 @@ export default function NavBar() {
             </Link>
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
-          <ButtonGroup variant="link" display={listDisplay}>
-            {navItems.map((item) => (
-              <IconButton
-                key={item.label}
-                icon={item.icon}
-                variant="ghost"
-                aria-label={item.label}
-                onClick={() => {
-                  window.open(item.link, "_blank");
-                }}
-                px={2}
-              />
-            ))}
+<ButtonGroup variant="link" display={listDisplay}>
+  {navItems.map((item) => (
+    <IconButton
+      key={item.label}
+      icon={item.icon}
+      variant="ghost"
+      aria-label={item.label}
+      onClick={() => {
+        window.open(item.link, "_blank");
+      }}
+      px={2}
+    />
+  ))}
             {/* Added PricingModal to always be displayed */}
-            <PricingModal />
-          </ButtonGroup>
+  <Link to="/pricing">
+    <Button variant="ghost">
+      Pricing
+    </Button>
+  </Link>
+</ButtonGroup>
           <Menu>
             <MenuButton
               as={IconButton}
