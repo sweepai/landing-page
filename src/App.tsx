@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   ChakraProvider,
   Box,
@@ -29,27 +30,27 @@ const config: ThemeConfig = {
 
 const theme = extendTheme({ config });
 
-function ForceDarkMode(props: { children: JSX.Element }) {
-  const { colorMode, toggleColorMode } = useColorMode();
+class ForceDarkMode extends React.Component<{ children: JSX.Element }, { colorMode: string }> {
+  constructor(props: { children: JSX.Element }) {
+    super(props);
+    this.state = {
+      colorMode: "light",
+    };
+  }
 
-  useEffect(() => {
-    if (colorMode === "dark") return;
-    toggleColorMode();
-  }, [colorMode, toggleColorMode]);
+  componentDidMount() {
+    if (this.state.colorMode === "dark") return;
+    this.setState({ colorMode: "dark" });
+  }
 
-  return props.children;
+  render() {
+    return this.props.children;
+  }
 }
 
 
-// @ts-ignore
-window.intercomSettings = {
-  api_base: "https://api-iam.intercom.io",
-  app_id: "ce8fl00z",
-  action_color: "#6b46c1",
-  background_color: "#342867",
-};
 
-export const App = () => {
+export const AppFunc = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.type = "text/javascript";
