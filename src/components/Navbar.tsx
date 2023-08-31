@@ -1,5 +1,4 @@
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
-import PricingModal from './PricingModal';
 import {
   Box,
   Button,
@@ -54,10 +53,12 @@ export default function NavBar() {
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
           <HStack>
-            <Button variant="ghost">
-              <Image src={logo} alt="logo" width={10} borderRadius={12} />
-              Sweep AI
-            </Button>
+            <Link to="/">
+              <Button variant="ghost">
+                <Image src={logo} alt="logo" width={10} borderRadius={12} />
+                Sweep AI
+              </Button>
+            </Link>
             <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
               Documentation
             </Button>
@@ -68,22 +69,26 @@ export default function NavBar() {
             </Link>
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
-          <ButtonGroup variant="link" display={listDisplay}>
-            {navItems.map((item) => (
-              <IconButton
-                key={item.label}
-                icon={item.icon}
-                variant="ghost"
-                aria-label={item.label}
-                onClick={() => {
-                  window.open(item.link, "_blank");
-                }}
-                px={2}
-              />
-            ))}
+<ButtonGroup variant="link" display={listDisplay}>
+  {navItems.map((item) => (
+    <IconButton
+      key={item.label}
+      icon={item.icon}
+      variant="ghost"
+      aria-label={item.label}
+      onClick={() => {
+        window.open(item.link, "_blank");
+      }}
+      px={2}
+    />
+  ))}
             {/* Added PricingModal to always be displayed */}
-            <PricingModal />
-          </ButtonGroup>
+  <Link to="/pricing">
+    <Button variant="ghost">
+      Pricing
+    </Button>
+  </Link>
+</ButtonGroup>
           <Menu>
             <MenuButton
               as={IconButton}
