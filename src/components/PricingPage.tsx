@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Button, SimpleGrid, Box } from '@chakra-ui/react';
+import { SimpleGrid, Box } from '@chakra-ui/react';
 
 const PricingPage = () => {
   return (
