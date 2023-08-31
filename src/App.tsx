@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import Testimonials from "./components/Testimonials";
 import Users from "./components/Users";
 import AboutUs from "./components/AboutUs";
+import PricingPage from "./components/PricingPage";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import circles from "./assets/circles.svg";
@@ -94,6 +95,9 @@ export const App = () => {
                 </Route>
                 <Route path="/about-us">
                   <AboutUs />
+                </Route>
+                <Route path="/pricing">
+                  <PricingPage />
                 </Route>
               </Switch>
             </Router>
