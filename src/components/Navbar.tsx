@@ -17,10 +17,32 @@ import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
-  const navItems = [
+export default class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth < 1024 ? "flex" : "none",
+      navItems: [
+    };
+    this.updateDisplay = this.updateDisplay.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDisplay);
+    this.updateDisplay();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDisplay);
+  }
+
+  updateDisplay() {
+    this.setState({
+      listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth < 1024 ? "flex" : "none",
+    });
+  }
     {
       label: "Twitter",
       icon: <FaTwitter />,
@@ -69,8 +91,8 @@ export default function NavBar() {
             </Link>
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
-<ButtonGroup variant="link" display={listDisplay}>
-  {navItems.map((item) => (
+<ButtonGroup variant="link" display={this.state.listDisplay}>
+  {this.state.navItems.map((item) => (
     <IconButton
       key={item.label}
       icon={item.icon}
@@ -89,14 +111,14 @@ export default function NavBar() {
     </Button>
   </Link>
 </ButtonGroup>
-          <Menu>
-            <MenuButton
-              as={IconButton}
-              aria-label='Options'
-              icon={<HamburgerIcon />}
-              variant='outline'
-              display={menuDisplay}
-            />
+<Menu>
+  <MenuButton
+    as={IconButton}
+    aria-label='Options'
+    icon={<HamburgerIcon />}
+    variant='outline'
+    display={this.state.menuDisplay}
+  />
             <MenuList
               backgroundColor="#333"
             >
