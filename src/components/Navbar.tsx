@@ -17,9 +17,15 @@ import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+export default class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth < 1024 ? "flex" : "none",
+    };
+    this.updateDisplay = this.updateDisplay.bind(this);
+  }
   const navItems = [
     {
       label: "Twitter",
@@ -69,7 +75,7 @@ export default function NavBar() {
             </Link>
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
-<ButtonGroup variant="link" display={listDisplay}>
+<ButtonGroup variant="link" display={this.state.listDisplay}>
   {navItems.map((item) => (
     <IconButton
       key={item.label}
@@ -82,20 +88,20 @@ export default function NavBar() {
       px={2}
     />
   ))}
-            {/* Added PricingModal to always be displayed */}
   <Link to="/pricing">
     <Button variant="ghost">
       Pricing
     </Button>
   </Link>
 </ButtonGroup>
-          <Menu>
-            <MenuButton
-              as={IconButton}
-              aria-label='Options'
-              icon={<HamburgerIcon />}
-              variant='outline'
-              display={menuDisplay}
+<Menu>
+  <MenuButton
+    as={IconButton}
+    aria-label='Options'
+    icon={<HamburgerIcon />}
+    variant='outline'
+    display={this.state.menuDisplay}
+  />
             />
             <MenuList
               backgroundColor="#333"
