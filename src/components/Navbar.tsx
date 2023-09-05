@@ -17,9 +17,13 @@ import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+export default class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth < 1024 ? "flex" : "none",
+      navItems: [
   const navItems = [
     {
       label: "Twitter",
@@ -46,8 +50,28 @@ export default function NavBar() {
     //   icon: <p>Buy Sweep Pro</p>,
     //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
     // },
-  ];
+      ],
+    };
+    this.updateDisplay = this.updateDisplay.bind(this);
+  }
 
+  updateDisplay() {
+    this.setState({
+      listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth < 1024 ? "flex" : "none",
+    });
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDisplay);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDisplay);
+  }
+
+  render() {
+    return (
   return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
@@ -69,7 +93,8 @@ export default function NavBar() {
             </Link>
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
-<ButtonGroup variant="link" display={listDisplay}>
+<ButtonGroup variant="link" display={this.state.listDisplay}>
+  {this.state.navItems.map((item) => (
   {navItems.map((item) => (
     <IconButton
       key={item.label}
@@ -95,11 +120,13 @@ export default function NavBar() {
               aria-label='Options'
               icon={<HamburgerIcon />}
               variant='outline'
-              display={menuDisplay}
-            />
+    display={this.state.menuDisplay}
+  />
+  <MenuList
             <MenuList
               backgroundColor="#333"
-            >
+  >
+    {this.state.navItems.map((item) => (
               {navItems.map((item) => (
                 <MenuItem backgroundColor="#333">
                   {item.label}
@@ -116,11 +143,8 @@ export default function NavBar() {
                     />
                   }
                 </MenuItem>
-              ))}
-            </MenuList>
-          </Menu>
-        </Flex>
-      </HStack>
-    </Box>
-  );
+  ))}
+</ButtonGroup>
+<Menu>
+  <MenuButton
 }
