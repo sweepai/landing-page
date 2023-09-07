@@ -17,10 +17,31 @@ import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
-  const navItems = [
+export default class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth < 1024 ? "flex" : "none",
+      navItems: [
+    };
+    this.handleResize = this.handleResize.bind(this);
+    componentDidMount() {
+      window.addEventListener("resize", this.handleResize);
+    }
+  
+    componentWillUnmount() {
+      window.removeEventListener("resize", this.handleResize);
+    }
+  
+    handleResize() {
+      this.setState({
+        listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+        menuDisplay: window.innerWidth < 1024 ? "flex" : "none",
+      });
+    }
+  }
+  
     {
       label: "Twitter",
       icon: <FaTwitter />,
@@ -48,8 +69,9 @@ export default function NavBar() {
     // },
   ];
 
-  return (
-    <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
+  render() {
+    return (
+      <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
           <HStack>
@@ -69,7 +91,7 @@ export default function NavBar() {
             </Link>
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
-<ButtonGroup variant="link" display={listDisplay}>
+<ButtonGroup variant="link" display={this.state.listDisplay}>
   {navItems.map((item) => (
     <IconButton
       key={item.label}
