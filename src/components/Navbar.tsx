@@ -1,3 +1,4 @@
+import React from 'react';
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
@@ -11,44 +12,61 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
-  const navItems = [
-    {
-      label: "Twitter",
-      icon: <FaTwitter />,
-      link: "https://twitter.com/sweep__ai",
-    },
-    {
-      label: "Github",
-      icon: <FaGithub />,
-      link: "https://github.com/sweepai/sweep",
-    },
-    {
-      label: "Discord",
-      icon: <FaDiscord />,
-      link: "https://discord.gg/sweep",
-    },
-    {
-      label: "Email",
-      icon: <EmailIcon />,
-      link: "mailto:team@sweep.dev",
-    },
-    // {
-    //   label: "Buy Sweep Pro",
-    //   icon: <p>Buy Sweep Pro</p>,
-    //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
-    // },
-  ];
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth < 1024 ? "flex" : "none",
+    };
+    this.updateDimensions = this.updateDimensions.bind(this);
+  }
 
-  return (
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions);
+  }
+
+  updateDimensions() {
+    this.setState({
+      listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth < 1024 ? "flex" : "none",
+    });
+  }
+
+  render() {
+    const navItems = [
+      {
+        label: "Twitter",
+        icon: <FaTwitter />,
+        link: "https://twitter.com/sweep__ai",
+      },
+      {
+        label: "Github",
+        icon: <FaGithub />,
+        link: "https://github.com/sweepai/sweep",
+      },
+      {
+        label: "Discord",
+        icon: <FaDiscord />,
+        link: "https://discord.gg/sweep",
+      },
+      {
+        label: "Email",
+        icon: <EmailIcon />,
+        link: "mailto:team@sweep.dev",
+      },
+    ];
+
+return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
@@ -69,7 +87,7 @@ export default function NavBar() {
             </Link>
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
-<ButtonGroup variant="link" display={listDisplay}>
+<ButtonGroup variant="link" display={this.state.listDisplay}>
   {navItems.map((item) => (
     <IconButton
       key={item.label}
@@ -95,7 +113,7 @@ export default function NavBar() {
               aria-label='Options'
               icon={<HamburgerIcon />}
               variant='outline'
-              display={menuDisplay}
+              display={this.state.menuDisplay}
             />
             <MenuList
               backgroundColor="#333"
