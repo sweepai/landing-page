@@ -11,41 +11,65 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
+import React from 'react';
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth < 1024 ? "flex" : "none"
+    };
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({
+      listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth < 1024 ? "flex" : "none"
+    });
+  }
+
+  render() {
+    // The rest of the render method will be implemented in the next step.
+  }
+}
+
+render() {
+  const { listDisplay, menuDisplay } = this.state;
   const navItems = [
+    {
+      label: "Discord",
+      icon: <FaDiscord />,
+      link: "https://discord.gg/3Kk7g5QGcF",
+    },
     {
       label: "Twitter",
       icon: <FaTwitter />,
-      link: "https://twitter.com/sweep__ai",
+      link: "https://twitter.com/sweep_ai",
     },
     {
       label: "Github",
       icon: <FaGithub />,
-      link: "https://github.com/sweepai/sweep",
-    },
-    {
-      label: "Discord",
-      icon: <FaDiscord />,
-      link: "https://discord.gg/sweep",
+      link: "https://github.com/sweepai",
     },
     {
       label: "Email",
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
     },
-    // {
-    //   label: "Buy Sweep Pro",
-    //   icon: <p>Buy Sweep Pro</p>,
-    //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
-    // },
   ];
 
   return (
@@ -67,28 +91,26 @@ export default function NavBar() {
                 About Us
               </Button>
             </Link>
-            {/* Removed conditional rendering of PricingModal */}
           </HStack>
-<ButtonGroup variant="link" display={listDisplay}>
-  {navItems.map((item) => (
-    <IconButton
-      key={item.label}
-      icon={item.icon}
-      variant="ghost"
-      aria-label={item.label}
-      onClick={() => {
-        window.open(item.link, "_blank");
-      }}
-      px={2}
-    />
-  ))}
-            {/* Added PricingModal to always be displayed */}
-  <Link to="/pricing">
-    <Button variant="ghost">
-      Pricing
-    </Button>
-  </Link>
-</ButtonGroup>
+          <ButtonGroup variant="link" display={listDisplay}>
+            {navItems.map((item) => (
+              <IconButton
+                key={item.label}
+                icon={item.icon}
+                variant="ghost"
+                aria-label={item.label}
+                onClick={() => {
+                  window.open(item.link, "_blank");
+                }}
+                px={2}
+              />
+            ))}
+            <Link to="/pricing">
+              <Button variant="ghost">
+                Pricing
+              </Button>
+            </Link>
+          </ButtonGroup>
           <Menu>
             <MenuButton
               as={IconButton}
@@ -97,9 +119,7 @@ export default function NavBar() {
               variant='outline'
               display={menuDisplay}
             />
-            <MenuList
-              backgroundColor="#333"
-            >
+            <MenuList backgroundColor="#333">
               {navItems.map((item) => (
                 <MenuItem backgroundColor="#333">
                   {item.label}
