@@ -11,31 +11,38 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
+import React from 'react';
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth < 1024 ? "flex" : "none"
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.updateDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions);
+  }
+
+  updateDimensions = () => {
+    this.setState({
+      listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth < 1024 ? "flex" : "none"
+    });
+  }
+
+render() {
   const navItems = [
-    {
-      label: "Twitter",
-      icon: <FaTwitter />,
-      link: "https://twitter.com/sweep__ai",
-    },
-    {
-      label: "Github",
-      icon: <FaGithub />,
-      link: "https://github.com/sweepai/sweep",
-    },
-    {
-      label: "Discord",
-      icon: <FaDiscord />,
-      link: "https://discord.gg/sweep",
-    },
     {
       label: "Email",
       icon: <EmailIcon />,
@@ -47,6 +54,8 @@ export default function NavBar() {
     //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
     // },
   ];
+
+  const { listDisplay, menuDisplay } = this.state;
 
   return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
