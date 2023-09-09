@@ -11,31 +11,42 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
+import React from 'react';
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
-  const navItems = [
-    {
-      label: "Twitter",
-      icon: <FaTwitter />,
-      link: "https://twitter.com/sweep__ai",
-    },
-    {
-      label: "Github",
-      icon: <FaGithub />,
-      link: "https://github.com/sweepai/sweep",
-    },
-    {
-      label: "Discord",
-      icon: <FaDiscord />,
-      link: "https://discord.gg/sweep",
-    },
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth < 1024 ? "flex" : "none",
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.updateBreakpoint);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.listDisplay !== this.state.listDisplay || prevState.menuDisplay !== this.state.menuDisplay) {
+      this.updateBreakpoint();
+    }
+  }
+
+  updateBreakpoint = () => {
+    this.setState({
+      listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth < 1024 ? "flex" : "none",
+    });
+  }
+
+  render() {
+    const { listDisplay, menuDisplay } = this.state;
+
+const navItems = [
     {
       label: "Email",
       icon: <EmailIcon />,
@@ -69,7 +80,7 @@ export default function NavBar() {
             </Link>
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
-<ButtonGroup variant="link" display={listDisplay}>
+<ButtonGroup variant="link" display={this.state.listDisplay}>
   {navItems.map((item) => (
     <IconButton
       key={item.label}
@@ -95,7 +106,7 @@ export default function NavBar() {
               aria-label='Options'
               icon={<HamburgerIcon />}
               variant='outline'
-              display={menuDisplay}
+              display={this.state.menuDisplay}
             />
             <MenuList
               backgroundColor="#333"
