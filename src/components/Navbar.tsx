@@ -53,7 +53,7 @@ render() {
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
     },
-    // {
+  ];
     //   label: "Buy Sweep Pro",
     //   icon: <p>Buy Sweep Pro</p>,
     //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
