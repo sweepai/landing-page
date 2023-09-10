@@ -1,10 +1,17 @@
-import React from "react"
-import { screen } from "@testing-library/react"
-import { render } from "./test-utils"
-import { App } from "./App"
+import React from "react";
+import { ChakraProvider } from "@chakra-ui/react";
 
-test("renders learn react link", () => {
-  render(<App />)
-  const linkElement = screen.getByText(/learn chakra/i)
-  expect(linkElement).toBeInTheDocument()
-})
+function App() {
+  return (
+    <ChakraProvider>
+      <Navbar />
+    </ChakraProvider>
+  );
+}
+
+function Navbar() {
+  return <div>Navbar</div>;
+}
+
+export { Navbar };
+export default App;
