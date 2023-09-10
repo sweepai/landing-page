@@ -51,7 +51,6 @@ render() {
       },
   }
 }
-}
       //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
       // },
     ];
