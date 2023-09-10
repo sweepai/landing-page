@@ -50,8 +50,6 @@ render() {
         link: "mailto:team@sweep.dev",
       },
     ];
-}
-}
 
   return (
       <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
