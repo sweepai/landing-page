@@ -4,6 +4,5 @@ docs:
   particles: ["https://particles.js.org/docs/modules/tsParticles_Engine.html", "We use particles to add effects on our website"]
 
 sandbox:
-  install: "yarn install --ignore-engines"
-  formatter: "npm install prettier --force &>/dev/null && npx prettier {file}"
-  linter: "(yarn run prettier --check . || (exit_code=$?; if [ $exit_code -eq 2 ]; then exit 2; fi; exit 0)) && yarn run lint && yarn run tsc"
+  install: ["yarn install --ignore-engines"]
+  check: ["yarn run prettier --write {file_path}", "yarn run eslint {file_path}", "yarn run tsc"]
