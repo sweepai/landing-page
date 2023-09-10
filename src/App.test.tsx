@@ -2,7 +2,7 @@ import React from "react";
 import { screen } from "@testing-library/react";
 import { render } from "./test-utils";
 import { App } from "./App";
-import Navbar from "./components/Navbar";
+import { Navbar } from "./components/Navbar";
 
 test("Navbar state changes on window resize", () => {
   const { container } = render(<Navbar />);
