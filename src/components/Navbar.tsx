@@ -17,8 +17,8 @@ import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-class Navbar extends React.Component {
-  constructor(props) {
+class Navbar extends React.Component<any, { listDisplay: string; menuDisplay: string }> {
+  constructor(props: any) {
     super(props);
     this.state = {
       listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
