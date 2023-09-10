@@ -55,6 +55,7 @@ render() {
     //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
     // },
   ];
+  return (
 
   return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
@@ -131,5 +132,5 @@ render() {
       </HStack>
     </Box>
   );
-
+}
 }
