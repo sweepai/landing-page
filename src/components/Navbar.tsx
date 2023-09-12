@@ -13,7 +13,7 @@ import {
   MenuList,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
@@ -59,52 +59,48 @@ export default function NavBar() {
                 Sweep AI
               </Button>
             </Link>
-            <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
+            <Button
+              variant="ghost"
+              onClick={() => window.open("https://docs.sweep.dev", "_blank")}
+            >
               Documentation
             </Button>
             <Link to="/about-us">
-              <Button variant="ghost">
-                About Us
-              </Button>
+              <Button variant="ghost">About Us</Button>
             </Link>
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
-<ButtonGroup variant="link" display={listDisplay}>
-  {navItems.map((item) => (
-    <IconButton
-      key={item.label}
-      icon={item.icon}
-      variant="ghost"
-      aria-label={item.label}
-      onClick={() => {
-        window.open(item.link, "_blank");
-      }}
-      px={2}
-    />
-  ))}
+          <ButtonGroup variant="link" display={listDisplay}>
+            {navItems.map((item) => (
+              <IconButton
+                key={item.label}
+                icon={item.icon}
+                variant="ghost"
+                aria-label={item.label}
+                onClick={() => {
+                  window.open(item.link, "_blank");
+                }}
+                px={2}
+              />
+            ))}
             {/* Added PricingModal to always be displayed */}
-  <Link to="/pricing">
-    <Button variant="ghost">
-      Pricing
-    </Button>
-  </Link>
-</ButtonGroup>
+            <Link to="/pricing">
+              <Button variant="ghost">Pricing</Button>
+            </Link>
+          </ButtonGroup>
           <Menu>
             <MenuButton
               as={IconButton}
-              aria-label='Options'
+              aria-label="Options"
               icon={<HamburgerIcon />}
-              variant='outline'
+              variant="outline"
               display={menuDisplay}
             />
-            <MenuList
-              backgroundColor="#333"
-            >
+            <MenuList backgroundColor="#333">
               {navItems.map((item) => (
                 <MenuItem backgroundColor="#333">
                   {item.label}
-                  {
-                    item.label !== "Buy Sweep Pro" &&
+                  {item.label !== "Buy Sweep Pro" && (
                     <IconButton
                       key={item.label}
                       icon={item.icon}
@@ -114,7 +110,7 @@ export default function NavBar() {
                         window.open(item.link, "_blank");
                       }}
                     />
-                  }
+                  )}
                 </MenuItem>
               ))}
             </MenuList>
