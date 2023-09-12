@@ -18,8 +18,10 @@ import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
 export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
+  this.state = {
+    listDisplay: this.useBreakpointValue({ base: "none", lg: "flex" }),
+    menuDisplay: this.useBreakpointValue({ base: "flex", lg: "none" }),
+  };
   const navItems = [
     {
       label: "Twitter",
@@ -69,7 +71,7 @@ export default function NavBar() {
             </Link>
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
-<ButtonGroup variant="link" display={listDisplay}>
+<ButtonGroup variant="link" display={this.state.listDisplay}>
   {navItems.map((item) => (
     <IconButton
       key={item.label}
@@ -95,7 +97,7 @@ export default function NavBar() {
               aria-label='Options'
               icon={<HamburgerIcon />}
               variant='outline'
-              display={menuDisplay}
+              display={this.state.menuDisplay}
             />
             <MenuList
               backgroundColor="#333"
