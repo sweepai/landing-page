@@ -4,5 +4,9 @@ docs:
   particles: ["https://particles.js.org/docs/modules/tsParticles_Engine.html", "We use particles to add effects on our website"]
 
 sandbox:
-  install: ["yarn install --ignore-engines"]
-  check: ["yarn run prettier --write {file_path}", "yarn run eslint {file_path}", "yarn run tsc"]
+  install:
+    - "yarn install --ignore-engines"
+  check: 
+    - "yarn run prettier --write {file_path}"
+    - "yarn run eslint --fix {file_path}"
+    - "yarn run tsc"
