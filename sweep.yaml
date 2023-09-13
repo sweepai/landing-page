@@ -5,8 +5,8 @@ docs:
 
 sandbox:
   install:
-    - "yarn install --ignore-engines"
-  check: 
-    - "yarn run prettier --write {file_path}"
-    - "yarn run eslint --fix {file_path}"
-    - "yarn run tsc"
+    - yarn install --ignore-engines
+  check:
+    - yarn run prettier --write {file_path}
+    - yarn run eslint --fix {file_path}
+    - yarn run tsc
