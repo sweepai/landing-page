@@ -17,18 +17,14 @@ import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import React from 'react';
 import logo from "../assets/icon.png";
 
-interface NavbarState {
-  listDisplay: string;
-  menuDisplay: string;
-}
-
-export class Navbar extends React.Component<{}, NavbarState> {
-  constructor(props: {}) {
+interface Props {}
+export class Navbar extends React.Component<Props, { listDisplay: string; menuDisplay: string }> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
       menuDisplay: window.innerWidth < 1024 ? "flex" : "none",
-    } as NavbarState;
+    };
   }
 
   componentDidMount() {
@@ -43,7 +39,7 @@ export class Navbar extends React.Component<{}, NavbarState> {
     this.setState({
       listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
       menuDisplay: window.innerWidth < 1024 ? "flex" : "none",
-    } as NavbarState);
+    });
   };
 
   render() {
@@ -90,7 +86,7 @@ return (
               </Button>
             </Link>
           </HStack>
-<ButtonGroup variant="link" display={this.state.listDisplay}>
+<ButtonGroup variant="link" display={this.state['listDisplay']}>
   {navItems.map((item) => (
     <IconButton
       key={item.label}
@@ -115,7 +111,7 @@ return (
               aria-label='Options'
               icon={<HamburgerIcon />}
               variant='outline'
-              display={this.state.menuDisplay}
+              display={this.state['menuDisplay']}
             />
             <MenuList
               backgroundColor="#333"
@@ -143,4 +139,5 @@ return (
       </HStack>
     </Box>
   );
+}
 }
