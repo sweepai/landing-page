@@ -17,7 +17,7 @@ import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import React from 'react';
 import logo from "../assets/icon.png";
 
-class Navbar extends React.Component {
+class Navbar extends React.Component<{}, { listDisplay: string; menuDisplay: string; }> {
   constructor(props) {
     super(props);
     this.state = {
