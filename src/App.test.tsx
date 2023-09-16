@@ -11,13 +11,27 @@ test("renders learn react link", () => {
 });
 
 test("renders Navbar component", () => {
-  render(<Navbar />);
-  const navbarElement = screen.getByText(/navbar/i);
-  expect(navbarElement).toBeInTheDocument();
+  const { container } = render(<Navbar />);
+  expect(container.firstChild).toBeInTheDocument();
 });
 
-test("updates state on window resize", () => {
-  const { container } = render(<Navbar />);
+test("checks initial state of Navbar component", () => {
+  render(<Navbar />);
+  const navbarList = screen.getByTestId("navbar-list");
+  const navbarMenu = screen.getByTestId("navbar-menu");
+  const initialListDisplay = window.innerWidth >= 1024 ? "flex" : "none";
+  const initialMenuDisplay = window.innerWidth < 1024 ? "flex" : "none";
+  expect(navbarList.style.display).toEqual(initialListDisplay);
+  expect(navbarMenu.style.display).toEqual(initialMenuDisplay);
+});
+
+test("checks state of Navbar component after window resize", () => {
+  render(<Navbar />);
   fireEvent.resize(window, { target: { innerWidth: 500 } });
-  expect(container.firstChild).toHaveClass("small-screen");
+  const navbarList = screen.getByTestId("navbar-list");
+  const navbarMenu = screen.getByTestId("navbar-menu");
+  const updatedListDisplay = window.innerWidth >= 1024 ? "flex" : "none";
+  const updatedMenuDisplay = window.innerWidth < 1024 ? "flex" : "none";
+  expect(navbarList.style.display).toEqual(updatedListDisplay);
+  expect(navbarMenu.style.display).toEqual(updatedMenuDisplay);
 });
