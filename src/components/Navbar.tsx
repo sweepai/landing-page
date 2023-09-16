@@ -17,7 +17,7 @@ import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import React from 'react';
 import logo from "../assets/icon.png";
 
-class Navbar extends React.Component<{}, { listDisplay: string; menuDisplay: string; }> {
+class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -138,4 +138,5 @@ return (
       </HStack>
     </Box>
   );
+}
 }
