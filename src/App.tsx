@@ -7,7 +7,7 @@ import {
 } from "@chakra-ui/react";
 import CallToAction from "./components/CallToAction";
 import { Helmet } from "react-helmet";
-import Navbar from "./components/Navbar";
+import { Navbar } from "./components/Navbar";
 import Banner from "./components/Banner";
 import og_image from "./assets/og_image.png";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
