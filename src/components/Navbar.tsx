@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
@@ -17,16 +18,14 @@ import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-import React from 'react';
-
-export default class NavBar extends React.Component {
+export default class NavBar extends Component<{}, { listDisplay: string; menuDisplay: string; }> {
   constructor(props) {
     super(props);
     this.state = {
       listDisplay: window.innerWidth > 1024 ? "flex" : "none",
       menuDisplay: window.innerWidth <= 1024 ? "flex" : "none",
     };
-    this.navItems = [
+    const navItems: { label: string; icon: JSX.Element; link: string; }[] = [
       {
         label: "Twitter",
         icon: <FaTwitter />,
@@ -94,7 +93,7 @@ export default class NavBar extends React.Component {
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
 <ButtonGroup variant="link" display={this.state.listDisplay}>
-  {this.navItems.map((item) => (
+  {navItems.map((item: { label: string; icon: JSX.Element; link: string; }) => (
     <IconButton
       key={item.label}
       icon={item.icon}
@@ -124,7 +123,7 @@ export default class NavBar extends React.Component {
             <MenuList
               backgroundColor="#333"
             >
-              {this.navItems.map((item) => (
+              {navItems.map((item: { label: string; icon: JSX.Element; link: string; }) => (
                 <MenuItem backgroundColor="#333">
                   {item.label}
                   {
