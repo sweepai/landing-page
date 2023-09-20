@@ -19,13 +19,35 @@ import logo from "../assets/icon.png";
 
 import React from 'react';
 
-export default class NavBar extends React.Component {
-  constructor(props) {
+constructor(props) {
     super(props);
     this.state = {
       listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
       menuDisplay: window.innerWidth < 1024 ? "flex" : "none",
+      navItems: [
+        {
+          label: "Twitter",
+          icon: <FaTwitter />,
+          link: "https://twitter.com/sweep__ai",
+        },
+        {
+          label: "Github",
+          icon: <FaGithub />,
+          link: "https://github.com/sweepai/sweep",
+        },
+        {
+          label: "Discord",
+          icon: <FaDiscord />,
+          link: "https://discord.gg/sweep",
+        },
+        {
+          label: "Email",
+          icon: <EmailIcon />,
+          link: "mailto:team@sweep.dev",
+        },
+      ],
     };
+}
     {
       label: "Twitter",
       icon: <FaTwitter />,
@@ -45,7 +67,7 @@ export default class NavBar extends React.Component {
       label: "Email",
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
-    };
+    },
     // {
     //   label: "Buy Sweep Pro",
     //   icon: <p>Buy Sweep Pro</p>,
@@ -76,7 +98,7 @@ export default class NavBar extends React.Component {
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
 <ButtonGroup variant="link" display={this.state.listDisplay}>
-  {this.navItems.map((item) => (
+  {this.state.navItems.map((item) => (
     <IconButton
       key={item.label}
       icon={item.icon}
@@ -88,6 +110,7 @@ export default class NavBar extends React.Component {
       px={2}
     />
   ))}
+</ButtonGroup>
             {/* Added PricingModal to always be displayed */}
   <Link to="/pricing">
     <Button variant="ghost">
@@ -106,7 +129,7 @@ export default class NavBar extends React.Component {
             <MenuList
               backgroundColor="#333"
             >
-              {navItems.map((item) => (
+              {this.state.navItems.map((item) => (
                 <MenuItem backgroundColor="#333">
                   {item.label}
                   {
