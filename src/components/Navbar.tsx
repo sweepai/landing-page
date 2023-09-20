@@ -70,12 +70,12 @@ export default class NavBar extends React.Component {
       menuDisplay: window.innerWidth <= 1024 ? "flex" : "none",
     });
   }
-  render() {
-    return (
-      <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
-        <HStack spacing="10" justify="space-between">
-          <Flex justify="space-between" flex="1">
-            <HStack>
+render() {
+  return (
+    <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
+      <HStack spacing="10" justify="space-between">
+        <Flex justify="space-between" flex="1">
+          <HStack>
             <Link to="/">
               <Button variant="ghost">
                 <Image src={logo} alt="logo" width={10} borderRadius={12} />
@@ -123,7 +123,7 @@ export default class NavBar extends React.Component {
             <MenuList
               backgroundColor="#333"
             >
-              {navItems.map((item) => (
+              {this.navItems.map((item) => (
                 <MenuItem backgroundColor="#333">
                   {item.label}
                   {
@@ -146,4 +146,5 @@ export default class NavBar extends React.Component {
       </HStack>
     </Box>
   );
+}
 }
