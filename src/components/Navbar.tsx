@@ -70,19 +70,18 @@ export default class NavBar extends React.Component {
       menuDisplay: window.innerWidth <= 1024 ? "flex" : "none",
     });
   }
-  render() {
-    return (
-      <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
-        <HStack spacing="10" justify="space-between">
-          <Flex justify="space-between" flex="1">
-            <HStack>
-              <Link to="/">
-                <Button variant="ghost">
-                  <Image src={logo} alt="logo" width={10} borderRadius={12} />
-                  Sweep AI
-                </Button>
-              </Link>
-            </HStack>
+render() {
+  return (
+    <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
+      <HStack spacing="10" justify="space-between">
+        <Flex justify="space-between" flex="1">
+          <HStack>
+            <Link to="/">
+              <Button variant="ghost">
+                <Image src={logo} alt="logo" width={10} borderRadius={12} />
+                Sweep AI
+              </Button>
+            </Link>
             <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
               Documentation
             </Button>
@@ -92,7 +91,7 @@ export default class NavBar extends React.Component {
               </Button>
             </Link>
             {/* Removed conditional rendering of PricingModal */}
-          </Flex>
+          </HStack>
 <ButtonGroup variant="link" display={this.state.listDisplay}>
   {this.navItems.map((item) => (
     <IconButton
@@ -124,13 +123,12 @@ export default class NavBar extends React.Component {
             <MenuList
               backgroundColor="#333"
             >
-              {navItems.map((item) => (
-                <MenuItem backgroundColor="#333">
+              {this.navItems.map((item) => (
+                <MenuItem backgroundColor="#333" key={item.label}>
                   {item.label}
                   {
                     item.label !== "Buy Sweep Pro" &&
                     <IconButton
-                      key={item.label}
                       icon={item.icon}
                       variant="ghost"
                       aria-label={item.label}
@@ -147,4 +145,5 @@ export default class NavBar extends React.Component {
       </HStack>
     </Box>
   );
+}
 }
