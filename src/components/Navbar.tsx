@@ -26,7 +26,7 @@ export default class NavBar extends React.Component {
       listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
       menuDisplay: window.innerWidth < 1024 ? "flex" : "none",
     };
-    this.navItems = [
+    {
       label: "Twitter",
       icon: <FaTwitter />,
       link: "https://twitter.com/sweep__ai",
