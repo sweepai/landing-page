@@ -147,4 +147,3 @@ export default class NavBar extends Component<{}, { listDisplay: string; menuDis
     </Box>
   );
 }
-}
