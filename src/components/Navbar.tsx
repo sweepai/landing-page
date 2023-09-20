@@ -27,31 +27,50 @@ export default class NavBar extends React.Component {
       menuDisplay: window.innerWidth <= 1024 ? "flex" : "none",
     };
     this.navItems = [
-      label: "Twitter",
-      icon: <FaTwitter />,
-      link: "https://twitter.com/sweep__ai",
-    },
-    {
-      label: "Github",
-      icon: <FaGithub />,
-      link: "https://github.com/sweepai/sweep",
-    },
-    {
-      label: "Discord",
-      icon: <FaDiscord />,
-      link: "https://discord.gg/sweep",
-    },
-    {
-      label: "Email",
-      icon: <EmailIcon />,
-      link: "mailto:team@sweep.dev",
-    },
-    // {
-    //   label: "Buy Sweep Pro",
-    //   icon: <p>Buy Sweep Pro</p>,
-    //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
-    // },
-  ];
+      {
+        label: "Twitter",
+        icon: <FaTwitter />,
+        link: "https://twitter.com/sweep__ai",
+      },
+      {
+        label: "Github",
+        icon: <FaGithub />,
+        link: "https://github.com/sweepai/sweep",
+      },
+      {
+        label: "Discord",
+        icon: <FaDiscord />,
+        link: "https://discord.gg/sweep",
+      },
+      {
+        label: "Email",
+        icon: <EmailIcon />,
+        link: "mailto:team@sweep.dev",
+      },
+      // {
+      //   label: "Buy Sweep Pro",
+      //   icon: <p>Buy Sweep Pro</p>,
+      //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
+      // },
+    ];
+    this.updateDisplay = this.updateDisplay.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.updateDisplay);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDisplay);
+  }
+
+  updateDisplay() {
+    this.setState({
+      listDisplay: window.innerWidth > 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth <= 1024 ? "flex" : "none",
+    });
+  }
+}
 
   return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
