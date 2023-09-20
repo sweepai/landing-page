@@ -76,14 +76,13 @@ export default class NavBar extends React.Component {
         <HStack spacing="10" justify="space-between">
           <Flex justify="space-between" flex="1">
             <HStack>
-  }
-}
-            <Link to="/">
-              <Button variant="ghost">
-                <Image src={logo} alt="logo" width={10} borderRadius={12} />
-                Sweep AI
-              </Button>
-            </Link>
+              <Link to="/">
+                <Button variant="ghost">
+                  <Image src={logo} alt="logo" width={10} borderRadius={12} />
+                  Sweep AI
+                </Button>
+              </Link>
+            </HStack>
             <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
               Documentation
             </Button>
