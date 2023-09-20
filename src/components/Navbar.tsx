@@ -45,7 +45,7 @@ export default class NavBar extends React.Component {
       label: "Email",
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
-    },
+    };
     // {
     //   label: "Buy Sweep Pro",
     //   icon: <p>Buy Sweep Pro</p>,
