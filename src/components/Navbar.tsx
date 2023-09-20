@@ -32,27 +32,27 @@ export default class NavBar extends React.Component {
         icon: <FaTwitter />,
         link: "https://twitter.com/sweep__ai",
       },
-    {
-      label: "Github",
-      icon: <FaGithub />,
-      link: "https://github.com/sweepai/sweep",
-    },
-    {
-      label: "Discord",
-      icon: <FaDiscord />,
-      link: "https://discord.gg/sweep",
-    },
-    {
-      label: "Email",
-      icon: <EmailIcon />,
-      link: "mailto:team@sweep.dev",
-    },
-    // {
-    //   label: "Buy Sweep Pro",
-    //   icon: <p>Buy Sweep Pro</p>,
-    //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
-    // },
-  ];
+      {
+        label: "Github",
+        icon: <FaGithub />,
+        link: "https://github.com/sweepai/sweep",
+      },
+      {
+        label: "Discord",
+        icon: <FaDiscord />,
+        link: "https://discord.gg/sweep",
+      },
+      {
+        label: "Email",
+        icon: <EmailIcon />,
+        link: "mailto:team@sweep.dev",
+      },
+      // {
+      //   label: "Buy Sweep Pro",
+      //   icon: <p>Buy Sweep Pro</p>,
+      //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
+      // },
+    ];
 
   render() {
     return (
