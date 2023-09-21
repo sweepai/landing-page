@@ -17,11 +17,38 @@ import { Link } from 'react-router-dom';
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import logo from "../assets/icon.png";
 
-export default function NavBar() {
-  const listDisplay = useBreakpointValue({ base: "none", lg: "flex" });
-  const menuDisplay = useBreakpointValue({ base: "flex", lg: "none" });
-  const navItems = [
-    {
+import React from 'react';
+
+export default class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listDisplay: window.innerWidth >= 1024 ? "flex" : "none",
+      menuDisplay: window.innerWidth < 1024 ? "flex" : "none",
+    };
+    this.navItems = [
+      {
+        label: "Twitter",
+        icon: <FaTwitter />,
+        link: "https://twitter.com/sweep__ai",
+      },
+      {
+        label: "Github",
+        icon: <FaGithub />,
+        link: "https://github.com/sweepai/sweep",
+      },
+      {
+        label: "Discord",
+        icon: <FaDiscord />,
+        link: "https://discord.gg/sweep",
+      },
+      {
+        label: "Email",
+        icon: <EmailIcon />,
+        link: "mailto:team@sweep.dev",
+      },
+    ];
+  }
       label: "Twitter",
       icon: <FaTwitter />,
       link: "https://twitter.com/sweep__ai",
@@ -69,8 +96,8 @@ export default function NavBar() {
             </Link>
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
-<ButtonGroup variant="link" display={listDisplay}>
-  {navItems.map((item) => (
+<ButtonGroup variant="link" display={this.state.listDisplay}>
+  {this.navItems.map((item) => (
     <IconButton
       key={item.label}
       icon={item.icon}
@@ -95,7 +122,7 @@ export default function NavBar() {
               aria-label='Options'
               icon={<HamburgerIcon />}
               variant='outline'
-              display={menuDisplay}
+              display={this.state.menuDisplay}
             />
             <MenuList
               backgroundColor="#333"
