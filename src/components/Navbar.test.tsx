@@ -10,8 +10,16 @@ describe('Navbar', () => {
   test('renders correct elements based on state', () => {
     const { getByText } = render(<Navbar />);
     
-    // Add more specific checks here based on the expected elements to be rendered
-    // For example, if you expect a button with text 'Submit' to be rendered, you can check like this:
-    // expect(getByText('Submit')).toBeInTheDocument();
+    // Check for the 'Documentation' button
+    expect(getByText('Documentation')).toBeInTheDocument();
+  
+    // Check for the 'About Us' button
+    expect(getByText('About Us')).toBeInTheDocument();
+  
+    // Check for the 'Pricing' button
+    expect(getByText('Pricing')).toBeInTheDocument();
+  
+    // Check for the 'Sweep AI' text
+    expect(getByText('Sweep AI')).toBeInTheDocument();
   });
 });
