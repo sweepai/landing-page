@@ -19,6 +19,7 @@ test("renders new pricing tier in PricingPage", () => {
   
   const priceElement = screen.getByText(/\$120 \/ month/i)
   const ticketsElement = screen.getByText(/30 GPT-4 Sweep tickets \/ month/i)
+  const discordSupportElement = screen.getByText(/Support Via Discord/i)
   
   // Check that the new tier is displayed between the free and $480 tiers
   const tiers = [freeTierElement, plusTierElement, proTierElement]
@@ -32,4 +33,5 @@ test("renders new pricing tier in PricingPage", () => {
   // Check that the price and tickets elements are in the document
   expect(priceElement).toBeInTheDocument()
   expect(ticketsElement).toBeInTheDocument()
+  expect(discordSupportElement).toBeInTheDocument()
 })
