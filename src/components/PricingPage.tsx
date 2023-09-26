@@ -3,7 +3,7 @@ import { Text, SimpleGrid, Box, Button } from '@chakra-ui/react';
 const PricingPage = () => {
   return (
     <Box p={8} backgroundColor="#0d1117" pb={4}>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+      <SimpleGrid columns={{ base: 1, md: 4 }} spacing={10}>
         <Box
           display="flex"
           flexDirection="column"
@@ -47,6 +47,22 @@ const PricingPage = () => {
               <li>✔ Faster search with live re-indexing</li>
               <li>✔ Priority support</li>
               <li>✔ Commercial SLA</li>
+            </Box>
+          </Box>
+          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
+            Purchase
+          </Button>
+        </Box>
+        <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
+          <Box>
+            <Text fontSize="lg" mb={2} textAlign="center">
+              🚀 New Tier
+            </Text>
+            <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
+              $120 <span style={{ fontWeight: "normal" }}>/ month</span>
+            </Text>
+            <Box as="ul" style={{ listStyleType: 'none' }}>
+              <li>✔ 30 GPT-4 Sweep tickets / month</li>
             </Box>
           </Box>
           <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
