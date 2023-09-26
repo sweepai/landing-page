@@ -29,6 +29,25 @@ const PricingPage = () => {
         </Box>
         
                 
+        <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
+          <Box>
+            <Text fontSize="lg" mb={2} textAlign="center">
+              🏢 Enterprise
+            </Text>
+            <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
+              Custom
+            </Text>
+            <Box as="ul" style={{ listStyleType: 'none' }}>
+              <li>✔ Unlimited GPT-4 Sweep issues</li>
+              <li>✔ Fine-tuned retrieval model</li>
+              <li>✔ Self-hosted backend</li>
+              <li>✔ Enterprise support</li>
+            </Box>
+          </Box>
+          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://form.typeform.com/to/wliuvyWE", "_blank")}>
+            Contact us
+          </Button>
+        </Box>
         // Removed duplicated "Pro" tier box
         <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
           <Box>
@@ -63,25 +82,6 @@ const PricingPage = () => {
           </Box>
           <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
             Purchase
-          </Button>
-        </Box>
-        <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
-          <Box>
-            <Text fontSize="lg" mb={2} textAlign="center">
-              🏢 Enterprise
-            </Text>
-            <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
-              Custom
-            </Text>
-            <Box as="ul" style={{ listStyleType: 'none' }}>
-              <li>✔ Unlimited GPT-4 Sweep issues</li>
-              <li>✔ Fine-tuned retrieval model</li>
-              <li>✔ Self-hosted backend</li>
-              <li>✔ Enterprise support</li>
-            </Box>
-          </Box>
-          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://form.typeform.com/to/wliuvyWE", "_blank")}>
-            Contact us
           </Button>
         </Box>
       </SimpleGrid>
