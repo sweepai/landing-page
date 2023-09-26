@@ -23,7 +23,7 @@ const PricingPage = () => {
               <li>✔ Unlimited GPT-3.5 Sweep issues</li>
             </Box>
           </Box>
-          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://github.com/sweepai/sweep#-getting-started", "_blank")}>
+          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://github.com/apps/sweep-ai", "_blank")}>
             Install
           </Button>
         </Box>
