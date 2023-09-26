@@ -29,25 +29,7 @@ const PricingPage = () => {
         </Box>
         
                 
-        <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
-        <Box>
-        <Text fontSize="lg" mb={2} textAlign="center">
-        💎 Pro
-            </Text>
-            <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
-              $480 <span style={{ fontWeight: "normal" }}>/ month</span>
-            </Text>
-            <Box as="ul" style={{ listStyleType: 'none' }}>
-              <li>✔ Unlimited GPT-4 Sweep issues</li>
-              <li>✔ Faster search with live re-indexing</li>
-              <li>✔ Priority support</li>
-              <li>✔ Commercial SLA</li>
-            </Box>
-          </Box>
-          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
-            Purchase
-          </Button>
-        </Box>
+        // Removed duplicated "Pro" tier box
         <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
           <Box>
             <Text fontSize="lg" mb={2} textAlign="center">
