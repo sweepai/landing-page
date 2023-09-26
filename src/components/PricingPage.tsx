@@ -28,22 +28,7 @@ const PricingPage = () => {
           </Button>
         </Box>
         
-        <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
-          <Box>
-            <Text fontSize="lg" mb={2} textAlign="center">
-              🚀 New Tier
-            </Text>
-            <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
-              $120 <span style={{ fontWeight: "normal" }}>/ month</span>
-            </Text>
-            <Box as="ul" style={{ listStyleType: 'none' }}>
-              <li>✔ 30 GPT-4 Sweep tickets / month</li>
-            </Box>
-          </Box>
-          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
-            Purchase
-          </Button>
-        </Box>
+        // No code here as the second instance of the new pricing tier has been removed.
         
         <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
           <Box>
