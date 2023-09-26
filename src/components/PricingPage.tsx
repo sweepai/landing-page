@@ -28,8 +28,8 @@ const PricingPage = () => {
           </Button>
         </Box>
         
-        // No code here as the second instance of the new pricing tier has been removed.
-        
+        {/* No code here as the second instance of the new pricing tier has been removed. */}
+                
         <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
           <Box>
             <Text fontSize="lg" mb={2} textAlign="center">
