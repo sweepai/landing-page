@@ -40,7 +40,7 @@ const PricingPage = () => {
               <li>✔ 30 GPT-4 Sweep tickets / month</li>
             </Box>
           </Box>
-          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
+          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/7sI5np26l1H24QU7sA", "_blank")}>
             Purchase
           </Button>
         </Box>
