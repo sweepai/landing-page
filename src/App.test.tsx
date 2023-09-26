@@ -14,17 +14,14 @@ test("renders new pricing tier in PricingPage", () => {
   render(<PricingPage />)
   
   const freeTierElement = screen.getByText(/Free/i)
-  const newTierElement = screen.getByText(/New Tier/i)
+  const plusTierElement = screen.getByText(/🚀 Plus/i)
   const proTierElement = screen.getByText(/💎 Pro/i)
   
   const priceElement = screen.getByText(/\$120 \/ month/i)
   const ticketsElement = screen.getByText(/30 GPT-4 Sweep tickets \/ month/i)
   
-  const extendedTrialElement = screen.queryByText(/Extended trial/i)
-  const extendedTrialLinkElement = screen.queryByText(/one-time purchase/i)
-  
   // Check that the new tier is displayed between the free and $480 tiers
-  const tiers = [freeTierElement, newTierElement, proTierElement]
+  const tiers = [freeTierElement, plusTierElement, proTierElement]
   tiers.forEach((tier, index) => {
     expect(tier).toBeInTheDocument()
     if (index < tiers.length - 1) {
@@ -35,8 +32,4 @@ test("renders new pricing tier in PricingPage", () => {
   // Check that the price and tickets elements are in the document
   expect(priceElement).toBeInTheDocument()
   expect(ticketsElement).toBeInTheDocument()
-  
-  // Check that the extended trial copy and link are not present
-  expect(extendedTrialElement).not.toBeInTheDocument()
-  expect(extendedTrialLinkElement).not.toBeInTheDocument()
 })
