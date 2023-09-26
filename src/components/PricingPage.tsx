@@ -28,27 +28,23 @@ const PricingPage = () => {
           </Button>
         </Box>
         
-                
         <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
           <Box>
             <Text fontSize="lg" mb={2} textAlign="center">
-              🏢 Enterprise
+              🚀 New Tier
             </Text>
             <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
-              Custom
+              $120 <span style={{ fontWeight: "normal" }}>/ month</span>
             </Text>
             <Box as="ul" style={{ listStyleType: 'none' }}>
-              <li>✔ Unlimited GPT-4 Sweep issues</li>
-              <li>✔ Fine-tuned retrieval model</li>
-              <li>✔ Self-hosted backend</li>
-              <li>✔ Enterprise support</li>
+              <li>✔ 30 GPT-4 Sweep tickets / month</li>
             </Box>
           </Box>
-          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://form.typeform.com/to/wliuvyWE", "_blank")}>
-            Contact us
+          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
+            Purchase
           </Button>
         </Box>
-        // Removed duplicated "Pro" tier box
+
         <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
           <Box>
             <Text fontSize="lg" mb={2} textAlign="center">
@@ -68,20 +64,24 @@ const PricingPage = () => {
             Purchase
           </Button>
         </Box>
+
         <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
           <Box>
             <Text fontSize="lg" mb={2} textAlign="center">
-              🚀 New Tier
+              🏢 Enterprise
             </Text>
             <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
-              $120 <span style={{ fontWeight: "normal" }}>/ month</span>
+              Custom
             </Text>
             <Box as="ul" style={{ listStyleType: 'none' }}>
-              <li>✔ 30 GPT-4 Sweep tickets / month</li>
+              <li>✔ Unlimited GPT-4 Sweep issues</li>
+              <li>✔ Fine-tuned retrieval model</li>
+              <li>✔ Self-hosted backend</li>
+              <li>✔ Enterprise support</li>
             </Box>
           </Box>
-          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
-            Purchase
+          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://form.typeform.com/to/wliuvyWE", "_blank")}>
+            Contact us
           </Button>
         </Box>
       </SimpleGrid>
