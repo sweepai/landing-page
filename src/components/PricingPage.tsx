@@ -3,7 +3,7 @@ import { Text, SimpleGrid, Box, Button } from '@chakra-ui/react';
 const PricingPage = () => {
   return (
     <Box p={8} backgroundColor="#0d1117" pb={4}>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+      <SimpleGrid columns={{ base: 1, md: 4 }} spacing={10}>
         <Box
           display="flex"
           flexDirection="column"
@@ -21,19 +21,31 @@ const PricingPage = () => {
             <Box as="ul" style={{ listStyleType: 'none' }}>
               <li>✔ 5 GPT-4 Sweep tickets / month</li>
               <li>✔ Unlimited GPT-3.5 Sweep issues</li>
-              <br />
-              <li>
-                <Button colorScheme="purple" onClick={() => window.open("https://buy.stripe.com/7sI4jlaCR3PaabebIP", "_blank")}>
-                  Extended trial
-                </Button>
-                &nbsp;- make a <b>one-time purchase</b> of 15 additional PRs
-              </li>
             </Box>
           </Box>
-          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://github.com/sweepai/sweep#-getting-started", "_blank")}>
+          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://github.com/apps/sweep-ai", "_blank")}>
             Install
           </Button>
         </Box>
+        
+        <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
+          <Box>
+            <Text fontSize="lg" mb={2} textAlign="center">
+              🚀 Plus
+            </Text>
+            <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
+              $120 <span style={{ fontWeight: "normal" }}>/ month</span>
+            </Text>
+            <Box as="ul" style={{ listStyleType: 'none' }}>
+              <li>✔ 30 GPT-4 Sweep tickets / month</li>
+              <li><a href="https://discord.gg/sweep" target="_blank" rel="noopener noreferrer">✔ Support Via Discord</a></li>
+            </Box>
+          </Box>
+          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/7sI5np26l1H24QU7sA", "_blank")}>
+            Purchase
+          </Button>
+        </Box>
+
         <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
           <Box>
             <Text fontSize="lg" mb={2} textAlign="center">
@@ -53,6 +65,7 @@ const PricingPage = () => {
             Purchase
           </Button>
         </Box>
+
         <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
           <Box>
             <Text fontSize="lg" mb={2} textAlign="center">
