@@ -31,7 +31,7 @@ const PricingPage = () => {
         <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
           <Box>
             <Text fontSize="lg" mb={2} textAlign="center">
-              🚀 New Tier
+              🚀 Plus
             </Text>
             <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
               $120 <span style={{ fontWeight: "normal" }}>/ month</span>
