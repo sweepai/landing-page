@@ -38,6 +38,7 @@ const PricingPage = () => {
             </Text>
             <Box as="ul" style={{ listStyleType: 'none' }}>
               <li>✔ 30 GPT-4 Sweep tickets / month</li>
+              <li><a href="https://discord.gg/sweep" target="_blank" rel="noopener noreferrer">✔ Support Via Discord</a></li>
             </Box>
           </Box>
           <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/7sI5np26l1H24QU7sA", "_blank")}>
