@@ -1,8 +1,10 @@
 import { Text, SimpleGrid, Box, Button } from '@chakra-ui/react';
+import FireworksParticles from './FireworksParticles';
 
 const PricingPage = () => {
   return (
-    <Box p={8} backgroundColor="#0d1117" pb={4}>
+    <Box p={8} backgroundColor="#0d1117" pb={4} id="pricing-page" onClick={() => tsParticles.load('pricing-page', { preset: 'fireworks' })}>
+      <FireworksParticles />
       <SimpleGrid columns={{ base: 1, md: 4 }} spacing={10}>
         <Box
           display="flex"
