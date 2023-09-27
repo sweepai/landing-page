@@ -2,8 +2,8 @@
   "name": "sweep-landing-page",
   "version": "0.1.0",
   "private": true,
-  "tsparticles-preset-confetti": "^1.0.0",
-  "tsparticles-preset-fireworks": "^1.0.0",
+  "dependencies": {
+    "tsparticles-preset-confetti": "^1.0.0",
     "tsparticles-preset-fireworks": "^1.0.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
