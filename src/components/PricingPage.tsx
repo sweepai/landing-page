@@ -1,4 +1,5 @@
 import { Text, SimpleGrid, Box, Button } from '@chakra-ui/react';
+import { tsParticles } from 'tsparticles';
 import FireworksParticles from './FireworksParticles';
 
 const PricingPage = () => {
