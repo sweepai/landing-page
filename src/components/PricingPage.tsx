@@ -1,4 +1,4 @@
-import { Text, SimpleGrid, Box, Button } from '@chakra-ui/react';
+import { Text, SimpleGrid, Box, Button, useEffect } from '@chakra-ui/react';
 import { tsParticles } from "tsparticles";
 import { loadFireworksPreset } from "tsparticles-preset-fireworks";
 
