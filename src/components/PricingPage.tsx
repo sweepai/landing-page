@@ -5,18 +5,117 @@ import { loadFireworksPreset } from "tsparticles-preset-fireworks";
 
 tsParticles.addPreset("fireworks", loadFireworksPreset);
 
+import { Text, SimpleGrid, Box, Button } from '@chakra-ui/react';
+import { useEffect } from 'react';
+import { tsParticles, IOptions } from "tsparticles";
+import { loadFireworksPreset } from "tsparticles-preset-fireworks";
+
+tsParticles.addPreset("fireworks", loadFireworksPreset);
+
 const PricingPage = () => {
+  const options: IOptions = {
+    fpsLimit: 60,
+    background: {
+      color: "#0d1117",
+    },
+    motion: {
+      disable: false,
+    },
+    particles: {
+      number: {
+        value: 80,
+        density: {
+          enable: true,
+          value_area: 800,
+        },
+      },
+      color: {
+        value: "#ff0000",
+      },
+      shape: {
+        type: "circle",
+      },
+      opacity: {
+        value: 0.5,
+        random: false,
+        animation: {
+          enable: false,
+          speed: 1,
+          opacity_min: 0.1,
+        },
+      },
+      size: {
+        value: 5,
+        random: true,
+        animation: {
+          enable: false,
+          speed: 30,
+          size_min: 0.1,
+        },
+      },
+      links: {
+        enable: false,
+      },
+      move: {
+        enable: true,
+        speed: 3,
+        direction: "none",
+        random: false,
+        straight: false,
+        out_mode: "out",
+        bounce: false,
+      },
+      line_linked: {
+        enable: false,
+      },
+      life: {
+        duration: 2,
+        count: 1,
+        delay: 0,
+      },
+      vortex: {
+        enable: false,
+      },
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: {
+          enable: false,
+        },
+        onclick: {
+          enable: true,
+          mode: "repulse",
+        },
+      },
+      modes: {
+        grab: {
+          enable: false,
+        },
+        bubble: {
+          enable: false,
+        },
+        repulse: {
+          enable: false,
+        },
+        push: {
+          enable: false,
+        },
+        remove: {
+          enable: false,
+        },
+      },
+    },
+    retina_detect: false,
+  };
+
   useEffect(() => {
-    tsParticles.load("pricing-page", {
-      preset: "fireworks",
-    });
+    tsParticles.loadJSON("pricing-page", JSON.stringify(options));
   }, []);
 
   return (
     <Box p={8} backgroundColor="#0d1117" pb={4} id="pricing-page" onClick={() => {
-      tsParticles.load("pricing-page", {
-        preset: "fireworks",
-      });
+      tsParticles.loadJSON("pricing-page", JSON.stringify(options));
     }}>
       <SimpleGrid columns={{ base: 1, md: 4 }} spacing={10}>
         <Box
