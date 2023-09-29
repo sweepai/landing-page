@@ -11,9 +11,11 @@ const PricingPage = () => {
     
     const pricingPage = document.getElementById("pricing-page");
     
-    pricingPage.addEventListener("click", () => {
-      tsParticles.dom().fireworks.start();
-    });
+    if (pricingPage) {
+      pricingPage.addEventListener("click", () => {
+        tsParticles.dom().start();
+      });
+    }
   }, []);
 
   return (
