@@ -1,7 +1,22 @@
-import { Text, SimpleGrid, Box, Button } from '@chakra-ui/react';
-import { useEffect } from 'react';
-import { tsParticles } from "tsparticles";
-import { loadFireworksPreset } from "tsparticles-preset-fireworks";
+useEffect(() => {
+  tsParticles.load("tsparticles", loadFireworksPreset);
+  const pricingPage = document.getElementById("pricingPage");
+  pricingPage.addEventListener("click", () => {
+    tsParticles.play("tsparticles");
+  });
+
+  return () => {
+    pricingPage.removeEventListener("click", () => {
+      tsParticles.play("tsparticles");
+    });
+  };
+}, []);
+
+return (
+  <Box id="pricingPage" display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
+    ...
+  </Box>
+);
 
 const PricingPage = () => {
         <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
