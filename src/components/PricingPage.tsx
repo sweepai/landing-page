@@ -8,9 +8,9 @@ const PricingPage = () => {
     tsParticles.load("particles-container", {
       presets: [loadFireworksPreset()],
     });
-
+    
     const pricingPage = document.getElementById("pricing-page");
-
+    
     pricingPage.addEventListener("click", () => {
       tsParticles.dom().fireworks.start();
     });
