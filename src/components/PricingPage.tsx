@@ -1,4 +1,5 @@
-import { Text, SimpleGrid, Box, Button, useEffect } from '@chakra-ui/react';
+import { Text, SimpleGrid, Box, Button } from '@chakra-ui/react';
+import { useEffect } from 'react';
 import { tsParticles } from "tsparticles";
 import { loadFireworksPreset } from "tsparticles-preset-fireworks";
 
@@ -81,7 +82,6 @@ const PricingPage = () => {
             size: 40,
             duration: 2,
             opacity: 8,
-            speed: 3,
           },
           repulse: {
             distance: 200,
