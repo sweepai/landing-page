@@ -1,8 +1,26 @@
-import { Text, SimpleGrid, Box, Button } from '@chakra-ui/react';
+import { Text, SimpleGrid, Box, Button, useEffect } from '@chakra-ui/react';
+import { tsParticles } from "tsparticles";
+import { loadFireworksPreset } from "tsparticles-preset-fireworks";
+
+tsParticles.addPreset("fireworks", loadFireworksPreset);
 
 const PricingPage = () => {
+  useEffect(() => {
+    tsParticles.load("pricing-page", {
+      preset: "fireworks",
+      // other configuration options
+    });
+  }, []);
+
+  const handleOnClick = () => {
+    tsParticles.load("pricing-page", {
+      preset: "fireworks",
+      // other configuration options
+    });
+  };
+
   return (
-    <Box p={8} backgroundColor="#0d1117" pb={4}>
+    <Box p={8} backgroundColor="#0d1117" pb={4} id="pricing-page" onClick={handleOnClick}>
       <SimpleGrid columns={{ base: 1, md: 4 }} spacing={10}>
         <Box
           display="flex"
