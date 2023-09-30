@@ -3,101 +3,108 @@ import { useEffect } from 'react';
 import { tsParticles, IOptions } from "tsparticles";
 import { loadFireworksPreset } from "tsparticles-preset-fireworks";
 
-const fireworksOptions: IOptions = loadFireworksPreset();
+import { Container } from "tsparticles";
+
+const container = new Container();
+const fireworksOptions: IOptions = await loadFireworksPreset(container);
 tsParticles.addPreset("fireworks", fireworksOptions);
 
 const PricingPage = () => {
   useEffect(() => {
-    tsParticles.load("pricing-page", {
-      preset: "fireworks",
-      particles: {
-        number: {
-          value: 100,
-        },
-        color: {
-          value: "#ffffff",
-        },
-        shape: {
-          type: "circle",
-        },
-        opacity: {
-          value: 0.6,
-          random: true,
-          anim: {
-            enable: true,
-            speed: 1,
-            opacity_min: 0,
-            sync: false,
+    const loadParticles = async () => {
+      await tsParticles.load("pricing-page", {
+        preset: "fireworks",
+        particles: {
+          number: {
+            value: 100,
           },
-        },
-        size: {
-          value: 4,
-          random: true,
-          anim: {
-            enable: false,
-            speed: 4,
-            size_min: 0.3,
-            sync: false,
+          color: {
+            value: "#ffffff",
           },
-        },
-        line_linked: {
-          enable: false,
-        },
-        move: {
-          enable: true,
-          speed: 1,
-          direction: "none",
-          random: false,
-          straight: false,
-          out_mode: "out",
-          bounce: false,
-          attract: {
-            enable: false,
-            rotateX: 600,
-            rotateY: 600,
+          shape: {
+            type: "circle",
           },
-        },
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: {
-            enable: true,
-            mode: "repulse",
-          },
-          onclick: {
-            enable: true,
-            mode: "push",
-          },
-          resize: true,
-        },
-        modes: {
-          grab: {
-            distance: 400,
-            line_linked: {
-              opacity: 1,
+          opacity: {
+            value: 0.6,
+            random: true,
+            anim: {
+              enable: true,
+              speed: 1,
+              opacity_min: 0,
+              sync: false,
             },
           },
-          bubble: {
-            distance: 400,
-            size: 40,
-            duration: 2,
-            opacity: 8,
+          size: {
+            value: 4,
+            random: true,
+            anim: {
+              enable: false,
+              speed: 4,
+              size_min: 0.3,
+              sync: false,
+            },
           },
-          repulse: {
-            distance: 200,
-            duration: 0.4,
+          line_linked: {
+            enable: false,
           },
-          push: {
-            particles_nb: 4,
-          },
-          remove: {
-            particles_nb: 2,
+          move: {
+            enable: true,
+            speed: 1,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 600,
+            },
           },
         },
-      },
-      retina_detect: true,
-    });
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "repulse",
+            },
+            onclick: {
+              enable: true,
+              mode: "push",
+            },
+            resize: true,
+          },
+          modes: {
+            grab: {
+              distance: 400,
+              line_linked: {
+                opacity: 1,
+              },
+            },
+            bubble: {
+              distance: 400,
+              size: 40,
+              duration: 2,
+              opacity: 8,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+            },
+            push: {
+              particles_nb: 4,
+            },
+            remove: {
+              particles_nb: 2,
+            },
+          },
+        },
+        retina_detect: true,
+      });
+    };
+  
+    loadParticles();
   }, []);
 
   const handleOnClick = () => {
