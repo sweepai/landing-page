@@ -11,86 +11,20 @@ tsParticles.addPreset("fireworks", fireworksOptions);
 
 const PricingPage = () => {
   useEffect(() => {
-    const loadParticles = async () => {
-      await tsParticles.load("pricing-page", {
-        preset: "fireworks",
-        particles: {
-          number: {
-            value: 100,
-          },
-          color: {
-            value: "#ffffff",
-          },
-          shape: {
-            type: "circle",
-          },
-          opacity: {
-            value: 0.6,
-            random: true,
-            anim: {
-              enable: true,
-              speed: 1,
-              opacity_min: 0,
-              sync: false,
-            },
-          },
-          size: {
-            value: 4,
-            random: true,
-            anim: {
-              enable: false,
-              speed: 4,
-              size_min: 0.3,
-              sync: false,
-            },
-          },
-          line_linked: {
-            enable: false,
-          },
-          move: {
-            enable: true,
-            speed: 1,
-            direction: "none",
-            random: false,
-            straight: false,
-            out_mode: "out",
-            bounce: false,
-            attract: {
-              enable: false,
-              rotateX: 600,
-              rotateY: 600,
-            },
-          },
-        },
-        interactivity: {
-          detect_on: "canvas",
-          events: {
-            onhover: {
-              enable: true,
-              mode: "repulse",
-            },
-            onclick: {
-              enable: true,
-              mode: "push",
-            },
-            resize: true,
-          },
-          modes: {},
-        },
-        retina_detect: true,
-      });
-    };
-  
-    loadParticles();
-  }, []);
+      const loadParticles = async () => {
+        await tsParticles.load("pricing-page", {
+          preset: "fireworks"
+        });
+      };
+    
+      loadParticles();
+    }, []);
 
   const handleOnClick = () => {
-    tsParticles.load("pricing-page", {
-      particles: fireworksOptions.particles,
-      interactivity: fireworksOptions.interactivity,
-      retina_detect: true,
-    });
-  };
+      tsParticles.load("pricing-page", {
+        preset: "fireworks"
+      });
+    };
 
   return (
     <Box p={8} backgroundColor="#0d1117" pb={4} id="pricing-page" onClick={handleOnClick}>
