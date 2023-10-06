@@ -71,9 +71,7 @@ export const App = () => {
       <ChakraProvider theme={theme}>
         <ForceDarkMode>
           <Box
-            textAlign="center"
-            fontSize="xl"
-            bgColor="#0d0a1a"
+            bgColor="white"
             bgImage={circles}
             bgPos="0 0"
             bgSize="100%"
@@ -107,3 +105,4 @@ export const App = () => {
     </>
   );
 };
+
