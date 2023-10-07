@@ -53,42 +53,38 @@ export default function NavBar() {
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
           <HStack>
-            <Link to="/">
-              <Button variant="ghost">
-                <Image src={logo} alt="logo" width={10} borderRadius={12} />
-                Sweep AI
-              </Button>
-            </Link>
-            <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
+            <Button as={Link} variant="ghost" to="/" >
+              <Image src={logo} alt="logo" width={10} borderRadius={12} />
+              Sweep AI
+            </Button>
+            <Button as="a" variant="ghost" href="https://docs.sweep.dev" target="_blank">
               Documentation
             </Button>
-            <Link to="/about-us">
-              <Button variant="ghost">
-                About Us
-              </Button>
-            </Link>
+            <Button as={Link} variant="ghost" to="/about-us">
+              About Us
+            </Button>
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
-<ButtonGroup variant="link" display={listDisplay}>
-  {navItems.map((item) => (
-    <IconButton
-      key={item.label}
-      icon={item.icon}
-      variant="ghost"
-      aria-label={item.label}
-      onClick={() => {
-        window.open(item.link, "_blank");
-      }}
-      px={2}
-    />
-  ))}
+          <ButtonGroup variant="link" display={listDisplay}>
+            {navItems.map((item) => (
+              <IconButton
+                key={item.label}
+                as="a"
+                href={item.link}
+                target="_blank"
+                icon={item.icon}
+                variant="ghost"
+                aria-label={item.label}
+                px={2}
+              />
+            ))}
             {/* Added PricingModal to always be displayed */}
-  <Link to="/pricing">
-    <Button variant="ghost">
-      Pricing
-    </Button>
-  </Link>
-</ButtonGroup>
+            <Link to="/pricing">
+              <Button variant="ghost">
+                Pricing
+              </Button>
+            </Link>
+          </ButtonGroup>
           <Menu>
             <MenuButton
               as={IconButton}
