@@ -10,3 +10,7 @@ sandbox:
     - yarn run prettier --write {file_path}
     - yarn run eslint --fix {file_path}
     - yarn run tsc
+
+rules:
+ - "Any user facing text should be high quality."
+ - "We should have corresponding tests for all new and existing code. We use jest for tests."
