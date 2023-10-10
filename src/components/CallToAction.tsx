@@ -15,23 +15,6 @@ import logo from "../assets/icon.png";
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
-// import {
-//   Flex,
-//   Container,
-//   Heading,
-//   Stack,
-//   Text,
-//   Button,
-// } from "@chakra-ui/react";
-// import { tsParticles } from "tsparticles";
-// import { loadConfettiPreset } from "tsparticles-preset-confetti";
-// import { FaDiscord, FaGithub } from "react-icons/fa";
-// import { useState } from "react";
-// import logo from "../assets/icon.png";
-
-// import ExternalLinkWithText from "./ExternalLinkWithText";
-// const demo = require("../assets/demo.mp4");
-
 export default function CallToAction() {
   const [spin, setSpin] = useState(false);
   // const canvas = document.getElementById('canvas3d');
@@ -47,7 +30,19 @@ export default function CallToAction() {
         style={{ paddingTop: "0 !important" }}
         mb={36}
       >
-        <img src={logo} alt="Logo" style={{ width: '100px', animation: spin ? "spin 0.5s linear" : "bob 0.75s ease-in-out infinite alternate", marginTop: "-2rem !important", marginBottom: "30px", borderRadius: "50%" }} onClick={async () => {
+        <img
+          src={logo}
+          alt="Logo"
+          style={{
+            width: "100px",
+            animation: spin
+              ? "spin 0.5s linear"
+              : "bob 0.75s ease-in-out infinite alternate",
+            marginTop: "-2rem !important",
+            marginBottom: "30px",
+            borderRadius: "50%",
+          }}
+          onClick={async () => {
             setSpin(!spin);
             await loadConfettiPreset(tsParticles);
             await tsParticles.load("tsparticles", {
@@ -58,7 +53,8 @@ export default function CallToAction() {
                 },
               },
             });
-          }} />
+          }}
+        />
         {/* <img src={logo} alt="Logo" width={120} height={120} style={{
           animation: "bob 0.75s ease-in-out infinite alternate",
         }} /> */}
@@ -90,8 +86,14 @@ export default function CallToAction() {
         >
           Ship code faster
         </Heading>
-        <Text color={"purple.400"} maxW={"3xl"} mt="1rem !important" mb="1rem !important">
-          Let Sweep handle your tech debt so you can focus on the exciting problems
+        <Text
+          color={"purple.400"}
+          maxW={"3xl"}
+          mt="1rem !important"
+          mb="1rem !important"
+        >
+          Let Sweep handle your tech debt so you can focus on the exciting
+          problems
         </Text>
         <Button
           color="white"
@@ -103,7 +105,8 @@ export default function CallToAction() {
           fontSize={"xl"}
           mb="1rem !important"
         >
-          <FaGithub />&nbsp;&nbsp;Install Sweep
+          <FaGithub />
+          &nbsp;&nbsp;Install Sweep
         </Button>
         <ExternalLinkWithText
           href="https://discord.gg/sweep" // updated link
@@ -115,10 +118,16 @@ export default function CallToAction() {
             alignItems: "center",
           }}
         >
-          <FaDiscord />&nbsp;&nbsp;Join our Discord
+          <FaDiscord />
+          &nbsp;&nbsp;Join our Discord
         </ExternalLinkWithText>
         <Flex w={"full"} mt="4rem !important">
-          <Container width="100vw" boxShadow="0 0 80px #181818" p={0} maxWidth="full">
+          <Container
+            width="100vw"
+            boxShadow="0 0 80px #181818"
+            p={0}
+            maxWidth="full"
+          >
             <video src={demo} autoPlay muted loop playsInline>
               Your browser does not support the video tag.
             </video>
@@ -127,4 +136,4 @@ export default function CallToAction() {
       </Stack>
     </Container>
   );
-};
+}
