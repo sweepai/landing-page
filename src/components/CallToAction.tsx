@@ -15,6 +15,23 @@ import logo from "../assets/icon.png";
 import ExternalLinkWithText from "./ExternalLinkWithText";
 const demo = require("../assets/demo.mp4");
 
+// import {
+//   Flex,
+//   Container,
+//   Heading,
+//   Stack,
+//   Text,
+//   Button,
+// } from "@chakra-ui/react";
+// import { tsParticles } from "tsparticles";
+// import { loadConfettiPreset } from "tsparticles-preset-confetti";
+// import { FaDiscord, FaGithub } from "react-icons/fa";
+// import { useState } from "react";
+// import logo from "../assets/icon.png";
+
+// import ExternalLinkWithText from "./ExternalLinkWithText";
+// const demo = require("../assets/demo.mp4");
+
 export default function CallToAction() {
   const [spin, setSpin] = useState(false);
   // const canvas = document.getElementById('canvas3d');
