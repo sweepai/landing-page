@@ -14,3 +14,4 @@ sandbox:
 rules:
  - "Any user facing text should be high quality."
  - "We should have corresponding tests for all new and existing code. We use jest for tests."
+ - "There should not be large chunks of commented out code besides docstrings."
