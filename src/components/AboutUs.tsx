@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Image, Text, Card, CardBody, Stack, Flex } from '@chakra-ui/react';
+import { Box, Image, Text, Card, CardBody, Stack } from '@chakra-ui/react';
 
 
 
