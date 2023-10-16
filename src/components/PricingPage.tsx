@@ -1,7 +1,7 @@
 import { Link, Text, SimpleGrid, Box, Button } from '@chakra-ui/react';
 
 const PricingPage = () => (
-  <Box p={8} backgroundColor="transparent" py={12} px={24}>
+  <Box p={8} backgroundColor="transparent" py={12} px={24} pb="40vh">
     <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
       <Box
         display="flex"

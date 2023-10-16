@@ -21,6 +21,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import circles from "./assets/circles.svg";
 import Features from "./components/Features";
 import Conclusion from "./components/Conclusion";
+import Footer from "./components/Footer";
 
 const config: ThemeConfig = {
   initialColorMode: "dark",
@@ -100,6 +101,7 @@ export const App = () => {
                   <PricingPage />
                 </Route>
               </Switch>
+              <Footer />
             </Router>
           </Box>
         </ForceDarkMode>
