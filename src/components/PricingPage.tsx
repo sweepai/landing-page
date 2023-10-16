@@ -18,10 +18,9 @@ const PricingPage = () => (
             Free
           </Text>
           <Box as="ul" style={{ listStyleType: 'none' }}>
-            <li>✔ 5 GPT-4 Sweep tickets / month</li>
+            <li>✔ 5 GPT-4 Sweep tickets per month</li>
             <li>✔ Unlimited GPT-3.5 Sweep issues</li>
-            <br />
-            <li><em>Purchase additional GPT-4 tickets <Link href="https://buy.stripe.com/00g3fh7qF85q0AE14d" color="#89CFF0">here</Link>.</em></li>
+            <li><em>Purchase additional GPT-4 tickets <Link href="https://buy.stripe.com/00g3fh7qF85q0AE14d" color="#89CFF0">here</Link></em></li>
           </Box>
         </Box>
         <Button colorScheme="purple" mt={12} onClick={() => window.open("https://github.com/apps/sweep-ai", "_blank")}>
