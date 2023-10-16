@@ -2,7 +2,6 @@ import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
 import logo from "../assets/icon.png";
 import pills_bottom from "../assets/pills_bottom.svg";
-import Footer from "./Footer";
 export default function Conclusion() {
     return (
         <Box bgImage={pills_bottom} bgPos="-100px 0" bgSize="cover">
@@ -17,7 +16,6 @@ export default function Conclusion() {
                     </Button>
                 </Box>
             </Flex>
-            <Footer />
         </Box>
     )
 }
