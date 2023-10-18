@@ -52,7 +52,7 @@ export default function Footer() {
             height="10px"
           />
         </Link>
-        <p className="transparentText">SWEEP AI INC</p>
+        <p className="transparentText">© 2023 SWEEP AI, Inc.</p>
       </Stack>
     </Box>
   );

@@ -29,7 +29,7 @@ test("renders new pricing tier in PricingPage", () => {
     if (index < tiers.length - 1) {
       expect(
         tier.compareDocumentPosition(tiers[index + 1]) &
-          Node.DOCUMENT_POSITION_FOLLOWING,
+        Node.DOCUMENT_POSITION_FOLLOWING,
       ).toBeTruthy();
     }
   });
@@ -42,6 +42,6 @@ test("renders new pricing tier in PricingPage", () => {
 
 test("renders SWEEP AI INC in Footer", () => {
   render(<Footer />);
-  const textElement = screen.getByText(/SWEEP AI INC/i);
+  const textElement = screen.getByText(/© 2023 SWEEP AI, Inc./i);
   expect(textElement).toBeInTheDocument();
 });
