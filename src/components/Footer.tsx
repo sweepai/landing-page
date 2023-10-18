@@ -1,6 +1,5 @@
 import { Box, Link, Stack } from "@chakra-ui/react";
 import YCLogo from "../assets/yc.webp";
-import "./Footer.css";
 
 export default function Footer() {
   return (
