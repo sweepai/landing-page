@@ -23,7 +23,16 @@ const Testimonial = ({ children, name, company, href }: TestimonialProps): JSX.E
             borderWidth={1}
         >
             <Flex width="100%" m={2} mb={4}>
-                <User><Text color="white">{name.split(' ').map(n => n[0]).join('').toUpperCase()}</Text></User>
+                const getInitials = (name: string) => {
+                    const commonPrefixesSuffixes = ["van", "de", "jr", "sr", "ii", "iii", "iv"];
+                    return name.split(' ')
+                        .filter(n => !commonPrefixesSuffixes.includes(n.toLowerCase()))
+                        .map(n => n[0])
+                        .join('')
+                        .toUpperCase();
+                };
+                
+                <User><Text color="white">{getInitials(name)}</Text></User>
                 <Box flexGrow={1} textAlign="left" ml={4}>
                     <Text fontWeight="bold">{name}</Text>
                     <ExternalLinkWithText href={href} color="#aaa">{company}</ExternalLinkWithText>
