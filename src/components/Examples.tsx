@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box, Text } from "@chakra-ui/react";
 import { FaArrowRight } from "react-icons/fa";
 import logo from "../assets/icon.png";
@@ -156,33 +157,34 @@ const Example = ({
     );
 }
 
-export default function Examples() {
-    return (
-        <>
-            <Box display="flex" justifyContent="center" alignItems="center">
-                <Box m={8} mt={32} width={{base: "100%", md: "80%"}}>
-                    <Text fontSize="5xl" fontWeight="bold" mb={12} textAlign="center">Example tickets handled by Sweep</Text>
-                    <Box display="flex" flexWrap="wrap" justifyContent="space-between">
-                        <Example
-                            repo_name="edreisMD/plugnplai"
-                            issue_title="make .prompt a method and add verbosity and colors"
-                            issue_number={140}
-                            avatar_href="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Blank&hairColor=BrownDark&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=Hoodie&clotheColor=Black&eyeType=Default&eyebrowType=UpDownNatural&mouthType=Smile&skinColor=Pale"
-                            username="edreisMD"
-                            issue_description="use typer to display colors and alter the prompt"
-                            pull_request_title="make .prompt a method and add verbosity and colors"
-                        >
-                            @edreisMD, I have started working on this PR. My plan is to:
-                            <br/>
-                            <ul style={{marginLeft: 20, marginTop: 10}}>
-                                <li>
-                                    Make self.prompt a method called get_prompt() in plugins.py
-                                </li>
-                                <li>
-                                    Add verbosity and color options using typer
-                                </li>
-                            </ul>
-                        </Example>
+export default class Examples extends React.Component {
+    render() {
+        return (
+            <>
+                <Box display="flex" justifyContent="center" alignItems="center">
+                    <Box m={8} mt={32} width={{base: "100%", md: "80%"}}>
+                        <Text fontSize="5xl" fontWeight="bold" mb={12} textAlign="center">Example tickets handled by Sweep</Text>
+                        <Box display="flex" flexWrap="wrap" justifyContent="space-between">
+                            <Example
+                                repo_name="edreisMD/plugnplai"
+                                issue_title="make .prompt a method and add verbosity and colors"
+                                issue_number={140}
+                                avatar_href="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Blank&hairColor=BrownDark&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=Hoodie&clotheColor=Black&eyeType=Default&eyebrowType=UpDownNatural&mouthType=Smile&skinColor=Pale"
+                                username="edreisMD"
+                                issue_description="use typer to display colors and alter the prompt"
+                                pull_request_title="make .prompt a method and add verbosity and colors"
+                            >
+                                @edreisMD, I have started working on this PR. My plan is to:
+                                <br/>
+                                <ul style={{marginLeft: 20, marginTop: 10}}>
+                                    <li>
+                                        Make self.prompt a method called get_prompt() in plugins.py
+                                    </li>
+                                    <li>
+                                        Add verbosity and color options using typer
+                                    </li>
+                                </ul>
+                            </Example>
                         <Example
                             repo_name="edreisMD/plugnplai"
                             issue_title="Only allow activating a maximum of 3 plugins"
@@ -219,12 +221,13 @@ export default function Examples() {
                             <br />
                             I've started working on writing tests for the MiniChain library. The plan is to add test files for the core Backend, BasePrompt, and Gradio classes to cover normal usage and edge cases. I'll be using the pytest framework to write and run the tests.
                         </Example>
+                        </Box>
                     </Box>
                 </Box>
-            </Box>
-            <Text mb={16}>
-                For more examples, see <ExternalLinkWithText href="https://docs.sweep.dev/about/examples">Example Sweep tickets</ExternalLinkWithText>
-            </Text>
-        </>
-    );
+                <Text mb={16}>
+                    For more examples, see <ExternalLinkWithText href="https://docs.sweep.dev/about/examples">Example Sweep tickets</ExternalLinkWithText>
+                </Text>
+            </>
+        );
+    }
 }
