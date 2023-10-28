@@ -10,18 +10,20 @@ type TestimonialProps = {
     href: string
 }
 
-const Testimonial = ({ children, name, company, href }: TestimonialProps): JSX.Element => {
-    return (
-        <Box
-            overflow="hidden"
-            p={4}
-            mb={16}
-            width={{ base: "100%", md: "30%" }}
-            backgroundColor="purple.900"
-            borderRadius="10px"
-            borderColor="purple.300"
-            borderWidth={1}
-        >
+class Testimonial extends React.Component {
+    render() {
+        const { children, name, company, href } = this.props;
+        return (
+            <Box
+                overflow="hidden"
+                p={4}
+                mb={16}
+                width={{ base: "100%", md: "30%" }}
+                backgroundColor="purple.900"
+                borderRadius="10px"
+                borderColor="purple.300"
+                borderWidth={1}
+            >
             <Flex width="100%" m={2} mb={4}>
                 <User><Text color="white">{name.split(' ').map(n => n[0]).join('').toUpperCase()}</Text></User>
                 <Box flexGrow={1} textAlign="left" ml={4}>
@@ -36,9 +38,10 @@ const Testimonial = ({ children, name, company, href }: TestimonialProps): JSX.E
     );
 }
 
-export default function Testimonials() {
-    return (
-        <Box display="flex" justifyContent="center" alignItems="center">
+export default class Testimonials extends React.Component {
+    render() {
+        return (
+            <Box display="flex" justifyContent="center" alignItems="center">
             <Box m={8} mt={32} width={{ base: "100%", md: "80%" }}>
                 <Text fontSize="3xl" mb={12} textAlign="center">What our users are saying</Text>
                 <Box display="flex" flexWrap="wrap" justifyContent="space-between">
