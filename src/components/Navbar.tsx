@@ -63,6 +63,9 @@ export default function NavBar() {
             <Button as={Link} variant="ghost" to="/about-us">
               About Us
             </Button>
+            <Button as={Link} variant="ghost" to="/blogs">
+              Blogs
+            </Button>
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
