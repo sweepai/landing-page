@@ -63,6 +63,9 @@ export default function NavBar() {
             <Button as={Link} variant="ghost" to="/about-us">
               About Us
             </Button>
+            <Button as="a" variant="ghost" href="https://docs.sweep.dev/blogs" target="_blank">
+              Blogs
+            </Button>
             {/* Removed conditional rendering of PricingModal */}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
