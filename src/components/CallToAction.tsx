@@ -13,7 +13,8 @@ import { useState } from "react";
 import logo from "../assets/icon.png";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
-const demo = require("../assets/demo.mp4");
+import { TypeAnimation } from "react-type-animation";
+// const demo = require("../assets/demo.mp4");
 
 export default function CallToAction() {
   const [spin, setSpin] = useState(false);
@@ -58,7 +59,7 @@ export default function CallToAction() {
         {/* <img src={logo} alt="Logo" width={120} height={120} style={{
           animation: "bob 0.75s ease-in-out infinite alternate",
         }} /> */}
-        <style>
+        {/* <style>
           {`
             @keyframes bob {
               from {
@@ -77,14 +78,28 @@ export default function CallToAction() {
               }
             }
           `}
-        </style>
+        </style> */}
         <Heading
           fontWeight={600}
-          fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
+          fontSize={{ base: "3xl", sm: "4xl", md: "7xl" }}
           lineHeight={"110%"}
           mt="0 !important"
         >
-          Ship code faster
+          <TypeAnimation
+            sequence={[
+              "Unit test",
+              3000,
+              'Refactor',
+              3000,
+              'Debug',
+              3000,
+            ]}
+            wrapper="span"
+            speed={50}
+            repeat={Infinity}
+            cursor={false}
+          />
+          &nbsp;Python with AI
         </Heading>
         <Text
           color={"purple.400"}
@@ -92,8 +107,7 @@ export default function CallToAction() {
           mt="1rem !important"
           mb="1rem !important"
         >
-          Let Sweep handle your tech debt so you can focus on the exciting
-          problems
+          Junior Python developer that uses your entire codebase to write Pull Requests
         </Text>
         <Button
           color="white"
@@ -128,9 +142,12 @@ export default function CallToAction() {
             p={0}
             maxWidth="full"
           >
-            <video src={demo} autoPlay muted loop playsInline>
+            {/* <video src={demo} autoPlay muted loop playsInline>
               Your browser does not support the video tag.
-            </video>
+            </video> */}
+            <iframe width="800" height="500" style={{ margin: "auto" }} src="https://www.youtube.com/embed/nxIMWCaN5kM?autoplay=1&mute=1&loop=1&vq=hd1080&modestbranding=1&controls=0"
+              title="YouTube video player" allow="accelerometer; autoplay; 
+            clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
           </Container>
         </Flex>
       </Stack>
