@@ -1,6 +1,6 @@
 import { Box, Button, Code, Flex, HStack, Text, VStack } from "@chakra-ui/react";
 import { FaBook, FaGithub, FaSlack } from "react-icons/fa";
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // @ts-ignore
+import SyntaxHighlighter, { Prism } from 'react-syntax-highlighter'; // @ts-ignore
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import GHAIcon from "../assets/gha.svg";
@@ -9,18 +9,90 @@ import logo from "../assets/icon.png";
 import pills_examples from "../assets/pills_examples.svg";
 import User from "./User";
 
-const example_code = `import os
-import tempfile
-from git import Repo
-...
-try:
-    repo_dir = os.path.join(tempfile.gettempdir(), repo_full_name)
-    if os.path.exists(repo_dir):
-        git_repo = Repo(repo_dir)
-        git_repo.remotes.origin.pull()
-    else:
-        Repo.clone_from(repo_url, repo_dir)
-`;
+import ReactDiffViewer from 'react-diff-viewer';
+
+const oldCode = `def get_deeplake_vs_from_repo(
+    cloned_repo: ClonedRepo,
+    sweep_config: SweepConfig = SweepConfig(),
+):
+    deeplake_vs = None
+
+    repo_full_name = cloned_repo.repo_full_name
+    repo = cloned_repo.repo
+    commits = repo.get_commits()
+    commit_hash = commits[0].sha
+
+    logger.info(f"Downloading repository and indexing for {repo_full_name}...")
+    start = time.time()
+    logger.info("Recursively getting list of files...")
+    blocked_dirs = get_blocked_dirs(repo)
+    sweep_config.exclude_dirs.extend(blocked_dirs)
+
+    snippets, file_list = repo_to_chunks(cloned_repo.cache_dir, sweep_config)
+    logger.info(f"Found {len(snippets)} snippets in repository {repo_full_name}")
+    # prepare lexical search
+    index = prepare_index_from_snippets(
+        snippets, len_repo_cache_dir=len(cloned_repo.cache_dir) + 1
+    )
+    logger.print("Prepared index from snippets")
+
+    # scoring for vector search
+    files_to_scores = compute_vector_search_scores(
+        file_list, cloned_repo, repo_full_name
+    )
+
+    collection_name, documents, ids, metadatas = prepare_documents_metadata_ids(
+        snippets, cloned_repo, files_to_scores, start, repo_full_name
+    )
+
+    deeplake_vs = deeplake_vs or compute_deeplake_vs(
+        collection_name, documents, ids, metadatas, commit_hash
+    )
+
+    return deeplake_vs, index, len(documents)`;
+
+const newCode = `def get_deeplake_vs_from_repo(
+    cloned_repo: ClonedRepo,
+    sweep_config: SweepConfig = SweepConfig(),
+):
+    deeplake_vs = None
+
+    repo_full_name = cloned_repo.repo_full_name
+    repo = cloned_repo.repo
+    commits = repo.get_commits()
+    commit_hash = commits[0].sha
+
+    logger.info(f"Downloading repository and indexing for {repo_full_name}...")
+    start = time.time()
+    logger.info("Recursively getting list of files...")
+    blocked_dirs = get_blocked_dirs(repo)
+    sweep_config.exclude_dirs.extend(blocked_dirs)
+    file_list, snippets, index = prepare_lexical_search_index(cloned_repo, sweep_config, repo_full_name)
+
+    # scoring for vector search
+    files_to_scores = compute_vector_search_scores(
+        file_list, cloned_repo, repo_full_name
+    )
+
+    collection_name, documents, ids, metadatas = prepare_documents_metadata_ids(
+        snippets, cloned_repo, files_to_scores, start, repo_full_name
+    )
+
+    deeplake_vs = deeplake_vs or compute_deeplake_vs(
+        collection_name, documents, ids, metadatas, commit_hash
+    )
+
+    return deeplake_vs, index, len(documents)
+
+def prepare_lexical_search_index(cloned_repo, sweep_config, repo_full_name):
+    snippets, file_list = repo_to_chunks(cloned_repo.cache_dir, sweep_config)
+    logger.info(f"Found {len(snippets)} snippets in repository {repo_full_name}")
+    # prepare lexical search
+    index = prepare_index_from_snippets(
+        snippets, len_repo_cache_dir=len(cloned_repo.cache_dir) + 1
+    )
+    logger.print("Prepared index from snippets")
+    return file_list, snippets, index`;
 
 const example_diff_code_prefix = `def deactivate(self, plugin_name: str):
     """
@@ -93,14 +165,14 @@ export default function Features() {
         <>
             <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
-                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
+                    <Flex width="100%" textAlign="left" justifyContent="left" alignItems="center" mb={12}>
                         <Box>
                             <img src={logo} alt="Sweep logo" width={50} />
                             <Text mt={4} fontSize="2xl" fontWeight="bold">Clean up your tech debt, automatically</Text>
                             <Text mt={4} fontSize="md" color="lightgrey">Sweep generates repository-level code at your command. Cut down your dev time on mundane tasks, like tests, documentation, and refactoring.</Text>
                         </Box>
                     </Flex>
-                    <Box width={{ base: "100%", md: "45%" }} maxW="100%">
+                    <Box width="100%" maxW="100%">
                         <VStack alignItems="flex-start" spacing={6}>
                             <Dialog
                                 user={<Text fontSize="md" color="white">KL</Text>}
@@ -109,7 +181,7 @@ export default function Features() {
                                 borderWidth={2}
                             >
                                 <Text fontSize="md" color="white">
-                                    Sweep: Use OS Agnostic Temp Directory
+                                    Refactor vector_db.py by making get_deeplake_vs_from_repo more modular
                                 </Text>
                             </Dialog>
                             <Dialog user={<img src={logo} alt="Sweep logo" />}>
@@ -126,25 +198,37 @@ export default function Features() {
                                         height="100%"
                                         background={`linear-gradient(to bottom, transparent, #0d0a1aaa)`}
                                     />
-                                    This PR addresses issue #367, which pointed out that the current implementation of the temporary directory in sweepai/app/ui.py is not compatible with Windows.
-                                    <br />
-                                    {/*<ul>*/}
-                                    {/*    <li style={{ marginLeft: 20 }}>*/}
-                                    {/*        Creates a test file tests/test_backend.py with test cases for normal usage and edge cases...*/}
-                                    {/*    </li>*/}
-                                    {/*</ul>*/}
+                                    This PR refactors the `get_deeplake_vs_from_repo` function in `sweepai/core/vector_db.py` to make it more modular. The function was quite large and performed multiple tasks, including reading files from a repository, preparing a lexical search index, scoring for vector search, computing all scores, preparing documents, metadatas, and ids, and computing embeddings.
                                 </Text>
                             </Dialog>
                             <Dialog user={<img src={logo} alt="Sweep logo" />}>
                                 <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
-                                    <b>sweepai/app/ui.py</b>
+                                    {/* <b>sweepai/core/vector_db.py</b>
                                     <hr style={{
                                         borderTop: '2px solid grey',
                                         width: '100%',
                                         marginTop: '0.5rem',
-                                    }} />
-                                    <SyntaxHighlighter
-                                        language="python"
+                                    }} /> */}
+                                    <ReactDiffViewer
+                                        oldValue={oldCode}
+                                        newValue={newCode}
+                                        splitView={true}
+                                        useDarkTheme={true}
+                                        disableWordDiff={true}
+                                        leftTitle="sweepai/core/vector_db.py"
+                                        rightTitle="Extracted lexical search indexing logic"
+                                        linesOffset={166}
+                                    // renderContent={(source) => (
+                                    //     <pre
+                                    //         style={{ display: 'inline' }}
+                                    //         dangerouslySetInnerHTML={{
+                                    //             __html: SyntaxHighlighter.highlight(source, SyntaxHighlighter.languages.javascript),
+                                    //         }}
+                                    //     />
+                                    // )}
+                                    />
+                                    {/* <SyntaxHighlighter
+                                        language="diff"
                                         style={customStyle}
                                         wrapLines={true}
                                         wrapLongLines={true}
@@ -155,7 +239,7 @@ export default function Features() {
                                         }}
                                     >
                                         {example_code}
-                                    </SyntaxHighlighter>
+                                    </SyntaxHighlighter> */}
                                 </Code>
                             </Dialog>
                         </VStack>
@@ -164,7 +248,7 @@ export default function Features() {
             </Box >
             <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
-                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" display={{ base: "flex", md: "none" }} mb={12}>
+                    <Flex width="100%" textAlign="left" justifyContent="center" alignItems="center" display={{ base: "flex", md: "none" }} mb={12}>
                         <Box>
                             <FaSlack size={40} />
                             <Text mt={4} fontSize="2xl" fontWeight="bold">Preview the plan in Slack</Text>
@@ -174,7 +258,17 @@ export default function Features() {
                             </Button>
                         </Box>
                     </Flex>
-                    <Box width={{ base: "100%", md: "45%" }} maxW="100%" mb={12}>
+                    <Flex width="100%" textAlign="left" justifyContent="center" alignItems="center" display={{ base: "none", md: "flex" }} mb={12}>
+                        <Box>
+                            <img src={GHAIcon} alt="GitHub Actions Icon" />
+                            <Text mt={4} fontSize="2xl" fontWeight="bold">Respond to GitHub Actions</Text>
+                            <Text mt={4} fontSize="md" color="lightgrey">Sweep reads GitHub Action logs to ensure its changes compiles and passes tests. If the code errors, Sweep updates it's code to fix it.</Text>
+                            <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://github.com/sweepai/landing-page/pull/236")}>
+                                See the example
+                            </Button>
+                        </Box>
+                    </Flex>
+                    <Box width="100%" maxW="100%" mb={12}>
                         <VStack alignItems="flex-start" spacing={6}>
                             <GithubDialog
                                 user={<FaGithub size={40} color="white" />}
@@ -244,19 +338,10 @@ export default function Features() {
                             </Dialog>
                         </VStack>
                     </Box>
-                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" display={{ base: "none", md: "flex" }} mb={12}>
-                        <Box>
-                            <img src={GHAIcon} alt="GitHub Actions Icon" />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Respond to GitHub Actions</Text>
-                            <Text mt={4} fontSize="md" color="lightgrey">Sweep reads GitHub Action logs to ensure its changes compiles and passes tests. If the code errors, Sweep updates it's code to fix it.</Text>
-                            <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://github.com/sweepai/landing-page/pull/236")}>
-                                See the example
-                            </Button>
-                        </Box>
-                    </Flex>
+
                 </Box>
             </Box >
-            <Box display="flex" justifyContent="center" alignItems="center" mb={48}>
+            {/* <Box display="flex" justifyContent="center" alignItems="center" mb={48}>
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
                         <Box>
@@ -311,7 +396,7 @@ export default function Features() {
                         </VStack>
                     </Box>
                 </Box>
-            </Box >
+            </Box > */}
             <Box display="flex" justifyContent="center" alignItems="center" py={48} bgImage={pills_examples} bgSize="cover">
                 <Box m={8} flexWrap="wrap" justifyContent="space-around" w={{ base: "full", md: "80%" }} textAlign="center">
                     <Text mb={4} fontSize="3xl">See example tickets, handled by Sweep</Text>
