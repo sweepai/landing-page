@@ -86,14 +86,7 @@ export default function CallToAction() {
           mt="0 !important"
         >
           <TypeAnimation
-            sequence={[
-              "Unit test",
-              3000,
-              'Refactor',
-              3000,
-              'Debug',
-              3000,
-            ]}
+            sequence={["Unit test", 3000, "Refactor", 3000, "Debug", 3000]}
             wrapper="span"
             speed={50}
             repeat={Infinity}
@@ -107,7 +100,8 @@ export default function CallToAction() {
           mt="1rem !important"
           mb="1rem !important"
         >
-          An AI-powered tool that scans your entire codebase to generate Pull Requests
+          An AI-powered tool that scans your entire codebase to generate Pull
+          Requests
         </Text>
         <Button
           color="white"
@@ -145,9 +139,15 @@ export default function CallToAction() {
             {/* <video src={demo} autoPlay muted loop playsInline>
               Your browser does not support the video tag.
             </video> */}
-            <iframe width="800" height="500" style={{ margin: "auto" }} src="https://www.youtube.com/embed/nxIMWCaN5kM?autoplay=1&mute=1&loop=1&vq=hd1080&modestbranding=1&controls=0"
-              title="YouTube video player" allow="accelerometer; autoplay; 
-            clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            <iframe
+              width="800"
+              height="500"
+              style={{ margin: "auto" }}
+              src="https://www.youtube.com/embed/nxIMWCaN5kM?autoplay=1&mute=1&loop=1&vq=hd1080&modestbranding=1&controls=0"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; 
+            clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            ></iframe>
           </Container>
         </Flex>
       </Stack>
