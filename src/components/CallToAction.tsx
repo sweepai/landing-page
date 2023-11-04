@@ -56,29 +56,6 @@ export default function CallToAction() {
             });
           }}
         />
-        {/* <img src={logo} alt="Logo" width={120} height={120} style={{
-          animation: "bob 0.75s ease-in-out infinite alternate",
-        }} /> */}
-        {/* <style>
-          {`
-            @keyframes bob {
-              from {
-                transform: translateY(0);
-              }
-              to {
-                transform: translateY(15px);
-              }
-            }
-            @keyframes spin {
-              from {
-                transform: rotate(0deg) scale(1);
-              }
-              to {
-                transform: rotate(360deg);
-              }
-            }
-          `}
-        </style> */}
         <Heading
           fontWeight={600}
           fontSize={{ base: "3xl", sm: "4xl", md: "7xl" }}
