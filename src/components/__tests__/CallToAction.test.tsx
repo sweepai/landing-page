@@ -17,7 +17,9 @@ describe("CallToAction", () => {
     });
     expect(logo).toHaveStyle("animation: spin 0.5s linear");
     fireEvent.click(logo);
-    expect(logo).toHaveStyle("animation: bob 0.75s ease-in-out infinite alternate");
+    expect(logo).toHaveStyle(
+      "animation: bob 0.75s ease-in-out infinite alternate",
+    );
   });
 
   it('opens the correct URL on "Install Sweep" button click', () => {
