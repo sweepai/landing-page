@@ -36,3 +36,12 @@ describe("CallToAction", () => {
     expect(window.open).toHaveBeenCalledWith("https://discord.gg/sweep");
   });
 });
+  it('renders the expected elements', () => {
+    const { getByText, getByAltText } = render(<CallToAction />);
+    expect(getByAltText('Logo')).toBeInTheDocument();
+    expect(getByText('Python with AI')).toBeInTheDocument();
+    expect(getByText('Junior Python developer that uses your entire codebase to write Pull Requests')).toBeInTheDocument();
+    expect(getByText('Install Sweep')).toBeInTheDocument();
+    expect(getByText('Join our Discord')).toBeInTheDocument();
+    expect(document.querySelector('iframe')).toBeInTheDocument();
+  });
