@@ -25,11 +25,9 @@ describe("CallToAction", () => {
   it('opens the correct URL on "Install Sweep" button click', () => {
     const { getByText } = render(<CallToAction />);
     const button = getByText("Install Sweep");
-    const spy = jest.spyOn(window, 'open').mockImplementation(() => null);
+    const spy = jest.spyOn(window, "open").mockImplementation(() => null);
     fireEvent.click(button);
-    expect(spy).toHaveBeenCalledWith(
-      "https://github.com/apps/sweep-ai",
-    );
+    expect(spy).toHaveBeenCalledWith("https://github.com/apps/sweep-ai");
     spy.mockRestore();
   });
 
