@@ -107,7 +107,7 @@ export default function CallToAction() {
           mt="1rem !important"
           mb="1rem !important"
         >
-          Junior Python developer that uses your entire codebase to write Pull Requests
+          An AI-powered tool that scans your entire codebase to generate Pull Requests
         </Text>
         <Button
           color="white"
