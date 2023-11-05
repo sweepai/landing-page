@@ -102,27 +102,71 @@ const example_diff_code_prefix = `def deactivate(self, plugin_name: str):
         del self.active_plugins[plugin_name]
 `;
 
-const example_gha_log = `Error: Module '"tsparticles"' has no exported member 'loadConfettiPreset'.
-Error: Property 'style' does not exist on type 'EventTarget'.`;
+const example_gha_log = `kevinlu1248 pushed 1 commit to sweepai/sweep, editing sweepai/utils/graph_test.py`;
+const example_sandbox_logs = `Traceback (most recent call last):
+File "/repo/sweepai/utils/graph_test.py", line 35, in test_extract_first_degree
+  self.assertEqual(result, ["file1", "file2"])
+AssertionError: Lists differ: [] != ['file1', 'file2']
+Second list contains 2 additional elements.
+First extra element 0:
+'file1'
+- []
++ ['file1', 'file2']
+======================================================================
+FAIL: test_paths_to_first_degree_entities (__main__.TestGraph)`;
 
-const example_diff_code_gha = `import { Flex, Container, Heading, Stack, Text, Button } from "@chakra-ui/react";
-- import { loadConfettiPreset, tsParticles } from "tsparticles";
-+ import { tsParticles } from "tsparticles";
-import { FaDiscord, FaGithub } from "react-icons/fa";
-import Spline from '@splinetool/react-spline';
+const example_diff_code_gha = `class TestGraph(unittest.TestCase):
+    def setUp(self):
+        self.graph = Graph(
+            definitions_graph=nx.DiGraph(), references_graph=nx.DiGraph()
+        )
+
+    def test_extract_first_degree(self):
+        with patch(
+            "sweepai.utils.graph.Graph.find_definitions"
+        ) as mock_find_definitions, patch(
+            "sweepai.utils.graph.Graph.find_references"
+        ) as mock_find_references, patch(
+            "sweepai.utils.graph.condense_paths"
+        ) as mock_condense_paths:
+            mock_find_definitions.return_value = [["file1", "symbol1", "file2"]]
+            mock_find_references.return_value = [["file1", "symbol1", "file2"]]
+            mock_condense_paths.return_value = [["file1", "symbol1", "file2"]]
+            with patch(
+                "sweepai.utils.graph.Graph.topological_sort"
+            ) as mock_topological_sort:
+                mock_topological_sort.return_value = ["file1", "file2"]
+                result = self.graph.topological_sort(["file1", "file2"])
+                self.assertEqual(result, ["file1", "file2"])
+
 ...
-        await tsParticles.load("tsparticles", {
-            preset: "confetti",
-            particles: {
-            color: {
-                value: ["#0000ff", "#00ff00"],
-            },
-            },
-        });
--       target.style.transform = "rotate(360deg)";
-+       (target as HTMLElement).style.transform = "rotate(360deg)";
-    }}
-...
+`;
+
+const graphOldCode = `class Graph(BaseModel):
+    definitions_graph: Any
+    references_graph: Any
+
+    ...
+
+    def paths_to_first_degree_entities(self, file_paths: list[str]):
+        return "\\n".join(
+            [self.extract_first_degree(file_path) for file_path in file_paths]
+        )
+
+`;
+
+const graphNewCode = `class Graph(BaseModel):
+    definitions_graph: Any
+    references_graph: Any
+
+    ...
+
+    def paths_to_first_degree_entities(self, file_paths: list[str]):
+        paths = [self.extract_first_degree(file_path) for file_path in file_paths]
+        if paths and paths[-1] == "":
+            paths = paths[:-1]
+        return "\\n".join(paths)
+
 `;
 
 const example_diff_code_diff = `-       self.prompt = self.fill_prompt(self.template)
@@ -203,12 +247,6 @@ export default function Features() {
                             </Dialog>
                             <Dialog user={<img src={logo} alt="Sweep logo" />}>
                                 <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
-                                    {/* <b>sweepai/core/vector_db.py</b>
-                                    <hr style={{
-                                        borderTop: '2px solid grey',
-                                        width: '100%',
-                                        marginTop: '0.5rem',
-                                    }} /> */}
                                     <ReactDiffViewer
                                         oldValue={oldCode}
                                         newValue={newCode}
@@ -218,28 +256,7 @@ export default function Features() {
                                         leftTitle="sweepai/core/vector_db.py"
                                         rightTitle="Extracted lexical search indexing logic"
                                         linesOffset={166}
-                                    // renderContent={(source) => (
-                                    //     <pre
-                                    //         style={{ display: 'inline' }}
-                                    //         dangerouslySetInnerHTML={{
-                                    //             __html: SyntaxHighlighter.highlight(source, SyntaxHighlighter.languages.javascript),
-                                    //         }}
-                                    //     />
-                                    // )}
                                     />
-                                    {/* <SyntaxHighlighter
-                                        language="diff"
-                                        style={customStyle}
-                                        wrapLines={true}
-                                        wrapLongLines={true}
-                                        customStyle={{
-                                            padding: 0,
-                                            overflowX: "hidden",
-                                            backgroundColor: "transparent",
-                                        }}
-                                    >
-                                        {example_code}
-                                    </SyntaxHighlighter> */}
                                 </Code>
                             </Dialog>
                         </VStack>
@@ -247,28 +264,18 @@ export default function Features() {
                 </Box>
             </Box >
             <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
-                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
-                    <Flex width="100%" textAlign="left" justifyContent="center" alignItems="center" display={{ base: "flex", md: "none" }} mb={12}>
-                        <Box>
-                            <FaSlack size={40} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Preview the plan in Slack</Text>
-                            <Text mt={4} fontSize="md" color="lightgrey">Request tests directly in Slack. Review the progress in a thread. Get alerted when a new PR is created.</Text>
-                            <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://docs.sweep.dev/slack")}>
-                                Download on Slack
-                            </Button>
-                        </Box>
-                    </Flex>
-                    <Flex width="100%" textAlign="left" justifyContent="center" alignItems="center" display={{ base: "none", md: "flex" }} mb={12}>
+                <Box m={8} display="flex" flexWrap="wrap" justifyContent="between" w="80%" textAlign="left">
+                    <Flex width="100%" textAlign="left" justifyContent="left" alignItems="center" display={{ base: "none", md: "flex" }} mb={12}>
                         <Box>
                             <img src={GHAIcon} alt="GitHub Actions Icon" />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Respond to GitHub Actions</Text>
-                            <Text mt={4} fontSize="md" color="lightgrey">Sweep reads GitHub Action logs to ensure its changes compiles and passes tests. If the code errors, Sweep updates it's code to fix it.</Text>
+                            <Text mt={4} fontSize="2xl" fontWeight="bold">Unit test all new code</Text>
+                            <Text mt={4} fontSize="md" color="lightgrey">Sweep writes unit tests and fixes any broken business logic it catches.</Text>
                             <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://github.com/sweepai/landing-page/pull/236")}>
                                 See the example
                             </Button>
                         </Box>
                     </Flex>
-                    <Box width="100%" maxW="100%" mb={12}>
+                    <Box width="100%" textAlign="left" maxW="100%" mb={12}>
                         <VStack alignItems="flex-start" spacing={6}>
                             <GithubDialog
                                 user={<FaGithub size={40} color="white" />}
@@ -309,19 +316,19 @@ export default function Features() {
                                         height="100%"
                                         background={`linear-gradient(to bottom, transparent, transparent)`}
                                     />
-                                    I will fix this by importing the correct module and adding a type annotation to the event target.
+                                    I will unit test the GraphChild component.
                                 </Text>
                             </Dialog>
-                            <Dialog user={<img src={logo} alt="Sweep logo" />}>
-                                <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%" maxW="100%">
-                                    <b>src/components/CallToAction.tsx</b>
+                            <Dialog user={<img src={logo} alt="Sweep logo" />} w="100%">
+                                <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
+                                    <b>sweepai/utils/graph_test.py</b>
                                     <hr style={{
                                         borderTop: '2px solid grey',
                                         width: '100%',
                                         marginTop: '0.5rem',
                                     }} />
                                     <SyntaxHighlighter
-                                        language="diff"
+                                        language="python"
                                         style={customStyle}
                                         wrapLines={true}
                                         wrapLongLines={true}
@@ -334,6 +341,45 @@ export default function Features() {
                                     >
                                         {example_diff_code_gha}
                                     </SyntaxHighlighter>
+                                </Code>
+                            </Dialog>
+                            <GithubDialog
+                                user={<FaGithub size={40} color="white" />}
+                                userProps={{ bgColor: "white.900", p: 2, borderWidth: 2 }}
+                                bgColor="white.900"
+                                borderWidth={2}
+                                w="100%"
+                            >
+                                <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
+                                    <SyntaxHighlighter
+                                        language="coffeescript" // this one looks the best
+                                        style={customStyle}
+                                        wrapLines={true}
+                                        wrapLongLines={true}
+                                        customStyle={{
+                                            padding: 0,
+                                            overflowX: "hidden",
+                                            backgroundColor: "transparent",
+                                            marginBottom: 0,
+                                            marginTop: 0,
+                                        }}
+                                    >
+                                        {example_sandbox_logs}
+                                    </SyntaxHighlighter>
+                                </Code>
+                            </GithubDialog>
+                            <Dialog user={<img src={logo} alt="Sweep logo" />}>
+                                <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%" maxW="100%">
+                                    <ReactDiffViewer
+                                        oldValue={graphOldCode}
+                                        newValue={graphNewCode}
+                                        splitView={true}
+                                        useDarkTheme={true}
+                                        disableWordDiff={true}
+                                        leftTitle="Problematic code from sweepai/utils/graph.py"
+                                        rightTitle="Fixed code using failed test case"
+                                        linesOffset={166}
+                                    />
                                 </Code>
                             </Dialog>
                         </VStack>
