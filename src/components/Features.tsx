@@ -328,7 +328,7 @@ export default function Features() {
                             <img src={GHAIcon} alt="GitHub Actions Icon" />
                             <Text mt={4} fontSize="2xl" fontWeight="bold">Unit test all new business logic</Text>
                             <Text mt={4} fontSize="md" color="lightgrey">Sweep writes unit tests and fixes any broken business logic it catches.</Text>
-                            <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://github.com/sweepai/landing-page/pull/236")}>
+                            <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://github.com/sweepai/sweep/pull/2380")}>
                                 See the example
                             </Button>
                         </Box>
