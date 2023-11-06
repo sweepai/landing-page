@@ -233,7 +233,7 @@ const customStyle = {
 
 const Dialog = ({ children, user, userProps, ...props }: any) => {
     return (
-        <HStack alignItems="flex-start" spacing={6} maxW="100% !important">
+        <HStack alignItems="flex-start" spacing={6} maxW="100% !important" w="100%">
             <User {...userProps}>{user}</User>
             <Box borderRadius="10px" display="flex" justifyContent="center" alignItems="center" color="purple.300" borderColor="purple.300" borderWidth="1px" p={4} {...props}>
                 {children}
@@ -294,9 +294,15 @@ export default function Features() {
                                     This PR refactors the `get_deeplake_vs_from_repo` function in `sweepai / core / vector_db.py` to make it more modular. The function was quite large and performed multiple tasks, including reading files from a repository, preparing a lexical search index, scoring for vector search, computing all scores, preparing documents, metadatas, and ids, and computing embeddings.
                                 </Text>
                             </Dialog>
-                            <Dialog user={<img src={logo} alt="Sweep logo" />}>
+                            <Dialog user={<img src={logo} alt="Sweep logo" />} w="100%" justifyContent="left">
                                 <div>
                                     <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
+                                        <b>sweepai/core/vector_db.py</b>
+                                        <hr style={{
+                                            borderTop: '2px solid grey',
+                                            width: '100%',
+                                            marginTop: '0.5rem',
+                                        }} />
                                         <SyntaxHighlighter
                                             language="coffeescript" // this one looks the best
                                             style={customStyle}
@@ -341,6 +347,7 @@ export default function Features() {
                                 bgColor="white.900"
                                 borderWidth={2}
                                 w="100%"
+                                justifyContent="left"
                             >
                                 <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
                                     <SyntaxHighlighter
@@ -360,7 +367,7 @@ export default function Features() {
                                     </SyntaxHighlighter>
                                 </Code>
                             </GithubDialog>
-                            <Dialog user={<img src={logo} alt="Sweep logo" />}>
+                            <Dialog user={<img src={logo} alt="Sweep logo" />} justifyContent="left">
                                 <Text
                                     position="relative"
                                     fontSize="md"
@@ -377,8 +384,8 @@ export default function Features() {
                                     Let me write a unit test for the new GraphChild component and run it.
                                 </Text>
                             </Dialog>
-                            <Dialog user={<img src={logo} alt="Sweep logo" />} w="100%">
-                                <div>
+                            <Dialog user={<img src={logo} alt="Sweep logo" />} justifyContent="left" w="100%">
+                                <Box w="100%">
                                     <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
                                         <b>sweepai/utils/graph_test.py</b>
                                         <hr style={{
@@ -424,7 +431,7 @@ export default function Features() {
                                             {example_sandbox_logs}
                                         </SyntaxHighlighter>
                                     </Code>
-                                </div>
+                                </Box>
                             </Dialog>
                             <Dialog user={<img src={logo} alt="Sweep logo" />}>
                                 <Text
@@ -443,7 +450,7 @@ export default function Features() {
                                     It looks like there's an edge case when there are empty strings in the path. Let me fix that.
                                 </Text>
                             </Dialog>
-                            <Dialog user={<img src={logo} alt="Sweep logo" />}>
+                            <Dialog user={<img src={logo} alt="Sweep logo" />} w="100%" justifyContent="left">
                                 <div>
                                     <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
                                         <b>sweepai/utils/graph_test.py</b>
