@@ -1,7 +1,7 @@
 import { Box, Button, Code, Flex, HStack, Link, Text, VStack } from "@chakra-ui/react";
 import { FaBook, FaGithub } from "react-icons/fa";
 import SyntaxHighlighter from 'react-syntax-highlighter'; // @ts-ignore
-import tomorrowNightBright from "react-syntax-highlighter/dist/esm/styles/hljs/tomorrow-night-bright";
+import tomorrowNightEighties from "react-syntax-highlighter/dist/esm/styles/hljs/tomorrow-night-eighties";
 
 import GHAIcon from "../assets/gha.svg";
 
@@ -98,7 +98,7 @@ const graphCodeDiff = `class Graph(BaseModel):
 
 `;
 
-const baseStyle = tomorrowNightBright;
+const baseStyle = tomorrowNightEighties;
 
 const customStyle = {
     ...baseStyle,
@@ -280,7 +280,7 @@ export default function Features() {
                                                 overflowX: "hidden",
                                                 backgroundColor: "transparent",
                                                 marginBottom: 0,
-                                                marginTop: 0,
+                                                marginTop: 10,
                                             }}
                                         >
                                             {example_diff_code_gha}
