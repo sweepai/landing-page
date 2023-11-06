@@ -148,8 +148,8 @@ const getLineProps = (contents: string, lineNumber: number): LineProps => {
 export default function Features() {
     return (
         <>
-            <Box display="flex" justifyContent="center" alignItems="center" mb={48}>
-                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
+            <Box display="flex" justifyContent="center" alignItems="center" mb={48} p={0}>
+                <Box m={{ base: 2, md: 8 }} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
                     <Flex width="100%" textAlign="left" justifyContent="left" alignItems="center" mb={12}>
                         <Box>
                             <img src={logo} alt="Sweep logo" width={50} />
@@ -227,8 +227,8 @@ export default function Features() {
                     <Flex width="100%" textAlign="left" justifyContent="left" alignItems="center" display={{ base: "none", sm: "flex" }} mb={12}>
                         <Box>
                             <img src={GHAIcon} alt="GitHub Actions Icon" />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Unit test all new business logic</Text>
-                            <Text mt={4} fontSize="sm" color="lightgrey">Sweep writes unit tests and fixes any broken business logic it catches.</Text>
+                            <Text mt={4} fontSize="2xl" fontWeight="bold">Unit test your new features, automatically</Text>
+                            <Text mt={4} fontSize="sm" color="lightgrey">Sweep writes unit tests and fixes any broken business logic they catch.</Text>
                             <Button colorScheme="purple" size="sm" mt={4} onClick={() => window.open("https://github.com/sweepai/sweep/pull/2380")}>
                                 See the example
                             </Button>
@@ -275,7 +275,7 @@ export default function Features() {
                                         height="100%"
                                         background={`linear - gradient(to bottom, transparent, transparent)`}
                                     />
-                                    Let me write a unit test for the new GraphChild component and run it.
+                                    Let me write and run a unit test for the new GraphChild component.
                                 </Text>
                             </Dialog>
                             <Dialog user={<img src={logo} alt="Sweep logo" />} justifyContent="left" w="100%">
