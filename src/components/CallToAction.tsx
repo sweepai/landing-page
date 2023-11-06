@@ -136,19 +136,9 @@ export default function CallToAction() {
           &nbsp;&nbsp;Join our Discord
         </ExternalLinkWithText>
         <Flex w={"full"} mt="4rem !important">
-          <Container
-            width="100vw"
-            boxShadow="0 0 80px #181818"
-            p={0}
-            maxWidth="full"
-          >
-            {/* <video src={demo} autoPlay muted loop playsInline>
-              Your browser does not support the video tag.
-            </video> */}
-            <iframe width="800" height="500" style={{ margin: "auto" }} src="https://www.youtube.com/embed/nxIMWCaN5kM?autoplay=1&mute=1&loop=1&vq=hd1080&modestbranding=1&controls=0"
-              title="YouTube video player" allow="accelerometer; autoplay; 
+          <iframe width="800" height="500" style={{ margin: "auto", boxShadow: "0 0 80px #181818" }} src="https://www.youtube.com/embed/nxIMWCaN5kM?autoplay=1&mute=1&loop=1&vq=hd1080&modestbranding=1&controls=0"
+            title="YouTube video player" allow="accelerometer; autoplay; 
             clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-          </Container>
         </Flex>
       </Stack>
     </Container>
