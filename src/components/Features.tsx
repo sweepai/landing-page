@@ -9,91 +9,6 @@ import logo from "../assets/icon.png";
 import pills_examples from "../assets/pills_examples.svg";
 import User from "./User";
 
-// import ReactDiffViewer from 'react-diff-viewer';
-
-// const oldCode = `def get_deeplake_vs_from_repo(
-//     cloned_repo: ClonedRepo,
-//     sweep_config: SweepConfig = SweepConfig(),
-// ):
-//     deeplake_vs = None
-
-//     repo_full_name = cloned_repo.repo_full_name
-//     repo = cloned_repo.repo
-//     commits = repo.get_commits()
-//     commit_hash = commits[0].sha
-
-//     logger.info(f"Downloading repository and indexing for {repo_full_name}...")
-//     start = time.time()
-//     logger.info("Recursively getting list of files...")
-//     blocked_dirs = get_blocked_dirs(repo)
-//     sweep_config.exclude_dirs.extend(blocked_dirs)
-
-//     snippets, file_list = repo_to_chunks(cloned_repo.cache_dir, sweep_config)
-//     logger.info(f"Found {len(snippets)} snippets in repository {repo_full_name}")
-//     # prepare lexical search
-//     index = prepare_index_from_snippets(
-//         snippets, len_repo_cache_dir=len(cloned_repo.cache_dir) + 1
-//     )
-//     logger.print("Prepared index from snippets")
-
-//     # scoring for vector search
-//     files_to_scores = compute_vector_search_scores(
-//         file_list, cloned_repo, repo_full_name
-//     )
-
-//     collection_name, documents, ids, metadatas = prepare_documents_metadata_ids(
-//         snippets, cloned_repo, files_to_scores, start, repo_full_name
-//     )
-
-//     deeplake_vs = deeplake_vs or compute_deeplake_vs(
-//         collection_name, documents, ids, metadatas, commit_hash
-//     )
-
-//     return deeplake_vs, index, len(documents)`;
-
-// const newCode = `def get_deeplake_vs_from_repo(
-//     cloned_repo: ClonedRepo,
-//     sweep_config: SweepConfig = SweepConfig(),
-// ):
-//     deeplake_vs = None
-
-//     repo_full_name = cloned_repo.repo_full_name
-//     repo = cloned_repo.repo
-//     commits = repo.get_commits()
-//     commit_hash = commits[0].sha
-
-//     logger.info(f"Downloading repository and indexing for {repo_full_name}...")
-//     start = time.time()
-//     logger.info("Recursively getting list of files...")
-//     blocked_dirs = get_blocked_dirs(repo)
-//     sweep_config.exclude_dirs.extend(blocked_dirs)
-//     file_list, snippets, index = prepare_lexical_search_index(cloned_repo, sweep_config, repo_full_name)
-
-//     # scoring for vector search
-//     files_to_scores = compute_vector_search_scores(
-//         file_list, cloned_repo, repo_full_name
-//     )
-
-//     collection_name, documents, ids, metadatas = prepare_documents_metadata_ids(
-//         snippets, cloned_repo, files_to_scores, start, repo_full_name
-//     )
-
-//     deeplake_vs = deeplake_vs or compute_deeplake_vs(
-//         collection_name, documents, ids, metadatas, commit_hash
-//     )
-
-//     return deeplake_vs, index, len(documents)
-
-// def prepare_lexical_search_index(cloned_repo, sweep_config, repo_full_name):
-//     snippets, file_list = repo_to_chunks(cloned_repo.cache_dir, sweep_config)
-//     logger.info(f"Found {len(snippets)} snippets in repository {repo_full_name}")
-//     # prepare lexical search
-//     index = prepare_index_from_snippets(
-//         snippets, len_repo_cache_dir=len(cloned_repo.cache_dir) + 1
-//     )
-//     logger.print("Prepared index from snippets")
-//     return file_list, snippets, index`;
-
 const example_code_diffs = `...
 
      logger.info("Recursively getting list of files...")
@@ -126,14 +41,6 @@ const example_code_diffs = `...
 +    logger.print("Prepared index from snippets")
 +    return file_list, snippets, index
 `;
-
-// const example_diff_code_prefix = `def deactivate(self, plugin_name: str):
-//     """
-//     Deactivates an activate plugin.
-//     """
-//     if plugin_name not in self.active_plugins:
-//         del self.active_plugins[plugin_name]
-// `;
 
 const example_gha_log = `kevinlu1248 pushed 1 commit to sweepai/sweep, editing sweepai/utils/graph_test.py`;
 const example_sandbox_logs = `> python -m unittest -v sweepai/utils/graph_test.py
@@ -177,33 +84,6 @@ const example_diff_code_gha = `class TestGraph(unittest.TestCase):
 ...
 `;
 
-// const graphOldCode = `class Graph(BaseModel):
-//     definitions_graph: Any
-//     references_graph: Any
-
-//     ...
-
-//     def paths_to_first_degree_entities(self, file_paths: list[str]):
-//         return "\\n".join(
-//             [self.extract_first_degree(file_path) for file_path in file_paths]
-//         )
-
-// `;
-
-// const graphNewCode = `class Graph(BaseModel):
-//     definitions_graph: Any
-//     references_graph: Any
-
-//     ...
-
-//     def paths_to_first_degree_entities(self, file_paths: list[str]):
-//         paths = [self.extract_first_degree(file_path) for file_path in file_paths]
-//         if paths and paths[-1] == "":
-//             paths = paths[:-1]
-//         return "\\n".join(paths)
-
-// `;
-
 const graphCodeDiff = `class Graph(BaseModel):
     ...
 
@@ -217,11 +97,6 @@ const graphCodeDiff = `class Graph(BaseModel):
 +        return "\\n".join(paths)
 
 `;
-
-// const example_diff_code_diff = `-       self.prompt = self.fill_prompt(self.template)
-// -       self.tokens = count_tokens(self.prompt)
-// +       self.tokens = count_tokens(self.get_prompt())
-// `;
 
 const customStyle = {
     ...oneDark,
@@ -460,7 +335,7 @@ export default function Features() {
                                             marginTop: '0.5rem',
                                         }} />
                                         <SyntaxHighlighter
-                                            // language="diff"
+                                            language="python"
                                             style={customStyle}
                                             wrapLines={true}
                                             wrapLongLines={true}
