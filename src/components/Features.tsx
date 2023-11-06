@@ -131,7 +131,7 @@ const GithubDialog = ({ children, user, userProps, ...props }: any) => {
 export default function Features() {
     return (
         <>
-            <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
+            <Box display="flex" justifyContent="center" alignItems="center" mb={48}>
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
                     <Flex width="100%" textAlign="left" justifyContent="left" alignItems="center" mb={12}>
                         <Box>
@@ -202,7 +202,7 @@ export default function Features() {
                     </Box>
                 </Box>
             </Box >
-            <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
+            <Box display="flex" justifyContent="center" alignItems="center" mb={48}>
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="between" w="80%" textAlign="left">
                     <Flex width="100%" textAlign="left" justifyContent="left" alignItems="center" display={{ base: "none", md: "flex" }} mb={12}>
                         <Box>
@@ -356,62 +356,6 @@ export default function Features() {
                     </Box>
                 </Box>
             </Box >
-            {/* <Box display="flex" justifyContent="center" alignItems="center" mb={48}>
-                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
-                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
-                        <Box>
-                            <FaGithub size={40} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Review for confidence</Text>
-                            <Text mt={4} fontSize="md" color="lightgrey">Review all changes by Sweep, directly in Github. Comment if any changes need to be made. Merge the branch if all looks good.</Text>
-                            <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://github.com/apps/sweep-ai")}>
-                                Install on your repository
-                            </Button>
-                        </Box>
-                    </Flex>
-                    <Box width={{ base: "100%", md: "45%" }} maxW="100%">
-                        <VStack alignItems="flex-start" spacing={6} maxW="100% !important">
-                            <Dialog user={<img src={logo} alt="Sweep logo" />} maxW="100% !important">
-                                <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%" maxW="100%">
-                                    <b>plugnplai/plugins.py</b>
-                                    <hr style={{
-                                        borderTop: '2px solid grey',
-                                        width: '100%',
-                                        marginTop: '0.5rem',
-                                    }} />
-                                    <SyntaxHighlighter
-                                        language="python"
-                                        style={customStyle}
-                                        wrapLines={true}
-                                        wrapLongLines={true}
-                                        customStyle={{
-                                            padding: 0,
-                                            overflowX: "hidden",
-                                            backgroundColor: "transparent",
-                                            marginBottom: 0,
-                                        }}
-                                    >
-                                        {example_diff_code_prefix}
-                                    </SyntaxHighlighter>
-                                    <SyntaxHighlighter
-                                        language="diff"
-                                        style={customStyle}
-                                        wrapLines={true}
-                                        wrapLongLines={true}
-                                        customStyle={{
-                                            padding: 0,
-                                            overflowX: "hidden",
-                                            backgroundColor: "transparent",
-                                            marginTop: 0,
-                                        }}
-                                    >
-                                        {example_diff_code_diff}
-                                    </SyntaxHighlighter>
-                                </Code>
-                            </Dialog>
-                        </VStack>
-                    </Box>
-                </Box>
-            </Box > */}
             <Box display="flex" justifyContent="center" alignItems="center" py={48} bgImage={pills_examples} bgSize="cover">
                 <Box m={8} flexWrap="wrap" justifyContent="space-around" w={{ base: "full", md: "80%" }} textAlign="center">
                     <Text mb={4} fontSize="3xl">See example tickets, handled by Sweep</Text>
