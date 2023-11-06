@@ -1,7 +1,7 @@
 import { Box, Button, Code, Flex, HStack, Link, Text, VStack } from "@chakra-ui/react";
 import { FaBook, FaGithub } from "react-icons/fa";
 import SyntaxHighlighter from 'react-syntax-highlighter'; // @ts-ignore
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import tomorrowNightBright from "react-syntax-highlighter/dist/esm/styles/hljs/tomorrow-night-bright";
 
 import GHAIcon from "../assets/gha.svg";
 
@@ -98,12 +98,15 @@ const graphCodeDiff = `class Graph(BaseModel):
 
 `;
 
+const baseStyle = tomorrowNightBright;
+
 const customStyle = {
-    ...oneDark,
+    ...baseStyle,
     'code[class*="language-"]': {
-        ...oneDark['code[class*="language-"]'],
+        ...baseStyle['code[class*="language-"]'],
         background: 'transparent',
     },
+    hljs: { background: 'transparent' }
 };
 
 const Dialog = ({ children, user, userProps, ...props }: any) => {
@@ -188,7 +191,7 @@ export default function Features() {
                                                 overflowX: "hidden",
                                                 backgroundColor: "transparent",
                                                 marginBottom: 0,
-                                                marginTop: 0,
+                                                marginTop: 10,
                                             }}
                                         >
                                             {example_code_diffs}
@@ -235,7 +238,6 @@ export default function Features() {
                                             overflowX: "hidden",
                                             backgroundColor: "transparent",
                                             marginBottom: 0,
-                                            marginTop: 0,
                                         }}
                                     >
                                         {example_gha_log}
@@ -278,6 +280,7 @@ export default function Features() {
                                                 overflowX: "hidden",
                                                 backgroundColor: "transparent",
                                                 marginBottom: 0,
+                                                marginTop: 0,
                                             }}
                                         >
                                             {example_diff_code_gha}
@@ -300,7 +303,7 @@ export default function Features() {
                                                 overflowX: "hidden",
                                                 backgroundColor: "transparent",
                                                 marginBottom: 0,
-                                                marginTop: 0,
+                                                marginTop: 10,
                                             }}
                                         >
                                             {example_sandbox_logs}
@@ -344,6 +347,7 @@ export default function Features() {
                                                 overflowX: "hidden",
                                                 backgroundColor: "transparent",
                                                 marginBottom: 0,
+                                                marginTop: 10,
                                             }}
                                         >
                                             {graphCodeDiff}
