@@ -1,6 +1,7 @@
 import { Box, Button, Code, Flex, HStack, Link, Text, VStack } from "@chakra-ui/react";
 import { FaBook, FaGithub } from "react-icons/fa";
 import SyntaxHighlighter from 'react-syntax-highlighter'; // @ts-ignore
+import { LineProps } from 'react-syntax-highlighter';
 import tomorrowNightEighties from "react-syntax-highlighter/dist/esm/styles/hljs/tomorrow-night-eighties";
 
 import GHAIcon from "../assets/gha.svg";
@@ -81,8 +82,7 @@ const example_diff_code_gha = `class TestGraph(unittest.TestCase):
                 result = self.graph.topological_sort(["file1", "file2"])
                 self.assertEqual(result, ["file1", "file2"])
 
-...
-`;
+...`;
 
 const graphCodeDiff = `class Graph(BaseModel):
     ...
@@ -131,6 +131,20 @@ const GithubDialog = ({ children, user, userProps, ...props }: any) => {
     )
 }
 
+const getLineProps = (contents: string, lineNumber: number): LineProps => {
+    const line = contents.split('\n')[lineNumber - 1];
+    console.log(lineNumber, line)
+    if (line === undefined) {
+        return { key: lineNumber };
+    } else if (line.startsWith('+')) {
+        return { style: { backgroundColor: '#12261e' }, key: lineNumber };
+    } else if (line.startsWith('-')) {
+        return { style: { backgroundColor: '#25171c' }, key: lineNumber };
+    } else {
+        return { key: lineNumber };
+    }
+};
+
 export default function Features() {
     return (
         <>
@@ -173,7 +187,7 @@ export default function Features() {
                                 </Text>
                             </Dialog>
                             <Dialog user={<img src={logo} alt="Sweep logo" />} w="100%" justifyContent="left">
-                                <div>
+                                <Box w="100%">
                                     <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
                                         <b>sweepai/core/vector_db.py</b>
                                         <hr style={{
@@ -182,10 +196,12 @@ export default function Features() {
                                             marginTop: '0.5rem',
                                         }} />
                                         <SyntaxHighlighter
-                                            language="coffeescript" // this one looks the best
+                                            language="python" // this one looks the best
                                             style={customStyle}
                                             wrapLines={true}
                                             wrapLongLines={true}
+                                            showLineNumbers={true}
+                                            startingLineNumber={54}
                                             customStyle={{
                                                 padding: 0,
                                                 overflowX: "hidden",
@@ -193,13 +209,14 @@ export default function Features() {
                                                 marginBottom: 0,
                                                 marginTop: 10,
                                             }}
+                                            lineProps={(lineNumber: number) => getLineProps(example_code_diffs, lineNumber - 54 + 1)}
                                         >
                                             {example_code_diffs}
                                         </SyntaxHighlighter>
                                     </Code>
                                     <br /><br />
                                     <Text fontSize="md" color="white">I made a Pull Request for you at <Link color="purple.400" href="https://github.com/sweepai/sweep/pull/2470">#2470</Link>!</Text>
-                                </div>
+                                </Box>
                             </Dialog>
                         </VStack>
                     </Box>
@@ -229,7 +246,7 @@ export default function Features() {
                             >
                                 <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
                                     <SyntaxHighlighter
-                                        language="coffeescript" // this one looks the best
+                                        language="python" // this one looks the best
                                         style={customStyle}
                                         wrapLines={true}
                                         wrapLongLines={true}
@@ -275,6 +292,7 @@ export default function Features() {
                                             style={customStyle}
                                             wrapLines={true}
                                             wrapLongLines={true}
+                                            showLineNumbers={true}
                                             customStyle={{
                                                 padding: 0,
                                                 overflowX: "hidden",
@@ -294,7 +312,7 @@ export default function Features() {
                                     }} />
                                     <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
                                         <SyntaxHighlighter
-                                            language="coffeescript" // this one looks the best
+                                            language="python" // this one looks the best
                                             style={customStyle}
                                             wrapLines={true}
                                             wrapLongLines={true}
@@ -329,9 +347,9 @@ export default function Features() {
                                 </Text>
                             </Dialog>
                             <Dialog user={<img src={logo} alt="Sweep logo" />} w="100%" justifyContent="left">
-                                <div>
+                                <Box w="100%">
                                     <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
-                                        <b>sweepai/utils/graph_test.py</b>
+                                        <b>sweepai/core/graph_child.py</b>
                                         <hr style={{
                                             borderTop: '2px solid grey',
                                             width: '100%',
@@ -342,6 +360,8 @@ export default function Features() {
                                             style={customStyle}
                                             wrapLines={true}
                                             wrapLongLines={true}
+                                            showLineNumbers={true}
+                                            startingLineNumber={167}
                                             customStyle={{
                                                 padding: 0,
                                                 overflowX: "hidden",
@@ -349,12 +369,13 @@ export default function Features() {
                                                 marginBottom: 0,
                                                 marginTop: 10,
                                             }}
+                                            lineProps={(lineNumber: number) => getLineProps(graphCodeDiff, lineNumber - 167 + 1)}
                                         >
                                             {graphCodeDiff}
                                         </SyntaxHighlighter>
                                     </Code>
                                     <Text fontSize="md" color="white">I made a Pull Request for you at <Link color="purple.400" href="https://github.com/sweepai/sweep/pull/2380">#2380</Link>!</Text>
-                                </div>
+                                </Box>
                             </Dialog>
                         </VStack>
                     </Box>
