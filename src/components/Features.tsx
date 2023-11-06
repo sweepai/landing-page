@@ -1,6 +1,6 @@
-import { Box, Button, Code, Flex, HStack, Text, VStack } from "@chakra-ui/react";
-import { FaBook, FaGithub, FaSlack } from "react-icons/fa";
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // @ts-ignore
+import { Box, Button, Code, Flex, HStack, Link, Text, VStack } from "@chakra-ui/react";
+import { FaBook, FaGithub } from "react-icons/fa";
+import SyntaxHighlighter from 'react-syntax-highlighter'; // @ts-ignore
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import GHAIcon from "../assets/gha.svg";
@@ -9,54 +9,219 @@ import logo from "../assets/icon.png";
 import pills_examples from "../assets/pills_examples.svg";
 import User from "./User";
 
-const example_code = `import os
-import tempfile
-from git import Repo
+// import ReactDiffViewer from 'react-diff-viewer';
+
+// const oldCode = `def get_deeplake_vs_from_repo(
+//     cloned_repo: ClonedRepo,
+//     sweep_config: SweepConfig = SweepConfig(),
+// ):
+//     deeplake_vs = None
+
+//     repo_full_name = cloned_repo.repo_full_name
+//     repo = cloned_repo.repo
+//     commits = repo.get_commits()
+//     commit_hash = commits[0].sha
+
+//     logger.info(f"Downloading repository and indexing for {repo_full_name}...")
+//     start = time.time()
+//     logger.info("Recursively getting list of files...")
+//     blocked_dirs = get_blocked_dirs(repo)
+//     sweep_config.exclude_dirs.extend(blocked_dirs)
+
+//     snippets, file_list = repo_to_chunks(cloned_repo.cache_dir, sweep_config)
+//     logger.info(f"Found {len(snippets)} snippets in repository {repo_full_name}")
+//     # prepare lexical search
+//     index = prepare_index_from_snippets(
+//         snippets, len_repo_cache_dir=len(cloned_repo.cache_dir) + 1
+//     )
+//     logger.print("Prepared index from snippets")
+
+//     # scoring for vector search
+//     files_to_scores = compute_vector_search_scores(
+//         file_list, cloned_repo, repo_full_name
+//     )
+
+//     collection_name, documents, ids, metadatas = prepare_documents_metadata_ids(
+//         snippets, cloned_repo, files_to_scores, start, repo_full_name
+//     )
+
+//     deeplake_vs = deeplake_vs or compute_deeplake_vs(
+//         collection_name, documents, ids, metadatas, commit_hash
+//     )
+
+//     return deeplake_vs, index, len(documents)`;
+
+// const newCode = `def get_deeplake_vs_from_repo(
+//     cloned_repo: ClonedRepo,
+//     sweep_config: SweepConfig = SweepConfig(),
+// ):
+//     deeplake_vs = None
+
+//     repo_full_name = cloned_repo.repo_full_name
+//     repo = cloned_repo.repo
+//     commits = repo.get_commits()
+//     commit_hash = commits[0].sha
+
+//     logger.info(f"Downloading repository and indexing for {repo_full_name}...")
+//     start = time.time()
+//     logger.info("Recursively getting list of files...")
+//     blocked_dirs = get_blocked_dirs(repo)
+//     sweep_config.exclude_dirs.extend(blocked_dirs)
+//     file_list, snippets, index = prepare_lexical_search_index(cloned_repo, sweep_config, repo_full_name)
+
+//     # scoring for vector search
+//     files_to_scores = compute_vector_search_scores(
+//         file_list, cloned_repo, repo_full_name
+//     )
+
+//     collection_name, documents, ids, metadatas = prepare_documents_metadata_ids(
+//         snippets, cloned_repo, files_to_scores, start, repo_full_name
+//     )
+
+//     deeplake_vs = deeplake_vs or compute_deeplake_vs(
+//         collection_name, documents, ids, metadatas, commit_hash
+//     )
+
+//     return deeplake_vs, index, len(documents)
+
+// def prepare_lexical_search_index(cloned_repo, sweep_config, repo_full_name):
+//     snippets, file_list = repo_to_chunks(cloned_repo.cache_dir, sweep_config)
+//     logger.info(f"Found {len(snippets)} snippets in repository {repo_full_name}")
+//     # prepare lexical search
+//     index = prepare_index_from_snippets(
+//         snippets, len_repo_cache_dir=len(cloned_repo.cache_dir) + 1
+//     )
+//     logger.print("Prepared index from snippets")
+//     return file_list, snippets, index`;
+
+const example_code_diffs = `...
+
+     logger.info("Recursively getting list of files...")
+     blocked_dirs = get_blocked_dirs(repo)
+     sweep_config.exclude_dirs.extend(blocked_dirs)
+-
+-    snippets, file_list = repo_to_chunks(cloned_repo.cache_dir, sweep_config)
+-    logger.info(f"Found {len(snippets)} snippets in repository {repo_full_name}")
+-    # prepare lexical search
+-    index = prepare_index_from_snippets(
+-        snippets, len_repo_cache_dir=len(cloned_repo.cache_dir) + 1
+-    )
+-    logger.print("Prepared index from snippets")
++    file_list, snippets, index = prepare_lexical_search_index(cloned_repo, sweep_config, repo_full_name)
+ 
+     # scoring for vector search
+     files_to_scores = compute_vector_search_scores(
+         file_list, cloned_repo, repo_full_name
+     )
+
 ...
-try:
-    repo_dir = os.path.join(tempfile.gettempdir(), repo_full_name)
-    if os.path.exists(repo_dir):
-        git_repo = Repo(repo_dir)
-        git_repo.remotes.origin.pull()
-    else:
-        Repo.clone_from(repo_url, repo_dir)
+
++def prepare_lexical_search_index(cloned_repo, sweep_config, repo_full_name):
++    snippets, file_list = repo_to_chunks(cloned_repo.cache_dir, sweep_config)
++    logger.info(f"Found {len(snippets)} snippets in repository {repo_full_name}")
++    # prepare lexical search
++    index = prepare_index_from_snippets(
++        snippets, len_repo_cache_dir=len(cloned_repo.cache_dir) + 1
++    )
++    logger.print("Prepared index from snippets")
++    return file_list, snippets, index
 `;
 
-const example_diff_code_prefix = `def deactivate(self, plugin_name: str):
-    """
-    Deactivates an activate plugin.
-    """
-    if plugin_name not in self.active_plugins:
-        del self.active_plugins[plugin_name]
-`;
+// const example_diff_code_prefix = `def deactivate(self, plugin_name: str):
+//     """
+//     Deactivates an activate plugin.
+//     """
+//     if plugin_name not in self.active_plugins:
+//         del self.active_plugins[plugin_name]
+// `;
 
-const example_gha_log = `Error: Module '"tsparticles"' has no exported member 'loadConfettiPreset'.
-Error: Property 'style' does not exist on type 'EventTarget'.`;
+const example_gha_log = `kevinlu1248 pushed 1 commit to sweepai/sweep, editing sweepai/utils/graph_test.py`;
+const example_sandbox_logs = `> python -m unittest -v sweepai/utils/graph_test.py
 
-const example_diff_code_gha = `import { Flex, Container, Heading, Stack, Text, Button } from "@chakra-ui/react";
-- import { loadConfettiPreset, tsParticles } from "tsparticles";
-+ import { tsParticles } from "tsparticles";
-import { FaDiscord, FaGithub } from "react-icons/fa";
-import Spline from '@splinetool/react-spline';
+Traceback (most recent call last):
+File "/repo/sweepai/utils/graph_test.py", line 35, in test_extract_first_degree
+  self.assertEqual(result, ["file1", "file2"])
+AssertionError: Lists differ: [] != ['file1', 'file2']
+Second list contains 2 additional elements.
+First extra element 0:
+'file1'
+- []
++ ['file1', 'file2']
+======================================================================
+FAIL: test_paths_to_first_degree_entities (__main__.TestGraph)`;
+
+const example_diff_code_gha = `class TestGraph(unittest.TestCase):
+    def setUp(self):
+        self.graph = Graph(
+            definitions_graph=nx.DiGraph(), references_graph=nx.DiGraph()
+        )
+
+    def test_extract_first_degree(self):
+        with patch(
+            "sweepai.utils.graph.Graph.find_definitions"
+        ) as mock_find_definitions, patch(
+            "sweepai.utils.graph.Graph.find_references"
+        ) as mock_find_references, patch(
+            "sweepai.utils.graph.condense_paths"
+        ) as mock_condense_paths:
+            mock_find_definitions.return_value = [["file1", "symbol1", "file2"]]
+            mock_find_references.return_value = [["file1", "symbol1", "file2"]]
+            mock_condense_paths.return_value = [["file1", "symbol1", "file2"]]
+            with patch(
+                "sweepai.utils.graph.Graph.topological_sort"
+            ) as mock_topological_sort:
+                mock_topological_sort.return_value = ["file1", "file2"]
+                result = self.graph.topological_sort(["file1", "file2"])
+                self.assertEqual(result, ["file1", "file2"])
+
 ...
-        await tsParticles.load("tsparticles", {
-            preset: "confetti",
-            particles: {
-            color: {
-                value: ["#0000ff", "#00ff00"],
-            },
-            },
-        });
--       target.style.transform = "rotate(360deg)";
-+       (target as HTMLElement).style.transform = "rotate(360deg)";
-    }}
-...
 `;
 
-const example_diff_code_diff = `-       self.prompt = self.fill_prompt(self.template)
--       self.tokens = count_tokens(self.prompt)
-+       self.tokens = count_tokens(self.get_prompt())
+// const graphOldCode = `class Graph(BaseModel):
+//     definitions_graph: Any
+//     references_graph: Any
+
+//     ...
+
+//     def paths_to_first_degree_entities(self, file_paths: list[str]):
+//         return "\\n".join(
+//             [self.extract_first_degree(file_path) for file_path in file_paths]
+//         )
+
+// `;
+
+// const graphNewCode = `class Graph(BaseModel):
+//     definitions_graph: Any
+//     references_graph: Any
+
+//     ...
+
+//     def paths_to_first_degree_entities(self, file_paths: list[str]):
+//         paths = [self.extract_first_degree(file_path) for file_path in file_paths]
+//         if paths and paths[-1] == "":
+//             paths = paths[:-1]
+//         return "\\n".join(paths)
+
+// `;
+
+const graphCodeDiff = `class Graph(BaseModel):
+    ...
+
+    def paths_to_first_degree_entities(self, file_paths: list[str]):
+-        return "\\n".join(
+-            [self.extract_first_degree(file_path) for file_path in file_paths]
+-        )
++        paths = [self.extract_first_degree(file_path) for file_path in file_paths]
++        if paths and paths[-1] == "":
++            paths = paths[:-1]
++        return "\\n".join(paths)
+
 `;
+
+// const example_diff_code_diff = `-       self.prompt = self.fill_prompt(self.template)
+// -       self.tokens = count_tokens(self.prompt)
+// +       self.tokens = count_tokens(self.get_prompt())
+// `;
 
 const customStyle = {
     ...oneDark,
@@ -93,14 +258,14 @@ export default function Features() {
         <>
             <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
-                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
+                    <Flex width="100%" textAlign="left" justifyContent="left" alignItems="center" mb={12}>
                         <Box>
                             <img src={logo} alt="Sweep logo" width={50} />
                             <Text mt={4} fontSize="2xl" fontWeight="bold">Clean up your tech debt, automatically</Text>
                             <Text mt={4} fontSize="md" color="lightgrey">Sweep generates repository-level code at your command. Cut down your dev time on mundane tasks, like tests, documentation, and refactoring.</Text>
                         </Box>
                     </Flex>
-                    <Box width={{ base: "100%", md: "45%" }} maxW="100%">
+                    <Box width="100%" maxW="100%">
                         <VStack alignItems="flex-start" spacing={6}>
                             <Dialog
                                 user={<Text fontSize="md" color="white">KL</Text>}
@@ -109,7 +274,7 @@ export default function Features() {
                                 borderWidth={2}
                             >
                                 <Text fontSize="md" color="white">
-                                    Sweep: Use OS Agnostic Temp Directory
+                                    Refactor vector_db.py by making get_deeplake_vs_from_repo more modular
                                 </Text>
                             </Dialog>
                             <Dialog user={<img src={logo} alt="Sweep logo" />}>
@@ -124,57 +289,51 @@ export default function Features() {
                                         left={0}
                                         right={0}
                                         height="100%"
-                                        background={`linear-gradient(to bottom, transparent, #0d0a1aaa)`}
+                                        background={`linear - gradient(to bottom, transparent, #0d0a1aaa)`}
                                     />
-                                    This PR addresses issue #367, which pointed out that the current implementation of the temporary directory in sweepai/app/ui.py is not compatible with Windows.
-                                    <br />
-                                    {/*<ul>*/}
-                                    {/*    <li style={{ marginLeft: 20 }}>*/}
-                                    {/*        Creates a test file tests/test_backend.py with test cases for normal usage and edge cases...*/}
-                                    {/*    </li>*/}
-                                    {/*</ul>*/}
+                                    This PR refactors the `get_deeplake_vs_from_repo` function in `sweepai / core / vector_db.py` to make it more modular. The function was quite large and performed multiple tasks, including reading files from a repository, preparing a lexical search index, scoring for vector search, computing all scores, preparing documents, metadatas, and ids, and computing embeddings.
                                 </Text>
                             </Dialog>
                             <Dialog user={<img src={logo} alt="Sweep logo" />}>
-                                <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
-                                    <b>sweepai/app/ui.py</b>
-                                    <hr style={{
-                                        borderTop: '2px solid grey',
-                                        width: '100%',
-                                        marginTop: '0.5rem',
-                                    }} />
-                                    <SyntaxHighlighter
-                                        language="python"
-                                        style={customStyle}
-                                        wrapLines={true}
-                                        wrapLongLines={true}
-                                        customStyle={{
-                                            padding: 0,
-                                            overflowX: "hidden",
-                                            backgroundColor: "transparent",
-                                        }}
-                                    >
-                                        {example_code}
-                                    </SyntaxHighlighter>
-                                </Code>
+                                <div>
+                                    <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
+                                        <SyntaxHighlighter
+                                            language="coffeescript" // this one looks the best
+                                            style={customStyle}
+                                            wrapLines={true}
+                                            wrapLongLines={true}
+                                            customStyle={{
+                                                padding: 0,
+                                                overflowX: "hidden",
+                                                backgroundColor: "transparent",
+                                                marginBottom: 0,
+                                                marginTop: 0,
+                                            }}
+                                        >
+                                            {example_code_diffs}
+                                        </SyntaxHighlighter>
+                                    </Code>
+                                    <br /><br />
+                                    <Text fontSize="md" color="white">I made a Pull Request for you at <Link color="purple.400" href="https://github.com/sweepai/sweep/pull/2470">#2470</Link>!</Text>
+                                </div>
                             </Dialog>
                         </VStack>
                     </Box>
                 </Box>
             </Box >
             <Box display="flex" justifyContent="center" alignItems="center" mb={96}>
-                <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
-                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" display={{ base: "flex", md: "none" }} mb={12}>
+                <Box m={8} display="flex" flexWrap="wrap" justifyContent="between" w="80%" textAlign="left">
+                    <Flex width="100%" textAlign="left" justifyContent="left" alignItems="center" display={{ base: "none", md: "flex" }} mb={12}>
                         <Box>
-                            <FaSlack size={40} />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Preview the plan in Slack</Text>
-                            <Text mt={4} fontSize="md" color="lightgrey">Request tests directly in Slack. Review the progress in a thread. Get alerted when a new PR is created.</Text>
-                            <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://docs.sweep.dev/slack")}>
-                                Download on Slack
+                            <img src={GHAIcon} alt="GitHub Actions Icon" />
+                            <Text mt={4} fontSize="2xl" fontWeight="bold">Unit test all new business logic</Text>
+                            <Text mt={4} fontSize="md" color="lightgrey">Sweep writes unit tests and fixes any broken business logic it catches.</Text>
+                            <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://github.com/sweepai/sweep/pull/2380")}>
+                                See the example
                             </Button>
                         </Box>
                     </Flex>
-                    <Box width={{ base: "100%", md: "45%" }} maxW="100%" mb={12}>
+                    <Box width="100%" textAlign="left" maxW="100%" mb={12}>
                         <VStack alignItems="flex-start" spacing={6}>
                             <GithubDialog
                                 user={<FaGithub size={40} color="white" />}
@@ -213,50 +372,109 @@ export default function Features() {
                                         left={0}
                                         right={0}
                                         height="100%"
-                                        background={`linear-gradient(to bottom, transparent, transparent)`}
+                                        background={`linear - gradient(to bottom, transparent, transparent)`}
                                     />
-                                    I will fix this by importing the correct module and adding a type annotation to the event target.
+                                    Let me write a unit test for the new GraphChild component and run it.
                                 </Text>
                             </Dialog>
-                            <Dialog user={<img src={logo} alt="Sweep logo" />}>
-                                <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%" maxW="100%">
-                                    <b>src/components/CallToAction.tsx</b>
+                            <Dialog user={<img src={logo} alt="Sweep logo" />} w="100%">
+                                <div>
+                                    <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
+                                        <b>sweepai/utils/graph_test.py</b>
+                                        <hr style={{
+                                            borderTop: '2px solid grey',
+                                            width: '100%',
+                                            marginTop: '0.5rem',
+                                        }} />
+                                        <SyntaxHighlighter
+                                            language="python"
+                                            style={customStyle}
+                                            wrapLines={true}
+                                            wrapLongLines={true}
+                                            customStyle={{
+                                                padding: 0,
+                                                overflowX: "hidden",
+                                                backgroundColor: "transparent",
+                                                marginBottom: 0,
+                                            }}
+                                        >
+                                            {example_diff_code_gha}
+                                        </SyntaxHighlighter>
+                                    </Code>
                                     <hr style={{
                                         borderTop: '2px solid grey',
                                         width: '100%',
-                                        marginTop: '0.5rem',
+                                        marginTop: '1rem',
+                                        marginBottom: '1rem',
                                     }} />
-                                    <SyntaxHighlighter
-                                        language="diff"
-                                        style={customStyle}
-                                        wrapLines={true}
-                                        wrapLongLines={true}
-                                        customStyle={{
-                                            padding: 0,
-                                            overflowX: "hidden",
-                                            backgroundColor: "transparent",
-                                            marginBottom: 0,
-                                        }}
-                                    >
-                                        {example_diff_code_gha}
-                                    </SyntaxHighlighter>
-                                </Code>
+                                    <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
+                                        <SyntaxHighlighter
+                                            language="coffeescript" // this one looks the best
+                                            style={customStyle}
+                                            wrapLines={true}
+                                            wrapLongLines={true}
+                                            customStyle={{
+                                                padding: 0,
+                                                overflowX: "hidden",
+                                                backgroundColor: "transparent",
+                                                marginBottom: 0,
+                                                marginTop: 0,
+                                            }}
+                                        >
+                                            {example_sandbox_logs}
+                                        </SyntaxHighlighter>
+                                    </Code>
+                                </div>
+                            </Dialog>
+                            <Dialog user={<img src={logo} alt="Sweep logo" />}>
+                                <Text
+                                    position="relative"
+                                    fontSize="md"
+                                    color="white"
+                                >
+                                    <Box
+                                        position="absolute"
+                                        bottom={0}
+                                        left={0}
+                                        right={0}
+                                        height="100%"
+                                        background={`linear - gradient(to bottom, transparent, transparent)`}
+                                    />
+                                    It looks like there's an edge case when there are empty strings in the path. Let me fix that.
+                                </Text>
+                            </Dialog>
+                            <Dialog user={<img src={logo} alt="Sweep logo" />}>
+                                <div>
+                                    <Code fontSize="md" whiteSpace="pre-wrap" bgColor="transparent" w="100%">
+                                        <b>sweepai/utils/graph_test.py</b>
+                                        <hr style={{
+                                            borderTop: '2px solid grey',
+                                            width: '100%',
+                                            marginTop: '0.5rem',
+                                        }} />
+                                        <SyntaxHighlighter
+                                            // language="diff"
+                                            style={customStyle}
+                                            wrapLines={true}
+                                            wrapLongLines={true}
+                                            customStyle={{
+                                                padding: 0,
+                                                overflowX: "hidden",
+                                                backgroundColor: "transparent",
+                                                marginBottom: 0,
+                                            }}
+                                        >
+                                            {graphCodeDiff}
+                                        </SyntaxHighlighter>
+                                    </Code>
+                                    <Text fontSize="md" color="white">I made a Pull Request for you at <Link color="purple.400" href="https://github.com/sweepai/sweep/pull/2380">#2380</Link>!</Text>
+                                </div>
                             </Dialog>
                         </VStack>
                     </Box>
-                    <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" display={{ base: "none", md: "flex" }} mb={12}>
-                        <Box>
-                            <img src={GHAIcon} alt="GitHub Actions Icon" />
-                            <Text mt={4} fontSize="2xl" fontWeight="bold">Respond to GitHub Actions</Text>
-                            <Text mt={4} fontSize="md" color="lightgrey">Sweep reads GitHub Action logs to ensure its changes compiles and passes tests. If the code errors, Sweep updates it's code to fix it.</Text>
-                            <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://github.com/sweepai/landing-page/pull/236")}>
-                                See the example
-                            </Button>
-                        </Box>
-                    </Flex>
                 </Box>
             </Box >
-            <Box display="flex" justifyContent="center" alignItems="center" mb={48}>
+            {/* <Box display="flex" justifyContent="center" alignItems="center" mb={48}>
                 <Box m={8} display="flex" flexWrap="wrap" justifyContent="space-between" w="80%" textAlign="left">
                     <Flex width={{ base: "100%", md: "45%" }} textAlign="left" justifyContent="center" alignItems="center" mb={12}>
                         <Box>
@@ -311,7 +529,7 @@ export default function Features() {
                         </VStack>
                     </Box>
                 </Box>
-            </Box >
+            </Box > */}
             <Box display="flex" justifyContent="center" alignItems="center" py={48} bgImage={pills_examples} bgSize="cover">
                 <Box m={8} flexWrap="wrap" justifyContent="space-around" w={{ base: "full", md: "80%" }} textAlign="center">
                     <Text mb={4} fontSize="3xl">See example tickets, handled by Sweep</Text>
