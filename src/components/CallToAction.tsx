@@ -110,7 +110,7 @@ export default function CallToAction() {
           mt="1rem !important"
           mb="1rem !important"
         >
-          Junior Python developer that uses your entire codebase to write Pull Requests
+          AI Junior Developer that cleans up your Python code
         </Text>
         <Button
           color="white"
