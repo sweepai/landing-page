@@ -81,7 +81,7 @@ export default function CallToAction() {
         </style> */}
         <Heading
           fontWeight={600}
-          fontSize={{ base: "3xl", sm: "4xl", md: "7xl" }}
+          fontSize={{ base: "3xl", sm: "4xl", md: "5xl" }}
           lineHeight={"110%"}
           mt="0 !important"
         >
