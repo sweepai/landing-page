@@ -9,18 +9,32 @@ import {
 import { tsParticles } from "tsparticles";
 import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { FaDiscord, FaGithub } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../assets/icon.png";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
-import { TypeAnimation } from "react-type-animation";
+// import { TypeAnimation } from "react-type-animation";
+// import { TextLoop } from "easy-react-text-loop";
+import TextTransition, { presets } from 'react-text-transition';
 // const demo = require("../assets/demo.mp4");
+
+const ACTIONS = ['unit test', 'refactor', 'debug'];
+const OBJECTS = ['data pipeline', 'ML model', 'Flask app'];
 
 export default function CallToAction() {
   const [spin, setSpin] = useState(false);
   // const canvas = document.getElementById('canvas3d');
   // const app = new Application(canvas);
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(
+      () => setIndex((index) => index + 1),
+      3000, // every 3 seconds
+    );
+    return () => clearTimeout(intervalId);
+  }, []);
   return (
     <Container maxW={"5xl"}>
       <Stack
@@ -81,39 +95,14 @@ export default function CallToAction() {
         </style> */}
         <Heading
           fontWeight={600}
-          fontSize={{ base: "3xl", sm: "4xl", md: "7xl" }}
+          fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
           lineHeight={"110%"}
           mt="0 !important"
         >
-          Sweep: <TypeAnimation
-            sequence={[
-              "Unit Test my data pipeline",
-              4000,
-              'Refactor my flask app',
-              4000,
-              'Debug my ML pipeline',
-              4000,
-            ]}
-            wrapper="span"
-            speed={80}
-            repeat={Infinity}
-            cursor={false}
-          />
-          {/* &nbsp;my&nbsp; */}
-          {/* <TypeAnimation
-            sequence={[
-              "data pipeline",
-              4000,
-              'flask app',
-              4000,
-              'ML pipeline',
-              4000,
-            ]}
-            wrapper="span"
-            speed={50}
-            repeat={Infinity}
-            cursor={false}
-          /> */}
+          Sweep:{" "}
+          <TextTransition springConfig={presets.default} inline direction="down">{ACTIONS[index % ACTIONS.length]}</TextTransition>{" "}
+          your{" "}
+          <TextTransition springConfig={presets.default} inline delay={1500}>{OBJECTS[index % OBJECTS.length]}</TextTransition>
         </Heading>
         <Text
           color={"purple.400"}
