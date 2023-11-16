@@ -87,8 +87,8 @@ export default function CallToAction() {
         >
           Sweep: <TypeAnimation
             sequence={[
+              4000,
               "Unit Test",
-              2000,
               4000,
               'Refactor',
               4000,
