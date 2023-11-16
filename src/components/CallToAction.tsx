@@ -99,7 +99,11 @@ export default function CallToAction() {
             repeat={Infinity}
             cursor={false}
           />
-          &nbsp;Python with AI
+          <TextLoop>
+            <span>First item</span>
+            <span>Second item</span>
+            <span>Third item</span>
+          </TextLoop>
         </Heading>
         <Text
           color={"purple.400"}
