@@ -85,21 +85,35 @@ export default function CallToAction() {
           lineHeight={"110%"}
           mt="0 !important"
         >
-          <TypeAnimation
+          Sweep: <TypeAnimation
             sequence={[
-              "Unit test",
-              3000,
-              'Refactor',
-              3000,
-              'Debug',
-              3000,
+              "Unit Test my data pipeline",
+              4000,
+              'Refactor my flask app',
+              4000,
+              'Debug my ML pipeline',
+              4000,
+            ]}
+            wrapper="span"
+            speed={80}
+            repeat={Infinity}
+            cursor={false}
+          />
+          {/* &nbsp;my&nbsp; */}
+          {/* <TypeAnimation
+            sequence={[
+              "data pipeline",
+              4000,
+              'flask app',
+              4000,
+              'ML pipeline',
+              4000,
             ]}
             wrapper="span"
             speed={50}
             repeat={Infinity}
             cursor={false}
-          />
-          &nbsp;Python with AI
+          /> */}
         </Heading>
         <Text
           color={"purple.400"}
@@ -107,7 +121,7 @@ export default function CallToAction() {
           mt="1rem !important"
           mb="1rem !important"
         >
-          Junior Python developer that uses your entire codebase to write Pull Requests
+          AI Junior Developer that cleans up your Python code
         </Text>
         <Button
           color="white"
