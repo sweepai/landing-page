@@ -14,6 +14,7 @@ import logo from "../assets/icon.png";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
 import { TypeAnimation } from "react-type-animation";
+import { TextLoop } from "easy-react-text-loop";
 // const demo = require("../assets/demo.mp4");
 
 export default function CallToAction() {
@@ -85,7 +86,7 @@ export default function CallToAction() {
           lineHeight={"110%"}
           mt="0 !important"
         >
-          <TypeAnimation
+          {/* <TypeAnimation
             sequence={[
               "Unit test",
               3000,
@@ -98,12 +99,14 @@ export default function CallToAction() {
             speed={50}
             repeat={Infinity}
             cursor={false}
-          />
-          <TextLoop>
-            <span>First item</span>
-            <span>Second item</span>
-            <span>Third item</span>
-          </TextLoop>
+          /> */}
+          Sweep:{" "}
+          <TextLoop animation="just">
+            <span>Unit Test</span>
+            <span>Refactor</span>
+            <span>Debug</span>
+          </TextLoop>{"        "}
+          your Python
         </Heading>
         <Text
           color={"purple.400"}
