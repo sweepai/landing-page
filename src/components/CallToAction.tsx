@@ -87,21 +87,20 @@ export default function CallToAction() {
         >
           Sweep: <TypeAnimation
             sequence={[
+              "Unit Test my data pipeline",
               4000,
-              "Unit Test",
+              'Refactor my flask app',
               4000,
-              'Refactor',
-              4000,
-              'Debug',
+              'Debug my ML pipeline',
               4000,
             ]}
             wrapper="span"
-            speed={50}
+            speed={80}
             repeat={Infinity}
             cursor={false}
           />
-          &nbsp;my&nbsp;
-          <TypeAnimation
+          {/* &nbsp;my&nbsp; */}
+          {/* <TypeAnimation
             sequence={[
               "data pipeline",
               4000,
@@ -114,7 +113,7 @@ export default function CallToAction() {
             speed={50}
             repeat={Infinity}
             cursor={false}
-          />
+          /> */}
         </Heading>
         <Text
           color={"purple.400"}
