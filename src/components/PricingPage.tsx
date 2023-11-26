@@ -24,7 +24,7 @@ const PricingPage = () => (
             <li><em>Purchase additional GPT-4 tickets <Link href="https://buy.stripe.com/00g3fh7qF85q0AE14d" color="#89CFF0">here</Link>.</em></li>
           </Box>
         </Box>
-        <Button colorScheme="purple" mt={12} onClick={() => window.open("https://github.com/apps/sweep-ai", "_blank")}>
+        <Button colorScheme="green" mt={12} onClick={() => window.open("https://github.com/apps/sweep-ai", "_blank")}>
           Install
         </Button>
       </Box>
