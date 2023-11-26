@@ -85,13 +85,14 @@ export default function CallToAction() {
           lineHeight={"110%"}
           mt="0 !important"
         >
-          Sweep: <TypeAnimation
+          Sweep:{" "}
+          <TypeAnimation
             sequence={[
               "Unit Test my data pipeline",
               4000,
-              'Refactor my flask app',
+              "Refactor my flask app",
               4000,
-              'Debug my ML pipeline',
+              "Debug my ML pipeline",
               4000,
             ]}
             wrapper="span"
@@ -126,9 +127,9 @@ export default function CallToAction() {
         <Button
           color="white"
           p={6}
-          colorScheme={"purple"}
-          bg={"purple.400"}
-          _hover={{ bg: "purple.600" }}
+          colorScheme={"green"}
+          bg={"green.400"}
+          _hover={{ bg: "green.600" }}
           onClick={() => window.open("https://github.com/apps/sweep-ai")}
           fontSize={"xl"}
           mb="1rem !important"
@@ -150,9 +151,15 @@ export default function CallToAction() {
           &nbsp;&nbsp;Join our Discord
         </ExternalLinkWithText>
         <Flex w={"full"} mt="4rem !important">
-          <iframe width="800" height="500" style={{ margin: "auto", boxShadow: "0 0 80px #181818" }} src="https://www.youtube.com/embed/nxIMWCaN5kM?autoplay=1&mute=1&loop=1&vq=hd1080&modestbranding=1&controls=0"
-            title="YouTube video player" allow="accelerometer; autoplay; 
-            clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <iframe
+            width="800"
+            height="500"
+            style={{ margin: "auto", boxShadow: "0 0 80px #181818" }}
+            src="https://www.youtube.com/embed/nxIMWCaN5kM?autoplay=1&mute=1&loop=1&vq=hd1080&modestbranding=1&controls=0"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; 
+            clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          ></iframe>
         </Flex>
       </Stack>
     </Container>
