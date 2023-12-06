@@ -16,7 +16,7 @@ import Testimonials from "./components/Testimonials";
 import Users from "./components/Users";
 import AboutUs from "./components/AboutUs";
 import PricingPage from "./components/PricingPage";
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import circles from "./assets/circles.svg";
 import Features from "./components/Features";
