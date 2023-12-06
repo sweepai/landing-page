@@ -16,7 +16,7 @@ import Testimonials from "./components/Testimonials";
 import Users from "./components/Users";
 import AboutUs from "./components/AboutUs";
 import PricingPage from "./components/PricingPage";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import circles from "./assets/circles.svg";
 import Features from "./components/Features";
@@ -48,6 +48,14 @@ window.intercomSettings = {
   app_id: "ce8fl00z",
   action_color: "#6b46c1",
   background_color: "#342867",
+};
+
+const RedirectToExternal = () => {
+  useEffect(() => {
+    window.location.href = 'https://form.typeform.com/to/aRlsi04N';
+  }, []);
+
+  return null;
 };
 
 export const App = () => {
@@ -99,6 +107,9 @@ export const App = () => {
                 </Route>
                 <Route path="/pricing">
                   <PricingPage />
+                </Route>
+                <Route path="/signup">
+                  <RedirectToExternal />
                 </Route>
               </Switch>
               <Footer />
