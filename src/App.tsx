@@ -101,6 +101,9 @@ export const App = () => {
                 <Route path="/pricing">
                   <PricingPage />
                 </Route>
+                <Route path="/signup">
+                  <Signup />
+                </Route>
               </Switch>
               <Footer />
             </Router>
@@ -110,6 +113,3 @@ export const App = () => {
     </>
   );
 };
-                <Route path="/signup">
-                  <Signup />
-                </Route>
