@@ -8,7 +8,7 @@ const Signup = () => (
         <div className="indicates-required"><span className="asterisk">*</span> indicates required</div>
         <div className="mc-field-group">
           <label htmlFor="mce-EMAIL">Email Address <span className="asterisk">*</span></label>
-          <input type="email" name="EMAIL" className="required email" id="mce-EMAIL" required="" value="" />
+          <input type="email" name="EMAIL" className="required email" id="mce-EMAIL" required={true} value="" />
           <span id="mce-EMAIL-HELPERTEXT" className="helper_text"></span>
         </div>
         <div className="mc-field-group">
@@ -20,7 +20,7 @@ const Signup = () => (
           <div className="response" id="mce-success-response" style={{display: 'none'}}></div>
         </div>
         <div aria-hidden="true" style={{position: 'absolute', left: '-5000px'}}>
-          <input type="text" name="b_c82a61199a42029425a34355b_729f76235c" tabIndex="-1" value="" />
+          <input type="text" name="b_c82a61199a42029425a34355b_729f76235c" value="" />
         </div>
         <div className="clear">
           <input type="submit" name="subscribe" id="mc-embedded-subscribe" className="button" value="Subscribe" />
