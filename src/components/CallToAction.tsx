@@ -150,9 +150,9 @@ export default function CallToAction() {
           &nbsp;&nbsp;Join our Discord
         </ExternalLinkWithText>
         <Flex w={"full"} mt="4rem !important">
-          <iframe width="800" height="500" style={{ margin: "auto", boxShadow: "0 0 80px #181818" }} src="https://www.youtube.com/embed/nxIMWCaN5kM?autoplay=1&mute=1&loop=1&vq=hd1080&modestbranding=1&controls=0"
-            title="YouTube video player" allow="accelerometer; autoplay; 
-            clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <iframe width="800" height="500" style={{ margin: "auto", boxShadow: "0 0 80px #181818" }} src="https://www.youtube.com/embed/GVEkDZmWw8E?autoplay=1&mute=1&loop=1&vq=hd1080&modestbranding=1&controls=0"
+                      title="YouTube video player" allow="accelerometer; autoplay; 
+                      clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
         </Flex>
       </Stack>
     </Container>
