@@ -89,9 +89,9 @@ export default function CallToAction() {
             sequence={[
               "Unit Test my data pipeline",
               4000,
-              'Refactor my flask app',
+              'Refactor my Next.js file',
               4000,
-              'Debug my ML pipeline',
+              'Add error logs to my model training code',
               4000,
             ]}
             wrapper="span"
@@ -121,7 +121,7 @@ export default function CallToAction() {
           mt="1rem !important"
           mb="1rem !important"
         >
-          AI Junior Developer that cleans up your Python code
+          AI Junior Developer that handles small features in your codebase
         </Text>
         <Button
           color="white"
@@ -151,7 +151,7 @@ export default function CallToAction() {
         </ExternalLinkWithText>
         <Flex w={"full"} mt="4rem !important">
           <iframe width="800" height="500" style={{ margin: "auto", boxShadow: "0 0 80px #181818" }} src="https://www.youtube.com/embed/GVEkDZmWw8E?autoplay=1&mute=1&loop=1&vq=hd1080&modestbranding=1&controls=0"
-                      title="YouTube video player" allow="accelerometer; autoplay; 
+            title="YouTube video player" allow="accelerometer; autoplay; 
                       clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
         </Flex>
       </Stack>
