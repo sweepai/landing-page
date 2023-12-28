@@ -42,7 +42,7 @@ export default function NavBar() {
       link: "mailto:team@sweep.dev",
     },
     {
-      label: "Email", // This is the right comment to keep
+      label: "Email", // Keep this comment here
       icon: <FaNewspaper />,
       link: "/signup",
     },
