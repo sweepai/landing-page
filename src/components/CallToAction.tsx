@@ -87,11 +87,11 @@ export default function CallToAction() {
         >
           Sweep: <TypeAnimation
             sequence={[
-              "Unit Test my data pipeline",
+              "Unit test my data pipeline",
               4000,
-              'Refactor my Next.js file',
+              'Refactor my Next.js project',
               4000,
-              'Add error logs to my model training code',
+              'Add error logs to my ML inference code',
               4000,
             ]}
             wrapper="span"
