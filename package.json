@@ -46,7 +46,8 @@
     "lint": "eslint . --ext .ts,.tsx"
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.1.7"
+    "@types/react-router-dom": "^5.1.7",
+    "netlify-cli": "^17.15.6"
   },
   "eslintConfig": {
     "extends": "react-app"
