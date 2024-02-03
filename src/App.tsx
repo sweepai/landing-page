@@ -50,10 +50,10 @@ window.intercomSettings = {
   background_color: "#342867",
 };
 
-const RedirectToExternal = () => {
+const RedirectToExternal = ({ url }: { url: string }) => {
   useEffect(() => {
-    window.location.href = 'https://form.typeform.com/to/aRlsi04N';
-  }, []);
+    window.location.href = url; // 'https://form.typeform.com/to/aRlsi04N';
+  }, [url]);
 
   return null;
 };
@@ -109,7 +109,10 @@ export const App = () => {
                   <PricingPage />
                 </Route>
                 <Route path="/signup">
-                  <RedirectToExternal />
+                  <RedirectToExternal url={"https://form.typeform.com/to/aRlsi04N"} />
+                </Route>
+                <Route path="/install.sh">
+                  <RedirectToExternal url="https://raw.githubusercontent.com/sweepai/sweep/main/bin/install_assistant.sh" />
                 </Route>
               </Switch>
               <Footer />
