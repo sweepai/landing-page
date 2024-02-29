@@ -121,7 +121,7 @@ export default function CallToAction() {
           mt="1rem !important"
           mb="1rem !important"
         >
-          AI Junior Developer that handles small features in your codebase
+          Expert in rectifying complex issues in legacy systems for large organizations.
         </Text>
         <Button
           color="white"
@@ -134,7 +134,7 @@ export default function CallToAction() {
           mb="1rem !important"
         >
           <FaGithub />
-          &nbsp;&nbsp;Install Sweep
+          &nbsp;&nbsp;Contact us for Legacy Code Support
         </Button>
         <ExternalLinkWithText
           href="https://discord.gg/sweep" // updated link
