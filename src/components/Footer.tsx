@@ -28,7 +28,7 @@ export default function Footer() {
           href="https://docs.sweep.dev"
           textAlign={{ base: "center", md: "left" }}
         >
-          Docs
+          Expertise in Legacy Codebase Optimization for Large Organizations
         </Link>
         <Link
           href="https://buy.stripe.com/6oE5npbGVbhC97afZ4"
@@ -44,13 +44,7 @@ export default function Footer() {
           alignItems="center"
           textAlign={{ base: "center", md: "left" }}
         >
-          Backed by{" "}
-          <img
-            src={YCLogo}
-            alt="Y Combinator"
-            style={{ marginLeft: "10px" }}
-            height="10px"
-          />
+          Committed to empowering large organizations in resolving complex legacy code challenges.
         </Link>
         <p className="transparentText">© 2023 Sweep AI, Inc.</p>
       </Stack>
