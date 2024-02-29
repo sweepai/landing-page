@@ -201,7 +201,7 @@ export default function Features() {
                                             wrapLines={true}
                                             wrapLongLines={true}
                                             showLineNumbers={true}
-                                            startingLineNumber={54}
+                                            startingLineNumber={54} // TODO: Replace with the actual line number containing the feature list
                                             customStyle={{
                                                 padding: 0,
                                                 overflowX: "hidden",
@@ -361,7 +361,7 @@ export default function Features() {
                                             wrapLines={true}
                                             wrapLongLines={true}
                                             showLineNumbers={true}
-                                            startingLineNumber={167}
+                                            startingLineNumber={167} // TODO: Replace with the actual line number containing the feature list
                                             customStyle={{
                                                 padding: 0,
                                                 overflowX: "hidden",
