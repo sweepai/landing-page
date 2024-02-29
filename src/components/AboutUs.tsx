@@ -16,7 +16,7 @@ const AboutUs = () => {
                 William Zeng
               </Text>
               <Text>
-                Graduated from CMU with BS in Stats & ML. Worked at Roblox as the youngest senior MLE at the company. Built the first vector search model + many search improvements.
+                Specializes in helping large organizations navigate and fix complex issues in their legacy codebases, leveraging experience as a senior machine learning engineer and expertise in search technologies.
               </Text>
             </Stack>
           </CardBody>
@@ -29,7 +29,7 @@ const AboutUs = () => {
                 Kevin Lu
               </Text>
               <Text>
-                Dropped out of UWaterloo CS. Previously built the first ML-based skin weight generation model for UGC avatars at Roblox and NLP researcher on common sense machine reasoning.
+                Brings a depth of knowledge in computer science and machine learning to the table, focusing on modernizing and streamlining legacy systems for industry-leading companies.
               </Text>
             </Stack>
           </CardBody>
