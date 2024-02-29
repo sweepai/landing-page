@@ -18,7 +18,7 @@ export default function PricingModal() {
               ⚡ Basic
             </Text>
             <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
-              Free
+              Free - Ideal for small projects requiring legacy support
             </Text>
             <Box as="ul" style={{ listStyleType: 'none' }}>
               <li>✔ 5 GPT-4 Sweep tickets / month</li>
@@ -45,10 +45,10 @@ export default function PricingModal() {
               $480 <span style={{ fontWeight: "normal" }}>/ month</span>
             </Text>
             <Box as="ul" style={{ listStyleType: 'none' }}>
-              <li>✔ Unlimited GPT-4 Sweep issues</li>
-              <li>✔ Faster search with live re-indexing</li>
-              <li>✔ Priority support</li>
-              <li>✔ Commercial SLA</li>
+              <li>✔ Customized support for legacy code fixes</li>
+              <li>✔ Tailored technical guidance for progressive teams</li>
+              <li>✔ Priority issue resolution and dedicated point of contact</li>
+              <li>✔ Ongoing maintenance for growing codebases</li>
             </Box>
           </Box>
           <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
@@ -64,10 +64,10 @@ export default function PricingModal() {
               Custom
             </Text>
             <Box as="ul" style={{ listStyleType: 'none' }}>
-              <li>✔ Unlimited GPT-4 Sweep issues</li>
-              <li>✔ Fine-tuned retrieval model</li>
-              <li>✔ Self-hosted backend</li>
-              <li>✔ Enterprise support</li>
+              <li>✔ Comprehensive legacy system bug fixing</li>
+              <li>✔ Bespoke modernization strategies</li>
+              <li>✔ Direct access to senior technical expertise</li>
+              <li>✔ Enterprise-grade legacy code support</li>
             </Box>
           </Box>
           <Button colorScheme="purple" mt={12} onClick={() => window.open("https://form.typeform.com/to/wliuvyWE", "_blank")}>
