@@ -14,7 +14,7 @@ import logo from "../assets/icon.png";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
 import { TypeAnimation } from "react-type-animation";
-// const demo = require("../assets/demo.mp4");
+const demo = require("../assets/demo.mp4");
 
 export default function CallToAction() {
   const [spin, setSpin] = useState(false);
@@ -87,11 +87,11 @@ export default function CallToAction() {
         >
           Sweep: <TypeAnimation
             sequence={[
-              "Unit test my data pipeline",
+              'Fix the date formatting bug in our CRM',
               4000,
-              'Refactor my Next.js project',
+              'Upgrade the vulnerable packages in our code',
               4000,
-              'Add error logs to my ML inference code',
+              "Save 20% of our developer's time",
               4000,
             ]}
             wrapper="span"
@@ -121,7 +121,7 @@ export default function CallToAction() {
           mt="1rem !important"
           mb="1rem !important"
         >
-          AI Junior Developer that handles small features in your codebase
+          AI Junior Developer that maintains your legacy codebase
         </Text>
         <Button
           color="white"
@@ -150,9 +150,11 @@ export default function CallToAction() {
           &nbsp;&nbsp;Join our Discord
         </ExternalLinkWithText>
         <Flex w={"full"} mt="4rem !important">
-          <iframe width="800" height="500" style={{ margin: "auto", boxShadow: "0 0 80px #181818" }} src="https://www.youtube.com/embed/GVEkDZmWw8E?autoplay=1&mute=1&loop=1&vq=hd1080&modestbranding=1&controls=0"
-            title="YouTube video player" allow="accelerometer; autoplay; 
-                      clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <Container width="100vw" boxShadow="0 0 80px #181818" p={0} maxWidth="full">
+            <video src={demo} autoPlay muted loop playsInline>
+              Your browser does not support the video tag.
+            </video>
+          </Container>
         </Flex>
       </Stack>
     </Container>
