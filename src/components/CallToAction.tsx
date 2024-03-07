@@ -121,7 +121,7 @@ export default function CallToAction() {
           mt="1rem !important"
           mb="1rem !important"
         >
-          AI Junior Developer that turns customer issues into tested code changes
+          AI Junior Developer that maintains your legacy codebase
         </Text>
         <Button
           color="white"
