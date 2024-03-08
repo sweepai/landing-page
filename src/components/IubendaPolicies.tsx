@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 const IubendaPolicies = () => {
   useEffect(() => {
-    const loadIubendaScript = (src) => {
+    const loadIubendaScript = (src: string) => {
       const script = document.createElement('script');
       script.type = 'text/javascript';
       script.src = src;
