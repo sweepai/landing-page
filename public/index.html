@@ -54,5 +54,32 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script type="text/javascript">
+    var _iub = _iub || [];
+    _iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"enableFadp":true,"enableLgpd":true,"enableUspr":true,"fadpApplies":true,"floatingPreferencesButtonDisplay":"bottom-right","lang":"en","perPurposeConsent":true,"siteId":3544752,"usprApplies":true,"whitelabel":false,"cookiePolicyId":40866936, "banner":{"acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"logo":"https://example.com/path-to-logo.png"}};
+    </script>
+    <script type="text/javascript" src="https://cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+    <script type="text/javascript" src="https://cdn.iubenda.com/cs/stub.js"></script>
+    <script type="text/javascript" src="https://cdn.iubenda.com/cs/ccpa/stub.js"></script>
+    <script type="text/javascript" src="https://cdn.iubenda.com/cs/tcf/stub.js"></script>
+    <script type="text/javascript">
+      _iub.csConfiguration = {"lang":"en","siteId":3544752,"cookiePolicyId":40866936,"consentOnContinuedBrowsing":false,"perPurposeConsent":true,"cookiePolicyInOtherWindow":true};
+      _iub.csConfiguration.cookiePolicyUrl = "https://example.com/privacy-policy";
+    </script>
+    <script type="text/javascript">
+      function _iub_cs_activate() {
+        var config = _iub.csConfiguration;
+        config.countryDetection = true;
+        var askConsent = !IUBENDA_REGEX.test(document.location.href);
+        config.lang = navigator.language || navigator.userLanguage;
+        if (askConsent) { _iub.cs = iubenda_cs(config); }
+      }
+      if (window.addEventListener) {
+          window.addEventListener("load", _iub_cs_activate, false);
+      } else if (window.attachEvent) {
+          window.attachEvent("onload", _iub_cs_activate);
+      }
+    </script>
+    <script type="text/javascript" src="https://cdn.iubenda.com/iubenda.js"></script>
   </body>
 </html>
