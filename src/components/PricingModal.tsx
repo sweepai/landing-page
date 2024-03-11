@@ -17,12 +17,14 @@ export default function PricingModal() {
             <Text fontSize="lg" mb={2} textAlign="center">
               ⚡ Basic
             </Text>
+            <Text fontSize="md" mb={2} textAlign="center">
+              Try out Sweep
+            </Text>
             <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
               Free
             </Text>
-            <Box as="ul" style={{ listStyleType: 'none' }}>
-              <li>✔ 5 GPT-4 Sweep tickets / month</li>
-              <li>✔ Unlimited GPT-3.5 Sweep issues</li>
+            <Box as="ul" style={{ listStyleType: 'none', textAlign: 'left' }}>
+              <li>✔ 5 GPT-4 Sweep tickets</li>
               <br />
               <li>
                 <Button colorScheme="purple" onClick={() => window.open("https://buy.stripe.com/7sI4jlaCR3PaabebIP", "_blank")}>
@@ -39,14 +41,16 @@ export default function PricingModal() {
         <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
           <Box>
             <Text fontSize="lg" mb={2} textAlign="center">
-              💎 Pro
+              💎 Sweep Pro
+            </Text>
+            <Text fontSize="md" mb={2} textAlign="center">
+              For small to medium size teams
             </Text>
             <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
               $480 <span style={{ fontWeight: "normal" }}>/ month</span>
             </Text>
-            <Box as="ul" style={{ listStyleType: 'none' }}>
+            <Box as="ul" style={{ listStyleType: 'none', textAlign: 'left' }}>
               <li>✔ Unlimited GPT-4 Sweep issues</li>
-              <li>✔ Faster search with live re-indexing</li>
               <li>✔ Priority support</li>
               <li>✔ Commercial SLA</li>
             </Box>
@@ -60,17 +64,21 @@ export default function PricingModal() {
             <Text fontSize="lg" mb={2} textAlign="center">
               🏢 Enterprise
             </Text>
+            <Text fontSize="md" mb={2} textAlign="center">
+              For companies looking to automate coding at scale
+            </Text>
             <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
               Custom
             </Text>
-            <Box as="ul" style={{ listStyleType: 'none' }}>
+            <Box as="ul" style={{ listStyleType: 'none', textAlign: 'left' }}>
+              <li>✔ Self-hosted</li>
               <li>✔ Unlimited GPT-4 Sweep issues</li>
               <li>✔ Fine-tuned retrieval model</li>
-              <li>✔ Self-hosted backend</li>
               <li>✔ Enterprise support</li>
+              <li>✔ Custom ticketing integrations (Jira, Linear) and deployment </li>
             </Box>
           </Box>
-          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://form.typeform.com/to/wliuvyWE", "_blank")}>
+          <Button colorScheme="purple" mt={12} onClick={() => window.open("team@sweep.dev", "_blank")}>
             Contact us
           </Button>
         </Box>
