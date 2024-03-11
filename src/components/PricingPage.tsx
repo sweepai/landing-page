@@ -1,4 +1,4 @@
-import { Link, Text, SimpleGrid, Box, Button } from '@chakra-ui/react';
+import { Text, SimpleGrid, Box, Button } from '@chakra-ui/react';
 
 const PricingPage = () => (
   <Box p={8} backgroundColor="transparent" py={12} px={24} pb="40vh">
