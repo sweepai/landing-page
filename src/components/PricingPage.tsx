@@ -20,8 +20,8 @@ const PricingPage = () => (
           height="100%"
           width="100%"
           borderRadius={10}
-          backgroundColor="rgba(28, 27, 47, 0.8)"
-          // backgroundColor="rgba(74, 85, 104, 0.5)"
+          // backgroundColor="rgba(28, 27, 47, 0.8)"
+          backgroundColor="rgba(74, 85, 104, 0.3)"
           p={12}
           mx={4}
           mb={12}
@@ -49,7 +49,8 @@ const PricingPage = () => (
           height="100%"
           width="100%"
           borderRadius={10}
-          backgroundColor="rgba(28, 27, 47, 0.8)"
+          // backgroundColor="rgba(28, 27, 47, 0.8)"
+          backgroundColor="rgba(51, 40, 91, 0.3)"
           p={12}
           mx={4}
           mb={12}
@@ -77,7 +78,9 @@ const PricingPage = () => (
           height="100%"
           width="100%"
           borderRadius={10}
-          backgroundColor="rgba(28, 27, 47, 0.8)"
+          // backgroundColor="rgba(28, 27, 47, 0.8)"
+          // background="radial-gradient(circle, rgba(51, 40, 91, 0.0) 0%, rgba(51, 40, 91, 1) 80%)"
+          background="radial-gradient(circle, rgba(51, 40, 91, 0.2) 0%, rgba(31, 22, 60, 1) 50%, rgba(41, 40, 91, 1) 100%)"
           p={12}
           mx={4}
           mb={12}
