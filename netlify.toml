@@ -3,3 +3,10 @@
   to = "https://raw.githubusercontent.com/sweepai/sweep/main/bin/install_assistant.sh"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.pdf"
+  status = 301
+  force = true
+
