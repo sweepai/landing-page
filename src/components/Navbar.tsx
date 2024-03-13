@@ -14,7 +14,8 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { FaDiscord, FaGithub, FaTwitter, FaNewspaper } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaTwitter, FaNewspaper, FaBook, FaLock, FaUserSecret, FaBlog } from "react-icons/fa";
+import { IoMdPeople } from "react-icons/io";
 import logo from "../assets/icon.png";
 
 export default function NavBar() {
@@ -42,16 +43,39 @@ export default function NavBar() {
       link: "mailto:team@sweep.dev",
     },
     {
-      label: "Email", // Do not keep this comment
+      label: "Newsletter",
       icon: <FaNewspaper />,
       link: "/signup",
-    },
-    // {
-    //   label: "Buy Sweep Pro",
-    //   icon: <p>Buy Sweep Pro</p>,
-    //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
-    // },
+    }
   ];
+
+  const extItems = [
+    {
+      label: "Documentation",
+      icon: <FaBook />,
+      link: "/signup",
+    },
+    {
+      label: "About us",
+      icon: <IoMdPeople />,
+      link: "/signup",
+    },
+    {
+      label: "Blogs",
+      icon: <FaBlog />,
+      link: "https://docs.sweep.dev/blogs",
+    },
+    {
+      label: "Security",
+      icon: <FaLock />,
+      link: "https://docs.sweep.dev/blogs/soc2",
+    },
+    {
+      label: "Privacy",
+      icon: <FaUserSecret />,
+      link: "/privacy.pdf",
+    }
+  ]
 
   return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
@@ -62,26 +86,19 @@ export default function NavBar() {
               <Image src={logo} alt="logo" width={10} borderRadius={12} />
               Sweep AI
             </Button>
-            <Button
-              as="a"
-              variant="ghost"
-              href="https://docs.sweep.dev"
-              target="_blank"
-            >
-              Documentation
-            </Button>
-            <Button as={Link} variant="ghost" to="/about-us">
-              About Us
-            </Button>
-            <Button
-              as="a"
-              variant="ghost"
-              href="https://docs.sweep.dev/blogs"
-              target="_blank"
-            >
-              Blogs
-            </Button>
-            {/* Removed conditional rendering of PricingModal */}
+            {extItems.map((item) => {
+              return (
+                <Button
+                  as="a"
+                  variant="ghost"
+                  href={item.link}
+                  target="_blank"
+                  display={listDisplay}
+                >
+                  {item.label}
+                </Button>
+              )
+            })}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
@@ -110,9 +127,8 @@ export default function NavBar() {
               display={menuDisplay}
             />
             <MenuList backgroundColor="#333">
-              {navItems.map((item) => (
+              {[...extItems, ...navItems].map((item) => (
                 <MenuItem backgroundColor="#333">
-                  {item.label}
                   {item.label !== "Buy Sweep Pro" && (
                     <IconButton
                       key={item.label}
@@ -124,6 +140,7 @@ export default function NavBar() {
                       }}
                     />
                   )}
+                  {item.label}
                 </MenuItem>
               ))}
             </MenuList>
