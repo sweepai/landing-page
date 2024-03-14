@@ -53,12 +53,12 @@ export default function NavBar() {
     {
       label: "Documentation",
       icon: <FaBook />,
-      link: "/signup",
+      link: "https://docs.sweep.dev",
     },
     {
       label: "About us",
       icon: <IoMdPeople />,
-      link: "/signup",
+      link: "/about-us",
     },
     {
       label: "Blogs",
