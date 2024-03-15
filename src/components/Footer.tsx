@@ -19,7 +19,7 @@ export default function Footer() {
           Github
         </Link>
         <Link
-          href="https://discord.gg/j8XxQmpHEF"
+          href="https://discord.gg/sweep"
           textAlign={{ base: "center", md: "left" }}
         >
           Discord
@@ -31,10 +31,22 @@ export default function Footer() {
           Docs
         </Link>
         <Link
-          href="https://buy.stripe.com/6oE5npbGVbhC97afZ4"
+          href="/pricing"
           textAlign={{ base: "center", md: "left" }}
         >
-          Sweep Pro
+          Pricing
+        </Link>
+        <Link
+          href="/privacy.pdf"
+          textAlign={{ base: "center", md: "left" }}
+        >
+          Privacy
+        </Link>
+        <Link
+          href="/tos.pdf"
+          textAlign={{ base: "center", md: "left" }}
+        >
+          Terms of Services
         </Link>
         <Link
           href="https://ycombinator.com/companies/sweep"

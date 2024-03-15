@@ -70,11 +70,11 @@ export default function NavBar() {
       icon: <FaLock />,
       link: "https://docs.sweep.dev/blogs/soc2",
     },
-    {
-      label: "Privacy",
-      icon: <FaUserSecret />,
-      link: "/privacy.pdf",
-    }
+    // {
+    //   label: "Privacy",
+    //   icon: <FaUserSecret />,
+    //   link: "/privacy.pdf",
+    // }
   ]
 
   return (
