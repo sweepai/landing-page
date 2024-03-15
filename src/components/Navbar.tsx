@@ -14,7 +14,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { FaDiscord, FaGithub, FaTwitter, FaNewspaper, FaBook, FaLock, FaUserSecret, FaBlog, FaTerminal } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaTwitter, FaNewspaper, FaBook, FaLock, FaBlog, FaTerminal } from "react-icons/fa";
 import { IoMdPeople } from "react-icons/io";
 import logo from "../assets/icon.png";
 
