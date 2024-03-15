@@ -229,8 +229,8 @@ export default function Features() {
                             <img src={GHAIcon} alt="GitHub Actions Icon" />
                             <Text mt={4} fontSize="2xl" fontWeight="bold">Unit test your new features, automatically</Text>
                             <Text mt={4} fontSize="sm" color="lightgrey">Sweep writes unit tests and fixes any broken business logic they catch.</Text>
-                            <Button colorScheme="purple" size="sm" mt={4} onClick={() => window.open("https://github.com/sweepai/sweep/pull/2380")}>
-                                See the example
+                            <Button colorScheme="purple" size="sm" mt={4} onClick={() => window.open("https://docs.sweep.dev/cli")}>
+                                Learn about our CLI
                             </Button>
                         </Box>
                     </Flex>
@@ -384,8 +384,8 @@ export default function Features() {
             <Box display="flex" justifyContent="center" alignItems="center" py={48} bgImage={pills_examples} bgSize="cover">
                 <Box m={8} flexWrap="wrap" justifyContent="space-around" w={{ base: "full", sm: "80%" }} textAlign="center">
                     <Text mb={4} fontSize="3xl">See example tickets, handled by Sweep</Text>
-                    <Button colorScheme="purple" size="sm" mt={4} onClick={() => window.open("https://docs.sweep.dev/about/examples")}>
-                        <FaBook />&nbsp;&nbsp;Example Sweep tickets
+                    <Button colorScheme="purple" size="sm" mt={4} onClick={() => window.open("https://docs.sweep.dev/cli")}>
+                        <FaBook />&nbsp;&nbsp;Learn about our CLI
                     </Button>
                 </Box>
             </Box >
