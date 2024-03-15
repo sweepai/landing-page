@@ -94,6 +94,7 @@ export default function NavBar() {
                   href={item.link}
                   target="_blank"
                   display={listDisplay}
+                  key={item.label}
                 >
                   {item.label}
                 </Button>
