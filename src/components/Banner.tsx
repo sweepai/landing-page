@@ -6,7 +6,7 @@ const Banner = () => {
     <Box w="100%" p={2} color="white" bgColor="blackAlpha.400">
       <Link href="https://docs.sweep.dev/blogs/soc2" isExternal>
         <Text fontSize="lg" display="flex" justifyContent="center" alignItems="center" color="lightgrey">
-          <FaShieldAlt />&nbsp;Read our SOC2 Report  
+          <FaShieldAlt />&nbsp;We're now SOC 2 certified – more details here
         </Text>
       </Link>
     </Box>
