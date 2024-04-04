@@ -14,7 +14,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { FaDiscord, FaGithub, FaTwitter, FaNewspaper, FaBook, FaLock, FaBlog, FaTerminal } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaTwitter, FaNewspaper, FaBook, FaLock, FaBlog, FaTerminal, FaUsers } from "react-icons/fa";
 import { IoMdPeople } from "react-icons/io";
 import logo from "../assets/icon.png";
 
@@ -69,6 +69,11 @@ export default function NavBar() {
       label: "Blogs",
       icon: <FaBlog />,
       link: "https://docs.sweep.dev/blogs",
+    },
+    {
+      label: "Community",
+      icon: <FaUsers />,
+      link: "https://community.sweep.dev/",
     },
     {
       label: "Security",
