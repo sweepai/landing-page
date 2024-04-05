@@ -129,7 +129,7 @@ export default function CallToAction() {
           colorScheme={"purple"}
           bg={"purple.400"}
           _hover={{ bg: "purple.600" }}
-          onClick={() => window.open("https://github.com/apps/sweep-ai")}
+          onClick={() => window.open("https://docs.sweep.dev/cli")}
           fontSize={"xl"}
           mb="1rem !important"
         >
