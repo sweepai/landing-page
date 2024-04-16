@@ -41,8 +41,11 @@ export default function PricingModal() {
             <Text fontSize="lg" mb={2} textAlign="center">
               💎 Pro
             </Text>
-            <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
-              $480 <span style={{ fontWeight: "normal" }}>/ month</span>
+            <Text fontSize="4xl" fontWeight="bold" mb={1} textAlign="center">
+              $480
+            </Text>
+            <Text fontSize="2xl" fontWeight="normal" mb={4} textAlign="center">
+              / month  
             </Text>
             <Box as="ul" style={{ listStyleType: 'none' }}>
               <li>✔ Unlimited GPT-4 Sweep issues</li>

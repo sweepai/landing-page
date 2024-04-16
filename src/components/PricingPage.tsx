@@ -62,8 +62,11 @@ const PricingPage = () => (
           <Text fontSize="xl" mb={8} color="gray.400">
             For growing small to medium sized teams
           </Text>
-          <Text fontSize="4xl" fontWeight="bold">
-            $480 <span style={{ fontWeight: "normal" }}>/ month</span>
+          <Text fontSize="4xl" fontWeight="bold" mb={1}>
+            $480
+          </Text>
+          <Text fontSize="2xl" fontWeight="normal">
+            / month
           </Text>
           <Button colorScheme="purple" bgColor="gray.100" mt={12} onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
             Purchase
