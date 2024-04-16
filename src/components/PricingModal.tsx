@@ -5,7 +5,11 @@ export default function PricingModal() {
 
   return (
     <Box p={8} backgroundColor="transparent" pb={4}>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+      <SimpleGrid 
+        columns={{ base: 1, md: 3 }} 
+        spacing={{ base: 6, md: 10 }}
+        direction={{ base: "column", md: "row" }}
+      >
         <Box
           display="flex"
           flexDirection="column"
@@ -14,10 +18,10 @@ export default function PricingModal() {
           height="100%"
         >
           <Box>
-            <Text fontSize="lg" mb={2} textAlign="center">
+            <Text fontSize={{ base: "xl", md: "2xl" }} mb={2} textAlign="center">
               ⚡ Basic
             </Text>
-            <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
+            <Text fontSize={{ base: "2xl", md: "4xl" }} mb="4" fontWeight="bold" textAlign="center">
               Free
             </Text>
             <Box as="ul" style={{ listStyleType: 'none' }}>
@@ -38,10 +42,10 @@ export default function PricingModal() {
         </Box>
         <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" height="100%">
           <Box>
-            <Text fontSize="lg" mb={2} textAlign="center">
+            <Text fontSize={{ base: "xl", md: "2xl" }} mb={2} textAlign="center">
               💎 Pro
             </Text>
-            <Text fontSize="4xl" mb="4" fontWeight="bold" textAlign="center">
+            <Text fontSize={{ base: "2xl", md: "4xl" }} mb="4" fontWeight="bold" textAlign="center">
               $480 <span style={{ fontWeight: "normal" }}>/ month</span>
             </Text>
             <Box as="ul" style={{ listStyleType: 'none' }}>

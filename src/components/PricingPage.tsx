@@ -8,7 +8,12 @@ const PricingPage = () => (
     <Text fontSize="2xl" mb={16}>
       Get started with the leading software maintenance AI.
     </Text>
-    <SimpleGrid columns={{ base: 1, md: 3 }} px={32} spacing={16}>
+    <SimpleGrid 
+      columns={{ base: 1, md: 3 }} 
+      px={{ base: 4, md: 32 }}
+      spacing={{ base: 8, md: 16 }}
+      direction={{ base: "column", md: "row" }}
+    >
       <Box
         display="flex"
         flexDirection="column"
@@ -20,20 +25,20 @@ const PricingPage = () => (
           height="100%"
           width="100%"
           borderRadius={10}
-          // backgroundColor="rgba(28, 27, 47, 0.8)"
           backgroundColor="rgba(74, 85, 104, 0.3)"
-          p={12}
+          p={{ base: 6, md: 12 }}
           mx={4}
           mb={12}
           textAlign="left"
+          wordBreak="keep-all"
         >
-          <Text fontSize="4xl" fontWeight="bold" mb={2}>
+          <Text fontSize={{ base: "2xl", md: "4xl" }} fontWeight="bold" mb={2}>
             Basic
           </Text>
           <Text fontSize="xl" mb={8} color="gray.400">
-            Try out Sweep in 5 minutes
+            Try out Sweep in 5 minutes  
           </Text>
-          <Text fontSize="4xl" fontWeight="bold">
+          <Text fontSize={{ base: "2xl", md: "4xl" }} fontWeight="bold">
             $0 <span style={{ fontWeight: "normal" }}>/ month</span>
           </Text>
           <Button colorScheme="purple" bgColor="gray.100" mt={12} onClick={() => window.open("https://github.com/apps/sweep-ai", "_blank")}>

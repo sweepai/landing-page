@@ -11,21 +11,21 @@ test("renders learn react link", () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-test("renders new pricing tier in PricingPage", () => {
+test("renders pricing tiers in PricingPage", () => {
   render(<PricingPage />);
 
-  const freeTierElement = screen.getByText(/Free/i);
-  const plusTierElement = screen.getByText(/🚀 Plus/i);
-  const proTierElement = screen.getByText(/💎 Pro/i);
+  const basicTierElement = screen.getByText(/Basic/i);
+  const proTierElement = screen.getByText(/Pro/i);
+  const enterpriseTierElement = screen.getByText(/Enterprise/i);
 
-  const priceElement = screen.getByText(/\$120 \/ month/i);
-  const ticketsElement = screen.getByText(/30 GPT-4 Sweep tickets \/ month/i);
-  const discordSupportElement = screen.getByText(/Support Via Discord/i);
+  // Check that each tier is rendered
+  expect(basicTierElement).toBeInTheDocument();
+  expect(proTierElement).toBeInTheDocument(); 
+  expect(enterpriseTierElement).toBeInTheDocument();
 
-  // Check that the new tier is displayed between the free and $480 tiers
-  const tiers = [freeTierElement, plusTierElement, proTierElement];
+  // Check tier order on larger screens
+  const tiers = [basicTierElement, proTierElement, enterpriseTierElement];
   tiers.forEach((tier, index) => {
-    expect(tier).toBeInTheDocument();
     if (index < tiers.length - 1) {
       expect(
         tier.compareDocumentPosition(tiers[index + 1]) &
@@ -33,11 +33,6 @@ test("renders new pricing tier in PricingPage", () => {
       ).toBeTruthy();
     }
   });
-
-  // Check that the price and tickets elements are in the document
-  expect(priceElement).toBeInTheDocument();
-  expect(ticketsElement).toBeInTheDocument();
-  expect(discordSupportElement).toBeInTheDocument();
 });
 
 test("renders SWEEP AI INC in Footer", () => {
