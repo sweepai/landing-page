@@ -136,7 +136,7 @@ export default function CallToAction() {
           Contact us
         </Button>
         <ExternalLinkWithText
-          href="https://discord.gg/sweep" // updated link
+          href="https://community.sweep.dev/" 
           color="purple.400"
           mt="0 !important"
           style={{
