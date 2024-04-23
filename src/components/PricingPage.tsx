@@ -61,8 +61,8 @@ const PricingPage = () => (
           <Text fontSize="4xl" fontWeight="bold" mt={4}>
             $480 <span style={{ fontWeight: "normal" }}>/ month</span>
           </Text>
-          <Button colorScheme="purple" bgColor="gray.100" mt={12} alignSelf="center" onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
-            Purchase
+          <Button colorScheme="purple" bgColor="gray.100" mt={12} alignSelf="center" onClick={() => window.open("https://buy.stripe.com/startTrial", "_blank")}>
+            Start 7-day trial
           </Button>
         </Box>
       </Box>
@@ -89,8 +89,8 @@ const PricingPage = () => (
           <Text fontSize="4xl" fontWeight="bold" mt={4}>
             Custom
           </Text>
-          <Button colorScheme="purple" bgColor="gray.100" mt={12} alignSelf="center" onClick={() => window.open("https://form.typeform.com/to/wliuvyWE", "_blank")}>
-            Contact us
+          <Button colorScheme="purple" bgColor="gray.100" mt={12} alignSelf="center" onClick={() => window.open("https://docs.sweep.dev/deployment", "_blank")}>
+            Self-host Sweep
           </Button>
         </Box>
       </Box>
@@ -110,7 +110,7 @@ const PricingPage = () => (
       <Box as="ul" style={{ listStyleType: 'none' }} color="gray.400" fontSize="lg">
         <li>✔ Unlimited GPT-4 Sweep issues</li>
         <li>✔ Fine-tuned retrieval model</li>
-        <li>✔ Self-hosted backend</li>
+        <li>✔ Self-hosted, air-gapped, backend</li>
         <li>✔ Enterprise support</li>
       </Box>
     </SimpleGrid>
