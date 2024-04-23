@@ -11,9 +11,10 @@ import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { useState } from "react";
 import logo from "../assets/icon.png";
 
+import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import ExternalLinkWithText from "./ExternalLinkWithText";
 import { TypeAnimation } from "react-type-animation";
-const demo = require("../assets/demo.mp4");
+const demo = require("../assets/demo.mp4");  
 
 export default function CallToAction() {
   const [spin, setSpin] = useState(false);
@@ -136,15 +137,16 @@ export default function CallToAction() {
         </Button>
         <ExternalLinkWithText
           href="https://community.sweep.dev/"
-          color="purple.400"
+          color="purple.400" 
           mt="0 !important"
           style={{
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
           }}
+          emoji={faDiscord}
         >
-          &nbsp;&nbsp;Join our community
+          &nbsp;&nbsp;Join our community  
         </ExternalLinkWithText>
         <Flex w={"full"} mt="4rem !important">
           <Container width="100vw" boxShadow="0 0 80px #181818" p={0} maxWidth="full">
