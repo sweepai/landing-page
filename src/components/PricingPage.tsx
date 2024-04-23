@@ -97,7 +97,7 @@ const PricingPage = () => (
     </SimpleGrid>
     <SimpleGrid columns={{ base: 1, md: 3 }} px={16}>
       <Box as="ul" style={{ listStyleType: 'none' }} color="gray.400" fontSize="lg">
-        <li>✔ 5 GPT-4 Sweep tickets / month</li>
+        <li>✔ Unlimited uses of <Link href="https://docs.sweep.dev/cli">Sweep CLI</Link></li>
         <li>✔ Self-host Sweep for free</li>
         <br />
         <li><em>Purchase additional GPT-4 tickets <Link href="https://buy.stripe.com/00g3fh7qF85q0AE14d" color="#89CFF0">here</Link>.</em></li>
