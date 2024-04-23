@@ -137,7 +137,7 @@ export default function CallToAction() {
           &nbsp;&nbsp;Install Sweep
         </Button>
         <ExternalLinkWithText
-          href="https://discord.gg/sweep" // updated link
+          href="https://community.sweep.dev/"
           color="purple.400"
           mt="0 !important"
           style={{
@@ -147,7 +147,7 @@ export default function CallToAction() {
           }}
         >
           <FaDiscord />
-          &nbsp;&nbsp;Join our Discord
+          &nbsp;&nbsp;Join our community
         </ExternalLinkWithText>
         <Flex w={"full"} mt="4rem !important">
           <Container width="100vw" boxShadow="0 0 80px #181818" p={0} maxWidth="full">
