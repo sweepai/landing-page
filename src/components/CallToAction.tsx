@@ -144,7 +144,7 @@ export default function CallToAction() {
             alignItems: "center",
           }}
         >
-          &nbsp;&nbsp;Join our community
+          🌐&nbsp;&nbsp;Join our community  
         </ExternalLinkWithText>
         <Flex w={"full"} mt="4rem !important">
           <Container width="100vw" boxShadow="0 0 80px #181818" p={0} maxWidth="full">
