@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { tsParticles } from "tsparticles";
 import { loadConfettiPreset } from "tsparticles-preset-confetti";
-import { FaDiscord, FaGithub } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { useState } from "react";
 import logo from "../assets/icon.png";
 
@@ -146,7 +146,6 @@ export default function CallToAction() {
             alignItems: "center",
           }}
         >
-          <FaDiscord />
           &nbsp;&nbsp;Join our community
         </ExternalLinkWithText>
         <Flex w={"full"} mt="4rem !important">
