@@ -8,7 +8,6 @@ import {
 } from "@chakra-ui/react";
 import { tsParticles } from "tsparticles";
 import { loadConfettiPreset } from "tsparticles-preset-confetti";
-import { FaGithub } from "react-icons/fa";
 import { useState } from "react";
 import logo from "../assets/icon.png";
 
@@ -129,12 +128,11 @@ export default function CallToAction() {
           colorScheme={"purple"}
           bg={"purple.400"}
           _hover={{ bg: "purple.600" }}
-          onClick={() => window.open("https://github.com/apps/sweep-ai")}
+          onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}
           fontSize={"xl"}
           mb="1rem !important"
         >
-          <FaGithub />
-          &nbsp;&nbsp;Install Sweep
+          Contact us
         </Button>
         <ExternalLinkWithText
           href="https://community.sweep.dev/"
