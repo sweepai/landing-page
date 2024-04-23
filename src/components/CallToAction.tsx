@@ -13,6 +13,8 @@ import logo from "../assets/icon.png";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
 import { TypeAnimation } from "react-type-animation";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 const demo = require("../assets/demo.mp4");
 
 export default function CallToAction() {
@@ -144,7 +146,7 @@ export default function CallToAction() {
             alignItems: "center",
           }}
         >
-          &nbsp;&nbsp;Join our community
+          <FontAwesomeIcon icon={faUsers} />&nbsp;&nbsp;Join our community
         </ExternalLinkWithText>
         <Flex w={"full"} mt="4rem !important">
           <Container width="100vw" boxShadow="0 0 80px #181818" p={0} maxWidth="full">
