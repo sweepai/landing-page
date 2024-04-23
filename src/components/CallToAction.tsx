@@ -14,7 +14,7 @@ import logo from "../assets/icon.png";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import ExternalLinkWithText from "./ExternalLinkWithText";
 import { TypeAnimation } from "react-type-animation";
-const demo = require("../assets/demo.mp4");
+const demo = require("../assets/demo.mp4");  
 
 export default function CallToAction() {
   const [spin, setSpin] = useState(false);

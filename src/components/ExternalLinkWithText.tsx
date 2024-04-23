@@ -9,9 +9,12 @@ type ExternalLinkWithTextProps = {
     href: string
     includeIcon?: boolean,
     emoji?: IconDefinition  
+    emoji?: IconDefinition  
 } & LinkProps;
 
-export default function ExternalLinkWithText({ children, href, includeIcon = true, ...rest }: ExternalLinkWithTextProps) : JSX.Element {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+export default function ExternalLinkWithText({ children, href, includeIcon = true, emoji, ...rest }: ExternalLinkWithTextProps) : JSX.Element {
     return (
         <Link href={href} isExternal rel="noopener noreferrer" {...rest}>
             {emoji && <><FontAwesomeIcon icon={emoji} />&nbsp;</>}
