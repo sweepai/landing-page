@@ -385,7 +385,7 @@ export default function Features() {
                 <Box m={8} flexWrap="wrap" justifyContent="space-around" w={{ base: "full", sm: "80%" }} textAlign="center">
                     <Text mb={4} fontSize="3xl">See example tickets, handled by Sweep</Text>
                     <Button colorScheme="purple" size="sm" mt={4} onClick={() => window.open("https://docs.sweep.dev/about/examples")}>
-                        <FaBook />&nbsp;&nbsp;Example Sweep tickets
+                        <FaBook />&nbsp;&nbsp;Read our blog post with example Sweep tickets
                     </Button>
                 </Box>
             </Box >
