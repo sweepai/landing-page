@@ -166,7 +166,7 @@ export default function Features() {
                                 borderWidth={2}
                             >
                                 <Text fontSize="sm" color="white">
-                                    Refactor vector_db.py by making <code>get_deeplake_vs_from_repo</code> more modular
+                                    We're now SOC 2 certified! Read our blog post to learn more about what this means and how it benefits you as a Sweep user.
                                 </Text>
                             </Dialog>
                             <Dialog user={<img src={logo} alt="Sweep logo" />}>
