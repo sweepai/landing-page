@@ -132,7 +132,7 @@ export default function CallToAction() {
           fontSize={"xl"}
           mb="1rem !important"
         >
-          Install
+          Get started - free
         </Button>
         <ExternalLinkWithText
           href="https://form.typeform.com/to/wliuvyWE"
