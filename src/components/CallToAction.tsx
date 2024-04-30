@@ -121,31 +121,31 @@ export default function CallToAction() {
         >
           AI Junior Developer that maintains your legacy codebase
         </Text>
-        <Button
-          color="white"
-          p={6}
-          colorScheme={"purple"}
-          bg={"purple.400"}
-          _hover={{ bg: "purple.600" }}
-          onClick={() => window.open("https://github.com/apps/sweep-ai")}
-          fontSize={"xl"}
-          mb="1rem !important"
-          mr="1rem !important"
-        >
-          Get started - free
-        </Button>
-        <Button
-          color="white"
-          p={6}
-          colorScheme={"purple"}
-          bg={"purple.400"}
-          _hover={{ bg: "purple.600" }}
-          onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}
-          fontSize={"xl"}
-          mb="1rem !important"
-        >
-          Book a demo
-        </Button>
+        <Stack direction="row" spacing={4}>
+          <Button
+            color="white"
+            p={6}
+            colorScheme={"purple"}
+            bg={"purple.400"}
+            _hover={{ bg: "purple.600" }}
+            onClick={() => window.open("https://github.com/apps/sweep-ai")}
+            fontSize={"xl"}
+            mr="1rem !important"
+          >
+            Get started - free
+          </Button>
+          <Button
+            color="white"
+            p={6}
+            colorScheme={"purple"}
+            bg={"purple.400"}
+            _hover={{ bg: "purple.600" }}
+            onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}
+            fontSize={"xl"}
+          >
+            Book a demo
+          </Button>
+        </Stack>
         {/* <ExternalLinkWithText
           href="https://form.typeform.com/to/wliuvyWE"
           color="purple.400"
