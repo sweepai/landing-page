@@ -11,7 +11,6 @@ import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { useState } from "react";
 import logo from "../assets/icon.png";
 
-import ExternalLinkWithText from "./ExternalLinkWithText";
 import { TypeAnimation } from "react-type-animation";
 const demo = require("../assets/demo.mp4");
 
@@ -131,10 +130,23 @@ export default function CallToAction() {
           onClick={() => window.open("https://github.com/apps/sweep-ai")}
           fontSize={"xl"}
           mb="1rem !important"
+          mr="1rem !important"
         >
           Get started - free
         </Button>
-        <ExternalLinkWithText
+        <Button
+          color="white"
+          p={6}
+          colorScheme={"purple"}
+          bg={"purple.400"}
+          _hover={{ bg: "purple.600" }}
+          onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}
+          fontSize={"xl"}
+          mb="1rem !important"
+        >
+          Book a demo
+        </Button>
+        {/* <ExternalLinkWithText
           href="https://form.typeform.com/to/wliuvyWE"
           color="purple.400"
           mt="0 !important"
@@ -145,7 +157,7 @@ export default function CallToAction() {
           }}
         >
           &nbsp;&nbsp;Book a call
-        </ExternalLinkWithText>
+        </ExternalLinkWithText> */}
         <Flex w={"full"} mt="4rem !important">
           <Container width="100vw" boxShadow="0 0 80px #181818" p={0} maxWidth="full">
             <video src={demo} autoPlay muted loop playsInline>
