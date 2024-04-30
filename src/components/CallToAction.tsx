@@ -128,14 +128,14 @@ export default function CallToAction() {
           colorScheme={"purple"}
           bg={"purple.400"}
           _hover={{ bg: "purple.600" }}
-          onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}
+          onClick={() => window.open("https://github.com/apps/sweep-ai")}
           fontSize={"xl"}
           mb="1rem !important"
         >
-          Contact us
+          Get started - free
         </Button>
         <ExternalLinkWithText
-          href="https://community.sweep.dev/"
+          href="https://form.typeform.com/to/wliuvyWE"
           color="purple.400"
           mt="0 !important"
           style={{
@@ -144,7 +144,7 @@ export default function CallToAction() {
             alignItems: "center",
           }}
         >
-          &nbsp;&nbsp;Join our community
+          &nbsp;&nbsp;Book a call
         </ExternalLinkWithText>
         <Flex w={"full"} mt="4rem !important">
           <Container width="100vw" boxShadow="0 0 80px #181818" p={0} maxWidth="full">
