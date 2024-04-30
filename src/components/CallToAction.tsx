@@ -2,7 +2,6 @@ import {
   Flex,
   Container,
   Heading,
-  Stack,
   Text,
   Button,
 } from "@chakra-ui/react";
@@ -130,7 +129,7 @@ export default function CallToAction() {
             </video>
           </Container>
         </Flex>
-      </Stack>
+      </Flex>
     </Container>
   );
 }
