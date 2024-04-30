@@ -13,6 +13,9 @@ import logo from "../assets/icon.png";
 
 import ExternalLinkWithText from "./ExternalLinkWithText";
 import { TypeAnimation } from "react-type-animation";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+
 const demo = require("../assets/demo.mp4");
 
 export default function CallToAction() {
@@ -132,7 +135,7 @@ export default function CallToAction() {
           fontSize={"xl"}
           mb="1rem !important"
         >
-          Contact us
+          <FontAwesomeIcon icon={faCalendarAlt} />&nbsp;Book a call
         </Button>
         <ExternalLinkWithText
           href="https://community.sweep.dev/"
