@@ -122,6 +122,8 @@ export default function CallToAction() {
         >
           AI Junior Developer that maintains your legacy codebase
         </Text>
+import { FaPhone } from 'react-icons/fa';
+
         <Button
           color="white"
           p={6}
@@ -131,6 +133,7 @@ export default function CallToAction() {
           onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}
           fontSize={"xl"}
           mb="1rem !important"
+          leftIcon={<FaPhone />}
         >
           Contact us
         </Button>
