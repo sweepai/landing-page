@@ -6,6 +6,7 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
+import { PhoneIcon } from "@chakra-ui/icons";
 import { tsParticles } from "tsparticles";
 import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { useState } from "react";
@@ -124,13 +125,14 @@ export default function CallToAction() {
         </Text>
         <Button
           color="white"
-          p={6}
+          p={4}
           colorScheme={"purple"}
           bg={"purple.400"}
           _hover={{ bg: "purple.600" }}
           onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}
           fontSize={"xl"}
           mb="1rem !important"
+          leftIcon={<PhoneIcon boxSize={6} />}
         >
           Contact us
         </Button>
