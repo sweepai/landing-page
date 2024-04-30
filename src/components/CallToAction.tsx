@@ -6,6 +6,7 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
+import { FaPhone } from 'react-icons/fa';
 import { tsParticles } from "tsparticles";
 import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { useState } from "react";
@@ -122,17 +123,22 @@ export default function CallToAction() {
         >
           AI Junior Developer that maintains your legacy codebase
         </Text>
+import { FaPhone } from 'react-icons/fa';
+
         <Button
           color="white"
           p={6}
-          colorScheme={"purple"}
+          colorScheme={"purple"} 
           bg={"purple.400"}
           _hover={{ bg: "purple.600" }}
           onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}
-          fontSize={"xl"}
+          fontSize={"xl"} 
           mb="1rem !important"
+          leftIcon={<FaPhone />}
         >
-          Contact us
+          <>
+            Contact us
+          </>
         </Button>
         <ExternalLinkWithText
           href="https://community.sweep.dev/"
