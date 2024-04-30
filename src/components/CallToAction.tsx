@@ -21,11 +21,12 @@ export default function CallToAction() {
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
   return (
     <Container maxW={"5xl"}>
-      <Stack
+      <Flex
+        direction="column"
         textAlign={"center"}
         align={"center"}
-        spacing={{ base: 8, md: 10 }}
-        py={{ base: 4, md: 15 }}
+        spacing={4}
+        py={8}
         style={{ paddingTop: "0 !important" }}
         mb={36}
       >
@@ -54,29 +55,6 @@ export default function CallToAction() {
             });
           }}
         />
-        {/* <img src={logo} alt="Logo" width={120} height={120} style={{
-          animation: "bob 0.75s ease-in-out infinite alternate",
-        }} /> */}
-        {/* <style>
-          {`
-            @keyframes bob {
-              from {
-                transform: translateY(0);
-              }
-              to {
-                transform: translateY(15px);
-              }
-            }
-            @keyframes spin {
-              from {
-                transform: rotate(0deg) scale(1);
-              }
-              to {
-                transform: rotate(360deg);
-              }
-            }
-          `}
-        </style> */}
         <Heading
           fontWeight={600}
           fontSize={{ base: "3xl", sm: "4xl", md: "5xl" }}
@@ -97,21 +75,6 @@ export default function CallToAction() {
             repeat={Infinity}
             cursor={false}
           />
-          {/* &nbsp;my&nbsp; */}
-          {/* <TypeAnimation
-            sequence={[
-              "data pipeline",
-              4000,
-              'flask app',
-              4000,
-              'ML pipeline',
-              4000,
-            ]}
-            wrapper="span"
-            speed={50}
-            repeat={Infinity}
-            cursor={false}
-          /> */}
         </Heading>
         <Text
           color={"purple.400"}
@@ -121,31 +84,33 @@ export default function CallToAction() {
         >
           AI Junior Developer that maintains your legacy codebase
         </Text>
-        <Button
-          color="white"
-          p={6}
-          colorScheme={"purple"}
-          bg={"purple.400"}
-          _hover={{ bg: "purple.600" }}
-          onClick={() => window.open("https://github.com/apps/sweep-ai")}
-          fontSize={"xl"}
-          mb="1rem !important"
-          mr="1rem !important"
-        >
-          Get started - free
-        </Button>
-        <Button
-          color="white"
-          p={6}
-          colorScheme={"purple"}
-          bg={"purple.400"}
-          _hover={{ bg: "purple.600" }}
-          onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}
-          fontSize={"xl"}
-          mb="1rem !important"
-        >
-          Book a demo
-        </Button>
+        <Flex direction="row">
+          <Button
+            color="white"
+            p={6}
+            colorScheme={"purple"}
+            bg={"purple.400"}
+            _hover={{ bg: "purple.600" }}
+            onClick={() => window.open("https://github.com/apps/sweep-ai")}
+            fontSize={"xl"}
+            mb="1rem !important"
+            mr="1rem !important"
+          >
+            Get started - free
+          </Button>
+          <Button
+            color="white"
+            p={6}
+            colorScheme={"purple"}
+            bg={"purple.400"}
+            _hover={{ bg: "purple.600" }}
+            onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}
+            fontSize={"xl"}
+            mb="1rem !important"
+          >
+            Book a demo
+          </Button>
+        </Flex>
         {/* <ExternalLinkWithText
           href="https://form.typeform.com/to/wliuvyWE"
           color="purple.400"
