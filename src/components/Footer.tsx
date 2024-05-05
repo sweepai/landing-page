@@ -64,7 +64,7 @@ export default function Footer() {
             height="10px"
           />
         </Link>
-        <p className="transparentText">© 2023 Sweep AI, Inc.</p>
+        <p className="transparentText">© {new Date().getFullYear()} Sweep AI, Inc.</p>
       </Stack>
     </Box>
   );
