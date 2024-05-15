@@ -103,12 +103,12 @@ const PricingPage = () => (
         <li><em>Purchase additional GPT-4 tickets <Link href="https://buy.stripe.com/00g3fh7qF85q0AE14d" color="#89CFF0">here</Link>.</em></li>
       </Box>
       <Box as="ul" style={{ listStyleType: 'none' }} color="gray.400" fontSize="lg">
-        <li>✔ Unlimited GPT-4 Sweep issues</li>
+        <li>✔ Unlimited Sweep issues</li>
         <li>✔ Faster search with live re-indexing</li>
         <li>✔ Commercial SLA</li>
       </Box>
       <Box as="ul" style={{ listStyleType: 'none' }} color="gray.400" fontSize="lg">
-        <li>✔ Unlimited GPT-4 Sweep issues</li>
+        <li>✔ Unlimited Sweep issues</li>
         <li>✔ Fine-tuned retrieval model</li>
         <li>✔ Self-hosted, air-gapped, backend</li>
         <li>✔ Enterprise support</li>
