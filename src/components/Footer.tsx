@@ -43,7 +43,7 @@ export default function Footer() {
           Privacy
         </Link>
         <Link
-          href="/terms-of-use.pdf"
+          href="/tos.pdf"
           textAlign={{ base: "center", md: "left" }}
         >
           Terms of Use
