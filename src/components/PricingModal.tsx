@@ -22,11 +22,11 @@ export default function PricingModal() {
             </Text>
             <Box as="ul" style={{ listStyleType: 'none' }}>
               <li>✔ 5 GPT-4 Sweep tickets / month</li>
-              <li>✔ Unlimited GPT-3.5 Sweep issues</li>
+              <li>✔ Unlimited uses of <a href="https://docs.sweep.dev/cli" target="_blank" rel="noreferrer">Sweep CLI</a></li>
               <br />
               <li>
                 <Button colorScheme="purple" onClick={() => window.open("https://buy.stripe.com/7sI4jlaCR3PaabebIP", "_blank")}>
-                  Extended trial
+                  Extended trial 
                 </Button>
                 &nbsp;- make a <b>one-time purchase</b> of 15 additional PRs
               </li>
