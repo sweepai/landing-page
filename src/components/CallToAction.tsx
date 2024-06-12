@@ -5,6 +5,7 @@ import {
   Stack,
   Text,
   Button,
+  Link,
 } from "@chakra-ui/react";
 import { tsParticles } from "tsparticles";
 import { loadConfettiPreset } from "tsparticles-preset-confetti";
@@ -128,23 +129,14 @@ export default function CallToAction() {
             colorScheme={"purple"}
             bg={"purple.400"}
             _hover={{ bg: "purple.600" }}
-            onClick={() => window.open("https://github.com/apps/sweep-ai")}
-            fontSize={"xl"}
-            mr="1rem !important"
-          >
-            Get started - free
-          </Button>
-          <Button
-            color="white"
-            p={6}
-            colorScheme={"purple"}
-            bg={"purple.400"}
-            _hover={{ bg: "purple.600" }}
             onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}
             fontSize={"xl"}
           >
-            Book a demo
+            Book a Demo
           </Button>
+          <Link href="https://docs.sweep.dev/cli" color="#9B9EF2">
+            Install our CLI
+          </Link>
         </Stack>
         {/* <ExternalLinkWithText
           href="https://form.typeform.com/to/wliuvyWE"
