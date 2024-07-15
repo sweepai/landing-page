@@ -1,11 +1,43 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import CallToAction from '../components/CallToAction';
 
+jest.mock('../assets/demo.mp4', () => 'mocked-demo-video-path');
+
 describe('CallToAction component', () => {
-  it('renders the correct YouTube video link', () => {
-    const { getByTitle } = render(<CallToAction />);
-    const iframeElement = getByTitle('YouTube video player');
-    expect(iframeElement.getAttribute('src')).toBe('https://www.youtube.com/embed/GVEkDZmWw8E?autoplay=1&mute=1&loop=1&vq=hd1080&modestbranding=1&controls=0');
+  it('renders the video element with correct attributes', () => {
+    render(<CallToAction />);
+    const videoElement = screen.getByRole('presentation');
+    expect(videoElement).toBeInTheDocument();
+    expect(videoElement).toHaveAttribute('src', 'mocked-demo-video-path');
+    expect(videoElement).toHaveAttribute('autoPlay');
+    expect(videoElement).toHaveAttribute('muted');
+    expect(videoElement).toHaveAttribute('loop');
+    expect(videoElement).toHaveAttribute('playsInline');
+  });
+
+  it('renders the correct heading and subheading', () => {
+    render(<CallToAction />);
+    expect(screen.getByText(/Sweep:/)).toBeInTheDocument();
+    expect(screen.getByText('AI Junior Developer that maintains your legacy codebase')).toBeInTheDocument();
+  });
+
+  it('renders the "Get started - free" button', () => {
+    render(<CallToAction />);
+    const getStartedButton = screen.getByText('Get started - free');
+    expect(getStartedButton).toBeInTheDocument();
+    expect(getStartedButton).toHaveStyle('background: var(--chakra-colors-green-400)');
+  });
+
+  it('renders the "Book a demo" button', () => {
+    render(<CallToAction />);
+    const bookDemoButton = screen.getByText('Book a demo');
+    expect(bookDemoButton).toBeInTheDocument();
+    expect(bookDemoButton).toHaveStyle('background: var(--chakra-colors-green-400)');
+  });
+
+  it('renders the TypeAnimation component', () => {
+    render(<CallToAction />);
+    expect(screen.getByText('Fix the date formatting bug in our CRM')).toBeInTheDocument();
   });
 });
