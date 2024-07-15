@@ -41,4 +41,30 @@ describe('CallToAction component', () => {
     expect(videoElement).toHaveAttribute('loop');
     expect(videoElement).toHaveAttribute('playsInline');
   });
+
+  it('renders the heading with correct text', () => {
+    render(<CallToAction />);
+    const heading = screen.getByRole('heading', { level: 1 });
+    expect(heading).toHaveTextContent(/^Sweep:/);
+  });
+
+  it('renders the subheading with correct text', () => {
+    render(<CallToAction />);
+    const subheading = screen.getByText('AI Junior Developer that maintains your legacy codebase');
+    expect(subheading).toBeInTheDocument();
+  });
+
+  it('renders the "Get started - free" button with correct styles', () => {
+    render(<CallToAction />);
+    const getStartedButton = screen.getByRole('button', { name: 'Get started - free' });
+    expect(getStartedButton).toBeInTheDocument();
+    expect(getStartedButton).toHaveStyle('background-color: var(--chakra-colors-green-400)');
+  });
+
+  it('renders the "Book a demo" button with correct styles', () => {
+    render(<CallToAction />);
+    const bookDemoButton = screen.getByRole('button', { name: 'Book a demo' });
+    expect(bookDemoButton).toBeInTheDocument();
+    expect(bookDemoButton).toHaveStyle('background-color: var(--chakra-colors-green-400)');
+  });
 });
