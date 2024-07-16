@@ -1,5 +1,6 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+// eslint-disable-next-line no-unused-vars
+import { render, screen, fireEvent } from '@testing-library/react';
 import CallToAction from '../components/CallToAction';
 
 describe('CallToAction component', () => {
