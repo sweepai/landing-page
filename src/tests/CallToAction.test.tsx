@@ -9,7 +9,7 @@ describe('CallToAction component', () => {
     expect(iframeElement.getAttribute('src')).toBe('https://www.youtube.com/embed/GVEkDZmWw8E?autoplay=1&mute=1&loop=1&vq=hd1080&modestbranding=1&controls=0');
   });
 
-  it('renders CallToAction component with green buttons', () => {
+  it('renders CallToAction component with green buttons and white text', () => {
     const { getByText } = render(<CallToAction />);
     const getStartedButton = getByText(/Get started - free/i);
     const bookDemoButton = getByText(/Book a demo/i);
@@ -18,6 +18,8 @@ describe('CallToAction component', () => {
     expect(bookDemoButton).toBeInTheDocument();
 
     expect(getStartedButton).toHaveStyle('background-color: var(--chakra-colors-green-400)');
+    expect(getStartedButton).toHaveStyle('color: white');
     expect(bookDemoButton).toHaveStyle('background-color: var(--chakra-colors-green-400)');
+    expect(bookDemoButton).toHaveStyle('color: white');
   });
 });
