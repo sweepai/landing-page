@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import CallToAction from '../components/CallToAction';
 
 describe('CallToAction component', () => {
@@ -56,5 +56,44 @@ describe('CallToAction component', () => {
 
     expect(getStartedButton).toHaveStyle('font-size: var(--chakra-fontSizes-xl)');
     expect(bookDemoButton).toHaveStyle('font-size: var(--chakra-fontSizes-xl)');
+  });
+
+  it('calls the correct function when buttons are clicked', () => {
+    const openMock = jest.fn();
+    global.window.open = openMock;
+
+    render(<CallToAction />);
+
+    const getStartedButton = screen.getByText('Get started - free');
+    const bookDemoButton = screen.getByText('Book a demo');
+
+    fireEvent.click(getStartedButton);
+    expect(openMock).toHaveBeenCalledWith('https://github.com/apps/sweep-ai');
+
+    fireEvent.click(bookDemoButton);
+    expect(openMock).toHaveBeenCalledWith('https://form.typeform.com/to/wliuvyWE');
+  });
+
+  it('renders buttons with correct accessibility attributes', () => {
+    render(<CallToAction />);
+
+    const getStartedButton = screen.getByText('Get started - free');
+    const bookDemoButton = screen.getByText('Book a demo');
+
+    expect(getStartedButton).toHaveAttribute('role', 'button');
+    expect(bookDemoButton).toHaveAttribute('role', 'button');
+
+    expect(getStartedButton).toHaveAttribute('aria-label', 'Get started - free');
+    expect(bookDemoButton).toHaveAttribute('aria-label', 'Book a demo');
+  });
+
+  it('renders component responsively', () => {
+    const { container } = render(<CallToAction />);
+
+    expect(container.firstChild).toHaveStyle('max-width: 5xl');
+
+    const stack = container.querySelector('div > div'); // Assuming the Stack is the second div
+    expect(stack).toHaveStyle('text-align: center');
+    expect(stack).toHaveStyle('align-items: center');
   });
 });
