@@ -9,6 +9,12 @@ describe('CallToAction component', () => {
     expect(iframeElement.getAttribute('src')).toBe('https://www.youtube.com/embed/GVEkDZmWw8E?autoplay=1&mute=1&loop=1&vq=hd1080&modestbranding=1&controls=0');
   });
 
+  it('renders the correct YouTube video link', () => {
+    const { getByTitle } = render(<CallToAction />);
+    const iframeElement = getByTitle('YouTube video player');
+    expect(iframeElement.getAttribute('src')).toBe('https://www.youtube.com/embed/GVEkDZmWw8E?autoplay=1&mute=1&loop=1&vq=hd1080&modestbranding=1&controls=0');
+  });
+
   it('renders CallToAction component with green buttons', () => {
     const { getByText } = render(<CallToAction />);
     const getStartedButton = getByText(/Get started - free/i);
