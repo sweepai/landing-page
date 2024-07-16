@@ -46,7 +46,7 @@ export default function Footer() {
           href="/tos.pdf"
           textAlign={{ base: "center", md: "left" }}
         >
-          Terms of Services
+          Terms of Use
         </Link>
         <Link
           href="https://ycombinator.com/companies/sweep"

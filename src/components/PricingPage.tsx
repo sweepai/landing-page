@@ -97,18 +97,18 @@ const PricingPage = () => (
     </SimpleGrid>
     <SimpleGrid columns={{ base: 1, md: 3 }} px={16}>
       <Box as="ul" style={{ listStyleType: 'none' }} color="gray.400" fontSize="lg">
-        <li>✔ 5 GPT-4 Sweep tickets / month</li>
+        <li>✔ Unlimited uses of <Link href="https://docs.sweep.dev/cli">Sweep CLI</Link></li>
         <li>✔ Self-host Sweep for free</li>
         <br />
-        <li><em>Purchase additional GPT-4 tickets <Link href="https://buy.stripe.com/00g3fh7qF85q0AE14d" color="#89CFF0">here</Link>.</em></li>
+        <li><em>Run Sweep locally using our <Link href="https://docs.sweep.dev/cli" color="#89CFF0">CLI</Link>.</em></li>
       </Box>
       <Box as="ul" style={{ listStyleType: 'none' }} color="gray.400" fontSize="lg">
-        <li>✔ Unlimited GPT-4 Sweep issues</li>
+        <li>✔ Unlimited Sweep issues</li>
         <li>✔ Faster search with live re-indexing</li>
         <li>✔ Commercial SLA</li>
       </Box>
       <Box as="ul" style={{ listStyleType: 'none' }} color="gray.400" fontSize="lg">
-        <li>✔ Unlimited GPT-4 Sweep issues</li>
+        <li>✔ Unlimited Sweep issues</li>
         <li>✔ Fine-tuned retrieval model</li>
         <li>✔ Self-hosted, air-gapped, backend</li>
         <li>✔ Enterprise support</li>

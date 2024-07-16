@@ -8,11 +8,9 @@ import {
 } from "@chakra-ui/react";
 import { tsParticles } from "tsparticles";
 import { loadConfettiPreset } from "tsparticles-preset-confetti";
-import { FaDiscord, FaGithub } from "react-icons/fa";
 import { useState } from "react";
 import logo from "../assets/icon.png";
 
-import ExternalLinkWithText from "./ExternalLinkWithText";
 import { TypeAnimation } from "react-type-animation";
 const demo = require("../assets/demo.mp4");
 
@@ -123,21 +121,33 @@ export default function CallToAction() {
         >
           AI Junior Developer that maintains your legacy codebase
         </Text>
-        <Button
-          color="white"
-          p={6}
-          colorScheme={"purple"}
-          bg={"purple.400"}
-          _hover={{ bg: "purple.600" }}
-          onClick={() => window.open("https://github.com/apps/sweep-ai")}
-          fontSize={"xl"}
-          mb="1rem !important"
-        >
-          <FaGithub />
-          &nbsp;&nbsp;Install Sweep
-        </Button>
-        <ExternalLinkWithText
-          href="https://discord.gg/sweep" // updated link
+        <Stack direction="row" spacing={4}>
+          <Button
+            color="white"
+            p={6}
+            colorScheme={"orange"}
+            bg={"orange.400"}
+            _hover={{ bg: "orange.600" }}
+            onClick={() => window.open("https://github.com/apps/sweep-ai")}
+            fontSize={"xl"}
+            mr="1rem !important"
+          >
+            Get started - free
+          </Button>
+          <Button
+            color="white"
+            p={6}
+            colorScheme={"orange"}
+            bg={"orange.400"}
+            _hover={{ bg: "orange.600" }}
+            onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}
+            fontSize={"xl"}
+          >
+            Book a demo
+          </Button>
+        </Stack>
+        {/* <ExternalLinkWithText
+          href="https://form.typeform.com/to/wliuvyWE"
           color="purple.400"
           mt="0 !important"
           style={{
@@ -146,9 +156,8 @@ export default function CallToAction() {
             alignItems: "center",
           }}
         >
-          <FaDiscord />
-          &nbsp;&nbsp;Join our Discord
-        </ExternalLinkWithText>
+          &nbsp;&nbsp;Book a call
+        </ExternalLinkWithText> */}
         <Flex w={"full"} mt="4rem !important">
           <Container width="100vw" boxShadow="0 0 80px #181818" p={0} maxWidth="full">
             <video src={demo} autoPlay muted loop playsInline>
