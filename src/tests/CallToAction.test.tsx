@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import CallToAction from '../components/CallToAction';
 
 describe('CallToAction component', () => {
@@ -10,14 +10,35 @@ describe('CallToAction component', () => {
   });
 
   it('renders CallToAction component with green buttons', () => {
-    const { getByText } = render(<CallToAction />);
-    const getStartedButton = getByText(/Get started - free/i);
-    const bookDemoButton = getByText(/Book a demo/i);
+    render(<CallToAction />);
+    const getStartedButton = screen.getByText(/Get started - free/i);
+    const bookDemoButton = screen.getByText(/Book a demo/i);
 
     expect(getStartedButton).toBeInTheDocument();
     expect(bookDemoButton).toBeInTheDocument();
 
     expect(getStartedButton).toHaveStyle('background-color: var(--chakra-colors-green-400)');
     expect(bookDemoButton).toHaveStyle('background-color: var(--chakra-colors-green-400)');
+  });
+
+  it('renders buttons with correct text and color scheme', () => {
+    render(<CallToAction />);
+    const getStartedButton = screen.getByText(/Get started - free/i);
+    const bookDemoButton = screen.getByText(/Book a demo/i);
+
+    expect(getStartedButton).toHaveAttribute('color', 'white');
+    expect(bookDemoButton).toHaveAttribute('color', 'white');
+
+    expect(getStartedButton).toHaveAttribute('colorscheme', 'green');
+    expect(bookDemoButton).toHaveAttribute('colorscheme', 'green');
+  });
+
+  it('renders buttons with correct hover styles', () => {
+    render(<CallToAction />);
+    const getStartedButton = screen.getByText(/Get started - free/i);
+    const bookDemoButton = screen.getByText(/Book a demo/i);
+
+    expect(getStartedButton).toHaveStyle('_hover: { background-color: var(--chakra-colors-green-600) }');
+    expect(bookDemoButton).toHaveStyle('_hover: { background-color: var(--chakra-colors-green-600) }');
   });
 });
