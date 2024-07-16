@@ -20,4 +20,10 @@ describe('CallToAction component', () => {
     expect(getStartedButton).toHaveStyle('background-color: var(--chakra-colors-green-400)');
     expect(bookDemoButton).toHaveStyle('background-color: var(--chakra-colors-green-400)');
   });
+
+  it('renders the correct YouTube video link', () => {
+    const { getByText } = render(<CallToAction />);
+    const youtubeLink = getByText('Watch full demo');
+    expect(youtubeLink).toHaveAttribute('href', 'https://www.youtube.com/watch?v=VDXcfNuFQZo');
+  });
 });
