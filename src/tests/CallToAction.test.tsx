@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import CallToAction from '../components/CallToAction';
 
 describe('CallToAction component', () => {
@@ -56,5 +56,39 @@ describe('CallToAction component', () => {
 
     expect(getStartedButton).toHaveStyle('font-size: var(--chakra-fontSizes-xl)');
     expect(bookDemoButton).toHaveStyle('font-size: var(--chakra-fontSizes-xl)');
+  });
+
+  it('opens correct URL when "Get started - free" button is clicked', () => {
+    const openMock = jest.fn();
+    window.open = openMock;
+    render(<CallToAction />);
+
+    const getStartedButton = screen.getByText('Get started - free');
+    fireEvent.click(getStartedButton);
+
+    expect(openMock).toHaveBeenCalledWith('https://github.com/apps/sweep-ai');
+  });
+
+  it('opens correct URL when "Book a demo" button is clicked', () => {
+    const openMock = jest.fn();
+    window.open = openMock;
+    render(<CallToAction />);
+
+    const bookDemoButton = screen.getByText('Book a demo');
+    fireEvent.click(bookDemoButton);
+
+    expect(openMock).toHaveBeenCalledWith('https://form.typeform.com/to/wliuvyWE');
+  });
+
+  it('renders the correct heading text', () => {
+    render(<CallToAction />);
+    const heading = screen.getByText(/Sweep:/i);
+    expect(heading).toBeInTheDocument();
+  });
+
+  it('renders the TypeAnimation component', () => {
+    render(<CallToAction />);
+    const typeAnimation = screen.getByText(/Fix the date formatting bug in our CRM/i);
+    expect(typeAnimation).toBeInTheDocument();
   });
 });
