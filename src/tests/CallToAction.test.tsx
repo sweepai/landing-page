@@ -11,7 +11,6 @@ describe('CallToAction component', () => {
 
   it('renders two call-to-action buttons with green color scheme', () => {
     render(<CallToAction />);
-
     const getStartedButton = screen.getByText('Get started - free');
     const bookDemoButton = screen.getByText('Book a demo');
 
@@ -27,7 +26,6 @@ describe('CallToAction component', () => {
 
   it('applies correct hover styles to call-to-action buttons', () => {
     render(<CallToAction />);
-
     const getStartedButton = screen.getByText('Get started - free');
     const bookDemoButton = screen.getByText('Book a demo');
 
@@ -37,7 +35,6 @@ describe('CallToAction component', () => {
 
   it('renders buttons with correct text content', () => {
     render(<CallToAction />);
-
     const getStartedButton = screen.getByText('Get started - free');
     const bookDemoButton = screen.getByText('Book a demo');
 
@@ -47,7 +44,6 @@ describe('CallToAction component', () => {
 
   it('renders buttons with correct size and padding', () => {
     render(<CallToAction />);
-
     const getStartedButton = screen.getByText('Get started - free');
     const bookDemoButton = screen.getByText('Book a demo');
 
