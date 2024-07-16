@@ -18,11 +18,11 @@ export default function Footer() {
         >
           Github
         </Link>
-        <Link
-          href="https://discord.gg/sweep"
+        <Link 
+          href="https://community.sweep.dev"
           textAlign={{ base: "center", md: "left" }}
         >
-          Discord
+          Community
         </Link>
         <Link
           href="https://docs.sweep.dev"
@@ -46,7 +46,7 @@ export default function Footer() {
           href="/tos.pdf"
           textAlign={{ base: "center", md: "left" }}
         >
-          Terms of Services
+          Terms of Use
         </Link>
         <Link
           href="https://ycombinator.com/companies/sweep"
