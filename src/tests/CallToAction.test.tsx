@@ -20,4 +20,22 @@ describe('CallToAction component', () => {
     expect(getStartedButton).toHaveStyle('background-color: var(--chakra-colors-green-400)');
     expect(bookDemoButton).toHaveStyle('background-color: var(--chakra-colors-green-400)');
   });
+
+  it('renders the logo image with correct initial style and changes animation on click', () => {
+    const { getByAltText } = render(<CallToAction />);
+    const logoImage = getByAltText('Logo');
+
+    // Check if the logo is present
+    expect(logoImage).toBeInTheDocument();
+    expect(logoImage).toHaveAttribute('src', expect.stringContaining('icon.png'));
+
+    // Check initial animation style
+    expect(logoImage).toHaveStyle('animation: bob 0.75s ease-in-out infinite alternate');
+
+    // Click the logo
+    fireEvent.click(logoImage);
+
+    // Check if the animation style changed after click
+    expect(logoImage).toHaveStyle('animation: spin 0.5s linear');
+  });
 });
