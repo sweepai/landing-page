@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import CallToAction from '../components/CallToAction';
 
 describe('CallToAction component', () => {
@@ -7,5 +7,31 @@ describe('CallToAction component', () => {
     const { getByTitle } = render(<CallToAction />);
     const iframeElement = getByTitle('YouTube video player');
     expect(iframeElement.getAttribute('src')).toBe('https://www.youtube.com/embed/GVEkDZmWw8E?autoplay=1&mute=1&loop=1&vq=hd1080&modestbranding=1&controls=0');
+  });
+
+  it('renders two call-to-action buttons with green color scheme and black text', () => {
+    render(<CallToAction />);
+
+    const getStartedButton = screen.getByText('Get started - free');
+    const bookDemoButton = screen.getByText('Book a demo');
+
+    expect(getStartedButton).toBeInTheDocument();
+    expect(bookDemoButton).toBeInTheDocument();
+
+    expect(getStartedButton).toHaveStyle('background-color: var(--chakra-colors-green-400)');
+    expect(bookDemoButton).toHaveStyle('background-color: var(--chakra-colors-green-400)');
+
+    expect(getStartedButton).toHaveStyle('color: black');
+    expect(bookDemoButton).toHaveStyle('color: black');
+  });
+
+  it('applies correct hover styles to call-to-action buttons', () => {
+    render(<CallToAction />);
+
+    const getStartedButton = screen.getByText('Get started - free');
+    const bookDemoButton = screen.getByText('Book a demo');
+
+    expect(getStartedButton).toHaveStyle('_hover: { background-color: var(--chakra-colors-green-600) }');
+    expect(bookDemoButton).toHaveStyle('_hover: { background-color: var(--chakra-colors-green-600) }');
   });
 });
