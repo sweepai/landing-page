@@ -20,4 +20,21 @@ describe('CallToAction component', () => {
     expect(getStartedButton).toHaveStyle('background-color: var(--chakra-colors-green-400)');
     expect(bookDemoButton).toHaveStyle('background-color: var(--chakra-colors-green-400)');
   });
+
+  it('renders the logo with correct attributes', () => {
+    const { getByAltText } = render(<CallToAction />);
+    const logo = getByAltText('Logo');
+    expect(logo).toBeInTheDocument();
+    expect(logo).toHaveAttribute('src', 'mocked-logo-path');
+    expect(logo).toHaveStyle('width: 100px');
+    expect(logo).toHaveStyle('border-radius: 50%');
+  });
+
+  it('renders TypeAnimation component with correct props', () => {
+    const { getByText } = render(<CallToAction />);
+    const typeAnimation = getByText(/Fix the date formatting bug in our CRM/);
+    expect(typeAnimation).toBeInTheDocument();
+  });
 });
+
+jest.mock('../assets/icon.png', () => 'mocked-logo-path');
