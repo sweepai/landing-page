@@ -1,5 +1,4 @@
 import { EmailIcon, HamburgerIcon } from "@chakra-ui/icons";
-import PricingModal from './PricingModal';
 import {
   Box,
   Button,
@@ -14,8 +13,9 @@ import {
   MenuList,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { Link } from 'react-router-dom';
-import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaDiscord, FaGithub, FaTwitter, FaNewspaper, FaBook, FaLock, FaBlog, FaTerminal, FaUsers } from "react-icons/fa";
+import { IoMdPeople } from "react-icons/io";
 import logo from "../assets/icon.png";
 
 export default function NavBar() {
@@ -42,64 +42,104 @@ export default function NavBar() {
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
     },
-    // {
-    //   label: "Buy Sweep Pro",
-    //   icon: <p>Buy Sweep Pro</p>,
-    //   link: "https://buy.stripe.com/fZe03512h99u0AE6os",
-    // },
+    {
+      label: "Newsletter",
+      icon: <FaNewspaper />,
+      link: "/signup",
+    },
+    {
+      label: "CLI",
+      icon: <FaTerminal />, 
+      link: "https://docs.sweep.dev/cli",
+    }
   ];
+
+  const extItems = [
+    {
+      label: "Documentation",
+      icon: <FaBook />,
+      link: "https://docs.sweep.dev",
+    },
+    {
+      label: "About us",
+      icon: <IoMdPeople />,
+      link: "/about-us",
+    },
+    {
+      label: "Blogs",
+      icon: <FaBlog />,
+      link: "https://docs.sweep.dev/blogs",
+    },
+    {
+      label: "Community",
+      icon: <FaUsers />,
+      link: "https://community.sweep.dev/",
+    },
+    {
+      label: "Security",
+      icon: <FaLock />,
+      link: "https://docs.sweep.dev/blogs/soc2",
+    },
+    // {
+    //   label: "Privacy",
+    //   icon: <FaUserSecret />,
+    //   link: "/privacy.pdf",
+    // }
+  ]
 
   return (
     <Box as="nav" bg="bg-surface" boxShadow="sm" width="full" p={4}>
       <HStack spacing="10" justify="space-between">
         <Flex justify="space-between" flex="1">
           <HStack>
-            <Button variant="ghost">
+            <Button as={Link} variant="ghost" to="/">
               <Image src={logo} alt="logo" width={10} borderRadius={12} />
               Sweep AI
             </Button>
-            <Button variant="ghost" onClick={() => window.open("https://docs.sweep.dev", "_blank")}>
-              Documentation
-            </Button>
-            <Link to="/about-us">
-              <Button variant="ghost">
-                About Us
-              </Button>
-            </Link>
-            {/* Removed conditional rendering of PricingModal */}
+            {extItems.map((item) => {
+              return (
+                <Button
+                  as="a"
+                  variant="ghost"
+                  href={item.link}
+                  target="_blank"
+                  display={listDisplay}
+                >
+                  {item.label}
+                </Button>
+              )
+            })}
           </HStack>
           <ButtonGroup variant="link" display={listDisplay}>
             {navItems.map((item) => (
               <IconButton
                 key={item.label}
+                as="a"
+                href={item.link}
+                target="_blank"
                 icon={item.icon}
                 variant="ghost"
                 aria-label={item.label}
-                onClick={() => {
-                  window.open(item.link, "_blank");
-                }}
                 px={2}
               />
             ))}
             {/* Added PricingModal to always be displayed */}
-            <PricingModal />
+            <Link to="/pricing">
+              <Button variant="ghost">Pricing</Button>
+            </Link>
           </ButtonGroup>
           <Menu>
             <MenuButton
               as={IconButton}
-              aria-label='Options'
+              aria-label="Options"
               icon={<HamburgerIcon />}
-              variant='outline'
+              variant="outline"
               display={menuDisplay}
             />
-            <MenuList
-              backgroundColor="#333"
-            >
-              {navItems.map((item) => (
+            <MenuList backgroundColor="#333">
+              {[...extItems, ...navItems].map((item) => (
                 <MenuItem backgroundColor="#333">
-                  {item.label}
-                  {
-                    item.label !== "Buy Sweep Pro" &&
+                  {item.label !== "Buy Sweep Pro" && (
                     <IconButton
                       key={item.label}
                       icon={item.icon}
@@ -109,7 +149,8 @@ export default function NavBar() {
                         window.open(item.link, "_blank");
                       }}
                     />
-                  }
+                  )}
+                  {item.label}
                 </MenuItem>
               ))}
             </MenuList>

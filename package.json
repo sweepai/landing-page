@@ -22,14 +22,17 @@
     "framer-motion": "^6.5.1",
     "prettier": "^3.0.2",
     "react": "^18.2.0",
+    "react-diff-viewer": "^3.1.1",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "react-icons": "^3.11.0",
+    "react-icons": "^5.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.1",
     "react-snap": "^1.23.0",
     "react-syntax-highlighter": "^15.5.0",
+    "react-type-animation": "^3.2.0",
     "react-window-ui": "^2.2.0",
+    "shiki": "^0.14.5",
     "tsparticles": "^1.37.3",
     "tsparticles-preset-confetti": "^1.0.0",
     "typescript": "^4.9.5",
@@ -43,7 +46,8 @@
     "lint": "eslint . --ext .ts,.tsx"
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.1.7"
+    "@types/react-router-dom": "^5.1.7",
+    "netlify-cli": "^17.15.6"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -59,5 +63,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "."
 }

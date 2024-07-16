@@ -15,11 +15,13 @@ import { useEffect } from "react";
 import Testimonials from "./components/Testimonials";
 import Users from "./components/Users";
 import AboutUs from "./components/AboutUs";
+import PricingPage from "./components/PricingPage";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import circles from "./assets/circles.svg";
 import Features from "./components/Features";
 import Conclusion from "./components/Conclusion";
+import Footer from "./components/Footer";
 
 const config: ThemeConfig = {
   initialColorMode: "dark",
@@ -46,6 +48,14 @@ window.intercomSettings = {
   app_id: "ce8fl00z",
   action_color: "#6b46c1",
   background_color: "#342867",
+};
+
+const RedirectToExternal = ({ url }: { url: string }) => {
+  useEffect(() => {
+    window.location.href = url; // 'https://form.typeform.com/to/aRlsi04N';
+  }, [url]);
+
+  return null;
 };
 
 export const App = () => {
@@ -95,7 +105,17 @@ export const App = () => {
                 <Route path="/about-us">
                   <AboutUs />
                 </Route>
+                <Route path="/pricing">
+                  <PricingPage />
+                </Route>
+                <Route path="/signup">
+                  <RedirectToExternal url={"https://form.typeform.com/to/aRlsi04N"} />
+                </Route>
+                <Route path="/install.sh">
+                  <RedirectToExternal url="https://raw.githubusercontent.com/sweepai/sweep/main/bin/install_assistant.sh" />
+                </Route>
               </Switch>
+              <Footer />
             </Router>
           </Box>
         </ForceDarkMode>
