@@ -2,6 +2,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import CallToAction from '../components/CallToAction';
 
+console.log("testing now ")
+
 describe('CallToAction component', () => {
   it('renders the correct YouTube video link', () => {
     const { getByTitle } = render(<CallToAction />);
