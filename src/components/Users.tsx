@@ -17,20 +17,18 @@ export default function Users() {
                 Trusted by engineers from
             </Text>
             <HStack spacing={4} justifyContent="center" mb={64} flexWrap="wrap" p={{ base: 20, md: "initial" }}>
-                {data.map(({ logo, href, ...props }) => (
-                    <Link href={href} isExternal key={logo}>
-                        <Image
-                            src={logo}
-                            alt="placeholder"
-                            mx={4}
-                            width={{ base: "100%", md: "150px" }}
-                            mb={{ base: 8, md: 0 }}
-                            filter={href === "https://llamahub.ai" ? "grayscale(100%)" : "grayscale(100%) invert(1)"}
-                            transition="filter 0.3s linear"
-                            _hover={{ filter: "none" }}
-                            {...props}
-                        />
-                    </Link>
+                {data.map(({ logo, ...props }) => (
+                    <Image
+                        src={logo}
+                        alt="placeholder"
+                        mx={4}
+                        width={{ base: "100%", md: "150px" }}
+                        mb={{ base: 8, md: 0 }}
+                        filter={href === "https://llamahub.ai" ? "grayscale(100%)" : "grayscale(100%) invert(1)"}
+                        transition="filter 0.3s linear"
+                        _hover={{ filter: "none" }}
+                        {...props}
+                    />
                 ))}
             </HStack>
 
