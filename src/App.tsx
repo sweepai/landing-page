@@ -12,7 +12,6 @@ import Banner from "./components/Banner";
 import og_image from "./assets/og_image.png";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { useEffect } from "react";
-import Testimonials from "./components/Testimonials";
 import Users from "./components/Users";
 import AboutUs from "./components/AboutUs";
 import PricingPage from "./components/PricingPage";
@@ -99,7 +98,6 @@ export const App = () => {
                   <CallToAction />
                   <Users />
                   <Features />
-                  <Testimonials />
                   <Conclusion />
                 </Route>
                 <Route path="/about-us">

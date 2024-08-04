@@ -83,20 +83,7 @@ export default function CallToAction() {
           lineHeight={"110%"}
           mt="0 !important"
         >
-          Sweep: <TypeAnimation
-            sequence={[
-              'Fix the date formatting bug in our CRM',
-              4000,
-              'Write unit tests following our standards',
-              4000,
-              "Help me understand why my e2e tests fail",
-              4000,
-            ]}
-            wrapper="span"
-            speed={80}
-            repeat={Infinity}
-            cursor={false}
-          />
+          Let Our AI Developer Save You Time
           {/* &nbsp;my&nbsp; */}
           {/* <TypeAnimation
             sequence={[
@@ -119,7 +106,7 @@ export default function CallToAction() {
           mt="1rem !important"
           mb="1rem !important"
         >
-          AI Developer that actually understands your codebase
+          AI Developer that understands your codebase. Ship features and write tests with half the effort.
         </Text>
         <Stack direction="row" spacing={4}>
           <Button
