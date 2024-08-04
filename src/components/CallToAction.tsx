@@ -83,7 +83,7 @@ export default function CallToAction() {
           lineHeight={"110%"}
           mt="0 !important"
         >
-          Let Our AI Developer Save You Time
+          Automate Your Team's Software Chores
           {/* &nbsp;my&nbsp; */}
           {/* <TypeAnimation
             sequence={[
