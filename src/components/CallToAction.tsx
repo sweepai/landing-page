@@ -1,18 +1,11 @@
 import {
-  Flex,
   Container,
   Heading,
   Stack,
   Text,
   Button,
 } from "@chakra-ui/react";
-import { tsParticles } from "tsparticles";
-import { loadConfettiPreset } from "tsparticles-preset-confetti";
 import { useState } from "react";
-import logo from "../assets/icon.png";
-
-import { TypeAnimation } from "react-type-animation";
-const demo = require("../assets/demo.mp4");
 
 export default function CallToAction() {
   const [spin, setSpin] = useState(false);
@@ -27,33 +20,8 @@ export default function CallToAction() {
         spacing={{ base: 8, md: 10 }}
         py={{ base: 4, md: 15 }}
         style={{ paddingTop: "0 !important" }}
-        mb={36}
+        mt="4rem !important"
       >
-        <img
-          src={logo}
-          alt="Logo"
-          style={{
-            width: "100px",
-            animation: spin
-              ? "spin 0.5s linear"
-              : "bob 0.75s ease-in-out infinite alternate",
-            marginTop: "-2rem !important",
-            marginBottom: "30px",
-            borderRadius: "50%",
-          }}
-          onClick={async () => {
-            setSpin(!spin);
-            await loadConfettiPreset(tsParticles);
-            await tsParticles.load("tsparticles", {
-              preset: "confetti",
-              particles: {
-                color: {
-                  value: ["#800080", "#FFFFFF"],
-                },
-              },
-            });
-          }}
-        />
         {/* <img src={logo} alt="Logo" width={120} height={120} style={{
           animation: "bob 0.75s ease-in-out infinite alternate",
         }} /> */}
@@ -79,34 +47,21 @@ export default function CallToAction() {
         </style> */}
         <Heading
           fontWeight={600}
-          fontSize={{ base: "3xl", sm: "4xl", md: "5xl" }}
+          fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}
           lineHeight={"110%"}
           mt="0 !important"
+          mb="1rem !important"
         >
-          Automate Your Team's Software Chores
-          {/* &nbsp;my&nbsp; */}
-          {/* <TypeAnimation
-            sequence={[
-              "data pipeline",
-              4000,
-              'flask app',
-              4000,
-              'ML pipeline',
-              4000,
-            ]}
-            wrapper="span"
-            speed={50}
-            repeat={Infinity}
-            cursor={false}
-          /> */}
+          Automate Your Team's <br></br> Software Chores
         </Heading>
         <Text
           color={"purple.400"}
-          maxW={"3xl"}
+          maxW={"md"}
           mt="1rem !important"
           mb="1rem !important"
+          fontSize={{ base: "3l", sm: "4l", md: "5l" }}
         >
-          AI Developer that understands your codebase. Ship features and write tests with half the effort.
+          AI that understands your codebase. Ship new features and tests with half the effort.
         </Text>
         <Stack direction="row" spacing={4}>
           <Button
@@ -118,16 +73,9 @@ export default function CallToAction() {
             onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}
             fontSize={"xl"}
           >
-            Book a demo
+            Get Started
           </Button>
         </Stack>
-        <Flex w={"full"} mt="4rem !important">
-          <Container width="100vw" boxShadow="0 0 80px #181818" p={0} maxWidth="full">
-            <video src={demo} autoPlay muted loop playsInline>
-              Your browser does not support the video tag.
-            </video>
-          </Container>
-        </Flex>
       </Stack>
     </Container>
   );

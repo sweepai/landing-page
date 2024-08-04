@@ -28,38 +28,13 @@ export default function NavBar() {
       link: "https://twitter.com/sweep__ai",
     },
     {
-      label: "Github",
-      icon: <FaGithub />,
-      link: "https://github.com/sweepai/sweep",
-    },
-    {
-      label: "Discord",
-      icon: <FaDiscord />,
-      link: "https://discord.gg/sweep",
-    },
-    {
       label: "Email",
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
     },
-    {
-      label: "Newsletter",
-      icon: <FaNewspaper />,
-      link: "/signup",
-    },
-    {
-      label: "CLI",
-      icon: <FaTerminal />, 
-      link: "https://docs.sweep.dev/cli",
-    }
   ];
 
   const extItems = [
-    {
-      label: "Documentation",
-      icon: <FaBook />,
-      link: "https://docs.sweep.dev",
-    },
     {
       label: "About us",
       icon: <IoMdPeople />,
@@ -69,11 +44,6 @@ export default function NavBar() {
       label: "Blogs",
       icon: <FaBlog />,
       link: "https://docs.sweep.dev/blogs",
-    },
-    {
-      label: "Community",
-      icon: <FaUsers />,
-      link: "https://community.sweep.dev/",
     },
     {
       label: "Security",
