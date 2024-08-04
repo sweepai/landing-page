@@ -96,8 +96,8 @@ export const App = () => {
               <Switch>
                 <Route exact path="/">
                   <CallToAction />
-                  <Users />
                   <Features />
+                  <Users />
                   <Conclusion />
                 </Route>
                 <Route path="/about-us">
