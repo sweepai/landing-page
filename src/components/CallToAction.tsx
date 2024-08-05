@@ -71,11 +71,13 @@ export default function CallToAction() {
             color="white"
             p={8}
             colorScheme={"purple"}
-            bg={"purple.400"}
+            bg={"purple.700"}
             _hover={{ bg: "purple.600" }}
             onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}
             fontSize={"xl"}
             maxWidth={"300px"}
+            mt="2rem !important"
+            mb="1rem !important"
           >
             Get Started
           </Button>
