@@ -66,9 +66,9 @@ export default function CallToAction() {
           <Button
             color="white"
             p={8}
-            colorScheme={"green"}
-            bg={"green.700"}
-            _hover={{ bg: "green.600" }}
+            colorScheme={"blackAlpha"}
+            bg={"black"}
+            _hover={{ bg: "gray.800" }}
             onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}
             fontSize={"xl"}
             maxWidth={"300px"}

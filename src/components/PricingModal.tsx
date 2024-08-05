@@ -51,7 +51,7 @@ export default function PricingModal() {
               <li>✔ Commercial SLA</li>
             </Box>
           </Box>
-          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
+          <Button colorScheme="blackAlpha" bg="black" _hover={{ bg: "gray.800" }} mt={12} onClick={() => window.open("https://buy.stripe.com/6oE5npbGVbhC97afZ4", "_blank")}>
             Purchase
           </Button>
         </Box>
