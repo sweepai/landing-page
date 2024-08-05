@@ -9,8 +9,6 @@ const data = [
     { logo: PulleyLogo },
     { logo: GradioLogo },
     { logo: LlamaIndexLogo, name: "LlamaIndex" },
-    // { logo: "https://assets.website-files.com/627d96126a4d3386dc82ba44/627ef87b95730e9069f4b45e_savvy%20logo%20new.png", href: "https://trysavvy.com" },
-    // { logo: WithFriendsLogo, href: "https://withfriends.com" },
 ];
 
 export default function Users() {

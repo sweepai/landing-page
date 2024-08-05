@@ -4,6 +4,7 @@ import {
   Stack,
   Text,
   Button,
+  VStack,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -45,37 +46,40 @@ export default function CallToAction() {
             }
           `}
         </style> */}
-        <Heading
-          fontWeight={600}
-          fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}
-          lineHeight={"110%"}
-          mt="0 !important"
-          mb="1rem !important"
-        >
-          Automate Your Team's <br></br> Software Chores
-        </Heading>
-        <Text
-          color={"purple.400"}
-          maxW={"md"}
-          mt="1rem !important"
-          mb="1rem !important"
-          fontSize={{ base: "3l", sm: "4l", md: "5l" }}
-        >
-          Sweep AI understands your codebase. Ship new features and tests with half the effort.
-        </Text>
-        <Stack direction="row" spacing={4}>
+        <VStack spacing={8} alignItems="left">
+          <Heading
+            fontWeight={600}
+            fontSize={{ base: "5xl", sm: "6xl", md: "7xl", lg: "8xl" }}
+            lineHeight={"110%"}
+            mt="2rem !important"
+            mb="1rem !important"
+            textAlign={"left"}
+          >
+            Automate Your Team's <br></br> Software Chores
+          </Heading>
+          <Text
+            color={"purple.400"}
+            maxW={"md"}
+            mt="1rem !important"
+            mb="1rem !important"
+            fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}
+            textAlign={"left"}
+          >
+            Sweep AI understands your codebase. Ship new features and tests with half the effort.
+          </Text>
           <Button
             color="white"
-            p={6}
+            p={8}
             colorScheme={"purple"}
             bg={"purple.400"}
             _hover={{ bg: "purple.600" }}
             onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}
             fontSize={"xl"}
+            maxWidth={"300px"}
           >
             Get Started
           </Button>
-        </Stack>
+        </VStack>
       </Stack>
     </Container>
   );
