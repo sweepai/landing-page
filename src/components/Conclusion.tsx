@@ -11,7 +11,7 @@ export default function Conclusion() {
                         <img src={logo} alt="Sweep logo" width={80} />
                     </Flex>
                     <Text mb={4} fontSize="3xl">Develop at ease, with Sweep</Text>
-                    <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://github.com/apps/sweep-ai")}>
+                    <Button colorScheme="purple" size="md" mt={4} onClick={() => window.open("https://form.typeform.com/to/wliuvyWE")}>
                         <FaGithub />&nbsp;&nbsp;Get Started
                     </Button>
                 </Box>

@@ -61,7 +61,7 @@ export default function CallToAction() {
           mb="1rem !important"
           fontSize={{ base: "3l", sm: "4l", md: "5l" }}
         >
-          AI that understands your codebase. Ship new features and tests with half the effort.
+          Sweep AI understands your codebase. Ship new features and tests with half the effort.
         </Text>
         <Stack direction="row" spacing={4}>
           <Button
