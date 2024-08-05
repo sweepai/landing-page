@@ -1,6 +1,4 @@
-import { Box, Button, Container, Flex, Text, VStack } from "@chakra-ui/react";
-import { FaGithub } from "react-icons/fa";
-import logo from "../assets/icon.png";
+import { Box, Button, Container, Text, VStack } from "@chakra-ui/react";
 import pills_bottom from "../assets/pills_bottom.svg";
 export default function Conclusion() {
     return (

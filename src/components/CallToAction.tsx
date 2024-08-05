@@ -6,12 +6,8 @@ import {
   Button,
   VStack,
 } from "@chakra-ui/react";
-import { useState } from "react";
 
 export default function CallToAction() {
-  const [spin, setSpin] = useState(false);
-  // const canvas = document.getElementById('canvas3d');
-  // const app = new Application(canvas);
   // app.load('https://prod.spline.design/jzV1MbbHCyCmMG7u/scene.splinecode');
   return (
     <Container maxW={"5xl"}>
