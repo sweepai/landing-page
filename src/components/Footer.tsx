@@ -13,24 +13,6 @@ export default function Footer() {
         my={{ base: 4, md: 0 }}
       >
         <Link
-          href="https://github.com/sweepai"
-          textAlign={{ base: "center", md: "left" }}
-        >
-          Github
-        </Link>
-        <Link 
-          href="https://community.sweep.dev"
-          textAlign={{ base: "center", md: "left" }}
-        >
-          Community
-        </Link>
-        <Link
-          href="https://docs.sweep.dev"
-          textAlign={{ base: "center", md: "left" }}
-        >
-          Docs
-        </Link>
-        <Link
           href="/pricing"
           textAlign={{ base: "center", md: "left" }}
         >
@@ -49,7 +31,7 @@ export default function Footer() {
           Terms of Use
         </Link>
         <Link
-          href="https://ycombinator.com/companies/sweep"
+          href="https://techcrunch.com/2023/11/02/sweep-aims-to-automate-basic-dev-tasks-using-large-language-models/"
           target="_blank"
           rel="noopener noreferrer"
           display="inline-flex"
@@ -64,7 +46,7 @@ export default function Footer() {
             height="10px"
           />
         </Link>
-        <p className="transparentText">© 2023 Sweep AI, Inc.</p>
+        <p className="transparentText">© {new Date().getFullYear()} {<strong>Sweep AI, Inc.</strong>} All rights reserved.</p>
       </Stack>
     </Box>
   );

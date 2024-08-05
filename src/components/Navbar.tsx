@@ -14,7 +14,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { FaDiscord, FaGithub, FaTwitter, FaNewspaper, FaBook, FaLock, FaBlog, FaTerminal, FaUsers } from "react-icons/fa";
+import { FaTwitter, FaLock, FaBlog } from "react-icons/fa";
 import { IoMdPeople } from "react-icons/io";
 import logo from "../assets/icon.png";
 
@@ -28,38 +28,13 @@ export default function NavBar() {
       link: "https://twitter.com/sweep__ai",
     },
     {
-      label: "Github",
-      icon: <FaGithub />,
-      link: "https://github.com/sweepai/sweep",
-    },
-    {
-      label: "Discord",
-      icon: <FaDiscord />,
-      link: "https://discord.gg/sweep",
-    },
-    {
       label: "Email",
       icon: <EmailIcon />,
       link: "mailto:team@sweep.dev",
     },
-    {
-      label: "Newsletter",
-      icon: <FaNewspaper />,
-      link: "/signup",
-    },
-    {
-      label: "CLI",
-      icon: <FaTerminal />, 
-      link: "https://docs.sweep.dev/cli",
-    }
   ];
 
   const extItems = [
-    {
-      label: "Documentation",
-      icon: <FaBook />,
-      link: "https://docs.sweep.dev",
-    },
     {
       label: "About us",
       icon: <IoMdPeople />,
@@ -69,11 +44,6 @@ export default function NavBar() {
       label: "Blogs",
       icon: <FaBlog />,
       link: "https://docs.sweep.dev/blogs",
-    },
-    {
-      label: "Community",
-      icon: <FaUsers />,
-      link: "https://community.sweep.dev/",
     },
     {
       label: "Security",
