@@ -25,14 +25,14 @@ export default function PricingModal() {
               <li>✔ Unlimited GPT-3.5 Sweep issues</li>
               <br />
               <li>
-                <Button colorScheme="purple" onClick={() => window.open("https://buy.stripe.com/7sI4jlaCR3PaabebIP", "_blank")}>
+                <Button colorScheme="gray" onClick={() => window.open("https://buy.stripe.com/7sI4jlaCR3PaabebIP", "_blank")}>
                   Extended trial
                 </Button>
                 &nbsp;- make a <b>one-time purchase</b> of 15 additional PRs
               </li>
             </Box>
           </Box>
-          <Button colorScheme="purple" mt={12} onClick={() => window.open("https://github.com/sweepai/sweep#-getting-started", "_blank")}>
+          <Button colorScheme="gray" mt={12} onClick={() => window.open("https://github.com/sweepai/sweep#-getting-started", "_blank")}>
             Install
           </Button>
         </Box>
@@ -70,7 +70,7 @@ export default function PricingModal() {
               <li>✔ Enterprise support</li>
             </Box>
           </Box>
-          <Button colorScheme="green" mt={12} onClick={() => window.open("https://form.typeform.com/to/wliuvyWE", "_blank")}>
+          <Button colorScheme="gray" mt={12} onClick={() => window.open("https://form.typeform.com/to/wliuvyWE", "_blank")}>
             Contact us
           </Button>
         </Box>
