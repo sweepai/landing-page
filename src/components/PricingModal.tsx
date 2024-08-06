@@ -70,7 +70,7 @@ export default function PricingModal() {
               <li>✔ Enterprise support</li>
             </Box>
           </Box>
-          <Button colorScheme="green" mt={12} onClick={() => window.open("https://form.typeform.com/to/wliuvyWE", "_blank")}>
+          <Button colorScheme="gray" mt={12} onClick={() => window.open("https://form.typeform.com/to/wliuvyWE", "_blank")}>
             Contact us
           </Button>
         </Box>
